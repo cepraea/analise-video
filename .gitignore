@@ -1,0 +1,21 @@
+# Python
+.venv/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+
+# Node / Vite
+frontend/node_modules/
+frontend/dist/
+
+# Local runtime data — nunca versionar mídia ou banco local
+.local/
+
+# Environment overrides
+.env
+.env.local
+
+# Editor / OS
+.DS_Store
+.vscode/
+.idea/
