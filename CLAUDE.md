@@ -1,5 +1,13 @@
-# CLAUDE.md
+# CLAUDE.md — Entrada de contexto
 
-Project context is organized in `AGENTS.md` and the documentation under `docs/`.
+O contexto do projeto está distribuído por responsabilidade:
 
-The current implementation state is recorded in `docs/IMPLEMENTATION_STATUS.md`.
+- `AGENTS.md` — mapa de autoridade e contexto mínimo.
+- `docs/SYSTEM_SPEC.md` — requisitos do sistema.
+- `docs/GAME_MODEL.md` — significado esportivo do CEPRAEA.
+- `docs/architecture/ADR-001.md` — arquitetura atual em estado `PROPOSTA A VALIDAR`.
+- `docs/IMPLEMENTATION_PLAN.md` — INC-000 a INC-007 e respectivos gates.
+- `docs/TRACEABILITY.md` — requisitos e evidências esperadas.
+- `docs/IMPLEMENTATION_STATUS.md` — estado comprovado da implementação.
+
+O primeiro fluxo funcional permanece `NOT_IMPLEMENTED`. Taxonomias esportivas em estado parcial ou pendente não estão fechadas por este repositório.
