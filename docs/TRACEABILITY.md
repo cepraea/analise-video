@@ -1,8 +1,18 @@
 # TRACEABILITY.md — Matriz inicial
 
-Na criação deste registro, nenhum requisito funcional está comprovadamente implementado.
+O `INC-000 — Fundação executável` está `VERIFIED`, mas nenhum requisito funcional do fluxo de análise de vídeo foi promovido a implementado por causa disso.
 
 Estados usados: `NOT_IMPLEMENTED`, `IMPLEMENTED_NOT_VERIFIED`, `VERIFIED`, `BLOCKED`.
+
+## Gates de incremento
+
+| Gate | Evidência | Estado |
+|---|---|---|
+| INC-000 — fundação instala, testa e compila em ambiente limpo | `docs/evidence/INC-000.md`; GitHub Actions run `34782679938` | VERIFIED |
+| INC-001 — vídeo local → intervalo persistido → revisão | vídeo real + persistência após reinício + original preservado | NOT_IMPLEMENTED |
+| FIRST_FUNCTIONAL_FLOW | demonstração ponta a ponta definida em `IMPLEMENTATION_PLAN.md` | NOT_IMPLEMENTED |
+
+## Requisitos e critérios do produto
 
 | Requisito / critério | Incremento | Evidência esperada | Estado |
 |---|---|---|---|
@@ -34,12 +44,16 @@ Estados usados: `NOT_IMPLEMENTED`, `IMPLEMENTED_NOT_VERIFIED`, `VERIFIED`, `BLOC
 | RNF-003 sem duplicação física | INC-004/007 | coleções referenciam lances | NOT_IMPLEMENTED |
 | RNF-004 taxonomia evolutiva | INC-003/005 | estrutura extensível | NOT_IMPLEMENTED |
 | RNF-005 original imutável | INC-001→007 | verificação de preservação | NOT_IMPLEMENTED |
-| RNF-006 sem API paga | INC-000→007 | execução sem chave paga | NOT_IMPLEMENTED |
+| RNF-006 sem API paga | INC-000→007 | execução sem chave paga em cada incremento | IMPLEMENTED_NOT_VERIFIED |
 | RNF-007 operável por treinador | gate INC-007 | validação prática | NOT_IMPLEMENTED |
 | RNF-008 recuperação por metadados | INC-006 | filtros testados | NOT_IMPLEMENTED |
 | RNF-009 cronologia | INC-006/007 | ordenação testada | NOT_IMPLEMENTED |
 | RNF-011 não depender de YouTube | INC-001 | fluxo por arquivo local | NOT_IMPLEMENTED |
 | RNF-012 sem conexão contínua | INC-001→007 | uso local após mídia disponível | NOT_IMPLEMENTED |
+
+### Nota sobre RNF-006
+
+O INC-000 foi verificado sem chave paga, cloud ou segredo obrigatório. O requisito permanece `IMPLEMENTED_NOT_VERIFIED` no escopo INC-000→007 porque deve continuar verdadeiro nos incrementos seguintes; não é promovido globalmente a `VERIFIED` antes do gate do primeiro fluxo.
 
 ## Preservados fora do gate atual
 
@@ -47,4 +61,4 @@ URL/YouTube, multicâmera/sincronização, destinos avançados individual/goleir
 
 ## Atualização
 
-`VERIFIED` pressupõe evidência observável, não apenas existência de código. O registro futuro deve apontar para teste, comando, commit/PR ou outra evidência reproduzível.
+`VERIFIED` pressupõe evidência observável, não apenas existência de código. Cada promoção de estado deve apontar para teste, workflow, commit/PR ou outra evidência reproduzível.
