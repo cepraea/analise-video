@@ -4,10 +4,12 @@ Repositório de implementação do sistema de análise audiovisual do CEPRAEA.
 
 ## Estado
 
-- `INC-000 — Fundação executável`: `IMPLEMENTED_NOT_VERIFIED` até a execução da CI.
+- `INC-000 — Fundação executável`: `VERIFIED`.
 - `INC-001` em diante: `NOT_IMPLEMENTED`.
 - Primeiro fluxo funcional: `NOT_IMPLEMENTED`.
 - Arquitetura técnica: `ADR-001 — PROPOSTA A VALIDAR`.
+
+Evidência do INC-000: `docs/evidence/INC-000.md` e GitHub Actions run `34782679938`.
 
 Documentação e presença de código não constituem, sozinhas, evidência de funcionamento.
 
@@ -47,6 +49,8 @@ Para verificar também a compilação do frontend:
 ```bash
 make build
 ```
+
+A CI executou com sucesso esses gates em ambiente limpo no INC-000.
 
 ## Desenvolvimento local
 
@@ -127,3 +131,4 @@ As fontes do Drive mantêm autoridade superior aos snapshots derivados.
 - `docs/IMPLEMENTATION_PLAN.md` — incrementos INC-000 a INC-007.
 - `docs/TRACEABILITY.md` — relação entre requisitos, incrementos e evidências.
 - `docs/IMPLEMENTATION_STATUS.md` — estado comprovado da implementação.
+- `docs/evidence/INC-000.md` — evidência da fundação executável.
