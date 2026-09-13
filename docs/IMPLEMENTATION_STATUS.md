@@ -3,7 +3,7 @@
 ## Estado global
 
 - `REPOSITORY_INITIALIZED`: VERIFIED
-- `DOCUMENTATION_BOOTSTRAP`: IMPLEMENTED_NOT_VERIFIED
+- `DOCUMENTATION_BOOTSTRAP`: VERIFIED
 - `INC-000`: NOT_IMPLEMENTED
 - `INC-001`: NOT_IMPLEMENTED
 - `INC-002`: NOT_IMPLEMENTED
@@ -13,6 +13,10 @@
 - `INC-006`: NOT_IMPLEMENTED
 - `INC-007`: NOT_IMPLEMENTED
 - `FIRST_FUNCTIONAL_FLOW`: NOT_IMPLEMENTED
+
+## Evidência do bootstrap
+
+O repositório foi inicializado e os arquivos de documentação do bootstrap foram gravados e relidos no branch `main`: `AGENTS.md`, `CLAUDE.md`, `README.md`, `docs/SYSTEM_SPEC.md`, `docs/GAME_MODEL.md`, `docs/architecture/ADR-001.md`, `docs/IMPLEMENTATION_PLAN.md`, `docs/TRACEABILITY.md` e este arquivo.
 
 ## Evidência funcional disponível
 
