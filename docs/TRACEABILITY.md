@@ -7,7 +7,7 @@ Estados usados: `NOT_IMPLEMENTED`, `IMPLEMENTED_NOT_VERIFIED`, `VERIFIED`, `BLOC
 ## Gates de incremento
 
 | Gate | Evidência | Estado |
-|---|---|---|
+| --- | --- | --- |
 | INC-000 — fundação instala, testa e compila em ambiente limpo | `docs/evidence/INC-000.md`; GitHub Actions run `34782679938` | VERIFIED |
 | INC-001 — vídeo local → intervalo persistido → revisão | `docs/evidence/INC-001.md` (consolidada); gate ADR-001: **PASS WITH RISKS**, aprovação com riscos para implementação incremental | VERIFIED |
 | FIRST_FUNCTIONAL_FLOW | demonstração ponta a ponta definida em `IMPLEMENTATION_PLAN.md` | NOT_IMPLEMENTED |
@@ -15,7 +15,7 @@ Estados usados: `NOT_IMPLEMENTED`, `IMPLEMENTED_NOT_VERIFIED`, `VERIFIED`, `BLOC
 ## Requisitos e critérios do produto
 
 | Requisito / critério | Incremento | Evidência esperada | Estado |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | RF-001 cadastrar competição | INC-002 | persistência e recuperação | NOT_IMPLEMENTED |
 | RF-002 cadastrar jogo | INC-002 | persistência + vínculo à competição | NOT_IMPLEMENTED |
 | RF-003 múltiplas fontes por jogo | INC-002 | estrutura aceita N fontes | NOT_IMPLEMENTED |
