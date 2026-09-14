@@ -9,7 +9,7 @@ Estados usados: `NOT_IMPLEMENTED`, `IMPLEMENTED_NOT_VERIFIED`, `VERIFIED`, `BLOC
 | Gate | Evidência | Estado |
 |---|---|---|
 | INC-000 — fundação instala, testa e compila em ambiente limpo | `docs/evidence/INC-000.md`; GitHub Actions run `34782679938` | VERIFIED |
-| INC-001 — vídeo local → intervalo persistido → revisão | `docs/evidence/INC-001.md` (consolidada) e registros detalhados em `docs/evidence/INC-001-*.md` | VERIFIED |
+| INC-001 — vídeo local → intervalo persistido → revisão | `docs/evidence/INC-001.md` (consolidada); gate ADR-001: **PASS WITH RISKS**, com MP4 real | VERIFIED |
 | FIRST_FUNCTIONAL_FLOW | demonstração ponta a ponta definida em `IMPLEMENTATION_PLAN.md` | NOT_IMPLEMENTED |
 
 ## Requisitos e critérios do produto

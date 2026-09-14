@@ -63,9 +63,9 @@ Os testes determinísticos agora cobrem criação, rejeição de `start_ms >= en
 
 ## Arquitetura
 
-`ADR-001`: PROPOSTA A VALIDAR.
+`ADR-001`: PROPOSTA A VALIDAR. Resultado do gate com vídeo real: **PASS WITH RISKS** em 2026-09-14.
 
-O sucesso do INC-000 demonstra apenas que a fundação proposta instala, testa e compila. O gate técnico do INC-001 foi observado com vídeo local real, persistência e revisão do intervalo. O ADR continua `PROPOSTA A VALIDAR`; React, FastAPI, SQLite e os demais componentes ainda não representam stack canônica definitiva.
+O sucesso da CI, por si só, não satisfaz o gate. O INC-001 também abriu e reviu um MP4 local real após reinício, persistiu os limites e preservou o hash do original. Os riscos remanescentes e as verificações futuras estão registrados em `docs/architecture/ADR-001.md`. React, FastAPI, SQLite e os demais componentes ainda não representam stack canônica definitiva.
 
 ## Próximo gate de código
 
