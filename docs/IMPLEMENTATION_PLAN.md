@@ -28,6 +28,8 @@ Fluxo de validação: abrir MP4 local; play/pause/seek; capturar início; captur
 
 Aceitação: demonstração com vídeo real, persistência após reinício e original inalterado.
 
+Ajuste experimental posterior ao gate verificado: o [fluxo de marcação, prévia e revisão](PLAYER_MARKING_FLOW.md) registra o comportamento esperado dos ajustes subsequentes. Essa proposta não altera a evidência histórica do INC-001.
+
 ## INC-002 — Catálogo mínimo
 
 Objetivo: representar Competition, Game, VideoSource e Lance/TemporalReference sem dados hardcoded.

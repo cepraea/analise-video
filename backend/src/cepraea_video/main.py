@@ -11,9 +11,13 @@ from cepraea_video.config import ensure_runtime_directories
 from cepraea_video.spike_media import list_media, resolve_media
 from cepraea_video.spike_storage import (
     database_path,
+    delete_interval,
     initialize_storage,
+    list_deleted_intervals,
+    list_interval_versions,
     list_intervals,
     save_interval,
+    update_interval,
 )
 
 
@@ -54,6 +58,27 @@ class SpikeIntervalInput(BaseModel):
         return self
 
 
+class SpikeIntervalUpdate(BaseModel):
+    start_ms: int = Field(ge=0)
+    end_ms: int = Field(ge=0)
+
+    @model_validator(mode="after")
+    def validate_interval(self) -> "SpikeIntervalUpdate":
+        if self.end_ms <= self.start_ms:
+            raise ValueError("end_ms deve ser maior que start_ms")
+        return self
+
+
+class SpikeIntervalDeletion(BaseModel):
+    reason: str = Field(min_length=1)
+
+    @model_validator(mode="after")
+    def validate_reason(self) -> "SpikeIntervalDeletion":
+        if not self.reason.strip():
+            raise ValueError("O motivo da exclusão é obrigatório")
+        return self
+
+
 @app.post("/spike/intervals", status_code=201, tags=["inc-001-spike"])
 def create_spike_interval(interval: SpikeIntervalInput) -> dict[str, int | str]:
     if resolve_media(interval.media_path) is None:
@@ -69,6 +94,37 @@ def create_spike_interval(interval: SpikeIntervalInput) -> dict[str, int | str]:
 @app.get("/spike/intervals", tags=["inc-001-spike"])
 def get_spike_intervals() -> list[dict[str, int | str]]:
     return [interval.to_dict() for interval in list_intervals(database_path())]
+
+
+@app.patch("/spike/intervals/{interval_id}", tags=["inc-001-spike"])
+def patch_spike_interval(
+    interval_id: int, interval: SpikeIntervalUpdate
+) -> dict[str, int | str]:
+    updated = update_interval(
+        database_path(), interval_id, interval.start_ms, interval.end_ms
+    )
+    if updated is None:
+        raise HTTPException(status_code=404, detail="Intervalo ativo não encontrado")
+    return updated.to_dict()
+
+
+@app.delete("/spike/intervals/{interval_id}", tags=["inc-001-spike"])
+def delete_spike_interval(
+    interval_id: int, deletion: SpikeIntervalDeletion
+) -> dict[str, str]:
+    if not delete_interval(database_path(), interval_id, deletion.reason):
+        raise HTTPException(status_code=404, detail="Intervalo ativo não encontrado")
+    return {"status": "EXCLUÍDO"}
+
+
+@app.get("/spike/intervals/deleted", tags=["inc-001-spike"])
+def get_deleted_spike_intervals() -> list[dict[str, int | str]]:
+    return list_deleted_intervals(database_path())
+
+
+@app.get("/spike/intervals/{interval_id}/versions", tags=["inc-001-spike"])
+def get_spike_interval_versions(interval_id: int) -> list[dict[str, int | str]]:
+    return list_interval_versions(database_path(), interval_id)
 
 
 @app.get("/spike/media", tags=["inc-001-spike"])
