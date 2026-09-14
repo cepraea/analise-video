@@ -63,9 +63,9 @@ Os testes determinísticos agora cobrem criação, rejeição de `start_ms >= en
 
 ## Arquitetura
 
-`ADR-001`: PROPOSTA A VALIDAR. Resultado do gate com vídeo real: **PASS WITH RISKS** em 2026-09-14.
+`ADR-001`: **APROVADA COM RISCOS** para implementação incremental. Resultado do gate com vídeo real: **PASS WITH RISKS** em 2026-09-14; stack definitiva ainda pendente.
 
-O sucesso da CI, por si só, não satisfaz o gate. O INC-001 também abriu e reviu um MP4 local real após reinício, persistiu os limites e preservou o hash do original. Os riscos remanescentes e as verificações futuras estão registrados em `docs/architecture/ADR-001.md`. React, FastAPI, SQLite e os demais componentes ainda não representam stack canônica definitiva.
+O sucesso da CI, por si só, não satisfaz o gate. O INC-001 foi mantido `VERIFIED` porque também abriu e reviu um MP4 local real após reinício, persistiu os limites e preservou o hash do original. Nenhuma falha significativa foi observada nesse cenário; os riscos remanescentes e as verificações futuras estão registrados em `docs/architecture/ADR-001.md`. React, FastAPI, SQLite e os demais componentes ainda não representam stack canônica definitiva.
 
 ## Próximo gate de código
 
