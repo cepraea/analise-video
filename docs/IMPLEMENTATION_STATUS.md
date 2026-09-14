@@ -5,7 +5,7 @@
 - `REPOSITORY_INITIALIZED`: VERIFIED
 - `DOCUMENTATION_BOOTSTRAP`: VERIFIED
 - `INC-000`: VERIFIED
-- `INC-001`: VERIFIED localmente (MP4 real, navegação, marcação, SQLite, revisão após reinício e original preservado)
+- `INC-001`: VERIFIED (gate local com MP4 real e CI do commit `23336f7`; evidência em `docs/evidence/INC-001.md`)
 - `INC-002`: NOT_IMPLEMENTED
 - `INC-003`: NOT_IMPLEMENTED
 - `INC-004`: NOT_IMPLEMENTED
@@ -42,6 +42,8 @@ A fundação contém:
 O `INC-000` não constitui evidência do fluxo de análise de vídeo. Naquele incremento não foram comprovados player de vídeo, captura de timestamps, banco de domínio, persistência de lance, classificação de posse/fase, revisão de lances, cadastro de atletas/ações, filtros ou coleções.
 
 ## INC-001 — Spike de mídia local e persistência experimental
+
+Evidência consolidada do commit testado, do MP4 real, da suíte, da CI e dos testes no navegador: `docs/evidence/INC-001.md`.
 
 O backend lista e entrega MP4s de `.local/media` por `/spike/media`, com suporte a requisições por faixa de bytes. O Vite encaminha essas rotas ao FastAPI no desenvolvimento. Evidência: `docs/evidence/INC-001-media.md`.
 

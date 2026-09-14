@@ -10,7 +10,7 @@ Repositório de implementação do sistema de análise audiovisual do CEPRAEA.
 - Primeiro fluxo funcional: `NOT_IMPLEMENTED`.
 - Arquitetura técnica: `ADR-001 — PROPOSTA A VALIDAR`.
 
-Evidência do INC-000: `docs/evidence/INC-000.md` e GitHub Actions run `34782679938`.
+Evidência do INC-000: `docs/evidence/INC-000.md` e GitHub Actions run `34782679938`. Evidência consolidada do INC-001: `docs/evidence/INC-001.md`.
 
 Documentação e presença de código não constituem, sozinhas, evidência de funcionamento.
 
