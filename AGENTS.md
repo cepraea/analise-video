@@ -27,7 +27,7 @@
 ## Contexto mínimo por tipo de trabalho
 
 | Trabalho | Contexto principal |
-|---|---|
+| --- | --- |
 | infraestrutura | plano + ADR relevante |
 | requisito de produto | `SYSTEM_SPEC.md` |
 | classificação/significado esportivo | `GAME_MODEL.md` |
