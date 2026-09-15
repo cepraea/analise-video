@@ -3,7 +3,7 @@
 - Data: 2026-09-14.
 - Branch: `inc-001-player-adjustments`.
 - Commit de implementação testado: [`ab82eef23dc48a7fbee9ce23ae132df15574f510`](https://github.com/cepraea/analise-video/commit/ab82eef23dc48a7fbee9ce23ae132df15574f510).
-- Pull request: [#2](https://github.com/cepraea/analise-video/pull/2), aberto como rascunho.
+- Pull request: [#2](https://github.com/cepraea/analise-video/pull/2).
 - Resultado do gate: **PASS WITH RISKS**.
 
 Esta evidência cobre a extensão experimental executada depois do gate original do INC-001. Ela não transforma `spike_intervals` no modelo canônico de `LANCE` e não altera a evidência histórica do commit `23336f7`.

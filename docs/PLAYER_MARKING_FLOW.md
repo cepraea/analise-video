@@ -1,6 +1,6 @@
 # Fluxo experimental de marcação e revisão da prévia
 
-- Estado: **IMPLEMENTED_NOT_VERIFIED** — fluxo e atalhos implementados nesta branch; a verificação perceptiva com MP4 real ainda está pendente.
+- Estado: **VERIFIED** — fluxo e atalhos verificados com MP4 real, testes automatizados e CI; evidência em `docs/evidence/INC-001-player-adjustments.md`.
 - Escopo: ajuste posterior ao gate do INC-001 para o player local. Não redefine o resultado ou a evidência do INC-001 e não estabelece o modelo canônico de `LANCE`.
 
 O fim de um intervalo cria uma prévia, não um registro no banco. O operador decide se quer rever, descartar ou confirmar e salvar. A revisão de um intervalo já salvo é um fluxo separado desta prévia.

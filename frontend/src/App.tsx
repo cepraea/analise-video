@@ -265,6 +265,7 @@ export function App() {
   }, [reviewing, activeMarking, intervals, selectedIntervalId, selectedMedia, editing, deletingId])
 
   function selectMedia(path: string) {
+    if (marking || reviewing) return
     setSelectedPath(path)
     setCurrentTime(0)
     setDuration(Number.NaN)
@@ -538,7 +539,7 @@ export function App() {
             id="media-select"
             value={selectedPath}
             onChange={(event) => selectMedia(event.target.value)}
-            disabled={loading || saving || mutationBusy || Boolean(editing) || deletingId !== null || media.length === 0}
+            disabled={loading || saving || mutationBusy || Boolean(marking) || reviewing !== null || Boolean(editing) || deletingId !== null || media.length === 0}
           >
             {media.length === 0 && <option value="">Nenhum MP4 disponível</option>}
             {media.map((item) => (
@@ -547,7 +548,7 @@ export function App() {
               </option>
             ))}
           </select>
-          <button type="button" onClick={() => setRefreshKey((value) => value + 1)} disabled={saving || mutationBusy || Boolean(editing) || deletingId !== null}>
+          <button type="button" onClick={() => setRefreshKey((value) => value + 1)} disabled={saving || mutationBusy || Boolean(marking) || reviewing !== null || Boolean(editing) || deletingId !== null}>
             Atualizar lista
           </button>
         </div>

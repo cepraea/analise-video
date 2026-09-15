@@ -179,6 +179,37 @@ describe('marcação de intervalo', () => {
     expect(fetchMock.mock.calls.filter(([, init]) => init?.method === 'POST')).toHaveLength(0)
   })
 
+  it('bloqueia troca e atualização de MP4 até confirmar ou descartar a marcação', async () => {
+    const { video, fetchMock } = await renderWithLocalMedia([], undefined, ['video.mp4', 'outro.mp4'])
+    Object.defineProperty(video, 'play', { configurable: true, value: vi.fn().mockResolvedValue(undefined) })
+    Object.defineProperty(video, 'pause', { configurable: true, value: vi.fn() })
+    const mediaSelect = screen.getByLabelText('Arquivo') as HTMLSelectElement
+    const refreshButton = screen.getByRole('button', { name: 'Atualizar lista' })
+
+    video.currentTime = 1.2
+    fireEvent.click(screen.getByRole('button', { name: 'INICIAR LANCE' }))
+    video.currentTime = 3.4
+    fireEvent.click(screen.getByRole('button', { name: 'ENCERRAR LANCE' }))
+
+    expect(mediaSelect.disabled).toBe(true)
+    expect((refreshButton as HTMLButtonElement).disabled).toBe(true)
+    fireEvent.change(mediaSelect, { target: { value: 'outro.mp4' } })
+    expect(mediaSelect.value).toBe('video.mp4')
+    expect(document.body.textContent).toContain('Prévia válida: 00:01.200 → 00:03.400')
+
+    fireEvent.click(screen.getByRole('button', { name: 'REVER' }))
+    fireEvent.seeked(video)
+    await screen.findByText('Revendo prévia do lance.')
+    expect(mediaSelect.disabled).toBe(true)
+    expect((refreshButton as HTMLButtonElement).disabled).toBe(true)
+
+    fireEvent.click(screen.getByRole('button', { name: 'SAIR DA REVISÃO' }))
+    fireEvent.click(screen.getByRole('button', { name: 'DESCARTAR' }))
+    expect(mediaSelect.disabled).toBe(false)
+    expect((refreshButton as HTMLButtonElement).disabled).toBe(false)
+    expect(fetchMock.mock.calls.filter(([, init]) => init?.method === 'POST')).toHaveLength(0)
+  })
+
   it('revê a prévia sem salvar e preserva os tempos ao terminar', async () => {
     const { video, fetchMock } = await renderWithLocalMedia()
     Object.defineProperty(video, 'play', { configurable: true, value: vi.fn().mockResolvedValue(undefined) })
