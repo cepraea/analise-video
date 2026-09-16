@@ -4,16 +4,25 @@
 from __future__ import annotations
 
 import argparse
+from contextlib import contextmanager
+import fcntl
 import hashlib
 import mimetypes
+import os
 import re
 import shutil
 import subprocess
+import tempfile
 from datetime import datetime
 from pathlib import Path
 from typing import Any
 
 import yaml
+
+if __package__:
+    from .validate_baselines import validate_lineage
+else:
+    from validate_baselines import validate_lineage
 
 
 CONTROL_PATHS = [
@@ -69,44 +78,139 @@ def store_object(source: Path, object_dir: Path, expected: str | None = None) ->
         if sha256(target) != digest:
             raise ValueError(f"immutable object corrupted: {target}")
         return digest
-    temporary = object_dir / f".{digest}.new"
-    shutil.copyfile(source, temporary)
-    if sha256(temporary) != digest:
-        raise ValueError(f"copy verification failed for {source}")
-    temporary.rename(target)
+    with tempfile.NamedTemporaryFile(dir=object_dir, prefix=f".{digest}.", delete=False) as handle:
+        temporary = Path(handle.name)
+    try:
+        shutil.copyfile(source, temporary)
+        if sha256(temporary) != digest:
+            raise ValueError(f"copy verification failed for {source}")
+        try:
+            os.link(temporary, target)  # Exclusive creation; never replace an existing object.
+        except FileExistsError:
+            if sha256(target) != digest:
+                raise ValueError(f"immutable object corrupted: {target}")
+    finally:
+        temporary.unlink(missing_ok=True)
     return digest
 
 
 def write_new(path: Path, content: str) -> None:
-    if path.exists():
-        raise FileExistsError(f"published artifact already exists: {path}")
-    path.write_text(content, encoding="utf-8")
+    with path.open("x", encoding="utf-8") as handle:
+        handle.write(content)
 
 
 def dump_yaml(data: Any) -> str:
     return yaml.safe_dump(data, allow_unicode=True, sort_keys=False, width=100)
 
 
-def update_registry(repo: Path, record: dict[str, Any]) -> None:
+def load_registry(repo: Path) -> dict[str, Any]:
     path = repo / "docs/evidence/ssot-migration/BASELINES.yaml"
     if path.exists():
-        registry = yaml.safe_load(path.read_text(encoding="utf-8"))
-    else:
-        registry = {"schema_version": 1, "decision_id": "GOV-SRC-001", "baselines": []}
+        return yaml.safe_load(path.read_text(encoding="utf-8"))
+    return {"schema_version": 1, "decision_id": "GOV-SRC-001", "baselines": []}
+
+
+def update_registry(repo: Path, record: dict[str, Any]) -> None:
+    path = repo / "docs/evidence/ssot-migration/BASELINES.yaml"
+    registry = load_registry(repo)
     if any(item["id"] == record["id"] for item in registry["baselines"]):
         raise ValueError(f"baseline already registered: {record['id']}")
     registry["baselines"].append(record)
-    path.write_text(dump_yaml(registry), encoding="utf-8")
+    with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", dir=path.parent,
+                                     prefix=".BASELINES-", delete=False) as handle:
+        temporary = Path(handle.name)
+        try:
+            handle.write(dump_yaml(registry))
+            handle.flush()
+            os.fsync(handle.fileno())
+        except BaseException:
+            temporary.unlink(missing_ok=True)
+            raise
+    try:
+        os.replace(temporary, path)
+    finally:
+        temporary.unlink(missing_ok=True)
+
+
+@contextmanager
+def publication(repo: Path, destination: Path, record: dict[str, Any]):
+    """Stage a publication, serialize registry updates and roll back failed registration.
+
+    Verified content-addressed objects may remain after failure; they are safe to
+    reuse on retry. Neither an old snapshot nor an old object is ever removed.
+    """
+    lock_path = Path(git_value(repo, "rev-parse", "--git-path", "baseline-promotion.lock"))
+    if not lock_path.is_absolute():
+        lock_path = repo / lock_path
+    with lock_path.open("a") as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX)
+        if destination.exists():
+            raise FileExistsError(f"baseline already published: {destination}")
+        registry = load_registry(repo)
+        if any(item["id"] == record["id"] for item in registry["baselines"]):
+            raise ValueError(f"baseline already registered: {record['id']}")
+        if record["predecessor"] is not None:
+            resolve_predecessor(repo, record["predecessor"])
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        with tempfile.TemporaryDirectory(dir=destination.parent, prefix=f".{destination.name}-") as temporary:
+            stage = Path(temporary) / "snapshot"
+            stage.mkdir()
+            yield stage
+            stage.rename(destination)
+            try:
+                update_registry(repo, record)
+            except BaseException:
+                destination.rename(stage)
+                raise
+
+
+def resolve_predecessor(repo: Path, predecessor: str) -> dict[str, Any]:
+    registry = load_registry(repo)
+    lineage_errors = validate_lineage(registry["baselines"])
+    ids = [item["id"] for item in registry["baselines"]]
+    if len(ids) != len(set(ids)):
+        lineage_errors.append("duplicate baseline IDs")
+    if lineage_errors:
+        raise ValueError("invalid predecessor lineage: " + "; ".join(lineage_errors))
+    matches = [item for item in registry["baselines"] if item["id"] == predecessor]
+    if len(matches) != 1:
+        raise ValueError(f"predecessor must be registered exactly once: {predecessor}")
+    record = matches[0]
+    if record.get("immutable") is not True:
+        raise ValueError(f"predecessor is not an immutable publication: {predecessor}")
+    manifest_path = (repo / record["manifest"]).resolve()
+    baseline_root = (repo / "docs/evidence/ssot-migration/baselines").resolve()
+    if not manifest_path.is_relative_to(baseline_root):
+        raise ValueError(f"predecessor manifest outside baseline tree: {manifest_path}")
+    manifest = yaml.safe_load(manifest_path.read_text(encoding="utf-8"))
+    if manifest.get("baseline", {}).get("id") != predecessor:
+        raise ValueError(f"predecessor manifest ID differs from registry: {predecessor}")
+    if predecessor != "G0":
+        for field in ("predecessor", "completeness"):
+            if manifest["baseline"].get(field) != record.get(field):
+                raise ValueError(f"predecessor manifest {field} differs from registry: {predecessor}")
+    return manifest
 
 
 def promote_g0(repo: Path) -> None:
+    destination = repo / "docs/evidence/ssot-migration/baselines/g0"
+    record = {
+        "id": "G0",
+        "predecessor": None,
+        "manifest": "docs/evidence/ssot-migration/baselines/g0/G0-SOURCES.yaml",
+        "promotion": "docs/evidence/ssot-migration/baselines/g0/PROMOTION.yaml",
+        "immutable": True,
+    }
+    with publication(repo, destination, record) as stage:
+        completeness, recovered, missing = prepare_g0(repo, stage)
+        record["completeness"] = completeness
+    print(f"Published G0: {completeness}; {recovered} objects recovered, {missing} missing")
+
+
+def prepare_g0(repo: Path, destination: Path) -> tuple[str, int, int]:
     source_root = repo / ".local/drafts/arquitetura"
     old_root = source_root / "baseline"
-    destination = repo / "docs/evidence/ssot-migration/baselines/g0"
     object_dir = repo / "archive/ssot/objects/sha256"
-    if destination.exists():
-        raise FileExistsError(f"G0 already published: {destination}")
-    destination.mkdir(parents=True)
     object_dir.mkdir(parents=True, exist_ok=True)
 
     original_files = [
@@ -154,18 +258,7 @@ def promote_g0(repo: Path) -> None:
         "note": "Original G0 files are byte-preserved; unavailable historical bytes are not reconstructed.",
     }
     write_new(destination / "PROMOTION.yaml", dump_yaml(promotion))
-    update_registry(
-        repo,
-        {
-            "id": "G0",
-            "predecessor": None,
-            "manifest": "docs/evidence/ssot-migration/baselines/g0/G0-SOURCES.yaml",
-            "promotion": "docs/evidence/ssot-migration/baselines/g0/PROMOTION.yaml",
-            "completeness": completeness,
-            "immutable": True,
-        },
-    )
-    print(f"Published G0: {completeness}; {len(recovered)} objects recovered, {len(missing)} missing")
+    return completeness, len(recovered), len(missing)
 
 
 def discover_successor_sources(
@@ -205,17 +298,27 @@ def discover_successor_sources(
 
 
 def promote_successor(repo: Path, baseline_id: str, predecessor: str) -> None:
-    source_root = repo / ".local/drafts/arquitetura"
-    old_manifest_path = source_root / "baseline/G0-SOURCES.yaml"
     slug = baseline_id.lower()
     destination = repo / f"docs/evidence/ssot-migration/baselines/{slug}"
+    record = {
+        "id": baseline_id,
+        "predecessor": predecessor,
+        "manifest": f"docs/evidence/ssot-migration/baselines/{slug}/{baseline_id}-SOURCES.yaml",
+        "evidence": f"docs/evidence/ssot-migration/baselines/{slug}/{baseline_id}-EVIDENCE.md",
+        "completeness": "COMPLETE",
+        "immutable": True,
+    }
+    with publication(repo, destination, record) as stage:
+        source_count, control_count = prepare_successor(repo, baseline_id, predecessor, stage)
+    print(f"Published {baseline_id}: {source_count} sources and {control_count} controls")
+
+
+def prepare_successor(repo: Path, baseline_id: str, predecessor: str, destination: Path) -> tuple[int, int]:
+    source_root = repo / ".local/drafts/arquitetura"
     object_dir = repo / "archive/ssot/objects/sha256"
-    if destination.exists():
-        raise FileExistsError(f"{baseline_id} already published: {destination}")
-    destination.mkdir(parents=True)
     object_dir.mkdir(parents=True, exist_ok=True)
 
-    old_manifest = yaml.safe_load(old_manifest_path.read_text(encoding="utf-8"))
+    old_manifest = resolve_predecessor(repo, predecessor)
     sources = discover_successor_sources(source_root, old_manifest, baseline_id)
     controls: list[dict[str, Any]] = []
     for relative in CONTROL_PATHS:
@@ -289,18 +392,7 @@ def promote_successor(repo: Path, baseline_id: str, predecessor: str) -> None:
 Os oito controles são preservados por `GOV-SRC-002` e permanecem inelegíveis para definir o produto. Todos os {len(sources) + len(controls)} itens possuem objeto verificado no armazenamento por conteúdo.
 """
     write_new(destination / f"{baseline_id}-EVIDENCE.md", evidence)
-    update_registry(
-        repo,
-        {
-            "id": baseline_id,
-            "predecessor": predecessor,
-            "manifest": f"docs/evidence/ssot-migration/baselines/{slug}/{baseline_id}-SOURCES.yaml",
-            "evidence": f"docs/evidence/ssot-migration/baselines/{slug}/{baseline_id}-EVIDENCE.md",
-            "completeness": "COMPLETE",
-            "immutable": True,
-        },
-    )
-    print(f"Published {baseline_id}: {len(sources)} sources and {len(controls)} controls")
+    return len(sources), len(controls)
 
 
 def main() -> int:
@@ -312,8 +404,8 @@ def main() -> int:
     if args.baseline == "g0":
         promote_g0(repo)
     else:
-        match = re.fullmatch(r"g0-r([2-9][0-9]*)", args.baseline)
-        if not match:
+        match = re.fullmatch(r"g0-r([1-9][0-9]*)", args.baseline)
+        if not match or int(match.group(1)) < 2:
             parser.error("baseline must be g0 or g0-rN, with N >= 2")
         revision = int(match.group(1))
         baseline_id = f"G0-R{revision}"
