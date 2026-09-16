@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 from pathlib import Path
+import re
 import subprocess
 
 import yaml
@@ -13,6 +14,50 @@ import yaml
 
 REGISTRY_PATH = "docs/evidence/ssot-migration/BASELINES.yaml"
 BASELINE_ROOT = "docs/evidence/ssot-migration/baselines/"
+
+
+def valid_manifest_location(repo: Path, value: str) -> bool:
+    """Require repository-relative paths inside the tree, including symlink targets."""
+    try:
+        path = Path(value)
+        root = repo.resolve() / BASELINE_ROOT
+        return (
+            not path.is_absolute()
+            and ".." not in path.parts
+            and path.is_relative_to(Path(BASELINE_ROOT))
+            and (repo / path).resolve().is_relative_to(root)
+        )
+    except (OSError, RuntimeError, TypeError, ValueError):
+        return False
+
+
+def validate_checksums(path: Path, items: list[dict], baseline_id: str) -> list[str]:
+    """Check the entire checksum inventory, not just hashes present in the YAML."""
+    label = f"{baseline_id}: {path.name}"
+    try:
+        if not path.resolve().is_relative_to(path.parent.resolve()):
+            return [f"{label}: checksum artifact escapes snapshot directory"]
+        lines = path.read_text(encoding="utf-8").splitlines()
+    except (OSError, UnicodeError, RuntimeError) as exc:
+        return [f"{label}: checksum artifact missing or unreadable: {exc}"]
+
+    errors: list[str] = []
+    actual: dict[str, str] = {}
+    for number, line in enumerate(lines, 1):
+        match = re.fullmatch(r"([0-9a-f]{64}) [ *](.+)", line)
+        if match is None:
+            errors.append(f"{label}: malformed checksum at line {number}")
+            continue
+        digest, logical_path = match.groups()
+        if logical_path in actual:
+            errors.append(f"{label}: duplicate checksum path: {logical_path}")
+        actual[logical_path] = digest
+    expected = {item["path"]: item["sha256"] for item in items}
+    if len(expected) != len(items):
+        errors.append(f"{label}: duplicate manifest paths")
+    if actual != expected:
+        errors.append(f"{label}: checksums differ from manifest")
+    return errors
 
 
 def validate_lineage(records: list[dict]) -> list[str]:
@@ -63,10 +108,10 @@ def validate_immutability(repo: Path, base_ref: str) -> list[str]:
                 errors.append(f"{baseline_id}: base publication is not marked immutable")
             if current_records.get(baseline_id) != record:
                 errors.append(f"{baseline_id}: published baseline record changed or removed; publish a successor")
-            manifest = Path(record["manifest"])
-            if not manifest.as_posix().startswith(BASELINE_ROOT) or ".." in manifest.parts:
+            if not valid_manifest_location(repo, record.get("manifest")):
                 errors.append(f"{baseline_id}: invalid published manifest location")
                 continue
+            manifest = Path(record["manifest"])
             directory = manifest.parent.as_posix() + "/"
             changed = git("diff", "--name-only", "-z", base, "--", directory)
             untracked = git("ls-files", "--others", "--exclude-standard", "-z", "--", directory)
@@ -102,8 +147,11 @@ def validate(repo: Path, base_ref: str | None = None) -> list[str]:
     for record in records:
         if record.get("immutable") is not True:
             errors.append(f"{record['id']}: published baseline must be immutable")
+        if not valid_manifest_location(repo, record.get("manifest")):
+            errors.append(f"{record['id']}: invalid manifest location")
+            continue
         manifest_path = repo / record["manifest"]
-        if not manifest_path.exists():
+        if not manifest_path.is_file():
             errors.append(f"{record['id']}: manifest missing")
             continue
         manifest = yaml.safe_load(manifest_path.read_text(encoding="utf-8"))
@@ -121,6 +169,11 @@ def validate(repo: Path, base_ref: str | None = None) -> list[str]:
                 errors.append("G0 declared item count differs from source and control manifests")
         else:
             items = manifest.get("sources", []) + manifest.get("controls", [])
+            for suffix, category in (("SHA256SUMS", "sources"), ("CONTROL-SHA256SUMS", "controls")):
+                errors.extend(validate_checksums(
+                    manifest_path.with_name(f"{record['id']}-{suffix}.txt"),
+                    manifest.get(category, []), record["id"],
+                ))
             declared_missing = set()
             metadata = manifest.get("baseline", {})
             for field in ("id", "predecessor", "completeness"):

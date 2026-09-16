@@ -124,12 +124,100 @@ class BaselineTests(unittest.TestCase):
         self.write(f"archive/ssot/objects/sha256/{digest}", "rewritten source")
         manifest["sources"][0]["sha256"] = digest
         self.write_yaml(str(path.relative_to(self.repo)), manifest)
+        path.with_name("G0-R2-SHA256SUMS.txt").write_text(
+            f"{digest}  {manifest['sources'][0]['path']}\n", encoding="utf-8",
+        )
         self.assertEqual(validator.validate(self.repo), [])
         self.assert_error("immutable snapshot changed", self.base)
 
     def test_g0_original_evidence_is_immutable(self):
         self.write("docs/evidence/ssot-migration/baselines/g0/G0-EVIDENCIA.md", "rewritten")
         self.assert_error("immutable snapshot changed", self.base)
+
+    def test_new_manifest_locations_are_checked_before_publication(self):
+        self.promote()
+        original = self.manifest_path("G0-R3")
+        external = self.write("docs/external-manifest.yaml", original.read_text())
+        alias = original.with_name("outside-link.yaml")
+        alias.symlink_to(external)
+        directory = original.parent
+        directory_alias = directory.parent / "outside-directory"
+        directory_alias.symlink_to(external.parent, target_is_directory=True)
+        registry = self.registry()
+        record = next(r for r in registry["baselines"] if r["id"] == "G0-R3")
+        invalid = (
+            "docs/external-manifest.yaml", str(original),
+            f"{validator.BASELINE_ROOT}g0-r3/../g0-r3/{original.name}",
+            str(alias.relative_to(self.repo)),
+            f"{validator.BASELINE_ROOT}outside-directory/external-manifest.yaml",
+            "docs/evidence/ssot-migration/baselines-other/manifest.yaml",
+            None,
+        )
+        for value in invalid:
+            with self.subTest(manifest=value):
+                record["manifest"] = value
+                self.write_yaml(validator.REGISTRY_PATH, registry)
+                self.assert_error("G0-R3: invalid manifest location", self.base)
+        record["manifest"] = str(original.relative_to(self.repo))
+        self.write_yaml(validator.REGISTRY_PATH, registry)
+        alias.unlink()
+        directory_alias.unlink()
+        self.assertEqual(validator.validate(self.repo, self.base), [])
+        self.commit("valid R3 publication")
+        self.assertEqual(validator.validate(self.repo, self.git("rev-parse", "HEAD").strip()), [])
+
+    def test_missing_successor_checksum_artifacts_are_rejected(self):
+        self.promote()
+        manifest = self.manifest_path("G0-R3")
+        for suffix in ("SHA256SUMS", "CONTROL-SHA256SUMS"):
+            with self.subTest(suffix=suffix):
+                path = manifest.with_name(f"G0-R3-{suffix}.txt")
+                original = path.read_bytes()
+                path.unlink()
+                self.assert_error(f"{path.name}: checksum artifact missing", self.base)
+                path.write_bytes(original)
+
+    def test_successor_checksum_inventories_must_match_manifest(self):
+        self.promote()
+        manifest = self.manifest_path("G0-R3")
+        for suffix in ("SHA256SUMS", "CONTROL-SHA256SUMS"):
+            path = manifest.with_name(f"G0-R3-{suffix}.txt")
+            original = path.read_text()
+            first = original.splitlines(keepends=True)[0]
+            mutations = {
+                "empty": "",
+                "truncated": first[:-12],
+                "stale": "0" * 64 + first[64:] + original[len(first):],
+                "missing entry": "".join(original.splitlines(keepends=True)[1:]),
+                "extra entry": original + "0" * 64 + "  extra.md\n",
+                "duplicate entry": original + first,
+                "invalid digest": "z" * 64 + first[64:] + original[len(first):],
+                "blank line": original + "\n",
+            }
+            for name, content in mutations.items():
+                with self.subTest(suffix=suffix, mutation=name):
+                    path.write_text(content, encoding="utf-8")
+                    self.assert_error(path.name, self.base)
+            path.write_text(original, encoding="utf-8")
+        self.assertEqual(validator.validate(self.repo, self.base), [])
+
+    def test_checksum_order_and_paths_with_spaces_are_preserved(self):
+        items = [
+            {"path": "directory/file with spaces.md", "sha256": "a" * 64},
+            {"path": "second.md", "sha256": "b" * 64},
+        ]
+        path = self.write("checksums.txt", "b" * 64 + " *second.md\n"
+                          + "a" * 64 + "  directory/file with spaces.md\n")
+        self.assertEqual(validator.validate_checksums(path, items, "TEST"), [])
+        self.assertTrue(validator.validate_checksums(path, items + items[:1], "TEST"))
+
+    def test_checksum_symlink_cannot_escape_snapshot(self):
+        self.promote()
+        path = self.manifest_path("G0-R3").with_name("G0-R3-SHA256SUMS.txt")
+        external = self.write("docs/external-checksums.txt", path.read_text())
+        path.unlink()
+        path.symlink_to(external)
+        self.assert_error("checksum artifact escapes snapshot directory", self.base)
 
     def test_deleted_published_record_is_rejected(self):
         registry = self.registry()
