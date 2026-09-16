@@ -18,7 +18,7 @@ jobs:
           # uses: vivek180905/Gemini-AI-PR-Reviewer@35f216080d352aeae537fb287d1a0ff3086802e5
         uses: "vivek180905/Gemini-AI-PR-Reviewer@v1.0.1"
         with:
-        # Token do GitHub para acessar o repositório e publicar comentários.
-        github-token: ${{ secrets.GITHUB_TOKEN }} 
-        # Chave de API para o Google Gemini:
-        gemini-api-key: ${{ secrets.GEMINI_API_KEY }}
+          # Token do GitHub para acessar o repositório e publicar comentários.
+          github-token: ${{ secrets.GITHUB_TOKEN }} 
+          # Chave de API para o Google Gemini:
+          gemini-api-key: ${{ secrets.GEMINI_API_KEY }}
