@@ -20,9 +20,13 @@ from typing import Any
 import yaml
 
 if __package__:
-    from .validate_baselines import validate_lineage
+    from .validate_baselines import (
+        SOURCE_CATALOG_PATH, manifest_identity_matches, validate_catalogs, validate_lineage,
+    )
 else:
-    from validate_baselines import validate_lineage
+    from validate_baselines import (
+        SOURCE_CATALOG_PATH, manifest_identity_matches, validate_catalogs, validate_lineage,
+    )
 
 
 CONTROL_PATHS = [
@@ -111,25 +115,59 @@ def load_registry(repo: Path) -> dict[str, Any]:
 
 
 def update_registry(repo: Path, record: dict[str, Any]) -> None:
+    """Update both catalogs under the publication lock; undo caught partial failures."""
     path = repo / "docs/evidence/ssot-migration/BASELINES.yaml"
     registry = load_registry(repo)
     if any(item["id"] == record["id"] for item in registry["baselines"]):
         raise ValueError(f"baseline already registered: {record['id']}")
+    catalog_errors = validate_catalogs(repo, registry["baselines"])
+    if catalog_errors:
+        raise ValueError("invalid source catalog: " + "; ".join(catalog_errors))
+    source_path = repo / SOURCE_CATALOG_PATH
+    sources = yaml.safe_load(source_path.read_text(encoding="utf-8"))
+    sources["baseline_catalogs"].append({"baseline_id": record["id"], "manifest": record["manifest"]})
     registry["baselines"].append(record)
-    with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", dir=path.parent,
-                                     prefix=".BASELINES-", delete=False) as handle:
-        temporary = Path(handle.name)
-        try:
-            handle.write(dump_yaml(registry))
+    updates = [(path, registry), (source_path, sources)]
+    staged: list[tuple[Path, Path, Path | None]] = []
+    applied: list[tuple[Path, Path | None]] = []
+    temporary_paths: list[Path] = []
+    recovery_paths: set[Path] = set()
+
+    def stage_bytes(target: Path, content: bytes) -> Path:
+        with tempfile.NamedTemporaryFile(dir=target.parent, prefix=f".{target.stem}-", delete=False) as handle:
+            temporary = Path(handle.name)
+            temporary_paths.append(temporary)
+            handle.write(content)
             handle.flush()
             os.fsync(handle.fileno())
-        except BaseException:
-            temporary.unlink(missing_ok=True)
-            raise
+        return temporary
+
     try:
-        os.replace(temporary, path)
+        for target, data in updates:
+            backup = stage_bytes(target, target.read_bytes()) if target.exists() else None
+            temporary = stage_bytes(target, dump_yaml(data).encode("utf-8"))
+            staged.append((target, temporary, backup))
+        for target, temporary, backup in staged:
+            os.replace(temporary, target)
+            applied.append((target, backup))
+    except BaseException:
+        for target, backup in reversed(applied):
+            try:
+                if backup is None:
+                    target.unlink(missing_ok=True)
+                else:
+                    os.replace(backup, target)
+            except OSError as exc:
+                if backup is not None:
+                    recovery_paths.add(backup)
+                raise RuntimeError(
+                    f"catalog rollback failed for {target}; recovery backup: {backup}"
+                ) from exc
+        raise
     finally:
-        temporary.unlink(missing_ok=True)
+        for temporary in temporary_paths:
+            if temporary not in recovery_paths:
+                temporary.unlink(missing_ok=True)
 
 
 @contextmanager
@@ -149,6 +187,9 @@ def publication(repo: Path, destination: Path, record: dict[str, Any]):
         registry = load_registry(repo)
         if any(item["id"] == record["id"] for item in registry["baselines"]):
             raise ValueError(f"baseline already registered: {record['id']}")
+        catalog_errors = validate_catalogs(repo, registry["baselines"])
+        if catalog_errors:
+            raise ValueError("invalid source catalog: " + "; ".join(catalog_errors))
         if record["predecessor"] is not None:
             resolve_predecessor(repo, record["predecessor"])
         destination.parent.mkdir(parents=True, exist_ok=True)
@@ -183,7 +224,7 @@ def resolve_predecessor(repo: Path, predecessor: str) -> dict[str, Any]:
     if not manifest_path.is_relative_to(baseline_root):
         raise ValueError(f"predecessor manifest outside baseline tree: {manifest_path}")
     manifest = yaml.safe_load(manifest_path.read_text(encoding="utf-8"))
-    if manifest.get("baseline", {}).get("id") != predecessor:
+    if not manifest_identity_matches(manifest.get("baseline", {}), predecessor):
         raise ValueError(f"predecessor manifest ID differs from registry: {predecessor}")
     if predecessor != "G0":
         for field in ("predecessor", "completeness"):

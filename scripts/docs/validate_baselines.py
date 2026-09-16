@@ -13,7 +13,38 @@ import yaml
 
 
 REGISTRY_PATH = "docs/evidence/ssot-migration/BASELINES.yaml"
+SOURCE_CATALOG_PATH = "docs/governance/SOURCES.yaml"
 BASELINE_ROOT = "docs/evidence/ssot-migration/baselines/"
+
+
+def manifest_identity_matches(metadata: dict, baseline_id: str) -> bool:
+    """G0 preserves its historical gate field; successors require an explicit ID."""
+    if baseline_id != "G0":
+        return metadata.get("id") == baseline_id
+    identities = [metadata[key] for key in ("gate", "id") if key in metadata]
+    return bool(identities) and all(value == "G0" for value in identities)
+
+
+def validate_catalogs(repo: Path, records: list[dict]) -> list[str]:
+    """The canonical source catalog and baseline registry must describe the same set."""
+    try:
+        catalog = yaml.safe_load((repo / SOURCE_CATALOG_PATH).read_text(encoding="utf-8"))
+        if not isinstance(catalog, dict) or not isinstance(catalog.get("baseline_catalogs"), list):
+            return ["SOURCES.yaml: baseline_catalogs must be a list"]
+        entries = catalog["baseline_catalogs"]
+        if any(not isinstance(item, dict) or not isinstance(item.get("baseline_id"), str)
+               or not isinstance(item.get("manifest"), str) for item in entries):
+            return ["SOURCES.yaml: malformed baseline catalog entry"]
+        actual = {item["baseline_id"]: item["manifest"] for item in entries}
+        errors = []
+        if len(actual) != len(entries):
+            errors.append("SOURCES.yaml: duplicate baseline catalog IDs")
+        expected = {record["id"]: record["manifest"] for record in records}
+        if actual != expected:
+            errors.append("SOURCES.yaml: baseline catalog differs from BASELINES.yaml")
+        return errors
+    except (OSError, UnicodeError, yaml.YAMLError) as exc:
+        return [f"SOURCES.yaml: cannot read canonical source catalog: {exc}"]
 
 
 def valid_manifest_location(repo: Path, value: str) -> bool:
@@ -139,6 +170,7 @@ def validate(repo: Path, base_ref: str | None = None) -> list[str]:
     if len(ids) != len(set(ids)):
         errors.append("duplicate baseline IDs")
     errors.extend(validate_lineage(records))
+    errors.extend(validate_catalogs(repo, records))
     if base_ref is not None:
         errors.extend(validate_immutability(repo, base_ref))
 
@@ -156,6 +188,8 @@ def validate(repo: Path, base_ref: str | None = None) -> list[str]:
             continue
         manifest = yaml.safe_load(manifest_path.read_text(encoding="utf-8"))
         if record["id"] == "G0":
+            if not manifest_identity_matches(manifest.get("baseline", {}), "G0"):
+                errors.append("G0: manifest identity differs from registry")
             items = list(manifest.get("sources", []))
             promotion = yaml.safe_load((repo / record["promotion"]).read_text(encoding="utf-8"))
             declared_missing = {item["sha256"] for item in promotion["missing_historical_objects"]}

@@ -24,11 +24,17 @@ class BaselineTests(unittest.TestCase):
         self.git("init", "-q")
         self.commit("empty", allow_empty=True)
         self.empty_base = self.git("rev-parse", "HEAD").strip()
+        self.write_yaml(validator.SOURCE_CATALOG_PATH, {
+            "schema_version": 1, "baseline_catalogs": [],
+            "authority_statements": [{"id": "SRC-AUTH-TEST", "authority": "Davi"}],
+            "control_artifacts": {"eligible_for_product_claims": False},
+        })
         self.source_root = self.repo / ".local/drafts/arquitetura"
         self.write(".local/drafts/arquitetura/contexto/known.md", "source bytes\n")
         source = self.source_root / "contexto/known.md"
         manifest = {
-            "baseline": {"id": "G0"},
+            "kind": "g0_source_baseline",
+            "baseline": {"gate": "G0"},
             "sources": [{
                 "id": "SRC-KNOWN", "path": "contexto/known.md",
                 "scope": "G0 classification", "source_class": "DRAFT",
@@ -102,6 +108,151 @@ class BaselineTests(unittest.TestCase):
         self.assertEqual(list(root.glob(f".{baseline_id.lower()}-*")), [])
 
     def test_valid_chain_and_complete_root(self):
+        self.assertEqual(validator.validate(self.repo, self.base), [])
+
+    def test_historical_g0_gate_schema_is_preserved_and_can_seed_r2(self):
+        original = self.source_root / "baseline/G0-SOURCES.yaml"
+        published = self.manifest_path("G0")
+        self.assertEqual(original.read_bytes(), published.read_bytes())
+        manifest = promoter.resolve_predecessor(self.repo, "G0")
+        self.assertEqual(manifest["baseline"]["gate"], "G0")
+        self.assertNotIn("id", manifest["baseline"])
+        successor = yaml.safe_load(self.manifest_path("G0-R2").read_text())
+        self.assertEqual(successor["baseline"]["predecessor"], "G0")
+        self.assertEqual(successor["sources"][0]["id"], manifest["sources"][0]["id"])
+
+    def test_wrong_or_conflicting_g0_identity_is_rejected(self):
+        path = self.manifest_path("G0")
+        manifest = yaml.safe_load(path.read_text())
+        for metadata in ({"gate": "OTHER"}, {}, {"gate": "G0", "id": "OTHER"}):
+            with self.subTest(metadata=metadata):
+                manifest["baseline"] = metadata
+                self.write_yaml(str(path.relative_to(self.repo)), manifest)
+                with self.assertRaisesRegex(ValueError, "manifest ID differs"):
+                    promoter.resolve_predecessor(self.repo, "G0")
+                self.assert_error("G0: manifest identity differs")
+
+    def test_successor_cannot_use_gate_instead_of_id(self):
+        path = self.manifest_path("G0-R2")
+        manifest = yaml.safe_load(path.read_text())
+        manifest["baseline"]["gate"] = manifest["baseline"].pop("id")
+        self.write_yaml(str(path.relative_to(self.repo)), manifest)
+        with self.assertRaisesRegex(ValueError, "manifest ID differs"):
+            promoter.resolve_predecessor(self.repo, "G0-R2")
+
+    def test_successor_updates_source_catalog_without_changing_authority(self):
+        path = self.repo / validator.SOURCE_CATALOG_PATH
+        before = yaml.safe_load(path.read_text())
+        self.promote()
+        self.promote("G0-R4", "G0-R3")
+        after = yaml.safe_load(path.read_text())
+        self.assertEqual(after["baseline_catalogs"], [
+            {"baseline_id": record["id"], "manifest": record["manifest"]}
+            for record in self.registry()["baselines"]
+        ])
+        self.assertEqual({k: v for k, v in before.items() if k != "baseline_catalogs"},
+                         {k: v for k, v in after.items() if k != "baseline_catalogs"})
+        self.assertEqual(validator.validate(self.repo, self.base), [])
+
+    def test_catalog_divergence_is_rejected_by_validation_and_promotion(self):
+        path = self.repo / validator.SOURCE_CATALOG_PATH
+        original = path.read_text()
+        entries = yaml.safe_load(original)["baseline_catalogs"]
+        variants = {
+            "missing": entries[:1],
+            "extra": entries + [{"baseline_id": "G0-R99", "manifest": "unknown.yaml"}],
+            "duplicate": entries + entries[:1],
+            "wrong path": [entries[0], {"baseline_id": "G0-R2", "manifest": "wrong.yaml"}],
+            "wrong type": "not a list",
+            "malformed entry": entries + [None],
+        }
+        previous_registry = (self.repo / validator.REGISTRY_PATH).read_bytes()
+        for name, catalogs in variants.items():
+            with self.subTest(variant=name):
+                data = yaml.safe_load(original)
+                data["baseline_catalogs"] = catalogs
+                self.write_yaml(validator.SOURCE_CATALOG_PATH, data)
+                previous_catalog = path.read_bytes()
+                self.assert_error("SOURCES.yaml:", self.base)
+                with self.assertRaisesRegex(ValueError, "invalid source catalog"):
+                    self.promote()
+                self.assert_unpublished("G0-R3", previous_registry)
+                self.assertEqual(path.read_bytes(), previous_catalog)
+        path.write_text(original, encoding="utf-8")
+
+    def test_missing_or_invalid_source_catalog_is_not_silently_recreated(self):
+        path = self.repo / validator.SOURCE_CATALOG_PATH
+        for content in (None, "[invalid YAML", "null\n"):
+            with self.subTest(content=content):
+                if content is None:
+                    path.unlink()
+                else:
+                    path.write_text(content, encoding="utf-8")
+                self.assert_error("SOURCES.yaml:")
+                with self.assertRaisesRegex(ValueError, "invalid source catalog"):
+                    self.promote()
+
+    def test_source_catalog_replace_failure_restores_both_catalogs_and_can_retry(self):
+        source_path = self.repo / validator.SOURCE_CATALOG_PATH
+        previous_source = source_path.read_bytes()
+        previous_registry = (self.repo / validator.REGISTRY_PATH).read_bytes()
+        replace = promoter.os.replace
+        def fail_source_replace(source, destination):
+            if Path(destination) == source_path:
+                raise OSError("source catalog replacement failed")
+            replace(source, destination)
+        with patch.object(promoter.os, "replace", side_effect=fail_source_replace):
+            with self.assertRaisesRegex(OSError, "source catalog replacement failed"):
+                self.promote()
+        self.assert_unpublished("G0-R3", previous_registry)
+        self.assertEqual(source_path.read_bytes(), previous_source)
+        for path in (source_path, self.repo / validator.REGISTRY_PATH):
+            self.assertEqual(list(path.parent.glob(f".{path.stem}-*")), [])
+        self.assertEqual(validator.validate(self.repo, self.base), [])
+        self.promote()
+        self.assertEqual(validator.validate(self.repo, self.base), [])
+
+    def test_source_catalog_staging_failure_leaves_both_catalogs_unchanged(self):
+        previous_registry = (self.repo / validator.REGISTRY_PATH).read_bytes()
+        source_path = self.repo / validator.SOURCE_CATALOG_PATH
+        previous_source = source_path.read_bytes()
+        dump_yaml = promoter.dump_yaml
+        def fail_source_dump(data):
+            if "baseline_catalogs" in data:
+                raise OSError("source catalog staging failed")
+            return dump_yaml(data)
+        with patch.object(promoter, "dump_yaml", side_effect=fail_source_dump):
+            with self.assertRaisesRegex(OSError, "source catalog staging failed"):
+                self.promote()
+        self.assert_unpublished("G0-R3", previous_registry)
+        self.assertEqual(source_path.read_bytes(), previous_source)
+        self.promote()
+        self.assertEqual(validator.validate(self.repo, self.base), [])
+
+    def test_failed_catalog_rollback_preserves_backup_for_recovery(self):
+        registry_path = self.repo / validator.REGISTRY_PATH
+        previous_registry = registry_path.read_bytes()
+        source_path = self.repo / validator.SOURCE_CATALOG_PATH
+        previous_source = source_path.read_bytes()
+        replace = promoter.os.replace
+        calls = 0
+        def fail_after_first_replace(source, destination):
+            nonlocal calls
+            calls += 1
+            if calls > 1:
+                raise OSError("storage unavailable")
+            replace(source, destination)
+        with patch.object(promoter.os, "replace", side_effect=fail_after_first_replace):
+            with self.assertRaisesRegex(RuntimeError, "catalog rollback failed.*recovery backup"):
+                self.promote()
+        backups = list(registry_path.parent.glob(".BASELINES-*"))
+        self.assertEqual(len(backups), 1)
+        self.assertEqual(backups[0].read_bytes(), previous_registry)
+        self.assertEqual(source_path.read_bytes(), previous_source)
+        self.assertFalse((self.repo / validator.BASELINE_ROOT / "g0-r3").exists())
+        self.assert_error("baseline catalog differs")
+        backups[0].replace(registry_path)
+        self.promote()
         self.assertEqual(validator.validate(self.repo, self.base), [])
 
     def test_initial_registry_introduction(self):
@@ -334,6 +485,9 @@ class BaselineTests(unittest.TestCase):
             subprocess.run(["git", "init", "-q", str(repo)], check=True)
             import shutil
             shutil.copytree(self.source_root, repo / ".local/drafts/arquitetura")
+            source_catalog = repo / validator.SOURCE_CATALOG_PATH
+            source_catalog.parent.mkdir(parents=True)
+            source_catalog.write_text(yaml.safe_dump({"schema_version": 1, "baseline_catalogs": []}))
             with patch.object(promoter.shutil, "copyfile", side_effect=OSError("G0 copy failed")):
                 with self.assertRaisesRegex(OSError, "G0 copy failed"):
                     promoter.promote_g0(repo)
@@ -341,6 +495,36 @@ class BaselineTests(unittest.TestCase):
             self.assertFalse((repo / validator.REGISTRY_PATH).exists())
             with redirect_stdout(io.StringIO()):
                 promoter.promote_g0(repo)
+            self.assertEqual(validator.validate(repo), [])
+
+    def test_initial_g0_source_catalog_failure_restores_absent_registry(self):
+        with tempfile.TemporaryDirectory(prefix="cepraea-g0-catalog-test-") as temporary:
+            repo = Path(temporary)
+            subprocess.run(["git", "init", "-q", str(repo)], check=True)
+            subprocess.run([
+                "git", "-c", "user.name=Baseline Test", "-c", "user.email=baseline@example.invalid",
+                "commit", "-qm", "empty", "--allow-empty",
+            ], cwd=repo, check=True)
+            import shutil
+            shutil.copytree(self.source_root, repo / ".local/drafts/arquitetura")
+            source_path = repo / validator.SOURCE_CATALOG_PATH
+            source_path.parent.mkdir(parents=True)
+            source_path.write_text(yaml.safe_dump({"schema_version": 1, "baseline_catalogs": []}))
+            previous_source = source_path.read_bytes()
+            replace = promoter.os.replace
+            def fail_source_replace(source, destination):
+                if Path(destination) == source_path:
+                    raise OSError("initial source catalog replacement failed")
+                replace(source, destination)
+            with patch.object(promoter.os, "replace", side_effect=fail_source_replace):
+                with self.assertRaisesRegex(OSError, "initial source catalog replacement failed"):
+                    promoter.promote_g0(repo)
+            self.assertFalse((repo / validator.REGISTRY_PATH).exists())
+            self.assertFalse((repo / "docs/evidence/ssot-migration/baselines/g0").exists())
+            self.assertEqual(source_path.read_bytes(), previous_source)
+            with redirect_stdout(io.StringIO()):
+                promoter.promote_g0(repo)
+                promoter.promote_successor(repo, "G0-R2", "G0")
             self.assertEqual(validator.validate(repo), [])
 
     def test_corrupt_existing_object_is_not_overwritten(self):
