@@ -22,3 +22,4 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }} 
           # Chave de API para o Google Gemini:
           gemini-api-key: ${{ secrets.GEMINI_API_KEY }}
+          exclude: "**/*.json, **/*.md, docs/**, scripts/**, frontend/package-lock.json"
