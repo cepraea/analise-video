@@ -1,0 +1,5 @@
+feat: validate documentation architecture
+
+Constraint: preserve published baselines
+Rejected: overwrite G0-R2
+Tested: route and baseline validators

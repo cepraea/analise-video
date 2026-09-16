@@ -1,0 +1,18 @@
+# Default: content-addressed text objects remain in normal Git.
+archive/ssot/objects/sha256/** -text -diff
+
+# Extension-based binary assets.
+*.pdf filter=lfs diff=lfs merge=lfs -text
+*.png filter=lfs diff=lfs merge=lfs -text
+
+# Extensionless binary objects identified by manifest and file signature.
+archive/ssot/objects/sha256/2481411cce385990193cbb0b783a4f640b0c91eb9468f5bdef4230174cc6e002 filter=lfs diff=lfs merge=lfs -text
+archive/ssot/objects/sha256/24acc997e05841950d11cce46ad40bdffc4b1e136106c2026bac9de876d18fb0 filter=lfs diff=lfs merge=lfs -text
+archive/ssot/objects/sha256/3835cd1bed728a44b169b328bdcd442b75f0c35f35f838ddb2d363aa96418c22 filter=lfs diff=lfs merge=lfs -text
+archive/ssot/objects/sha256/652439c9e2eec15fc17986e3b73b67b6129ccb33bdd9d81146e72e578dccfaaf filter=lfs diff=lfs merge=lfs -text
+archive/ssot/objects/sha256/7db89d18580cbbf3a3a3080f1ac90b0254ad406457e19c7358987d5a7c911c28 filter=lfs diff=lfs merge=lfs -text
+archive/ssot/objects/sha256/874c8c9d031318c4e4a8311d24b2d1bf1d56cdab92ce4e1006c147a5b6291a17 filter=lfs diff=lfs merge=lfs -text
+archive/ssot/objects/sha256/933e9a45037c4d6215278e5ef46a7257bc2971f849a734a39f6fd406da119b4e filter=lfs diff=lfs merge=lfs -text
+archive/ssot/objects/sha256/a9af9932e14cf2a2d272192c680c4458ea3af59fb4dcbd3bfdbb5e3aa7c8fae8 filter=lfs diff=lfs merge=lfs -text
+archive/ssot/objects/sha256/b02e1277ef4863fa198b0eae2f6bf40da2d13046c2a06dee3b28dc68cabc40fd filter=lfs diff=lfs merge=lfs -text
+archive/ssot/objects/sha256/bb9da3e8c6aba4e553bcc250fe99746d724464e470cce36dd05ffc28af18a8e6 filter=lfs diff=lfs merge=lfs -text

@@ -1,0 +1,131 @@
+# Subplano 05 — Piloto, Cutover e Operação
+
+## Objetivo
+
+Comprovar que a nova arquitetura fornece contexto mínimo suficiente antes de transferir autoridade ou adicionar automações avançadas.
+
+## O0 — Preparar o piloto
+
+### Tarefa-piloto
+
+Usar o INC-002 porque ele exige requisitos de produto, ADR vigente, invariantes de `LANCE`, persistência e rastreabilidade, sem depender das taxonomias esportivas mais complexas.
+
+### Preparação
+
+- [ ] congelar versão das autoridades;
+- [ ] gerar pacote INC-002;
+- [ ] registrar hashes;
+- [ ] definir tarefa equivalente para Codex e Claude;
+- [ ] definir resultado esperado e condições de parada;
+- [ ] impedir consulta a drafts salvo conflito deliberadamente injetado.
+
+## O1 — Executar e medir
+
+Para cada agente, registrar:
+
+- arquivos consultados;
+- contexto adicional solicitado;
+- decisões e requisitos citados;
+- omissões e fontes incorretas;
+- interpretação da ADR vigente;
+- alterações propostas;
+- testes escolhidos;
+- tempo e tamanho aproximado do contexto;
+- necessidade de intervenção de Davi.
+
+O piloto não deve produzir merge automático nem alterar autoridade.
+
+## O2 — Critérios de aprovação
+
+O pacote é suficiente quando ambos os agentes:
+
+- identificam as mesmas autoridades;
+- preservam os invariantes do INC-002;
+- não introduzem portal, IA, cloud ou taxonomia fora do escopo;
+- param diante de decisão realmente ausente;
+- apontam testes e evidências adequados;
+- não usam drafts como requisito;
+- detectam pacote vencido após mudança de fonte.
+
+Falha de completude exige corrigir rota ou rastreabilidade, não simplesmente aumentar o pacote com todo o corpus.
+
+## O3 — Cutover
+
+Somente após os gates anteriores:
+
+- [ ] apresentar paridade, conflitos e pendências a Davi;
+- [ ] obter aprovação explícita;
+- [ ] mudar ADR-002 para o estado aprovado;
+- [ ] definir a data de autoridade operacional do Git;
+- [ ] reclassificar fontes do Drive sem apagar proveniência;
+- [ ] manter conhecimento esportivo amplo no papel aprovado;
+- [ ] registrar NotebookLM como consultivo e não normativo;
+- [ ] atualizar `AGENTS.md`, `CLAUDE.md` e `SSOT.md` no mesmo corte;
+- [ ] regenerar derivados e pacote INC-002;
+- [ ] executar CI documental;
+- [ ] registrar commit e evidência.
+
+## Rollback
+
+Se o gate falhar:
+
+1. não promover autoridade;
+2. preservar fontes e inventário;
+3. reverter somente arquivos derivados e alterações do corte;
+4. corrigir conflito na branch de migração;
+5. regenerar e repetir o piloto;
+6. documentar causa e resultado.
+
+## Operação contínua
+
+### Ao decidir
+
+- registrar uma vez em `DECISIONS.yaml`;
+- atualizar definição canônica;
+- atualizar arestas afetadas;
+- regenerar log, rastreabilidade e pacotes atingidos.
+
+### Ao implementar
+
+- usar pacote do incremento;
+- respeitar condições de parada;
+- vincular código e testes;
+- produzir evidência antes de `VERIFIED`.
+
+### Ao alterar fonte
+
+- atualizar hash e revisão;
+- identificar claims impactados;
+- invalidar pacotes dependentes;
+- exigir nova aprovação se houver mudança semântica.
+
+### Ao concluir incremento
+
+- atualizar estado comprovado;
+- anexar evidências;
+- regenerar rastreabilidade;
+- arquivar o pacote ou marcá-lo como histórico;
+- preparar o próximo pacote.
+
+## Avaliação de otimizações futuras
+
+| Tecnologia | Adotar quando | Não adotar quando |
+| --- | --- | --- |
+| Skill local | Procedimento repetido e testado | Instrução muda a cada tarefa |
+| MCP local | Fonte dinâmica e ferramenta disponível | Arquivos Git resolvem o problema |
+| Grafo de código | Busca lexical falha em impacto multi-linguagem | Só produz imagem ou índice incompleto |
+| Busca semântica | Vocabulário impede recuperação lexical medida | Não existe benchmark local |
+| Subagentes | Subtarefas independentes com saída verificável | Tarefa curta ou decisão de autoridade |
+| Git trailers | Referências e testes melhoram auditoria | Replicam ADR ou exigem IA para commitar |
+
+Toda otimização precisa de comparação antes/depois e custo de manutenção.
+
+## Definition of Done
+
+- [ ] Piloto executado por Codex e Claude.
+- [ ] Completude e economia medidas.
+- [ ] Divergências corrigidas na fonte, não mascaradas no prompt.
+- [ ] Davi aprovou o corte.
+- [ ] Autoridades anteriores foram reclassificadas, não apagadas.
+- [ ] Rollback foi revisado.
+- [ ] Operação contínua possui responsáveis e comandos reproduzíveis.

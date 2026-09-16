@@ -1,0 +1,204 @@
+# Subplano 03 — Contexto Mínimo Suficiente
+
+## Objetivo
+
+Entregar a Codex e Claude Code somente as autoridades, decisões, dependências, critérios e evidências necessárias à tarefa, com completude validável e sem carregar o corpus inteiro.
+
+## Não objetivos da primeira implementação
+
+- MCP para documentos locais;
+- Atlan ou catálogo corporativo externo;
+- embeddings ou banco vetorial;
+- banco de grafos;
+- mapa AST gerado em todo commit;
+- imagens como entrada operacional;
+- skills para fluxos ainda não estabilizados;
+- meta universal de tokens ou linhas por arquivo.
+
+## C0 — Roteador comum
+
+### `AGENTS.md`
+
+Deve conter somente:
+
+- mapa de autoridade;
+- estados controlados;
+- invariantes críticos e seus IDs;
+- tabela de roteamento por tarefa;
+- condições de parada;
+- comandos básicos de verificação.
+
+Não deve conter requisitos completos, manuais, schemas, exemplos longos ou decisões históricas.
+
+### `CLAUDE.md`
+
+Deve importar `@AGENTS.md` e conter somente instruções exclusivas e comprovadamente necessárias ao Claude Code.
+
+O piloto deve comprovar que a importação funciona antes de remover qualquer fallback.
+
+## C1 — Índice e rotas
+
+### `docs/SSOT.md`
+
+Índice humano curto que explica precedência, responsabilidades e resolução de conflitos.
+
+### `docs/context/ROUTES.yaml`
+
+Fonte legível por máquina para montar contexto:
+
+```yaml
+routes:
+  product_requirement:
+    required:
+      - docs/SYSTEM_SPEC.md
+      - docs/governance/DECISIONS.yaml
+      - docs/TRACEABILITY.yaml
+    optional:
+      - docs/GAME_MODEL.md
+    stop_if:
+      - conflicting_requirement
+      - missing_authority
+
+  sports_classification:
+    required:
+      - docs/GAME_MODEL.md
+      - docs/governance/DECISIONS.yaml
+    authority: Davi
+
+  implementation_increment:
+    required:
+      - docs/context/packs/{increment}.md
+      - docs/IMPLEMENTATION_PLAN.md
+      - docs/IMPLEMENTATION_STATUS.md
+```
+
+Rotas apontam para arquivos e IDs. Não copiam os conteúdos canônicos.
+
+## C2 — Pacote de incremento
+
+`docs/context/packs/INC-002.md` deve ser gerado, curto e determinístico.
+
+### Conteúdo obrigatório
+
+```text
+incremento e objetivo
+escopo e fora do escopo
+requisitos e critérios por ID
+decisões aplicáveis por ID
+invariantes
+ADR vigente
+entidades e contratos afetados
+estado atual comprovado
+condições de parada
+testes e evidências esperados
+hashes das fontes
+comando de regeneração
+```
+
+### Regra de tamanho
+
+Não fixar número arbitrário de tokens. O pacote deve conter somente itens transitivamente necessários. Se precisar copiar seções grandes, o roteamento ou a modularização está inadequado.
+
+## C3 — Protocolo de recuperação
+
+Ordem obrigatória para agentes:
+
+1. classificar o tipo de tarefa;
+2. ler `AGENTS.md`;
+3. consultar a rota aplicável;
+4. pesquisar IDs e símbolos com `rg`;
+5. abrir somente seções necessárias;
+6. carregar pacote do incremento quando houver implementação;
+7. consultar fontes originais apenas em conflito, auditoria ou alteração de decisão;
+8. parar diante de autoridade ausente ou definição concorrente.
+
+## C4 — Exclusões e artefatos pesados
+
+- Dependências, builds, caches e arquivos gerados devem ser excluídos das buscas normais.
+- `archive/` deve ser excluído por padrão; auditorias acessam somente `archive/ssot/objects/sha256/{sha256}` por hash exato.
+- PDFs e imagens não podem ser ignorados globalmente porque podem ser fontes ou evidências.
+- `.claudeignore` é configuração específica do Claude, não autoridade comum.
+- Codex e Claude devem compartilhar a mesma política por meio de `AGENTS.md` e `ROUTES.yaml`.
+- `.local/drafts/` deve ficar fora do trabalho normal, mas disponível para rotas explícitas de migração e auditoria.
+
+## C5 — Skills
+
+Criar uma skill somente quando:
+
+- o fluxo ocorrer repetidamente;
+- possuir início, fim e aceitação claros;
+- os comandos estiverem testados;
+- a ferramenta realmente descobrir a skill;
+- o procedimento não puder ser expresso melhor em um comando ou documento curto.
+
+Skills candidatas após o piloto:
+
+- validar SSOT;
+- gerar pacote de incremento;
+- revisar mudança documental;
+- preparar evidência de incremento.
+
+Não criar skill Atlan, lore-commit ou feature-workflow a partir dos drafts atuais.
+
+## C6 — MCP
+
+MCP não é requisito para contexto mínimo. Ele só deve ser adotado quando houver fonte dinâmica ou remota que não possa ser representada de modo seguro e econômico no Git.
+
+Critérios mínimos:
+
+- caso de uso real;
+- servidor disponível;
+- contrato de ferramentas validado;
+- autenticação e custo conhecidos;
+- falha explícita, nunca convertida em sucesso mockado;
+- respostas pequenas e filtradas;
+- nenhuma autoridade nova criada pelo transporte.
+
+Para a primeira implementação, usar acesso direto aos arquivos locais.
+
+## C7 — Garfos e subagentes
+
+Delegação é opcional e deve ser usada somente para subtarefas independentes.
+
+Cada delegação precisa declarar:
+
+```yaml
+objective:
+allowed_sources:
+excluded_actions:
+expected_output:
+authority_limits:
+verification:
+```
+
+Regras:
+
+- subagente não decide domínio esportivo;
+- subagente não promove draft;
+- resultado retorna como análise, não autoridade;
+- agente principal verifica a evidência;
+- tarefas simples não são delegadas;
+- paralelismo não justifica duplicação de leitura.
+
+## Métricas do piloto
+
+- arquivos lidos por tarefa;
+- palavras ou tokens aproximados do pacote;
+- tempo para localizar os arquivos corretos;
+- omissões de autoridade;
+- referências obsoletas utilizadas;
+- divergências entre Codex e Claude;
+- regenerações necessárias após mudança de fonte.
+
+O objetivo é reduzir contexto irrelevante sem diminuir cobertura das dependências.
+
+## Definition of Done
+
+- [ ] Roteador comum e consistente.
+- [x] Rotas validadas por tipo de tarefa.
+- [ ] Pacote INC-002 gerado e reproduzível.
+- [ ] Hash muda quando uma autoridade muda.
+- [ ] Codex e Claude usam as mesmas autoridades.
+- [x] Drafts não entram em tarefas normais.
+- [ ] Nenhum MCP ou grafo é necessário para o piloto.
+- [ ] Métricas mostram completude com menos leitura manual.

@@ -1,0 +1,37 @@
+PYTHON ?= python3
+NODE ?= node
+SELF_DIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
+REPO_ROOT ?= $(shell git -C "$(SELF_DIR)" rev-parse --show-toplevel 2>/dev/null || pwd)
+GRAPH_JSON := $(SELF_DIR)repo_knowledge_graph.json
+GRAPH_FULL := $(SELF_DIR)repo_architecture_graph.png
+GRAPH_HIGH := $(SELF_DIR)repo_architecture_graph-v2.png
+REPORT := $(SELF_DIR)relatorio-analise-acoplamento.pdf
+
+.PHONY: all artifacts map graph graph-full graph-v2 pdf verify review clean
+
+all: artifacts
+
+artifacts: map graph-full graph-v2 pdf verify
+
+map:
+	$(PYTHON) "$(SELF_DIR)map_repo_ast.py" "$(REPO_ROOT)" "$(GRAPH_JSON)"
+
+graph: graph-v2
+
+graph-full: map
+	$(PYTHON) "$(SELF_DIR)visualize_graph.py" "$(GRAPH_JSON)" "$(GRAPH_FULL)"
+
+graph-v2: map
+	$(PYTHON) "$(SELF_DIR)visualize_graph.py" "$(GRAPH_JSON)" "$(GRAPH_HIGH)" --high-level
+
+pdf: map graph-v2
+	$(PYTHON) "$(SELF_DIR)generate_pdf_report.py" "$(GRAPH_JSON)" "$(REPORT)" --image "$(GRAPH_HIGH)"
+
+verify:
+	$(PYTHON) "$(SELF_DIR)map_repo_ast.py" --validate "$(GRAPH_JSON)"
+
+review:
+	$(NODE) "$(SELF_DIR)pre-commit-review-v2.js" pre-commit
+
+clean:
+	rm -f "$(GRAPH_JSON)" "$(GRAPH_FULL)" "$(GRAPH_HIGH)" "$(REPORT)"

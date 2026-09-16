@@ -1,0 +1,82 @@
+schema_version: 1
+policy: docs/context/CONTEXT_POLICY.md
+defaults:
+  always:
+    - AGENTS.md
+  exclude:
+    - archive/**
+    - .local/drafts/**
+    - .git/**
+    - node_modules/**
+    - .venv/**
+    - dist/**
+    - build/**
+    - '**/__pycache__/**'
+  archive_access: exact_object_only
+  stop_if:
+    - conflicting_authority
+    - missing_required_document
+    - broken_id_reference
+
+routes:
+  product_requirement:
+    required:
+      - docs/SYSTEM_SPEC.md
+      - docs/governance/DECISIONS.yaml
+      - docs/TRACEABILITY.md
+    optional:
+      - path: docs/GAME_MODEL.md
+        when: requirement_uses_sports_semantics
+
+  sports_classification:
+    required:
+      - docs/GAME_MODEL.md
+      - docs/governance/DECISIONS.yaml
+    authority: Davi Sermenho
+
+  architecture:
+    required:
+      - docs/SSOT.md
+      - docs/governance/DECISIONS.yaml
+      - docs/architecture/ADR-001.md
+      - docs/architecture/ADR-002-ssot-and-context.md
+    optional:
+      - path: docs/IMPLEMENTATION_PLAN.md
+        when: decision_changes_delivery_order
+
+  implementation_increment:
+    required:
+      - docs/IMPLEMENTATION_PLAN.md
+      - docs/IMPLEMENTATION_STATUS.md
+      - docs/TRACEABILITY.md
+      - docs/governance/DECISIONS.yaml
+    optional:
+      - path: docs/context/packs/{increment}.md
+        when: generated_pack_exists
+
+  verification:
+    required:
+      - docs/IMPLEMENTATION_STATUS.md
+      - docs/TRACEABILITY.md
+      - docs/evidence/
+
+  governance:
+    required:
+      - docs/SSOT.md
+      - docs/governance/AUTHORITY.md
+      - docs/governance/STATES.md
+      - docs/governance/ID_POLICY.md
+      - docs/governance/DOCUMENTATION_STANDARD.md
+      - docs/governance/DECISIONS.yaml
+      - docs/governance/SOURCES.yaml
+
+  source_audit:
+    required:
+      - docs/governance/SOURCES.yaml
+      - docs/evidence/ssot-migration/BASELINES.yaml
+    allow:
+      - archive/ssot/objects/sha256/{sha256}
+      - .local/drafts/arquitetura/baseline/**
+    constraints:
+      - archive_object_must_be_named_by_exact_sha256
+      - no_recursive_archive_loading

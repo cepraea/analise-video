@@ -1,0 +1,172 @@
+# Subplano 01 — Governança e Decisões
+
+## Objetivo
+
+Criar as regras de autoridade necessárias para migrar o corpus sem transformar rascunhos, protótipos ou sínteses de IA em decisões canônicas.
+
+## Entradas
+
+- arquivos versionados atuais;
+- `.local/drafts/arquitetura/hibrida/`;
+- `.local/drafts/arquitetura/contexto/`;
+- históricos JSON;
+- fontes remotas identificadas;
+- manifestações explícitas de Davi.
+
+## Entregáveis versionados
+
+```text
+docs/SSOT.md
+docs/governance/AUTHORITY.md
+docs/governance/STATES.md
+docs/governance/ID_POLICY.md
+docs/governance/DOCUMENTATION_STANDARD.md
+docs/governance/SOURCES.yaml
+docs/governance/DECISIONS.yaml
+docs/governance/DECISION_LOG.md
+docs/architecture/ADR-002-ssot-and-context.md
+docs/evidence/SSOT-MIGRATION.md
+```
+
+`DECISIONS.yaml` é a fonte legível por máquina. `DECISION_LOG.md` é gerado e não deve conter decisões exclusivas.
+
+## G0 — Baseline imutável
+
+### Ações
+
+- [x] Registrar branch, commit-base, data e responsável.
+- [x] Inventariar os 34 artefatos iniciais e os dois artefatos surgidos durante o G0 em `.local/drafts/arquitetura/`.
+- [x] Calcular SHA-256 de cada fonte.
+- [x] Registrar tipo, origem, escopo, revisão, tamanho e destino candidato.
+- [x] Comparar cópias em `hibrida/`, `historico/` e outros diretórios.
+- [x] Marcar derivados gerados pelo NotebookLM sem promover seu conteúdo.
+- [x] Preservar PDFs, JSONs, imagens e códigos de protótipo sem edição.
+
+### Saída
+
+Um inventário temporário revisável e a primeira seção de `SSOT-MIGRATION.md`.
+
+### Gate
+
+- 100% dos artefatos contabilizados;
+- nenhuma fonte alterada;
+- hashes reproduzíveis;
+- cópias e variantes identificadas.
+
+### Resultado da execução
+
+`CONCLUÍDO` em 2026-09-15. Evidência, inventário e manifestos: [`../baseline/G0-EVIDENCIA.md`](../baseline/G0-EVIDENCIA.md).
+
+A separação entre 36 fontes finais e oito artefatos de controle foi registrada como `G0-METHOD-001`. Ela não promove nenhum arquivo e não substitui as decisões de autoridade do G1.
+
+## G1 — Autoridade, estados e IDs
+
+### Ações
+
+- [ ] Definir autoridade por produto, domínio, arquitetura, planejamento e comprovação.
+- [ ] Separar estado do documento, decisão, verificação da afirmação e implementação.
+- [ ] Preservar os estados já usados pelo projeto.
+- [ ] Definir transições e dados obrigatórios para cada estado.
+- [ ] Definir namespaces, unicidade, depreciação e `supersedes`.
+- [ ] Preservar `RF`/`RNF`, salvo decisão contrária explícita.
+- [ ] Aprovar o padrão Markdown, EARS, MADR, YAML, Mermaid, JSON, OpenAPI e Gherkin.
+- [ ] Aprovar ADR-002 antes de promover arquivos.
+
+### Gate
+
+- cada classe de conteúdo possui autoridade;
+- toda transição de estado é verificável;
+- nenhuma reutilização silenciosa de ID é permitida;
+- o formato mais estruturado não ganha autoridade fora de seu escopo.
+
+## G2 — Registrar decisões já conhecidas
+
+As decisões abaixo não devem ser reabertas, salvo correção explícita de Davi:
+
+- Davi é autoridade esportiva;
+- `LANCE` é unidade canônica;
+- vídeo é fonte;
+- original é imutável;
+- fatos e interpretação permanecem separados;
+- várias atletas, ações, fontes e coleções podem referenciar um lance;
+- fases das equipes são independentes;
+- taxonomias abertas permanecem extensíveis;
+- T3 exige instalação e ausência de vantagem herdada predominante;
+- código sem evidência não significa `VERIFIED`;
+- NotebookLM não é autoridade;
+- drafts não são SSOT;
+- referências de proveniência não são apagadas;
+- nenhuma API paga é dependência obrigatória do primeiro fluxo;
+- práticas do ANMS podem ser usadas sem adoção do framework.
+
+### Ações
+
+- [ ] Atribuir ID estável a cada decisão.
+- [ ] Apontar para manifestações e documentos existentes.
+- [ ] Marcar lacunas de origem sem fingir proveniência.
+- [ ] Definir destinos canônicos e itens afetados.
+- [ ] Registrar somente uma decisão; documentos consumidores recebem referência.
+
+## G3 — Resolver decisões realmente abertas
+
+### Categorias
+
+- papel futuro do Google Drive;
+- corte de autoridade do Git;
+- limite do produto completo;
+- módulos prancheta, portal, IA e cockpit;
+- namespace modular da prancheta;
+- prioridade e incremento de cada módulo;
+- arquitetura cloud futura;
+- schema da arquitetura como código;
+- critérios para introduzir MCP, grafo ou busca semântica.
+
+### Ações
+
+- [ ] Agrupar perguntas por autoridade e impacto.
+- [ ] Apresentar opções mutuamente exclusivas.
+- [ ] Explicar bloqueios e recomendação técnica.
+- [ ] Registrar resposta, data, autoridade e justificativa.
+- [ ] Criar `supersedes` quando houver substituição.
+- [ ] Não inferir resposta pela preferência do agente.
+
+## Schema mínimo de decisão
+
+```yaml
+- id: DEC-DOM-001
+  title: Gate T3
+  status: DECIDIDO
+  authority: Davi
+  decided_at: YYYY-MM-DD
+  statement: >-
+    T3 exige instalação ofensiva e ausência de vantagem herdada predominante.
+  provenance:
+    - source_id: SRC-GAME-MODEL
+      locator: "T3 — Ataque instalado"
+  affected_ids:
+    - GM-T3
+    - RF-012
+  affected_documents:
+    - docs/GAME_MODEL.md
+    - docs/SYSTEM_SPEC.md
+  supersedes: []
+  conflicts_resolved: []
+```
+
+## Regras de duplicação
+
+- a decisão vive em `DECISIONS.yaml`;
+- sua definição completa vive no documento canônico do domínio correspondente;
+- `AGENTS.md` pode repetir apenas invariantes críticos, sempre com ID;
+- pacotes de contexto recebem uma projeção curta e o link;
+- commits apontam para a decisão, não repetem toda a justificativa.
+
+## Definition of Done
+
+- [x] Inventário e hashes completos.
+- [ ] ADR-002 aprovada.
+- [ ] Autoridades e estados aprovados.
+- [ ] Política de IDs aprovada.
+- [ ] Decisões conhecidas registradas com proveniência honesta.
+- [ ] Decisões abertas possuem responsável e bloqueio.
+- [ ] `DECISION_LOG.md` é reproduzível a partir do YAML.

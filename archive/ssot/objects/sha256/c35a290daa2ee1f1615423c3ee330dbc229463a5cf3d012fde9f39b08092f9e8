@@ -1,0 +1,44 @@
+# .claudeignore — Filtro de Contexto Mínimo Viável
+
+# Dependências e Builds
+node_modules/
+.pnpm-store/
+dist/
+build/
+.next/
+out/
+target/
+__pycache__/
+*.pyc
+*.pyo
+
+# Logs, Cobertura e Temporários
+*.log
+logs/
+.cache/
+tmp/
+temp/
+coverage/
+.nyc_output/
+
+# IDEs e Controle de Versão Interno
+.git/
+.svn/
+.hg/
+.vscode/
+.idea/
+
+# Arquivos Binários e Datasets Pesados
+*.csv
+*.xlsx
+*.parquet
+*.sqlite
+*.db
+*.pdf
+*.zip
+*.tar.gz
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.ico

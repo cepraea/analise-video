@@ -1,0 +1,110 @@
+# Auditoria dos Artefatos de Contexto Gerados pelo NotebookLM
+
+## Controle
+
+| Campo | Valor |
+| --- | --- |
+| Status | `DRAFT_AUDIT` |
+| Escopo | `.local/drafts/arquitetura/contexto/` |
+| Autoridade | Nenhuma afirmação é promovida por esta auditoria |
+| Objetivo | Separar práticas úteis, adaptações necessárias, protótipos e propostas rejeitadas |
+
+## Veredito executivo
+
+Os artefatos contêm princípios úteis de engenharia de contexto, mas não formam uma arquitetura instalável no estado atual. O conjunto mistura recomendações genéricas, decisões inexistentes no projeto, integrações externas, protótipos incompletos e afirmações quantitativas sem evidência local.
+
+A estratégia correta é aproveitar os princípios, não copiar o pacote.
+
+## Decisões de aproveitamento
+
+| Proposta | Veredito | Motivo e tratamento |
+| --- | --- | --- |
+| `AGENTS.md` comum para Codex e Claude | `ADOTAR` | Já existe e deve continuar como roteador curto de autoridade e contexto |
+| `CLAUDE.md` importando `@AGENTS.md` | `ADOTAR COM TESTE` | Elimina duplicação; manter somente diferenças comprovadamente necessárias ao Claude |
+| Revelação progressiva | `ADOTAR` | Carregar autoridade e artefatos somente conforme o tipo da tarefa |
+| Busca lexical direcionada antes da leitura integral | `ADOTAR` | `rg` e navegação por IDs são suficientes para a primeira implementação |
+| Pacotes de contexto por incremento | `ADOTAR` | Reduz reconstrução manual e torna completude validável |
+| Nomes descritivos | `ADOTAR COMO PRINCÍPIO` | Respeitar convenções de Python, TypeScript e do domínio; não impor prefixos artificiais |
+| `.claudeignore` genérico | `ADAPTAR` | Deve ser específico do Claude e não ocultar fontes necessárias em migrações ou auditorias |
+| Pasta genérica `memory/` | `NÃO ADOTAR` | Concorreria com SSOT, governança e memória do agente; usar `docs/governance/` e `docs/context/` |
+| `llms.txt` no repositório | `ADIAR` | Não é entrada automática comum de Codex/Claude; `AGENTS.md` e `docs/SSOT.md` atendem ao roteamento |
+| Skills locais para todo procedimento | `ADOTAR SELETIVAMENTE` | Criar somente após um fluxo real, repetido e testado; documentação simples é preferível no início |
+| Three Amigos sob demanda | `ADOTAR` | Útil para ambiguidades entre domínio, implementação e teste, sem cerimônia obrigatória |
+| Lore Protocol obrigatório em todo commit | `NÃO ADOTAR` | Duplica ADR/decision log e adiciona ruído; trailers simples `Refs:` e `Tested:` podem ser avaliados |
+| Limite rígido de 500 linhas | `NÃO ADOTAR COMO GATE` | Tamanho é sinal de revisão, não prova de responsabilidade; `App.tsx` atual já possui 779 linhas |
+| Faixa fixa de 40–60% da janela | `NÃO ADOTAR COMO REGRA` | Agentes não expõem medição uniforme; usar contexto mínimo por dependência e compactação orientada a marcos |
+| Atlan MCP obrigatório | `REJEITAR` | Não existe Atlan no projeto, adiciona dependência externa e conflita com a política sem API paga |
+| Mock do Atlan como fonte de contexto | `REJEITAR` | Dados simulados não possuem autoridade; fallback de erro para sucesso pode mascarar falha real |
+| MCP próprio para documentos locais | `ADIAR` | Arquivos Git + busca direcionada são mais simples; MCP só se justifica por contexto dinâmico ou remoto comprovado |
+| Subagentes/garfos para toda pesquisa | `ADAPTAR` | Usar somente em tarefas independentes e limitadas; subagentes não recebem autoridade de decisão |
+| Grafo AST em todo commit | `ADIAR E REDESENHAR` | Protótipo atual cobre apenas Python, ignora frontend e não gera contexto selecionado para a tarefa |
+| PNG do grafo como arquitetura | `REJEITAR` | Imagem é derivado de inspeção, não modelo canônico nem contexto eficiente para agentes |
+| Hook de revisão por regex | `ADIAR` | Cobertura parcial e regras genéricas; primeiro implementar validador da SSOT e usar linters/testes reais |
+
+## Problemas técnicos comprovados
+
+### Grafo AST
+
+O teste contra o repositório atual encontrou:
+
+- 8 arquivos Python mapeados;
+- 5 arquivos TypeScript/TSX do frontend ignorados;
+- 50 nós e 353 relações declaradas;
+- somente 42 relações com origem e destino materializados no grafo;
+- nós de módulos importados e funções chamadas não são criados;
+- o visualizador depende de `networkx` e `matplotlib`, não declarados nem instalados;
+- a execução do visualizador falha com `ModuleNotFoundError: No module named 'networkx'`;
+- o mapper grava `relation`, enquanto o visualizador procura `relationship` para o rótulo;
+- a versão filtrada do diagrama não possui script gerador preservado.
+
+Conclusão: o protótipo demonstra uma ideia, mas não mede a arquitetura completa e não deve integrar CI ou contexto de agentes.
+
+### Relatório de acoplamento
+
+O PDF analisa somente `map_repo_ast.py` e `visualize_graph.py`, não o sistema de análise de vídeo. Também afirma tipagem explícita e uso exclusivo da biblioteca padrão, embora o código não possua anotações de tipo e o visualizador dependa de bibliotecas externas.
+
+Conclusão: classificar como `GENERATED_DEMO`, não como evidência do repositório.
+
+### Atlan e MCP
+
+- `AGENTS-v2.md` exige uma ferramenta que não existe no ambiente.
+- `tech-stack.md` é genérico e cita alternativas concorrentes em vez da stack aprovada.
+- `test-atlan-mcp.js` utiliza chave mock padrão e transforma falha de conexão em sucesso simulado.
+- o histórico promete ausência total de custo sem demonstrar integração real ou termos do serviço.
+
+Conclusão: remover Atlan do desenho-alvo. Uma futura integração MCP precisa de caso de uso, servidor disponível, contrato, custo, segurança e fallback que preserve a falha.
+
+### Governança de código
+
+- regras obrigatórias de nomes como `async_`, `query_` e `mutate_` não derivam das convenções atuais do repositório;
+- `pre-commit-review.js` analisa principalmente JS/TS e não substitui Ruff, mypy, ESLint, testes ou revisão;
+- `git-lore-commit.sh` depende de skills ausentes e aciona uma CLI de IA para uma operação que deve permanecer explicitamente autorizada;
+- `QUICKSTART.md` menciona arquivos que não estão presentes no conjunto entregue;
+- `make graph` exige dependências não declaradas e gera artefatos de alto custo visual sem utilidade comprovada para tarefas.
+
+Conclusão: não instalar hooks, aliases ou skills diretamente a partir destes drafts.
+
+## Elementos válidos a transportar para o plano
+
+1. roteador curto e comum;
+2. autoridade documental por tipo de conhecimento;
+3. revelação progressiva;
+4. pesquisa direcionada por caminhos, IDs e símbolos;
+5. pacotes de contexto por incremento;
+6. exclusão de artefatos gerados e dependências das buscas normais;
+7. estado persistente em documentos versionados, não no histórico da conversa;
+8. delegação limitada por contrato de tarefa;
+9. validação automática da completude do pacote;
+10. medição antes de introduzir MCP, busca semântica ou grafo de código.
+
+## Critério para tecnologias avançadas
+
+MCP, grafo AST, busca semântica, embeddings ou banco de grafos só podem ser avaliados depois que o piloto baseado em arquivos falhar em uma métrica observável, como:
+
+- agente não encontra arquivos corretos em tarefas controladas;
+- pacote ultrapassa o limite operacional definido pelo projeto;
+- latência manual de montagem é excessiva;
+- relações de impacto não podem ser obtidas pela rastreabilidade e busca lexical;
+- manutenção do índice simples torna-se maior que o benefício.
+
+Nenhuma tecnologia avançada deve entrar apenas porque aparece nas fontes do NotebookLM.

@@ -1,0 +1,67 @@
+# Skill: Validação de Code Review Pré-Submissão
+
+> **Objetivo**: Executar uma auditoria prévia e rigorosa em diffs de Pull Requests para garantir conformidade estrita com o `REVIEW.md` e as regras do `AGENTS.md` antes da submissão oficial ao repositório.
+
+---
+
+## 📋 Protocolo de Execução
+
+Quando esta *skill* for acionada (ex.: `@agent review`, `rodar code-review`, ou antes de abrir um PR), execute estritamente as 4 etapas abaixo:
+
+### 1. Carregamento de Contexto Sob Demanda (*Progressive Disclosure*)
+- Inspecione o arquivo `REVIEW.md` na raiz para carregar as diretrizes de auditoria ativas.
+- Inspecione o arquivo `AGENTS.md` e, se necessário, `memory/architecture-rules.md` para validar invariantes do sistema.
+- Obtenha o `git diff` ou a lista de arquivos alterados no branch atual.
+
+### 2. Checklist de Prioridade Alta (Inspeção Ativa)
+Inspecione as alterações buscando ativamente por riscos de produção:
+
+1. **Segurança e Autorização**:
+   - Houve alteração em middlewares, escopos de API, rotas ou checagens de permissão?
+   - Existem dados sensíveis expostos em logs ou respostas de erro?
+2. **Mutações de Dados e Transações**:
+   - Operações de escrita no banco de dados ocorrem dentro de transações de banco atômicas?
+   - Há ausência de logs de auditoria em mutações de estado críticas?
+3. **Idempotência e Processamento Assíncrono**:
+   - Handlers de webhooks, eventos ou tarefas de segundo plano garantem idempotência em retentativas?
+   - Existe risco de cobrança duplicada, envio duplo de e-mails ou inconsistência em falhas de rede?
+4. **Inconsistências Lógicas Cruzadas entre Módulos**:
+   - Alterações em assinaturas de funções, interfaces ou tipos em um arquivo quebram contratos em módulos adjacentes não incluídos no diff?
+5. **Resiliência e Tratamento de Exceções**:
+   - Existem blocos de erro silenciados (`catch (e) {}` vazios)?
+   - Chamadas a APIs de terceiros possuem timeouts e estratégia de *fallback*?
+
+### 3. Filtro de Ruído (O que Ignorar Estritamente)
+NÃO gere comentários para:
+- Formatação de código, espaçamento, aspas ou ordenação de imports (devem ser validados por linters automáticos).
+- Alterações puramente cosméticas de nomenclatura que não representem risco de execução.
+- Nits e avisos de estilo já capturados na pipeline de CI.
+
+### 4. Validação do Protocolo de Commit (Lore Git Trailers)
+Verifique se as mensagens de commit das alterações incluem os *trailers* obrigatórios quando decisões arquiteturais forem tomadas:
+- `Constraint:` (limitação técnica que forçou a decisão)
+- `Rejected:` (alternativa descartada e o motivo)
+- `Tested:` (testes executados)
+
+---
+
+## 📝 Formato da Saída da Revisão
+
+Para cada apontamento gerado, o relatório final da *skill* deve estruturar a resposta no formato:
+
+```markdown
+### [SEVERIDADE] Título Objetivo do Apontamento
+
+- **Localização**: `caminho/do/arquivo.ext:linha`
+- **Risco em Produção**: Descrição clara da falha que pode ocorrer em tempo de execução.
+- **Regra Violada**: Referência à seção correspondente em `REVIEW.md` ou `AGENTS.md`.
+- **Correção Recomendada**:
+  ```language
+  // Código corrigido pronto para aplicação
+  ```
+```
+
+**Classificação de Severidade**:
+- `[Crítico]`: Impede o merge imediatamente (risco de segurança, vazamento de dados ou quebra em produção).
+- `[Aviso]`: Risco moderado de manutenção ou inconsistência de contrato.
+- `[Sugestão]`: Melhoria técnica opcional com baixo risco.

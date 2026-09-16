@@ -1,0 +1,1411 @@
+# CEPRAEA — Sistema de Análise de Vídeo
+
+## *Especificação Canônica v0.1*
+
+### STATUS DO DOCUMENTO
+
+Este documento é a especificação canônica inicial do projeto de análise de vídeo do CEPRAEA. Ele existe para que Davi, Claude Code, Codex, Gemini e outros agentes trabalhem sobre o mesmo entendimento do problema, do produto, das decisões e das lacunas ainda abertas.
+
+**ESTADO OPERACIONAL** — este documento especifica o sistema, mas não constitui evidência de implementação. No contexto deste histórico, ainda não deve ser presumida a existência de um fluxo funcional completo com lances segmentados, coleções por atleta/fase, clipes físicos organizados, feedback renderizado ou portal. Cada capacidade só muda para implementada quando houver teste ou evidência correspondente.
+
+***
+
+## REGRA DE AUTORIDADE
+
+Davi é a autoridade sobre regras esportivas, taxonomias de handebol de praia, critérios de análise, significado dos eventos e conteúdo do feedback às atletas.
+
+Os agentes podem propor soluções técnicas, modelos de dados, automações e interfaces, mas não podem transformar proposta em regra esportiva ou decisão de negócio sem que isso esteja identificado neste documento como decisão aceita.
+
+Quando houver conflito entre uma implementação e este documento, o agente deve interromper a extrapolação, identificar o conflito e pedir ou registrar a necessidade de decisão de Davi.
+
+Quando uma informação necessária estiver ausente, o agente deve usar *TBD* ou *PENDENTE*, e não inventar.
+
+***
+
+## 1. OBJETIVO DO PROJETO
+
+Criar um sistema de análise audiovisual de handebol de praia para o CEPRAEA que permita ao treinador solo transformar vídeos completos de jogos em um acervo estruturado de lances, análises individuais, análises de goleiras, análises coletivas e feedbacks audiovisuais acessíveis às atletas.
+
+O sistema deve reduzir o trabalho manual de localizar trechos, cortar vídeos, renomear arquivos, reorganizar conteúdos e montar feedbacks. O objetivo não é substituir o julgamento esportivo do treinador. O sistema deve capturar, organizar, reutilizar e automatizar o trabalho decorrente das classificações realizadas ou validadas por Davi.
+
+O produto deve ser útil para:
+
+- a competição atual;
+- competições futuras;
+- jogos e competições passadas que já possuam vídeos;
+- vídeos de transmissões públicas ou privadas;
+- vídeos gravados por celulares das atletas ou outras câmeras;
+- análises individuais de atletas de linha;
+- análises específicas de goleiras;
+- análises coletivas da equipe.
+
+***
+
+## 2. CONTEXTO OPERACIONAL
+
+Davi é treinador solo de handebol de praia. Não existe comissão técnica permanente dividindo tarefas de análise, scout, corte de vídeo, preparação de feedback e organização do acervo.
+
+A equipe de referência é o CEPRAEA, adulto feminino.
+
+Na competição atual, o CEPRAEA participa do Desafio Internacional de Handebol de Praia, realizado em Niterói, na Praia de Icaraí. A competição reúne seis equipes e utiliza fase classificatória todos contra todos, seguida por semifinais entre os quatro melhores e final entre os vencedores.
+
+Os jogos da competição atual estão sendo transmitidos ao vivo pelo canal do YouTube do Niterói Rugby.
+
+O acervo do CEPRAEA, entretanto, não é composto apenas por vídeos do YouTube. Existem também vídeos gravados por celulares das atletas e podem existir, no mesmo jogo, diferentes perspectivas de câmera.
+
+Portanto, o projeto NÃO é um “analisador de vídeos do YouTube”. Ele é um sistema de análise de jogos que aceita múltiplas fontes de vídeo.
+
+***
+
+## 3. PROBLEMA A SER RESOLVIDO
+
+O processo atual ou imaginado pelo treinador contém várias atividades manuais:
+
+- assistir a um vídeo longo;
+- identificar início e fim de cada lance ou situação;
+- registrar equipes, posse, fase do jogo e outras informações;
+- localizar novamente os mesmos tempos;
+- cortar arquivos;
+- renomear clipes;
+- distribuir o mesmo lance em diferentes contextos de análise;
+- analisar ações individuais;
+- criar análises específicas para goleiras;
+- adicionar comentários, legendas e elementos visuais;
+- organizar arquivos cronologicamente;
+- criar materiais individuais para cada atleta;
+- criar materiais coletivos;
+- publicar conteúdos para que as atletas possam rever de forma assíncrona.
+
+Um mesmo lance pode ser relevante simultaneamente para mais de uma atleta, mais de uma ação e mais de uma análise. Exemplo: o mesmo lance pode ser uma assistência da atleta X, uma finalização da atleta Y, um exemplo de ataque posicionado do CEPRAEA e uma situação de análise coletiva.
+
+Duplicar fisicamente o mesmo clipe em várias árvores de pastas não deve ser a base lógica do sistema.
+
+***
+
+## 4. VISÃO DO PRODUTO
+
+### Fluxo conceitual principal
+
+VÍDEO ORIGINAL → FONTE DE VÍDEO → MARCAÇÃO TEMPORAL → LANCE → CLASSIFICAÇÃO ESPORTIVA → PARTICIPAÇÕES E AÇÕES → ANÁLISE / FEEDBACK → COLEÇÕES → CLIPES / MATERIAL RENDERIZADO → PORTAL DAS ATLETAS
+
+A unidade principal de informação deve ser o **LANCE**, e não o arquivo de vídeo.
+
+- O vídeo é uma fonte.
+- O lance é o acontecimento esportivo.
+- A análise descreve ou interpreta esse acontecimento.
+- A coleção reúne lances para um objetivo específico.
+- O arquivo renderizado é uma saída derivada.
+
+***
+
+## 5. ESTADOS DE DECISÃO UTILIZADOS NESTE DOCUMENTO
+
+| Estado | Definição |
+| --- | --- |
+| **DECIDIDO** | requisito ou regra explicitamente fornecido ou aceito por Davi. |
+| **MODELAGEM ATUAL** | solução de estruturação adotada neste documento para satisfazer os requisitos já conhecidos. Pode ser alterada por decisão posterior de Davi. |
+| **PROPOSTA TÉCNICA** | opção recomendada, mas ainda não deve ser tratada como tecnologia obrigatória. |
+| **PENDENTE** | decisão esportiva, funcional ou técnica ainda não definida. |
+| **FORA DO ESCOPO INICIAL** | possibilidade futura que não deve bloquear a primeira versão. |
+
+Agentes não podem converter PROPOSTA TÉCNICA ou PENDENTE em DECIDIDO sem nova evidência.
+
+***
+
+## 6. DECISÕES E REQUISITOS JÁ ESTABELECIDOS
+
+- **DECIDIDO** — o sistema deve aceitar vídeos provenientes do YouTube.
+- **DECIDIDO** — o sistema deve aceitar arquivos de vídeo locais, inclusive vídeos gravados pelos celulares das atletas.
+- **DECIDIDO** — deve ser possível registrar competição, jogo, equipes e intervalos temporais do vídeo.
+- **DECIDIDO** — deve ser possível registrar a equipe que tem a posse de bola.
+- **DECIDIDO** — deve ser possível classificar fases do jogo, incluindo ataque posicionado, defesa posicionada, transição ofensiva e transição defensiva, respeitando posteriormente a taxonomia esportiva definida por Davi.
+- **DECIDIDO** — o sistema deve gerar ou permitir gerar clipes correspondentes aos intervalos temporais marcados.
+- **DECIDIDO** — nomes e organização das saídas devem permitir identificar o conteúdo sem ser necessário assistir ao vídeo.
+- **DECIDIDO** — deve existir uma segunda camada de análise do lance com informações como arremessos, erros técnicos, assistências, resultados das ações, recuperações de bola defensivas, comentários e outras categorias que Davi definir.
+- **DECIDIDO** — um mesmo lance pode se relacionar a múltiplas atletas e múltiplas ações.
+- **DECIDIDO** — o sistema deve produzir material individual das atletas.
+- **DECIDIDO** — o sistema deve produzir material específico para goleiras.
+- **DECIDIDO** — o sistema deve produzir análises coletivas da equipe.
+- **DECIDIDO** — deve ser possível adicionar comentários, legendas e animações ou elementos explicativos aos vídeos preparados para feedback.
+- **DECIDIDO** — a cronologia deve ser preservada, permitindo acompanhar evolução ao longo de jogos e competições.
+- **DECIDIDO** — deve existir um site ou portal em que as atletas possam acessar suas análises e vídeos entre sessões individuais.
+- **DECIDIDO** — no portal, a atleta deve poder pausar, avançar, voltar e rever o conteúdo.
+- **DECIDIDO** — o projeto deve servir também para competições futuras e para vídeos históricos.
+
+***
+
+## 7. PRINCÍPIOS DE MODELAGEM
+
+### 7.1 Original imutável
+
+**MODELAGEM ATUAL** — o vídeo original deve ser preservado sem alteração. Recortes, versões anotadas, versões com legenda e exportações são derivados.
+
+### 7.2 Lance canônico
+
+**MODELAGEM ATUAL** — cada acontecimento esportivo relevante deve possuir um identificador estável de lance. Alterar uma classificação não deve exigir cortar novamente o vídeo original.
+
+### 7.3 Classificação por metadados
+
+**MODELAGEM ATUAL** — atleta, fase, ação, resultado, comentário, competição, jogo e perspectiva de câmera devem ser metadados relacionados ao lance, e não codificados apenas na localização física do arquivo.
+
+### 7.4 Relações muitos-para-muitos
+
+**MODELAGEM ATUAL** — um lance pode:
+
+- envolver várias atletas;
+- possuir várias ações;
+- aparecer em várias coleções;
+- pertencer a análise individual e coletiva simultaneamente;
+- possuir mais de uma fonte de vídeo;
+- possuir mais de uma perspectiva de câmera.
+
+### 7.5 Pastas são saída, não banco de dados
+
+**MODELAGEM ATUAL** — árvores de pastas e nomes amigáveis podem ser gerados para exportação, compartilhamento ou backup, mas não devem ser a única representação das relações esportivas.
+
+### 7.6 Separação entre fato e interpretação
+
+**MODELAGEM ATUAL** — timestamps, fonte, jogo e participantes registrados devem permanecer separados de comentários, interpretações e feedbacks.
+
+***
+
+## 8. MODELO CONCEITUAL
+
+### 8.1 COMPETIÇÃO
+
+Representa um evento competitivo.
+*Campos mínimos previstos:*
+
+- identificador;
+- nome;
+- categoria;
+- local, quando relevante;
+- período, quando conhecido;
+- observações.
+
+### 8.2 JOGO
+
+Representa um confronto.
+*Campos mínimos previstos:*
+
+- identificador;
+- competição;
+- equipe A;
+- equipe B;
+- ordem ou referência do jogo;
+- resultado, quando disponível;
+- observações.
+
+### 8.3 FONTE_DE_VIDEO
+
+Representa uma gravação concreta associada a um jogo.
+*Uma fonte pode ser:*
+
+- vídeo do YouTube;
+- arquivo MP4;
+- arquivo MOV;
+- vídeo gravado por celular;
+- outra fonte futura.
+
+*Campos mínimos previstos:*
+
+- identificador;
+- jogo;
+- tipo de fonte;
+- localização ou referência do arquivo;
+- duração;
+- perspectiva de câmera;
+- offset de sincronização, quando necessário;
+- estado de disponibilidade;
+- observações.
+
+### 8.4 PERSPECTIVA_DE_CAMERA
+
+**MODELAGEM ATUAL** — propriedade da fonte de vídeo para indicar a perspectiva.
+*Valores iniciais possíveis, ainda não fechados:*
+
+- transmissão;
+- lateral;
+- atrás do gol do CEPRAEA;
+- atrás do gol adversário;
+- câmera elevada;
+- outra.
+
+**PENDENTE** — Davi deve validar a lista final e a nomenclatura.
+
+### 8.5 LANCE
+
+Representa a unidade temporal completa de uma posse/direito de atacar.
+
+**DECIDIDO** — o lance começa na mudança efetiva da posse de bola ou na aquisição do direito de reiniciar o jogo.
+
+**DECIDIDO** — o lance termina com perda efetiva da posse, finalização, gol ou interrupção que encerre o direito de atacar.
+
+*Campos mínimos previstos:*
+
+- identificador;
+- jogo;
+- equipe que possui o direito de atacar no lance;
+- instante inicial;
+- motivo/gatilho de início;
+- instante final;
+- motivo de encerramento;
+- observações;
+- estado da classificação.
+
+Um lance pode conter múltiplos segmentos de fase e múltiplos micro-eventos.
+Um lance pode possuir referências temporais diferentes em diferentes fontes de vídeo.
+
+### 8.5A SEGMENTO_DE_FASE
+
+Representa um intervalo dentro do lance em que uma equipe analisada permanece em determinada fase.
+
+*Campos mínimos previstos:*
+
+- identificador;
+- lance;
+- equipe analisada;
+- fase;
+- instante inicial;
+- instante final;
+- gatilho ou critério de entrada;
+- gatilho, gate ou critério de saída;
+- observações;
+- estado da classificação.
+
+**DECIDIDO** — segmentos de fase de equipes diferentes podem se sobrepor temporalmente e não precisam ser espelhados.
+
+**DECIDIDO** — a mesma posse pode conter, para a mesma equipe, mais de um segmento de fase. Exemplo: Transição Ofensiva → Ataque Posicionado.
+
+### 8.5B MICRO_EVENTO
+
+Representa uma ação ou mudança observável, ordenada temporalmente dentro do lance.
+
+O sistema deve permitir vários micro-eventos da mesma atleta no mesmo lance.
+
+*Campos mínimos previstos:*
+
+- identificador;
+- lance;
+- instante ou intervalo;
+- ordem sequencial;
+- atleta(s) relacionada(s), quando aplicável;
+- tipo de ação/evento;
+- segmento(s) de fase relacionado(s), quando aplicável;
+- estado anterior e posterior relevante, quando a taxonomia exigir;
+- observações.
+
+**MODELAGEM ATUAL** — o sistema deve suportar mudanças momentâneas de Ameaça e de criação/manutenção de vantagem entre micro-eventos sem obrigar que todo lance seja dividido em novos lances.
+
+### 8.6 REFERENCIA_TEMPORAL_DO_LANCE
+
+Relaciona o mesmo lance a uma fonte de vídeo específica.
+*Campos previstos:*
+
+- lance;
+- fonte de vídeo;
+- início nessa fonte;
+- fim nessa fonte;
+- confiança ou estado de sincronização;
+- câmera preferencial para esse lance, quando aplicável.
+
+### 8.7 ATLETA
+
+Representa atleta analisável.
+*Campos previstos:*
+
+- identificador;
+- nome;
+- equipe;
+- função/posição quando necessária;
+- indicação de goleira quando aplicável.
+
+### 8.8 PARTICIPACAO_NO_LANCE
+
+Relaciona atleta e lance sem obrigar a existência de apenas uma ação.
+*Campos previstos:*
+
+- lance;
+- atleta;
+- papel no lance;
+- observações.
+
+### 8.9 ACAO
+
+Representa uma ação esportiva classificada como micro-evento sequencial dentro do lance.
+*Exemplos fornecidos ou previstos:*
+
+- arremesso;
+- assistência;
+- erro técnico;
+- recuperação de bola defensiva;
+- finalização;
+- outras ações definidas por Davi.
+
+**PENDENTE** — taxonomia completa.
+
+### 8.10 RESULTADO_DA_ACAO
+
+**PENDENTE** — precisa ser definido de acordo com a taxonomia esportiva. O sistema deve permitir evolução sem reestruturar todo o acervo.
+
+### 8.11 ANALISE
+
+Representa interpretação técnica ou tática.
+*Pode ser:*
+
+- individual de atleta de linha;
+- específica de goleira;
+- coletiva;
+- outra categoria futura.
+
+### 8.12 FEEDBACK
+
+Representa conteúdo dirigido a uma atleta ou ao grupo.
+*Pode incluir:*
+
+- comentário textual;
+- comentário narrado;
+- legenda;
+- instrução do que observar;
+- marcação temporal dentro do clipe;
+- anotação visual;
+- versão renderizada.
+
+### 8.13 COLECAO
+
+Representa uma seleção de lances criada por filtros ou por curadoria.
+*Exemplos:*
+
+- assistências de uma atleta;
+- finalizações de uma atleta;
+- ações de uma goleira;
+- ataque posicionado em determinada competição;
+- situações coletivas;
+- feedback de determinado jogo;
+- evolução histórica de determinado fundamento.
+
+***
+
+## 9. MULTIPLAS FONTES E MULTIPLAS CAMERAS
+
+**DECIDIDO** — um jogo pode possuir mais de uma fonte de vídeo.
+
+**MODELAGEM ATUAL** — o mesmo lance esportivo pode ser associado a duas ou mais gravações diferentes sem ser duplicado como acontecimento.
+
+*Exemplo conceitual:*
+Jogo CEPRAEA x adversário
+
+- Fonte A: transmissão do YouTube;
+- Fonte B: celular lateral;
+- Fonte C: câmera atrás do gol.
+
+Lance L127:
+
+- Fonte A: intervalo temporal A;
+- Fonte B: intervalo temporal B;
+- Fonte C: intervalo temporal C.
+
+O sistema deve permitir escolher a melhor perspectiva para cada objetivo de análise.
+
+***
+
+## 10. SINCRONIZACAO ENTRE FONTES
+
+**REQUISITO DERIVADO** — quando duas gravações do mesmo jogo usam relógios diferentes, o sistema precisa de uma forma de alinhar os tempos.
+
+*Primeira solução prevista:*
+1. o treinador identifica um instante comum visível ou audível em duas fontes;
+2. registra a correspondência;
+3. o sistema calcula o deslocamento temporal;
+4. timestamps subsequentes podem ser convertidos automaticamente.
+
+*Exemplo abstrato:*
+Fonte A, tempo X = Fonte B, tempo Y.
+O sistema calcula o offset entre A e B.
+
+**PROPOSTA FUTURA** — sincronização automática por áudio ou outras técnicas.
+**FORA DO ESCOPO INICIAL** — sincronização automática complexa não deve bloquear a primeira versão.
+
+***
+
+## 11. FLUXO DE MARCACAO — PRIMEIRA PASSAGEM
+
+### OBJETIVO
+
+Segmentar o jogo rapidamente sem exigir que Davi digite manualmente timestamps.
+
+**MODELAGEM ATUAL:**
+
+A interface deve exibir ou controlar o vídeo e permitir:
+
+- iniciar um lance;
+- encerrar um lance;
+- capturar automaticamente o tempo atual;
+- indicar equipe com posse;
+- indicar equipe de referência;
+- iniciar, encerrar ou alterar segmento de fase da equipe analisada;
+- salvar observação rápida.
+
+A tabela de lances deve ser consequência dessa marcação e não depender de Davi digitar manualmente início e fim.
+
+**REQUISITO:** DE USABILIDADE
+
+As ações mais frequentes devem exigir o menor número possível de interações.
+
+***
+
+## 12. FLUXO DE ANALISE — SEGUNDA PASSAGEM
+
+Após a segmentação, o sistema deve permitir rever cada lance isoladamente.
+
+Para cada lance, deve ser possível:
+
+- assistir;
+- alternar entre fontes de câmera disponíveis;
+- corrigir início e fim;
+- identificar atletas;
+- adicionar uma ou mais ações;
+- definir resultados;
+- adicionar comentários;
+- indicar se o lance deve compor feedback individual;
+- indicar se o lance deve compor análise coletiva;
+- marcar a melhor perspectiva;
+- salvar a análise sem alterar o vídeo original.
+
+***
+
+## 13. MODELO OPERACIONAL DO LANCE, FASES E MICRO-EVENTOS
+
+**DECIDIDO** — Lance: unidade temporal correspondente a uma posse/direito de atacar.
+
+### Início do lance
+
+- ocorre na mudança efetiva da posse de bola; ou
+- no direito de reiniciar o jogo, inclusive após gol ou saída.
+
+### No modelo CEPRAEA
+
+- Transição Ofensiva inicia na conquista da posse ou do direito ao reinício;
+- Transição Defensiva inicia na perda efetiva da posse ou do direito de continuar atacando.
+
+### Fim do lance
+
+- perda efetiva da posse para o adversário;
+- finalização;
+- gol;
+- qualquer interrupção que encerre o direito de atacar.
+
+**DECIDIDO** — um lance pode conter mais de uma fase tática sem mudança da posse.
+
+### Exemplo canônico
+
+Transição Ofensiva → Ataque Posicionado dentro do mesmo lance.
+
+A fronteira entre essas fases é causal, não determinada apenas pela manutenção da bola. A Transição Ofensiva termina quando a equipe cruza o gate T3, caracterizando ataque instalado, ou quando a vantagem herdada da troca de posse deixa de ser a causa da oportunidade. A partir daí, mantendo a posse, o ataque precisa construir nova vantagem por meio do próprio sistema.
+
+**DECIDIDO** — Fases Independentes.
+Os campos `equipe_com_posse` e `equipe_analisada` são independentes. O jogo não deve ser modelado como fases necessariamente espelhadas entre as duas equipes.
+
+É possível, no mesmo instante, por exemplo:
+
+- equipe com posse = adversário;
+- equipe analisada = CEPRAEA;
+- fase CEPRAEA = Defesa Posicionada;
+enquanto o adversário ainda está em Transição Ofensiva.
+
+A defesa pode cruzar seu gate T4 e estar funcionalmente estabilizada antes que o adversário termine sua própria Transição Ofensiva.
+
+**DECIDIDO** — o foco da classificação de fase é qual problema a equipe analisada está resolvendo naquele instante.
+
+**DECIDIDO** — as ações dentro do lance são micro-eventos sequenciais.
+
+Receber, passar, deslocar-se, orientar o corpo, controlar a bola, finalizar e outros eventos definidos posteriormente podem alterar estados momentâneos da jogada. O conceito de Ameaça admite estados momentâneos — imediata, emergente ou concedível — que podem mudar ao longo da sequência.
+
+**MODELAGEM ATUAL** — o sistema deve representar três níveis temporais distintos:
+
+1. LANCE: unidade completa da posse/direito de atacar;
+2. SEGMENTO_DE_FASE: intervalo temporal de uma fase de uma equipe analisada dentro do lance;
+3. MICRO_EVENTO: ação/evento ordenado dentro do lance, associado ao instante ou intervalo em que ocorre.
+
+**PENDENTE** — definir os casos limítrofes de reinício após uma finalização quando a mesma equipe recupera imediatamente a bola, para que o início do lance seguinte seja determinístico.
+
+***
+
+## 14. ANALISE DE ATLETAS DE LINHA
+
+O sistema deve permitir construir histórico individual por atleta.
+
+Uma atleta pode estar relacionada a um lance por mais de uma ação.
+
+```text
+*Exemplo: Lance L037*
+- atleta X: assistência;
+- atleta Y: finalização;
+- classificação coletiva: ataque posicionado.
+```
+
+O mesmo lance deve aparecer automaticamente nas coleções correspondentes sem duplicação lógica.
+
+O portal individual deve permitir organização por:
+
+- competição;
+- jogo;
+- fase;
+- ação;
+- categoria de feedback;
+- cronologia;
+- outros filtros futuros.
+
+**PENDENTE** — taxonomia completa das ações de atletas de linha.
+
+### 14.1 EXEMPLO CANONICO — ANALISE OFENSIVA DE ATLETA DE LINHA
+
+#### STATUS
+
+**MODELAGEM ATUAL** — esta seção foi extraída de um exemplo real fornecido por Davi. Ela formaliza dimensões efetivamente utilizadas no raciocínio do treinador, mas NÃO encerra a taxonomia completa de atletas de linha.
+
+#### CONFIGURACAO DO LANCE
+
+- Beatriz: lateral esquerda.
+- Marleide: pivô.
+- Bruna: central, exercendo o papel de especialista (goleira-linha).
+- Aline Kécia: lateral direita.
+
+#### SEQUENCIA FACTUAL
+
+1. Bruna passa para Kécia.
+2. Kécia fixa a defensora solta.
+3. Kécia devolve a bola para Bruna.
+4. A defensora solta desloca-se e posiciona-se em frente a Bruna, negando sua infiltração.
+5. A defensora de cobertura desloca-se para marcar Marleide no pivô.
+6. Quando Bruna recebe novamente, Beatriz e Kécia estão livres para receber.
+7. Bruna devolve a bola para Kécia.
+8. Kécia, no espaço da lateral direita, executa arremesso de giro em BD.
+9. A goleira atua caindo com as pernas abertas, fechando BD e BE, e realiza a defesa.
+
+#### AVALIACAO DO TREINADOR
+
+**DECIDIDO** — o resultado factual da ação e a avaliação técnico-tática do lance são dimensões independentes.
+Neste exemplo, o resultado factual da finalização é defesa da goleira e a avaliação de Davi é que o lance está correto.
+
+**DECIDIDO** — a decisão de uma atleta não deve ser avaliada isoladamente da sequência que a precede.
+Como a bola percorreu Kécia → Bruna → Kécia, o tempo de preparação de Kécia para o arremesso deve ser considerado na avaliação da decisão de Bruna.
+
+**DECIDIDO** — a análise de um ponto de decisão deve considerar alternativas realmente disponíveis naquele instante.
+No recebimento de Bruna, pelo menos duas alternativas foram identificadas no exemplo:
+
+- devolver para Kécia, livre na lateral direita;
+- realizar passe em aérea para Beatriz, livre na lateral esquerda.
+
+**DECIDIDO** — estar livre não é, por si só, suficiente para determinar a melhor opção. O estado de preparação da possível receptora/finalizadora também participa da decisão.
+
+**DECIDIDO** — o contexto dos lances anteriores pode participar do julgamento da decisão atual. Davi considera questões como quem vem convertendo as finalizações e quem vem desperdiçando oportunidades. Os indicadores exatos ainda precisam ser formalizados.
+
+#### INTENCAO TATICA E ESTRUTURA ANTERIOR
+
+**DECIDIDO** — deve-se distinguir a qualidade da decisão tomada dentro da estrutura existente da qualidade da estrutura criada para produzir a finalização desejada.
+
+Se a intenção for produzir o arremesso de Kécia, Davi orientaria Bruna a atacar vindo de Beatriz, proporcionando mais tempo para Kécia preparar a recepção e o arremesso.
+
+Se a intenção for produzir uma aérea para Beatriz, Davi orientaria Bruna a atacar vindo de Kécia e, no ponto de decisão, identificar se Beatriz está livre para receber a aérea.
+
+**MODELAGEM ATUAL** — o mesmo lance pode, portanto, gerar feedback individual para Bruna, feedback individual para a finalizadora e feedback coletivo sobre a estrutura ofensiva que antecedeu o ponto de decisão.
+
+### 14.2 PONTO_DE_DECISAO
+
+**MODELAGEM ATUAL** — além de MICRO_EVENTO, o sistema precisa representar pontos em que uma atleta escolhe entre alternativas taticamente disponíveis.
+
+*Campos candidatos extraídos deste exemplo:*
+
+- atleta decisora;
+- instante do ponto de decisão;
+- estado defensivo observado;
+- opções disponíveis;
+- estado de cada opção;
+- escolha realizada;
+- intenção tática associada, quando existir;
+- contexto sequencial dentro do lance;
+- contexto histórico recente do jogo, quando utilizado por Davi;
+- consequência imediata;
+- resultado factual;
+- avaliação técnico-tática;
+- alternativa preferível, quando houver;
+- feedback.
+
+A taxonomia e os valores desses campos permanecem PENDENTES até serem confirmados por novos exemplos e definições de Davi.
+
+### 14.3 CADEIA CAUSAL DO LANCE
+
+**MODELAGEM ATUAL** — a análise não deve guardar apenas etiquetas independentes. Deve permitir representar relações causais entre micro-eventos e mudanças de estado.
+
+*Cadeia causal observada neste exemplo:*
+Kécia fixa a defensora solta → a bola retorna para Bruna → a defensora solta assume Bruna e nega sua infiltração → a defensora de cobertura assume Marleide → Beatriz e Kécia tornam-se opções livres → Bruna escolhe Kécia → Kécia finaliza → a goleira responde e defende.
+
+**REQUISITO DERIVADO** — o sistema deve conseguir relacionar ação/evento → efeito produzido → novo estado → ponto de decisão → escolha → consequência, preservando a ordem temporal.
+
+### 14.4 DIMENSOES EXTRAIDAS DO EXEMPLO — NAO EXAUSTIVAS
+
+Este exemplo sustenta, como dimensões candidatas para a análise de atletas de linha:
+
+- atleta executora;
+- posição/função;
+- ação;
+- sequência temporal;
+- resposta defensiva;
+- espaço/opção criada;
+- ponto de decisão;
+- alternativas disponíveis;
+- estado/preparação das alternativas;
+- escolha realizada;
+- tipo de finalização;
+- resposta da goleira;
+- resultado factual;
+- avaliação técnico-tática;
+- contexto dos lances anteriores;
+- intenção tática;
+- alternativa estrutural;
+- feedback individual;
+- feedback coletivo.
+
+Essas dimensões são SUSTENTADAS POR ESTE EXEMPLO, mas NÃO constituem ainda a taxonomia canônica completa.
+
+**PENDENTE** — aprofundar, usando este mesmo lance:
+
+1. definição operacional de FIXACAO;
+2. definição operacional de atleta LIVRE;
+3. variáveis utilizadas para determinar se uma atleta está suficientemente PREPARADA para receber/finalizar.
+
+### 14.5 FIXACAO, LIVRE E PREPARACAO — DEFINICOES EM ELABORACAO
+
+**STATUS EVOLUTIVO** — FIXACAO com bola possui definição operacional parcial confirmada; LIVRE e PREPARACAO também estão parcialmente definidos. As lacunas remanescentes permanecem PENDENTES e não devem ser inferidas pelos agentes.
+
+#### 14.5.1 FIXACAO
+
+**Contexto canônico:** Kécia recebe de Bruna, fixa a defensora solta e devolve a bola para Bruna.
+
+**PARCIALMENTE DECIDIDO** — definição operacional de FIXACAO COM BOLA neste exemplo:
+Kécia recebe e representa uma ameaça. Existe fixação quando, ao responder à ameaça de Kécia, a defensora deixa de conseguir cobrir outra atacante e nega o espaço de infiltração de Kécia.
+
+**MODELAGEM ATUAL** — nesta situação, FIXACAO deve ser representada como uma relação causal entre a ameaça da atacante e a resposta funcional da defensora. Não basta registrar apenas que Kécia recebeu ou ameaçou; é necessário registrar a mudança produzida na capacidade defensiva.
+
+**PENDENTE** — ainda não está definido se a mesma regra se aplica à fixação sem bola nem quais outras respostas defensivas pertencem à taxonomia de FIXACAO
+
+#### 14.5.2 LIVRE / OPCAO DISPONIVEL
+
+**STATUS:**
+
+**DECIDIDO PARCIALMENTE** — no exemplo canônico, Beatriz e Kécia podem estar igualmente livres. As diferenças relevantes aparecem quando cada atacante se prepara para executar a ação seguinte, especialmente o arremesso.
+
+**DECIDIDO** — LIVRE e PREPARADA não são o mesmo estado. Uma atacante pode estar livre e, ainda assim, possuir vantagem temporal insuficiente para a execução pretendida.
+
+*Estados/qualificações explicitamente utilizados por Davi:*
+
+- livre para receber;
+- livre para finalizar;
+- livre para aérea;
+- livre, mas com vantagem temporal insuficiente.
+
+**DECIDIDO** — a qualificação de liberdade deve poder coexistir com uma avaliação separada da preparação para o arremesso. Portanto, o sistema não deve converter automaticamente “livre” em “pronta para finalizar”.
+
+No padrão de bola de continuidade descrito por Davi, a atacante final recebe a bola sem que exista uma defensora negando o seu espaço e pode executar arremesso de giro, aérea ou simples.
+
+**PENDENTE** — ainda falta formalizar o critério operacional geral que determina LIVRE fora dos casos já descritos, inclusive situações em que uma defensora consegue recuperar e intervir antes ou durante a ação seguinte.
+
+#### 14.5.3 PREPARACAO PARA RECEBER/FINALIZAR
+
+**STATUS:**
+
+**DECIDIDO PARCIALMENTE** — A preparação para giro, aérea e arremesso simples é avaliada em quatro dimensões: profundidade, apoios, orientação/campo visual e sincronia. Cada dimensão possui sinais de suficiência e falha. A regra global está definida abaixo; a generalização para outros contextos permanece PENDENTE.
+
+**DECIDIDO** — para Kécia estar preparada para um arremesso de giro, uma aérea ou um arremesso simples, a recuperação de posicionamento combina diretamente quatro dimensões: (1) profundidade/espaço de aceleração; (2) apoios e inversão de inércia; (3) orientação corporal e campo visual; e (4) sincronia da vantagem temporal.
+
+##### 1. RECUAR PARA RECRIAR ESPACO / PROFUNDIDADE
+
+Para fixar a defensora inicial, Kécia atacou a linha defensiva. Após passar a bola, ela precisa recuar imediatamente para recriar profundidade física suficiente para as passadas de aproximação e o salto dos arremessos de giro, aérea ou simples.
+
+**DECIDIDO** — se Kécia permanecer próxima à linha defensiva depois do passe, perde a profundidade necessária para criar a pista de aceleração da ação seguinte.
+
+**DECIDIDO** — existe relação temporal entre a devolução de Bruna e a recuperação de Kécia: quanto mais rapidamente Bruna devolver a bola, mais rapidamente Kécia precisa recuperar seu posicionamento.
+
+*SINAL DE SUFICIENCIA* — Kécia finaliza o recuo com profundidade que permita pelo menos duas passadas de aceleração progressiva antes do salto; como referência prática, normalmente cerca de 2 a 3 metros do ponto de contato com a defesa.
+
+*SINAL DE FALHA* — Kécia recebe quase na mesma profundidade em que estava antes do passe, sendo forçada a um salto predominantemente vertical, sem balanço horizontal.
+
+##### 2. ORIENTACAO CORPORAL E CAMPO VISUAL
+
+**DECIDIDO** — Kécia deve recuar sem dar as costas para o jogo. A orientação do tronco deve permitir manter simultaneamente no campo visual: Bruna e a bola, a movimentação da defensora que está trocando de marcação e a baliza.
+
+*SINAL DE SUFICIENCIA* — durante o recuo, quadril e ombros permanecem em ângulo de perfil/semifrontal que permite manter simultaneamente Bruna/a bola, a movimentação da defensora em transferência de marcação e o gol no campo visual periférico.
+
+*SINAL DE FALHA* — Kécia gira completamente os ombros para trás para correr mais rápido, perde a leitura da defesa e compromete o timing da soltura da bola por Bruna.
+
+##### 3. AJUSTE DINAMICO DOS APOIOS
+
+**DECIDIDO** — ao atingir a profundidade necessária, Kécia precisa frear o recuo e inverter a inércia, ajustando os apoios para voltar a atacar a bola no momento da devolução de Bruna.
+
+**DECIDIDO** — a recepção pretendida para a finalização deve ocorrer com Kécia já em deslocamento frontal, e não parada com os pés estáticos na areia.
+
+*SINAL DE SUFICIENCIA* — no exato frame em que Bruna solta o passe de devolução, Kécia já plantou os pés para frear o recuo, está com o peso do corpo inclinado para a frente e ataca a trajetória da bola.
+
+*SINAL DE FALHA* — Kécia recebe o passe ainda recuando, com o peso para trás, ou estática, com os pés pesados na areia, exigindo força excessiva do tronco para iniciar o giro do zero.
+
+##### 4. SINCRONIA DA VANTAGEM TEMPORAL
+
+**DECIDIDO** — a preparação depende da sincronização entre o reposicionamento de Kécia e o instante da devolução de Bruna.
+
+*SINAL DE SUFICIENCIA* — a bola chega no ponto exato em que Kécia atinge seu pico de aceleração em direção à área, transformando recepção e giro em um movimento único e fluido.
+
+*SINAL DE FALHA* — Kécia recua rápido demais e precisa esperar a bola parada, quebrando sua inércia, ou recua lentamente e a bola chega antes de seus apoios estarem ajustados para atacar o espaço.
+
+##### INICIO DA PREPARACAO
+
+**DECIDIDO** — a preparação começa antes ou no exato instante em que Kécia solta a bola para Bruna.
+
+**DECIDIDO NO MODELO CEPRAEA** — passe e reposicionamento são tratados como partes integradas da mesma ação futura, e não como duas ações independentes em sequência. A execução do passe já deve preparar biomecanicamente o recuo: transferência de peso e/ou torção do tronco na soltura podem iniciar o deslocamento para trás, e a continuação do gesto do braço após o passe integra o primeiro passo da recuperação de posicionamento.
+
+##### CONSEQUENCIA PARA A ANALISE
+
+O sistema não deve avaliar PREPARACAO apenas no instante da nova recepção. Deve conseguir relacionar uma janela temporal que começa antes ou no passe anterior e acompanha: soltura da bola → início do recuo → recuperação da profundidade → manutenção do campo visual → ajuste dos apoios/inversão da inércia → recepção em deslocamento frontal → ação de finalização.
+
+**DECIDIDO** — avaliar cada dimensão separadamente. Uma falha só torna a preparação global insuficiente quando compromete a execução da ação pretendida. Se houver falha sem comprometer a ação, registrar preparação suficiente com limitação.
+
+**REGRA PARA AGENTES:**
+
+Os fatores acima são DECIDIDOS para o modelo CEPRAEA. Agentes não devem substituí-los por critérios genéricos de biomecânica ou por convenções de outros esportes. Critérios ainda não definidos permanecem PENDENTES.
+
+### 14.6 PADROES OFENSIVOS DE CRIACAO DA ATACANTE LIVRE
+
+#### 14.6.1 BOLA DE QUEBRA
+
+**DECIDIDO** — ocorre quando a atacante fixa a defensora, passa a bola, recupera seu posicionamento e recebe novamente a bola. Nesse momento, a defensora que anteriormente estava à sua frente negando o espaço passa a marcar outra atacante.
+
+**DECIDIDO** — ao receber novamente, a atacante pode executar arremesso de giro, aérea ou simples, conforme a situação.
+
+*Cadeia operacional confirmada:*
+atacante fixa → passa → recupera o posicionamento → a relação defensiva se redistribui → a atacante recebe novamente livre → prepara/executa o arremesso.
+
+#### 14.6.2 BOLA DE CONTINUIDADE
+
+**DECIDIDO** — ocorre por uma cadeia de fixações e passes sucessivos. Uma atacante fixa sua defensora e passa para a atacante seguinte mais próxima; essa atacante também fixa sua defensora e dá continuidade à circulação para outra atacante. A sequência prossegue até deixar a próxima atacante livre para o arremesso.
+
+**DECIDIDO** — na bola de continuidade, a atacante que finaliza não necessita fixar uma defensora antes do arremesso: ela já recebe a bola sem uma defensora negando o seu espaço.
+
+**DECIDIDO** — a atacante livre pode executar arremesso de giro, aérea ou simples.
+
+**SÍNTESE DERIVADA** — a diferença estrutural observada entre os dois padrões é:
+
+- *bola de quebra:* a própria atacante que realizou a fixação volta a receber após passar e recuperar o posicionamento;
+- *bola de continuidade:* a vantagem é transportada por fixações e passes sucessivos até uma atacante posterior receber livre, sem precisar realizar nova fixação antes do arremesso.
+
+**REGRA PARA AGENTES:**
+
+FIXACAO com bola e os padrões BOLA DE QUEBRA e BOLA DE CONTINUIDADE acima são regras esportivas confirmadas por Davi nesta versão. LIVRE e PREPARACAO estão parcialmente definidos: preservar as distinções e não inventar critérios de recuperação defensiva, limiares temporais, gradações ou variáveis adicionais ainda não fornecidas por Davi.
+
+***
+
+## 15. ANALISE ESPECIFICA DE GOLEIRAS
+
+**DECIDIDO** — goleiras precisam de conteúdo e análise próprios.
+
+O sistema não deve obrigar a análise de goleiras a usar exatamente o mesmo formulário das atletas de linha.
+
+**MODELAGEM ATUAL:**
+
+Uma ação de goleira pode ser relacionada à finalização adversária e à situação que a originou.
+
+*Dimensões possíveis a serem validadas por Davi:*
+
+- goleira;
+- atacante/finalizadora adversária;
+- origem da finalização;
+- tipo da finalização;
+- posicionamento inicial;
+- deslocamento;
+- leitura;
+- ação da goleira;
+- resultado;
+- transição ou reposição subsequente;
+- shoot-out;
+- comentário técnico;
+- câmera preferencial.
+
+**PENDENTE** — Davi deve definir quais dessas dimensões realmente pertencem à taxonomia canônica de goleiras e quais valores cada uma aceita.
+
+**REQUISITO:**
+
+O sistema deve permitir que uma câmera atrás do gol, quando disponível, seja associada ao mesmo lance da transmissão geral, oferecendo múltiplas perspectivas do mesmo acontecimento.
+
+***
+
+## 16. ANALISE COLETIVA
+
+**DECIDIDO** — o sistema deve permitir análises de equipe, não apenas individuais.
+
+Um lance pode ser simultaneamente:
+
+- conteúdo individual de uma atleta;
+- conteúdo individual de outra atleta;
+- conteúdo específico de goleira;
+- conteúdo coletivo.
+
+A análise coletiva deve poder ser organizada por situações do jogo e por categorias definidas por Davi.
+
+**PENDENTE** — taxonomia coletiva definitiva.
+
+***
+
+## 17. CLIPES VIRTUAIS E CLIPES FISICOS
+
+**MODELAGEM ATUAL:**
+
+Existem dois conceitos diferentes.
+
+### CLIP VIRTUAL
+
+É a referência: fonte de vídeo + tempo inicial + tempo final.
+Não exige criar imediatamente um novo arquivo.
+
+### CLIP FISICO
+
+É um arquivo derivado materializado a partir de uma fonte, por exemplo MP4, usado para exportação, edição ou publicação.
+
+**REQUISITO:**
+
+O sistema não deve exigir a criação de um arquivo físico novo para cada classificação do mesmo lance.
+
+**REQUISITO:**
+
+Alterar uma classificação, comentário ou coleção não deve obrigar novo corte do vídeo original, exceto quando os limites temporais do próprio lance forem alterados.
+
+***
+
+## 18. NOMES DE ARQUIVOS E CRONOLOGIA
+
+**DECIDIDO** — nomes de arquivos exportados devem permitir identificar o conteúdo sem assistir.
+**DECIDIDO** — a data deve participar da organização cronológica.
+
+**MODELAGEM ATUAL:**
+
+O nome de exportação pode ser gerado a partir de metadados.
+
+*Formato candidato:*
+`AAAA-MM-DD_COMPETICAO_JOGO_ATLETA_ACAO_LANCE.ext`
+
+*Exemplo abstrato:*
+`AAAA-MM-DD_DESAFIO_CEPRAEA-ADVERSARIO_ATLETA_Assistencia_L037.mp4`
+
+**PENDENTE** — padrão final de nomenclatura.
+
+**REQUISITO:**
+
+O identificador interno do lance não deve depender do nome amigável do arquivo.
+
+***
+
+## 19. PASTAS E EXPORTACOES
+
+O sistema pode produzir árvores de pastas para uso humano.
+
+*Exemplos de visões de exportação:*
+
+- por atleta;
+- por competição;
+- por jogo;
+- por ação;
+- por fase;
+- por goleira;
+- por análise coletiva.
+
+**MODELAGEM ATUAL:**
+
+Essas árvores são representações derivadas do catálogo. O sistema não deve depender de uma única árvore física para representar relações múltiplas.
+
+***
+
+## 20. COMENTARIOS, LEGENDAS E ELEMENTOS VISUAIS
+
+**DECIDIDO** — o material final pode incluir comentários, explicações, legendas e animações ou elementos visuais.
+
+**MODELAGEM ATUAL:**
+
+Essas anotações devem ser armazenadas primeiro como dados editáveis, associados a tempos do lance, e não apenas “queimadas” permanentemente em uma versão do vídeo.
+
+*Uma anotação pode possuir:*
+
+- texto;
+- início;
+- fim;
+- tipo;
+- posição;
+- referência visual;
+- observação do treinador.
+
+A partir desses dados, o sistema pode gerar uma versão renderizada.
+
+**REQUISITO:**
+
+Mudar um comentário não deve destruir nem alterar o vídeo original.
+
+***
+
+## 21. PORTAL DAS ATLETAS
+
+**DECIDIDO** — deve existir um site/portal para acesso das atletas.
+
+### Objetivo
+
+permitir sessões individuais assíncronas de análise e consulta ao histórico.
+
+### Capacidades mínimas pretendidas
+
+- autenticar ou identificar a atleta de forma adequada;
+- mostrar apenas conteúdos autorizados;
+- reproduzir vídeo;
+- pausar;
+- avançar;
+- voltar;
+- rever o lance;
+- apresentar comentário do treinador;
+- apresentar legenda ou orientação de observação;
+- navegar por competição, jogo e categorias;
+- visualizar histórico cronológico.
+
+Para goleiras, o portal deve admitir categorias próprias de análise.
+
+Para conteúdos coletivos, deve existir uma área da equipe separada das coleções individuais.
+
+**PENDENTE** — regras de autenticação, autorização, privacidade e publicação.
+
+***
+
+## 22. PAPEL DA INTELIGENCIA ARTIFICIAL
+
+### PRINCIPIO
+
+A IA não deve ser autoridade esportiva.
+
+### FASE INICIAL
+
+Davi classifica ou valida:
+
+- fase;
+- atletas;
+- ações;
+- resultados;
+- comentários;
+- categorias.
+
+### FASES POSTERIORES
+
+A IA poderá sugerir classificações com base em exemplos anteriores.
+
+*Modelo desejado:*
+IA propõe → Davi confirma, corrige ou rejeita.
+
+*Possibilidades futuras:*
+
+- sugerir fase do jogo;
+- sugerir atleta;
+- sugerir tipo de ação;
+- estruturar narração falada;
+- resumir padrões;
+- preparar feedback textual;
+- localizar lances semelhantes;
+- apoiar busca semântica no acervo.
+
+**REQUISITO:**
+
+Sugestões de IA devem permanecer distinguíveis de classificações confirmadas pelo treinador.
+
+***
+
+## 23. NARRACAO DO TREINADOR
+
+### PROPOSTA FUNCIONAL
+
+O sistema pode permitir que Davi narre uma observação enquanto assiste.
+
+*Exemplo abstrato:*
+“atleta X recebe, atleta Y assiste, finalização”.
+
+Uma camada de transcrição pode transformar a fala em proposta de registro.
+
+**PENDENTE** — tecnologia de transcrição e grau de automação.
+
+***
+
+## 24. ARQUITETURA TECNICA — ESTADO ATUAL
+
+Nenhuma tecnologia abaixo deve ser tratada como definitivamente escolhida apenas por constar nesta seção.
+
+### PROPOSTA TÉCNICA PARA ESTACAO DO TREINADOR
+
+- aplicação local ou interface web local;
+- Python para orquestração;
+- FFmpeg para processamento de vídeo;
+- SQLite como catálogo local inicial.
+
+### PROPOSTA TÉCNICA PARA PORTAL
+
+- aplicação web;
+- React/Vite como candidato;
+- banco remoto e autenticação a definir;
+- armazenamento remoto apenas para conteúdos que precisem ser publicados.
+
+### PROPOSTA TÉCNICA PARA PUBLICACAO
+
+- manter acervo bruto completo localmente;
+- publicar somente derivados necessários;
+- utilizar armazenamento de objetos remoto quando necessário.
+
+### PENDENTE
+
+- decisão final sobre stack;
+- estratégia de backup;
+- localização do acervo mestre;
+- mecanismo de sincronização entre estação local e portal;
+- autenticação das atletas;
+- regras de autorização;
+- política de retenção.
+
+***
+
+## 25. REQUISITOS FUNCIONAIS
+
+| ID | Descrição |
+| :---: | --- |
+| **RF-001** | cadastrar competição. |
+| **RF-002** | cadastrar jogo. |
+| **RF-003** | associar múltiplas fontes de vídeo ao mesmo jogo. |
+| **RF-004** | aceitar URL de vídeo quando aplicável. |
+| **RF-005** | aceitar arquivo de vídeo local. |
+| **RF-006** | registrar perspectiva de câmera. |
+| **RF-007** | reproduzir uma fonte para análise. |
+| **RF-008** | marcar início de lance capturando automaticamente o tempo atual. |
+| **RF-009** | marcar fim de lance capturando automaticamente o tempo atual. |
+| **RF-010** | registrar equipe com posse quando aplicável. |
+| **RF-011** | registrar equipe de referência da análise. |
+| **RF-012** | registrar um ou mais segmentos de fase por equipe analisada dentro do mesmo lance. |
+| **RF-013** | permitir corrigir limites temporais. |
+| **RF-014** | associar o mesmo lance a múltiplas fontes. |
+| **RF-015** | sincronizar fontes por um ponto comum manual. |
+| **RF-016** | associar uma ou mais atletas ao lance. |
+| **RF-017** | associar uma ou mais ações por atleta. |
+| **RF-018** | registrar resultado de ação. |
+| **RF-019** | registrar comentário do treinador. |
+| **RF-020** | classificar lance para análise individual. |
+| **RF-021** | classificar lance para análise de goleira. |
+| **RF-022** | classificar lance para análise coletiva. |
+| **RF-023** | criar coleções por filtros. |
+| **RF-024** | reproduzir clip virtual. |
+| **RF-025** | gerar clip físico quando necessário. |
+| **RF-026** | gerar nome de arquivo a partir de metadados. |
+| **RF-027** | exportar conteúdo organizado cronologicamente. |
+| **RF-028** | adicionar legenda/anotação temporal. |
+| **RF-029** | gerar versão renderizada com feedback. |
+| **RF-030** | preservar original sem alteração. |
+| **RF-031** | permitir alterar classificação sem recortar o original. |
+| **RF-032** | manter histórico de atleta entre jogos e competições. |
+| **RF-033** | disponibilizar conteúdos selecionados no portal. |
+| **RF-034** | permitir à atleta pausar, avançar, voltar e rever. |
+| **RF-035** | disponibilizar comentário e orientação do treinador. |
+| **RF-036** | separar área individual e área coletiva. |
+| **RF-037** | admitir taxonomia específica de goleiras. |
+| **RF-038** | permitir selecionar câmera preferencial para análise ou publicação. |
+| **RF-039** | manter origem e rastreabilidade do clipe até a fonte. |
+| **RF-040** | distinguir classificação confirmada de sugestão de IA. |
+| **RF-041** | registrar micro-eventos sequenciais dentro do lance. |
+| **RF-042** | permitir associar estados momentâneos de Ameaça aos micro-eventos quando aplicável. |
+| **RF-043** | registrar PONTO_DE_DECISAO associado à sequência de micro-eventos, permitindo identificar atleta decisora, alternativas disponíveis e escolha realizada. |
+| **RF-044** | manter RESULTADO FACTUAL separado da AVALIACAO TECNICO-TATICA do treinador. |
+| **RF-045** | permitir associar ao ponto de decisão o contexto sequencial do lance e, quando utilizado por Davi, o contexto histórico recente do jogo. |
+| **RF-046** | permitir representar relações causais entre ação/evento, efeito produzido, novo estado, ponto de decisão, escolha e consequência. |
+| **RF-047** | permitir distinguir a decisão tomada dentro da estrutura existente da intenção/estrutura tática criada para produzir uma solução desejada. |
+| **RF-048** | registrar o estado LIVRE/opção disponível separadamente do estado de PREPARACAO para a ação seguinte. |
+| **RF-049** | permitir classificar a cadeia ofensiva como BOLA DE QUEBRA ou BOLA DE CONTINUIDADE quando identificada por Davi, preservando a sequência causal de fixações, passes, reposicionamentos e criação da atacante livre. |
+| **RF-050** | permitir registrar vantagem temporal suficiente ou insuficiente para a execução pretendida sem descaracterizar automaticamente a atacante como livre para receber. |
+| **RF-051** | permitir registrar a janela de PREPARACAO da finalizadora desde antes ou no instante do passe anterior, incluindo recuperação de profundidade, orientação/campo visual, ajuste dinâmico dos apoios e recepção em deslocamento frontal. |
+| **RF-052** | avaliar separadamente as quatro dimensões da PREPARACAO e registrar sinais de suficiência ou falha. Uma falha só torna a preparação global insuficiente quando compromete a execução da ação pretendida; caso contrário, registrar preparação suficiente com limitação. |
+
+***
+
+## 26. REQUISITOS NAO FUNCIONAIS
+
+| ID | Descrição |
+| --- | --- |
+| **RNF-001** | minimizar trabalho manual repetitivo. |
+| **RNF-002** | preservar rastreabilidade entre derivado e vídeo original. |
+| **RNF-003** | não exigir duplicação física do mesmo lance para representá-lo em várias categorias. |
+| **RNF-004** | permitir evolução da taxonomia sem perda do acervo já classificado. |
+| **RNF-005** | manter o original imutável. |
+| **RNF-006** | permitir operação inicial sem depender de API paga de inferência. |
+| **RNF-007** | ser compreensível e operável por um treinador sem conhecimento de programação. |
+| **RNF-008** | permitir recuperação de lances por nomes e metadados sem assistir ao acervo inteiro. |
+| **RNF-009** | preservar cronologia. |
+| **RNF-010** | permitir crescimento do acervo para múltiplas temporadas e competições. |
+| **RNF-011** | não depender exclusivamente da disponibilidade de vídeos no YouTube. |
+| **RNF-012** | não depender exclusivamente de conexão contínua para organizar o acervo local. |
+| **RNF-013** | manter dados esportivos e arquivos derivados consistentes. |
+| **RNF-014** | evitar que automação destrutiva sobrescreva originais. |
+| **RNF-015** | permitir auditoria de qual classificação foi confirmada pelo treinador. |
+
+***
+
+## 27. FLUXO PONTA A PONTA E ORDEM DE IMPLEMENTACAO
+
+### 27.1 GATE DE MODELAGEM MINIMA
+
+**MODELAGEM ATUAL** — a primeira implementação não deve partir de taxonomias esportivas inventadas. Antes de programar cada fluxo, deve existir modelagem mínima suficiente para representar corretamente aquilo que Davi observa e classifica.
+
+O objetivo dessa etapa é evitar que banco de dados e interface congelem premissas esportivas erradas. Ela NÃO exige encerrar toda a taxonomia de handebol de praia antes da implementação.
+
+Critério para avançar à implementação: os conceitos necessários ao fluxo imediato estão definidos o suficiente para serem registrados sem distorcer o julgamento de Davi; as lacunas restantes podem continuar como PENDENTE e a estrutura deve permitir sua evolução.
+
+### 27.2 MODELAGEM E VALIDACAO ITERATIVAS
+
+**MODELAGEM ATUAL** — taxonomias detalhadas devem ser extraídas preferencialmente de lances reais e do modo como Davi efetivamente analisa, e não de formulários abstratos ou convenções genéricas.
+
+*Ciclo de trabalho:*
+modelo mínimo → implementar fluxo → usar em vídeos/lances reais → observar lacunas → Davi confirma/corrige → atualizar taxonomia e especificação → evoluir implementação.
+
+**REGRA DE ESCOPO** — não adiar o primeiro fluxo funcional aguardando uma taxonomia exaustiva. Quando a modelagem já for suficiente para representar corretamente vídeo, lance, fase, atleta/participação, ação e análise, a prioridade passa a ser implementar e validar com material real.
+
+### 27.3 PRIMEIRO FLUXO FUNCIONAL
+
+**MARCO INICIAL** — o primeiro fluxo funcional a implementar e validar é:
+
+ABRIR VÍDEO → MARCAR LANCE → CAPTURAR TEMPOS AUTOMATICAMENTE → CLASSIFICAR POSSE/FASE → SALVAR → REVER LANCES → CLASSIFICAR AÇÕES/ATLETAS → FILTRAR POR ATLETA → GERAR UMA COLEÇÃO.
+
+**ORDEM DE EVOLUCAO** — somente depois de esse fluxo funcionar de ponta a ponta devem ser acrescentados, de forma incremental: geração de clipes físicos quando necessária; material de feedback renderizado; publicação no portal; e, em etapa posterior, sugestões de classificação por IA. O mecanismo concreto de geração/renderização continua sujeito às decisões técnicas desta especificação.
+
+A sequência abaixo descreve o fluxo completo do produto, não um requisito para que todo o escopo seja implementado de uma vez.
+
+#### Fase A — Preparar
+
+1. cadastrar competição;
+2. cadastrar jogo;
+3. importar ou referenciar uma fonte de vídeo;
+4. informar perspectiva;
+5. associar fontes adicionais quando existirem;
+6. sincronizar manualmente quando necessário.
+
+#### Fase B — Segmentar
+
+1. assistir;
+2. marcar início;
+3. marcar fim;
+4. informar posse/equipe de referência/fase;
+5. salvar;
+6. repetir.
+
+#### Fase C — Analisar
+
+1. abrir um lance;
+2. rever;
+3. alternar câmera;
+4. associar atletas;
+5. associar ações e resultados;
+6. adicionar comentário;
+7. marcar destino individual, goleira e/ou coletivo;
+8. salvar.
+
+#### Fase D — Organizar
+
+1. filtrar por atleta, ação, fase, competição ou situação;
+2. criar coleção;
+3. ordenar cronologicamente;
+4. revisar seleção.
+
+#### Fase E — Produzir
+
+1. usar clip virtual quando suficiente;
+2. gerar MP4 apenas quando necessário;
+3. aplicar comentários/legendas/anotações;
+4. gerar versão final;
+5. manter rastreabilidade.
+
+#### Fase F — Publicar
+
+1. selecionar material;
+2. publicar no portal;
+3. conceder acesso à atleta ou equipe;
+4. atleta assiste e revisa.
+
+***
+
+## 28. CRITERIOS DE ACEITACAO DOS FLUXOS
+
+### MARCO DE ACEITACAO DO PRIMEIRO FLUXO
+
+O primeiro fluxo funcional está aceito quando Davi consegue abrir uma fonte de vídeo, segmentar lances capturando os tempos, registrar posse/fase, rever os lances, associar atletas e ações, filtrar por atleta e gerar uma coleção, sem depender de clipe físico, portal ou classificação automática por IA.
+
+Os critérios abaixo validam capacidades do fluxo inicial e de suas evoluções posteriores.
+
+- **CA-001**
+Dado um jogo com um vídeo local, Davi consegue abrir o vídeo, marcar início e fim de um lance sem digitar timestamps e salvar o lance.
+
+- **CA-002**
+Dado um jogo com uma URL suportada, Davi consegue registrar a fonte e criar referências temporais de lances sem que o modelo de dados dependa do YouTube.
+
+- **CA-003**
+Dado um lance, Davi consegue associá-lo a duas atletas com ações diferentes sem criar dois lances.
+
+- **CA-004**
+Dado um lance filmado por duas câmeras, o sistema consegue manter uma única identidade de lance e duas referências temporais.
+
+- **CA-005**
+Dado um lance já classificado, alterar a ação de uma atleta não exige recortar novamente o vídeo original.
+
+- **CA-006**
+Dada uma atleta, o sistema consegue listar seus lances em ordem cronológica com competição, jogo, ação e comentário.
+
+- **CA-007**
+Dada uma goleira, o sistema permite registrar informações específicas de goleira sem forçar todas as categorias das atletas de linha.
+
+- **CA-008**
+Dado um lance pertencente à análise individual e coletiva, o sistema o apresenta nas duas coleções sem perder a referência canônica.
+
+- **CA-009**
+Dado um clip selecionado, o sistema consegue gerar uma saída com nome identificável derivado dos metadados.
+
+- **CA-010**
+Dado um comentário alterado, uma nova versão de feedback pode ser produzida preservando o original.
+
+- **CA-011**
+Dado conteúdo publicado, a atleta consegue pausar, avançar, voltar e rever o vídeo com o comentário associado.
+
+- **CA-012**
+Dado qualquer clip físico ou material renderizado, deve ser possível rastrear sua origem até o jogo, fonte e lance.
+
+***
+
+## 29. FORA DO ESCOPO INICIAL
+
+Não bloquear a primeira versão por:
+
+- visão computacional completa;
+- rastreamento automático de atletas;
+- reconhecimento frame a frame;
+- classificação esportiva totalmente automática;
+- sincronização multicâmera avançada;
+- modelos próprios de machine learning;
+- previsão de resultado;
+- edição cinematográfica complexa;
+- automações que tomem decisões técnicas no lugar do treinador.
+
+Essas capacidades podem ser estudadas depois que existir um dataset confiável produzido pelas classificações do próprio treinador.
+
+***
+
+## 30. TAXONOMIAS — ESTADO DE MATURIDADE
+
+As taxonomias abaixo possuem estados diferentes de maturidade: algumas estão DECIDIDAS, outras DECIDIDAS PARCIALMENTE e outras permanecem PENDENTES.
+
+**REGRA DE IMPLEMENTACAO** — não é necessário concluir todas as taxonomias antes do primeiro fluxo funcional. Apenas lacunas que impeçam representar corretamente o fluxo em implementação devem bloquear esse incremento.
+
+Antes de congelar estruturas rígidas do banco de dados ou da interface, as partes ainda PENDENTES devem permanecer extensíveis e não podem ser inventadas pelos agentes.
+
+| ID | Descrição |
+| --- | --- |
+| **TAX-001** | definição operacional de posse/lance — DECIDIDO nesta versão. |
+| **TAX-002** | definição operacional de cada fase do jogo. |
+| **TAX-003** | relação entre posse e fase — DECIDIDO: fases são independentes por equipe analisada e um lance pode conter múltiplas fases. |
+| **TAX-004** | ações de atletas de linha. |
+| **TAX-005** | resultados possíveis de cada ação. |
+| **TAX-006** | categorias de erro. |
+| **TAX-007** | taxonomia de assistência. |
+| **TAX-008** | taxonomia de finalização/arremesso. |
+| **TAX-009** | taxonomia de recuperação defensiva. |
+| **TAX-010** | análise específica de goleiras. |
+| **TAX-011** | categorias de análise coletiva. |
+| **TAX-012** | categorias de feedback. |
+| **TAX-013** | perspectivas de câmera. |
+| **TAX-014** | nomenclatura final de arquivos e coleções. |
+| **TAX-015** | FIXACAO com bola — DECIDIDO PARCIALMENTE: a ameaça da atacante provoca resposta defensiva que nega seu espaço de infiltração e retira da defensora a capacidade de cobrir outra atacante. Fixação sem bola permanece PENDENTE. |
+| **TAX-016** | LIVRE/opção disponível — DECIDIDO PARCIALMENTE: liberdade para receber é distinta da preparação para finalizar; qualificações confirmadas incluem livre para receber, livre para finalizar, livre para aérea e livre com vantagem temporal insuficiente. O critério operacional geral de recuperação/intervenção defensiva permanece PENDENTE. |
+| **TAX-017** | PREPARACAO — DECIDIDO PARCIALMENTE: possui quatro dimensões observáveis — profundidade, apoios, orientação/campo visual e sincronia — avaliadas separadamente. Uma falha só torna a preparação global insuficiente quando compromete a ação pretendida; caso contrário, a preparação é suficiente com limitação. Na bola de quebra, a preparação começa antes ou no instante do passe anterior. A generalização para outros contextos permanece PENDENTE. |
+| **TAX-018** | padrões ofensivos BOLA DE QUEBRA e BOLA DE CONTINUIDADE — DECIDIDO nesta versão conforme definições da seção 14.6. |
+
+Os agentes devem modelar extensibilidade para essas taxonomias, mas não inventar seus valores.
+
+***
+
+## 31. QUESTOES TECNICAS AINDA PENDENTES
+
+| ID | Descrição |
+| --- | --- |
+| **TEC-001** | stack definitiva da estação de análise. |
+| **TEC-002** | stack definitiva do portal. |
+| **TEC-003** | banco local definitivo. |
+| **TEC-004** | banco remoto definitivo. |
+| **TEC-005** | estratégia de armazenamento. |
+| **TEC-006** | estratégia de backup. |
+| **TEC-007** | mecanismo de sincronização local/remoto. |
+| **TEC-008** | autenticação das atletas. |
+| **TEC-009** | autorização e privacidade. |
+| **TEC-010** | mecanismo de transcrição. |
+| **TEC-011** | tecnologia de renderização de anotações. |
+| **TEC-012** | tratamento operacional de fontes do YouTube. |
+| **TEC-013** | política para arquivos grandes. |
+| **TEC-014** | importação em lote do acervo histórico. |
+
+***
+
+## 32. INSTRUCOES OBRIGATORIAS PARA AGENTES DE IA E IDE
+
+Ao receber este documento como contexto, o agente deve:
+
+1. tratar este documento como a especificação canônica atual do projeto;
+2. preservar a distinção entre DECIDIDO, MODELAGEM ATUAL, PROPOSTA TÉCNICA e PENDENTE;
+3. não inventar taxonomia esportiva;
+4. não substituir o julgamento de Davi por convenções de handebol indoor ou de outros esportes;
+5. não assumir que todo vídeo está no YouTube;
+6. não assumir que existe apenas uma câmera por jogo;
+7. não assumir que atleta de linha e goleira usam a mesma taxonomia;
+8. não usar árvore de pastas como única estrutura de dados;
+9. preservar a identidade canônica do lance;
+10. preservar originais;
+11. manter rastreabilidade;
+12. preferir automação de tarefas repetitivas sem automatizar decisões esportivas não definidas;
+13. apresentar qualquer nova decisão técnica relevante como proposta quando ainda não tiver sido aprovada;
+14. identificar explicitamente dependências e lacunas que impeçam implementação correta;
+15. implementar apenas o menor incremento que preserve o modelo e os requisitos;
+16. validar comportamento com critérios de aceitação observáveis;
+17. nunca declarar funcionalidade concluída sem teste ou evidência correspondente;
+18. atualizar este documento quando uma decisão relevante for tomada;
+19. não exigir taxonomia esportiva exaustiva como condição para iniciar um incremento quando o modelo mínimo daquele fluxo já estiver definido;
+20. manter taxonomias e estruturas extensíveis para que novas classificações possam ser incorporadas sem reestruturar o acervo ou recortar novamente os vídeos;
+21. validar e refinar taxonomias detalhadas com lances reais e exemplos confirmados por Davi, em vez de preencher lacunas com categorias genéricas.
+
+***
+
+## 33. REGRA DE EVOLUCAO DO DOCUMENTO
+
+Toda alteração relevante deve indicar o que mudou de estado.
+
+*Exemplos:*
+
+- PENDENTE → DECIDIDO
+- PROPOSTA TÉCNICA → DECIDIDO
+- MODELAGEM ATUAL → SUBSTITUIDA
+
+Quando uma premissa importante mudar, os agentes devem revisar os requisitos e o modelo afetados, em vez de adicionar remendos que mantenham uma premissa inválida.
+
+***
+
+## 34. DEFINICAO DE SUCESSO DO PROJETO
+
+O projeto terá cumprido seu objetivo quando Davi puder:
+
+1. pegar qualquer jogo do acervo, independentemente de vir do YouTube ou de arquivo local;
+2. segmentá-lo em lances rapidamente;
+3. classificar os lances segundo seu modelo de handebol de praia;
+4. relacionar o mesmo lance a diferentes atletas, ações, goleiras e análises coletivas;
+5. recuperar qualquer conjunto de situações sem procurar manualmente em vídeos longos;
+6. gerar materiais de feedback sem reorganizar arquivos manualmente;
+7. acompanhar a evolução cronológica das atletas;
+8. disponibilizar sessões audiovisuais individuais e coletivas em um portal;
+9. ampliar progressivamente a automação e a IA sem perder a autoridade esportiva nem a rastreabilidade do acervo.
+
+***
+FIM DA ESPECIFICAÇÃO CANÔNICA v0.1

@@ -1,0 +1,251 @@
+# AGENTE CODEX
+
+>A verificação confirma: a arquitetura híbrida completa ainda não está implementada. O repositório possui um esqueleto documental federado e um fluxo de entrega baseado em incrementos, mas não possui uma arquitetura formal de registro e propagação de decisões.
+
+Não registrei nenhuma decisão nesta etapa.
+
+## 1. Arquitetura existente
+
+Há duas arquiteturas distintas.
+
+### Arquitetura de execução
+
+A arquitetura vigente é um monólito modular local-first:
+
+- React + TypeScript + Vite;
+- Python + FastAPI;
+- SQLite;
+- arquivos de mídia locais;
+- comunicação HTTP/JSON local;
+- nenhuma dependência cloud no primeiro fluxo;
+- portal e IA adiados.
+
+Ela está `APROVADA COM RISCOS` somente para orientar o INC-002, não como stack definitiva. Isso está registrado na [ADR-001](/home/davis/analise-video/docs/architecture/ADR-001.md:3).
+
+Existe uma divergência relevante: [CLAUDE.md](/home/davis/analise-video/CLAUDE.md:8) ainda apresenta a ADR como `PROPOSTA A VALIDAR`. Portanto, Claude Code pode receber um estado arquitetural diferente do estado real.
+
+### Arquitetura documental atual
+
+O repositório já emprega uma federação documental parcial:
+
+```text
+AGENTS.md — roteamento e invariantes
+    ├── SYSTEM_SPEC.md — produto
+    ├── GAME_MODEL.md — domínio esportivo
+    ├── architecture/ADR-*.md — arquitetura
+    ├── IMPLEMENTATION_PLAN.md — ordem de entrega
+    ├── TRACEABILITY.md — requisito → incremento → evidência
+    └── IMPLEMENTATION_STATUS.md — estado comprovado
+```
+
+Esse roteamento está formalizado em [AGENTS.md](/home/davis/analise-video/AGENTS.md:3).
+
+É uma boa base, mas ainda faltam todos os componentes formais da arquitetura de decisões:
+
+- `DECISION_LOG.md`;
+- `AUTHORITY.md`;
+- `SOURCE_REGISTRY.yaml`;
+- `ID_POLICY.md`;
+- `STATES.md`;
+- proveniência por afirmação;
+- relações `supersedes`;
+- matriz formal de conflitos;
+- rastreabilidade legível por máquina;
+- pacotes de contexto por incremento;
+- validação automática.
+
+A arquitetura híbrida está somente proposta em [arquitetura-hibrida.md](/home/davis/analise-video/.local/arquitetura-hibrida.md:7). Como `.local/` é ignorado pelo Git, ela não possui autoridade operacional.
+
+## 2. Situação das decisões conhecidas
+
+As 13 decisões podem ser registradas sem nova deliberação. Porém, o nível atual de documentação não é o mesmo para todas.
+
+| Decisões | Situação atual |
+| --- | --- |
+| Davi é autoridade esportiva | Declarada em [AGENTS.md](/home/davis/analise-video/AGENTS.md:18), mas sem registro de origem da decisão |
+| `LANCE` é canônico; vídeo é fonte | Declarada em [AGENTS.md](/home/davis/analise-video/AGENTS.md:19) e [SYSTEM_SPEC.md](/home/davis/analise-video/docs/SYSTEM_SPEC.md:19) |
+| Original é imutável | Declarada em [AGENTS.md](/home/davis/analise-video/AGENTS.md:20) e [SYSTEM_SPEC.md](/home/davis/analise-video/docs/SYSTEM_SPEC.md:20) |
+| Fatos e interpretação separados | Declarada em [AGENTS.md](/home/davis/analise-video/AGENTS.md:21) e [SYSTEM_SPEC.md](/home/davis/analise-video/docs/SYSTEM_SPEC.md:24) |
+| Múltiplas atletas, ações, fontes e coleções | Declarada em [AGENTS.md](/home/davis/analise-video/AGENTS.md:22) e [SYSTEM_SPEC.md](/home/davis/analise-video/docs/SYSTEM_SPEC.md:22) |
+| Fases independentes | Declarada em [AGENTS.md](/home/davis/analise-video/AGENTS.md:23) e detalhada em [GAME_MODEL.md](/home/davis/analise-video/docs/GAME_MODEL.md:24) |
+| Taxonomias abertas e extensíveis | Declarada em [AGENTS.md](/home/davis/analise-video/AGENTS.md:24) e [SYSTEM_SPEC.md](/home/davis/analise-video/docs/SYSTEM_SPEC.md:25) |
+| T3 exige instalação e ausência de vantagem herdada predominante | Declarada em [GAME_MODEL.md](/home/davis/analise-video/docs/GAME_MODEL.md:34) |
+| Código sem evidência não é `VERIFIED` | Declarada em [AGENTS.md](/home/davis/analise-video/AGENTS.md:25), [TRACEABILITY.md](/home/davis/analise-video/docs/TRACEABILITY.md:64) e [IMPLEMENTATION_STATUS.md](/home/davis/analise-video/docs/IMPLEMENTATION_STATUS.md:83) |
+| NotebookLM não é autoridade | Somente no plano local, em [arquitetura-hibrida.md](/home/davis/analise-video/.local/arquitetura-hibrida.md:918) |
+| Drafts não são SSOT | Somente no plano local, em [arquitetura-hibrida.md](/home/davis/analise-video/.local/arquitetura-hibrida.md:924) |
+| Referências de proveniência não são apagadas | Somente como política proposta em [arquitetura-hibrida.md](/home/davis/analise-video/.local/arquitetura-hibrida.md:27) |
+
+Conclusão:
+
+- 10 decisões já estão expressas em documentos canônicos, mas ainda precisam de proveniência por decisão;
+- 3 decisões são conhecidas por manifestação de Davi e constam no plano local, mas ainda não estão na documentação canônica;
+- nenhuma precisa ser rediscutida, salvo se Davi quiser corrigi-la;
+- todas precisam de registro durável com autoridade, data, origem e impacto.
+
+## 3. Fluxo atual das decisões
+
+Hoje o fluxo é implícito e manual:
+
+```text
+necessidade ou dúvida
+    ↓
+AGENTS.md indica o documento responsável
+    ↓
+decisão é inserida diretamente em:
+    ├── SYSTEM_SPEC.md
+    ├── GAME_MODEL.md
+    └── ADR-*.md
+    ↓
+IMPLEMENTATION_PLAN.md associa a um incremento
+    ↓
+código e testes são produzidos
+    ↓
+TRACEABILITY.md liga requisito e evidência
+    ↓
+IMPLEMENTATION_STATUS.md registra o estado comprovado
+```
+
+Esse fluxo funciona para entrega incremental, mas não preserva adequadamente o momento da decisão.
+
+Ficam sem representação formal:
+
+- qual pergunta originou a decisão;
+- quem decidiu;
+- quando decidiu;
+- quais alternativas foram rejeitadas;
+- qual fonte sustentou a decisão;
+- quais IDs foram afetados;
+- qual definição anterior foi substituída;
+- quais artefatos precisam ser atualizados.
+
+Em outras palavras, o repositório registra principalmente o resultado das decisões, não a linhagem completa delas.
+
+## 4. Engenharia de contexto existente
+
+O mecanismo atual é o roteamento por tipo de trabalho presente em [AGENTS.md](/home/davis/analise-video/AGENTS.md:27):
+
+| Trabalho | Contexto carregado |
+| --- | --- |
+| Infraestrutura | plano + ADR relevante |
+| Requisito | `SYSTEM_SPEC.md` |
+| Significado esportivo | `GAME_MODEL.md` |
+| Incremento | `IMPLEMENTATION_PLAN.md` |
+| Funcionalidade comprovada | `IMPLEMENTATION_STATUS.md` + testes |
+
+Isso já reduz o consumo inicial:
+
+- `AGENTS.md`: aproximadamente 204 palavras;
+- `CLAUDE.md`: aproximadamente 88 palavras;
+- núcleo dos oito documentos principais: aproximadamente 5.076 palavras;
+- plano híbrido local: aproximadamente 7.282 palavras sozinho.
+
+Portanto, carregar `arquitetura-hibrida.md` inteiro em cada tarefa seria contraproducente. Ele deve orientar a implantação, mas não integrar o contexto operacional diário.
+
+### Limitação atual
+
+O roteamento atual reduz contexto, mas não garante contexto mínimo suficiente porque:
+
+- não seleciona decisões por ID;
+- não detecta decisões substituídas;
+- não valida se o agente recebeu todos os impactos;
+- não carrega automaticamente conflitos ou pendências;
+- pode usar referências obsoletas, como o estado incorreto da ADR em `CLAUDE.md`;
+- exige que o agente percorra manualmente documentos adicionais.
+
+O consumo inicial é baixo, mas o consumo total é imprevisível: o agente precisa pesquisar o repositório sempre que uma decisão afeta mais de um domínio.
+
+## 5. Engenharia de contexto recomendada para decisões
+
+A arquitetura híbrida deve usar um envelope pequeno de decisão:
+
+```yaml
+decision_id: DEC-DOM-001
+status: DECIDIDO
+authority: Davi
+statement: T3 exige instalação ofensiva e ausência de vantagem herdada predominante.
+source:
+  type: explicit_authority_statement
+  reference: <registro datado>
+canonical_target: docs/GAME_MODEL.md
+affected_ids:
+  - GM-T3
+  - RF-012
+supersedes: []
+conflicts: []
+implementation_impact:
+  - INC-003
+required_context:
+  - docs/GAME_MODEL.md#t3
+  - docs/IMPLEMENTATION_PLAN.md#inc-003
+```
+
+O contexto entregue ao agente deve conter apenas:
+
+```text
+tarefa
++ decisões aplicáveis por ID
++ seções canônicas apontadas
++ ADR vigente
++ requisitos e critérios afetados
++ pendências e condições de parada
++ testes e evidências exigidos
+```
+
+O agente só deve consultar a fonte original quando:
+
+- houver conflito;
+- a decisão estiver sendo alterada;
+- a proveniência estiver incompleta;
+- a autoridade solicitar auditoria.
+
+Para tarefas normais, basta a decisão já registrada e a definição canônica.
+
+## 6. Onde cada informação deve residir
+
+Para evitar duplicação:
+
+| Informação | Local |
+| --- | --- |
+| Metadados e proveniência da decisão | `docs/governance/DECISION_LOG.md` |
+| Definição esportiva completa | `docs/GAME_MODEL.md` |
+| Requisito resultante | `docs/SYSTEM_SPEC.md` |
+| Decisão arquitetural | ADR/MADR correspondente |
+| Relações e impacto | `docs/TRACEABILITY.yaml` |
+| Invariantes críticos e frequentes | `AGENTS.md`, resumidos e apontando para IDs |
+| Contexto de uma tarefa | pacote do incremento |
+| Evidência de funcionamento | `docs/evidence/` + `IMPLEMENTATION_STATUS.md` |
+
+A decisão não deve ser copiada integralmente em todos esses arquivos. Cada documento mantém somente sua projeção e uma referência ao ID da decisão.
+
+## 7. Impacto da arquitetura de decisões
+
+| Dimensão | Arquitetura atual | Após a arquitetura híbrida |
+| --- | --- | --- |
+| Consumo inicial | Baixo | Continua baixo |
+| Consumo durante a tarefa | Variável; exige buscas manuais | Limitado pelo pacote do incremento |
+| Risco de omissão | Médio/alto | Baixo e validável |
+| Risco de decisão obsoleta | Alto | Reduzido por `supersedes` e hashes |
+| Rastreabilidade da decisão | Incompleta | Autoridade → decisão → requisito → código → evidência |
+| Redecisão desnecessária | Provável | Evitada pelo registro central |
+| Manutenção | Simples, mas manual | Mais estruturada e automatizável |
+| Custo de governança | Baixo inicialmente | Moderado na implantação, baixo por decisão posterior |
+| Precisão de Codex/Claude | Dependente da pesquisa do agente | Contexto determinístico e verificável |
+
+O principal ganho não é simplesmente “usar menos tokens”. É evitar tokens gastos com reconstrução histórica, comparação repetida e interpretação de documentos concorrentes.
+
+## Veredito
+
+A arquitetura existente é adequada como bootstrap, mas insuficiente para administrar decisões com proveniência e impacto total.
+
+A forma correta de registrar essas 13 decisões é:
+
+1. não reabri-las como perguntas;
+2. registrar cada decisão uma única vez no futuro `DECISION_LOG.md`;
+3. apontar para as definições canônicas já existentes;
+4. registrar Davi como autoridade e a manifestação original como proveniência;
+5. representar impactos e dependências em `TRACEABILITY.yaml`;
+6. manter em `AGENTS.md` apenas os invariantes de alto risco e uso frequente;
+7. gerar pacotes pequenos por incremento;
+8. impedir que o plano de 7.282 palavras seja carregado como contexto operacional habitual.
+
+Antes desse registro, é necessário corrigir o estado incorreto da ADR-001 em `CLAUDE.md` e implementar pelo menos os artefatos de governança previstos no G1.

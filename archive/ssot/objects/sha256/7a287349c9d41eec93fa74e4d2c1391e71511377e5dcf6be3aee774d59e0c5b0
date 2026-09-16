@@ -1,0 +1,21 @@
+# Repository Context Map
+
+> Mapa de descoberta determinístico e eficiente em tokens (Protocolo B2A / llms.txt) para guiar agentes de codificação e LLMs no repositório.
+
+## Core Architecture & Guidelines
+
+- [AGENTS.md](AGENTS.md): Fonte única de verdade, convenções de nomenclatura legíveis por IA e regras invioláveis.
+- [CLAUDE.md](CLAUDE.md): Arquivo de ponteiro de contexto inicial (`@AGENTS.md`).
+- [.claudeignore](.claudeignore): Especificação de arquivos e diretórios ignorados para economia de tokens.
+- [memory/architecture-rules.md](memory/architecture-rules.md): Invariantes da arquitetura e limites de domínio.
+- [memory/tech-stack.md](memory/tech-stack.md): Stack tecnológica, dependências e versões afixadas.
+
+## Execution Workflows (Skills)
+
+- [skills/build-and-test/SKILL.md](skills/build-and-test/SKILL.md): Instruções procedimentais para compilação, linting e suíte de testes.
+- [skills/feature-workflow/SKILL.md](skills/feature-workflow/SKILL.md): Guia passo a passo para implementação de novas funcionalidades.
+- [skills/code-review/SKILL.md](skills/code-review/SKILL.md): Checklist de verificação de segurança, qualidade e tipagem.
+
+## Optional & Decision Logs
+
+- [memory/decisions-log.md](memory/decisions-log.md): Histórico de Decisões Arquiteturais (ADRs) e alternativas rejeitadas.

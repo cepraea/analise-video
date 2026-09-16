@@ -1,0 +1,41 @@
+# Regras Práticas de Nomenclatura (Naming Rules)
+
+1. **Use nomes descritivos em linguagem natural**: 
+Substitua a dependência exclusiva de comentários no   
+código por identificadores de variáveis e funções em
+linguagem natural, pois os modelos da IA interpretam 
+melhor essa estrutura semântica.
+2. **Defina convenções e delimitadores padronizados**: Mantenha padrões consistentes de gabinete (*kebab-case* para arquivos e pastas; *camelCase* ou *snake_case* para identificadores de código). O uso de convenções claras facilita o ranqueamento de símbolos em grafos de código e mapas do repositório.
+3. **Adote prefixos funcionais explícitos**: Inclua prefixos que identifiquem a natureza da execução (como `async_` para rotinas assíncronas e `query_` para acessos ao banco de dados), permitindo que a IA deduza o comportamento sem abrir o arquivo.
+4. **Evite abreviações genéricas ou nomes opacos**: Dê preferência a nomes curtos, diretos e com propósito único. Nomes intencionais alinham a lógica humana à capacidade preditiva da IA, aumentando a precisão das sugestões.
+
+***
+
+## Estrutura de Pastas (Folder Structure)
+
+**Pastas a Criar:**
+
+1. **`skills/` (Instruções de Execução)**: 
+Crie subpastas com arquivos `SKILL.md` para fluxos de trabalho específicos (ex.: `skills/github-pr/SKILL.md` ou `skills/build-and-test/SKILL.md`). Estas instruções funcionam como uma biblioteca de execução carregada apenas sob demanda (*Progressive Disclosure*).
+2. **`memory/` (Camada de Identidade e Contexto Persistente)**: Crie uma pasta para centralizar quem você é, preferências do time e regras de arquitetura (ex.: `memory/style-voice/voice.md` ou `memory/architecture.md`). A camada de memória garante que a IA atue alinhada à sua voz e padrões sem re-explicações a cada sessão.
+3. **`llms.txt` (na raiz)**: Mantenha um mapa de descobrimento enxuto em Markdown no diretório raiz para orientar agentes sobre a estrutura e os links essenciais da documentação sem gastar tokens com parsers de HTML.
+
+***
+
+## Arquivos e Pastas a Evitar
+
+* **Evite arquivos monolíticos gigantes de instrução**: Não crie arquivos de orientação (`CLAUDE.md` ou `AGENTS.md`) com mais de 150–200 linhas. Informações enterradas no meio de arquivos longos sofrem com o fenômeno *lost-in-the-middle* e causam degradação de atenção da IA.
+* **Não misture manuais de API no contexto global**: Evite colocar especificações completas de endpoints ou logs de depuração no arquivo raiz de contexto; mova-os para a pasta `docs/` ou `skills/` e carregue-os condicionalmente.
+* **Não misture 'Como Fazer' com 'Quem Sou'**: Não misture instruções operacionais de tarefas pontuais dentro do diretório de identidade/memória do projeto.
+
+***
+
+## Compactação e Redução de Contexto (Context Compaction)
+
+1. **Barragem inicial via `.claudeignore`**: Crie um arquivo `.claudeignore` na raiz descartando diretórios pesados como `node_modules/`, `dist/`, `.next/`, logs e temporários. Isso evita que a IA processe código irrelevante na inicialização da sessão, reduzindo em até **94% os tokens estáticos**.
+2. **Mantenha utilização entre 40% e 60%**: Acione a compactação de histórico proativamente quando o contexto atingir a faixa de 40–60% em vez de esperar o limite do modelo (80–95%), evitando a perda de aderência às instruções (*context rot*).
+3. **Estrutura 'Estática Primeiro, Dinâmica por Último'**: Posicione identidades e restrições invioláveis no topo dos arquivos e informações que mudam frequentemente na metade inferior para maximizar o aproveitamento do *Prompt Caching* do modelo.
+4. **Compacção *Verbatim* sem paráfrases opacas**: Ao resumir conversas e execuções anteriores, elimine logs de instalação redundantes mas preserve byte a byte os caminhos de arquivos, nomes de funções e exceções exatas para zerar o risco de alucinação.
+5. **Externalização de estado persistente**: Grave o estado atual do progresso, decisões tomadas e pendências em arquivos como `STATE.md` ou `task_context.md` antes que o histórico seja limpo.
+6. **Delegação para sub-agentes**: Isole pesquisas extensas, varreduras de repositório e testes ruidosos em sub-agentes dedicados para que o rastro de tokens não polua a janela do agente principal.
+

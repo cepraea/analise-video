@@ -1,0 +1,133 @@
+# Subplano 02 — Migração da SSOT Completa
+
+## Objetivo
+
+Transformar o corpus atual em documentos canônicos suficientes para planejar e desenvolver o sistema completo, preservando texto original, estados, conflitos e proveniência.
+
+## Princípio
+
+```text
+primeiro extrair fielmente
+→ depois comparar
+→ depois decidir
+→ somente então consolidar e normalizar
+```
+
+EARS melhora a redação de um requisito confirmado; não corrige um domínio incorreto.
+
+## M0 — Catálogo de afirmações
+
+### Ações
+
+- [ ] Extrair requisitos, critérios, regras, conceitos, entidades, fluxos, decisões, propostas e pendências.
+- [ ] Registrar fonte e localização de cada afirmação.
+- [ ] Separar status declarado de status verificado.
+- [ ] Preservar o texto original.
+- [ ] Classificar protótipos como evidência de intenção, não requisito.
+- [ ] Classificar o PDF IHF como fonte normativa externa.
+- [ ] Classificar respostas de Codex/NotebookLM como análises derivadas.
+
+### Registro temporário
+
+```yaml
+claim_id: CLM-0001
+source_id: SRC-SPEC-GD
+source_locator: "seção/linha"
+original_id: RF-001
+claim_type: product_requirement
+original_text: "texto preservado"
+declared_status: DECIDIDO
+verification_status: PENDING_SOURCE_CONFIRMATION
+candidate_target: docs/SYSTEM_SPEC.md
+duplicates: []
+conflicts: []
+```
+
+## M1 — Comparação e conflitos
+
+### Verificações mínimas
+
+- [ ] RF-012, RF-021, RF-037 e CA-012 entre versões.
+- [ ] T3 e árvore direta/indireta/ataque posicionado.
+- [ ] C23 e taxonomias ainda extensíveis.
+- [ ] RF-P/CA-P e os IDs gerais.
+- [ ] Decisões alegadas em documentos da prancheta.
+- [ ] Runtime local-first versus propostas PWA/cloud.
+- [ ] Análise de vídeo versus produto completo/cockpit.
+- [ ] Estado atual do player versus schema experimental.
+
+### Gate
+
+Nenhuma variante desaparece sem decisão, equivalência comprovada ou relação `supersedes`.
+
+## M2 — Produto e arquitetura
+
+### Ações
+
+- [ ] Migrar a baseline extensa sem correção silenciosa.
+- [ ] Reconciliar 52 RF, 15 RNF, 12 CA, 18 TAX e 14 TEC ou justificar diferenças.
+- [ ] Separar requisito, decisão técnica e conceito esportivo.
+- [ ] Preservar módulos futuros sem incluí-los no incremento atual.
+- [ ] Redigir EARS somente após confirmação semântica.
+- [ ] Criar critérios verificáveis ou adiamento explícito.
+- [ ] Atualizar `SYSTEM_SPEC.md` como única definição dos requisitos do software após o cutover.
+
+### Gate
+
+- paridade contabilizada;
+- IDs únicos;
+- requisito com fonte, estado e aceitação;
+- mudança semântica autorizada.
+
+## M3 — Modelo de jogo e regras oficiais
+
+### Ações
+
+- [ ] Consolidar conceitos e visão geral no `GAME_MODEL.md`.
+- [ ] Preservar conceitos parciais e taxonomias extensíveis.
+- [ ] Mapear regra e página IHF para conceitos do sistema.
+- [ ] Usar relações `supports`, `constrains` e `conflicts_with`.
+- [ ] Não usar equivalência automática entre regra IHF e CEPRAEA.
+- [ ] Registrar lacunas de scout e validação.
+- [ ] Atualizar requisitos dependentes depois da ratificação do domínio.
+
+### Gate
+
+- cada conceito codificável possui definição, fonte, estado e autoridade;
+- T3 e fases não possuem variantes silenciosas;
+- fatos e avaliação continuam separados.
+
+## M4 — Módulos candidatos
+
+Para prancheta, portal, IA e cockpit:
+
+- [ ] decidir pertencimento ao produto;
+- [ ] decidir escopo temporal;
+- [ ] reconciliar IDs;
+- [ ] vincular ao modelo `LANCE`;
+- [ ] definir critérios de aceitação;
+- [ ] atribuir incremento;
+- [ ] criar arquivo em `docs/modules/` somente após aprovação.
+
+Protótipos Python, HTML, JSON ou visuais não comprovam que o módulo foi decidido ou implementado.
+
+## Destinos canônicos
+
+| Conhecimento | Destino |
+| --- | --- |
+| Requisito do produto | `docs/SYSTEM_SPEC.md` |
+| Conceito esportivo | `docs/GAME_MODEL.md` |
+| Relação com regra oficial | `docs/OFFICIAL_RULES_MAPPING.md` |
+| Decisão arquitetural | `docs/architecture/ADR-*.md` |
+| Módulo aprovado | `docs/modules/*.md` |
+| Ordem de entrega | `docs/IMPLEMENTATION_PLAN.md` |
+| Estado comprovado | `docs/IMPLEMENTATION_STATUS.md` |
+
+## Definition of Done
+
+- [ ] Todo claim normativo foi contabilizado.
+- [ ] Baseline e correções aprovadas são distinguíveis.
+- [ ] Todos os conflitos possuem resolução ou bloqueio.
+- [ ] O produto completo está delimitado.
+- [ ] Requisitos e modelo de jogo são suficientes para planejamento.
+- [ ] Fontes originais permanecem preservadas.

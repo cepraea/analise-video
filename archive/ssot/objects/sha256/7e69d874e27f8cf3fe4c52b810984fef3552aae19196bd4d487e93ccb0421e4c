@@ -1,0 +1,583 @@
+# AGENTE CODEX
+
+> O arquivo deve ser transformado de um texto analítico em um **runbook executável de migração documental**. Ele precisa dizer exatamente o que criar, em qual ordem, quais gates aplicar, quais decisões dependem de Davi e quando a nova SSOT entra em vigor.
+
+Nenhuma arquitetura documental pode garantir que todo o sistema será desenvolvido corretamente. Ela pode garantir que:
+
+- todo requisito conhecido seja contabilizado;
+- nenhuma pendência seja silenciosamente inventada;
+- conflitos bloqueiem a promoção;
+- cada implementação seja rastreável até fonte, decisão e evidência.
+
+## 1. Ações para atualizar `arquitetura-hibrida.md`
+
+### Ação 1 — Alterar a identidade do documento
+
+Substituir o título atual por algo como:
+
+```md
+# Plano de Implementação da Arquitetura Híbrida de Documentação e SSOT
+```
+
+Adicionar no início:
+
+```yaml
+status: PROPOSTA_TECNICA_A_VALIDAR
+owner: Davi
+purpose: criar a SSOT completa do sistema
+scope: documentação, autoridade, contexto e rastreabilidade
+does_not_define: arquitetura runtime, cloud ou stack definitiva
+current_gate: G0_SOURCE_INVENTORY
+```
+
+A adoção só passa a `DECIDIDO` quando for formalmente registrada por Davi.
+
+### Ação 2 — Separar justificativa de execução
+
+Mover a comparação entre abordagens, o diagnóstico do corpus e *lost in the middle* para um apêndice.
+
+A parte principal deve conter:
+
+1. estado atual;
+2. estado desejado;
+3. decisões;
+4. fases de execução;
+5. entregáveis;
+6. gates;
+7. checklist;
+8. rollback;
+9. definição de concluído.
+
+### Ação 3 — Corrigir a classificação dos drafts
+
+Na [seção de classificação atual](/home/davis/analise-video/.local/arquitetura-hibrida.md:144):
+
+- trocar `INTERMEDIATE_INVALID` por `DRAFT_CANDIDATE`;
+- declarar `.local/drafts/` como área de preparação;
+- separar status do documento de status das afirmações internas;
+- incluir todos os 11 artefatos encontrados;
+- registrar que títulos como “canônico” ou estados `DECIDIDO` dentro de drafts não promovem automaticamente o documento.
+
+### Ação 4 — Retirar a arquitetura runtime/cloud do plano documental
+
+A seção iniciada em [arquitetura-hibrida.md:405](/home/davis/analise-video/.local/arquitetura-hibrida.md:405) deve sair do fluxo normativo.
+
+Supabase, Vercel, Render, Runpod, Node.js, GPU e visão computacional devem ser preservados em uma proposta separada:
+
+```text
+ADR-CANDIDATA — Arquitetura futura PWA/cloud
+Status: PROPOSTA A VALIDAR
+Fontes: drafts relevantes
+```
+
+Essa proposta não substitui a [ADR-001 local-first](/home/davis/analise-video/docs/architecture/ADR-001.md:12).
+
+### Ação 5 — Corrigir imprecisões
+
+Corrigir no documento:
+
+- “garante” antes dos validadores existirem → “passará a garantir após os gates”;
+- estudos “comprovam neste corpus” → “sustentam o risco geral”;
+- 200 linhas no Claude → recomendação, não teto rígido;
+- links locais transformados indevidamente em consultas Google;
+- `MD5/SHA` → somente `SHA-256`;
+- proibição absoluta do NotebookLM → uso opcional, não autoritativo;
+- bloqueio físico dos históricos → exclusão do fluxo normal, com acesso permitido para auditoria;
+- contradição entre preservar referências e remover links de proveniência;
+- regra conflitante sobre conservar ou substituir IDs;
+- termos vagos como “polimorfismo irregular”, “vetores gerados” e “intervir fisicamente”.
+
+## 2. Conjunto mínimo de SSOTs
+
+A SSOT será federada: uma autoridade por responsabilidade.
+
+```text
+docs/
+├── SSOT.md
+│
+├── governance/
+│   ├── AUTHORITY.md
+│   ├── SOURCE_REGISTRY.yaml
+│   ├── STATES.md
+│   ├── ID_POLICY.md
+│   └── DECISION_LOG.md
+│
+├── SYSTEM_SPEC.md
+├── GAME_MODEL.md
+├── OFFICIAL_RULES_MAPPING.md
+│
+├── modules/
+│   ├── PRANCHETA.md              # somente se aprovada
+│   ├── PORTAL.md                 # escopo futuro
+│   ├── AI_ASSISTANCE.md          # escopo futuro
+│   └── COMPETITION_COCKPIT.md    # somente se fizer parte do produto
+│
+├── architecture/
+│   ├── ADR-001.md
+│   └── ADR-002-ssot-documentation.md
+│
+├── traceability/
+│   ├── TRACEABILITY.yaml
+│   └── TRACEABILITY.md
+│
+├── context/
+│   └── packs/
+│       └── INC-002.md
+│
+├── IMPLEMENTATION_PLAN.md
+├── IMPLEMENTATION_STATUS.md
+│
+└── evidence/
+    └── SSOT-MIGRATION.md
+```
+
+### Responsabilidade dos arquivos
+
+- `SSOT.md`: índice central e mapa de autoridades; não duplica requisitos.
+- `SYSTEM_SPEC.md`: produto completo, entidades, fluxos, RFs, RNFs, CAs, TAX e TEC.
+- `GAME_MODEL.md`: contrato esportivo necessário ao software.
+- `OFFICIAL_RULES_MAPPING.md`: regras IHF por regra/página, sem copiar o PDF inteiro.
+- `SOURCE_REGISTRY.yaml`: inventário, hashes, revisão, estado e sucessão.
+- `TRACEABILITY.yaml`: grafo canônico legível por máquina.
+- `TRACEABILITY.md`: visualização gerada do YAML.
+- `DECISION_LOG.md`: decisões de Davi e decisões técnicas aprovadas.
+- módulos: detalhamento sem redefinir IDs já definidos no `SYSTEM_SPEC`.
+
+## 3. Passo a passo que deve entrar no documento
+
+### G0 — Criar a linha de base
+
+Ações:
+
+- criar uma branch exclusiva para a migração;
+- registrar commit, branch e documentação atual;
+- calcular SHA-256 dos 11 arquivos em `.local/drafts/`;
+- registrar tamanho, data, tipo e origem;
+- não alterar os drafts durante a auditoria;
+- registrar os documentos atuais de `docs/`.
+
+Entregável:
+
+```text
+docs/governance/SOURCE_REGISTRY.yaml
+```
+
+Aceitação:
+
+```text
+11/11 artefatos inventariados
+100% com SHA-256
+100% com classificação documental
+nenhum draft promovido
+```
+
+### G1 — Formalizar autoridade e estados
+
+Criar três dimensões separadas:
+
+```yaml
+authority_status:
+  - CANONICAL
+  - DERIVED
+  - DRAFT
+  - MIGRATION_SOURCE
+  - SUPERSEDED
+  - EXTERNAL_NORMATIVE
+  - EVIDENCE
+
+decision_status:
+  - DECIDIDO
+  - DECIDIDO_PARCIALMENTE
+  - MODELAGEM_ATUAL
+  - PROPOSTA_TECNICA
+  - PROPOSTA_A_VALIDAR
+  - PENDENTE
+  - FORA_DO_ESCOPO_INICIAL
+
+implementation_status:
+  - NOT_IMPLEMENTED
+  - IMPLEMENTED_NOT_VERIFIED
+  - VERIFIED
+  - BLOCKED
+```
+
+Entregáveis:
+
+```text
+docs/governance/AUTHORITY.md
+docs/governance/STATES.md
+docs/architecture/ADR-002-ssot-documentation.md
+```
+
+Aceitação: nenhuma palavra de estado é usada sem pertencer à dimensão correta.
+
+### G2 — Extrair afirmações normativas dos drafts
+
+Para cada artefato, extrair somente:
+
+- requisitos;
+- critérios de aceitação;
+- regras esportivas;
+- decisões técnicas;
+- propostas;
+- pendências;
+- entidades;
+- fluxos;
+- invariantes;
+- afirmações marcadas como decididas.
+
+Cada afirmação recebe uma entrada temporária:
+
+```yaml
+claim_id: CLAIM-DRAFT-0001
+source_file: .local/drafts/PRANCHETA_SPEC.md
+source_lines: 27-36
+declared_status: DECIDIDO
+verified_status: PENDING_VERIFICATION
+type: DOMAIN_RULE
+conflicts_with: []
+candidate_destination: docs/modules/PRANCHETA.md
+```
+
+Entregável:
+
+```text
+docs/evidence/SSOT-SOURCE-AUDIT.md
+```
+
+Aceitação: toda afirmação normativa tem um destino `PROMOTE`, `MERGE`, `REJECT`, `DEFER` ou `NEEDS_DECISION`.
+
+### G3 — Detectar duplicações e conflitos
+
+Executar comparação por:
+
+- ID;
+- significado;
+- status;
+- origem;
+- abrangência;
+- versão.
+
+Tratar explicitamente:
+
+- `RF-012`;
+- `RF-021`;
+- `RF-037`;
+- `CA-012`;
+- T3;
+- transição direta/indireta;
+- C23;
+- requisitos `RF-P*` e `CA-P*`;
+- afirmações `DECIDIDO` da prancheta sem evidência no histórico examinado;
+- arquitetura local-first versus PWA/cloud;
+- sistema de análise de vídeo versus cockpit de competição.
+
+Aceitação: nenhuma colisão permanece silenciosa.
+
+### G4 — Resolver decisões de autoridade
+
+As decisões listadas na próxima seção precisam ser registradas antes da consolidação final.
+
+Entregável:
+
+```text
+docs/governance/DECISION_LOG.md
+```
+
+Cada decisão deve conter:
+
+```yaml
+decision_id:
+question:
+options_considered:
+decision:
+status:
+authority:
+date:
+source_evidence:
+affected_ids:
+affected_documents:
+```
+
+### G5 — Migrar fielmente a especificação de produto
+
+Primeiro executar uma migração sem corrigir silenciosamente a fonte:
+
+- 52 RFs;
+- 15 RNFs;
+- 12 CAs;
+- 18 TAX;
+- 14 TEC;
+- entidades;
+- fluxos;
+- estados;
+- pendências;
+- fora do escopo.
+
+Depois aplicar correções aprovadas, mantendo:
+
+- conteúdo anterior;
+- motivo da alteração;
+- decisão autorizadora;
+- relação `supersedes`;
+- data e commit.
+
+Entregável:
+
+```text
+docs/SYSTEM_SPEC.md
+```
+
+Aceitação:
+
+```text
+RF: 52/52 ou justificativa formal para IDs adicionais
+RNF: 15/15
+CA: 12/12
+TAX: 18/18
+TEC: 14/14
+todos os drafts contabilizados
+nenhuma proposta promovida sem decisão
+```
+
+### G6 — Consolidar o contrato esportivo
+
+Construir `GAME_MODEL.md` a partir de:
+
+- conceitos;
+- visão geral;
+- regras IHF;
+- decisões registradas no histórico;
+- validações de Davi.
+
+Separar:
+
+- regra oficial;
+- interpretação CEPRAEA;
+- conceito consolidado;
+- conceito parcialmente decidido;
+- hipótese;
+- pendência de scout/validação.
+
+Entregáveis:
+
+```text
+docs/GAME_MODEL.md
+docs/OFFICIAL_RULES_MAPPING.md
+```
+
+Aceitação: cada conceito codificável aponta para origem, estado e autoridade.
+
+### G7 — Promover módulos candidatos
+
+Para cada módulo candidato, decidir:
+
+- pertence ao produto;
+- pertence a versão futura;
+- é protótipo descartável;
+- é outro produto;
+- depende de decisão pendente.
+
+A prancheta somente recebe SSOT própria se aprovada:
+
+```text
+docs/modules/PRANCHETA.md
+```
+
+Se aprovada, reconciliar:
+
+- `RF-P001`–`RF-P008`;
+- `CA-P001`–`CA-P007`;
+- cores;
+- papéis;
+- posições;
+- orientação;
+- formato JSON;
+- relacionamento com `LANCE`;
+- relação com RF-028 e RF-029;
+- incremento `M3`, atualmente inexistente no plano.
+
+### G8 — Criar o grafo de rastreabilidade
+
+Campos mínimos:
+
+```yaml
+id:
+type:
+title:
+status:
+defined_in:
+source_refs:
+supersedes:
+requirements:
+acceptance_criteria:
+increment:
+implementation:
+tests:
+evidence:
+```
+
+Fluxo obrigatório:
+
+```text
+fonte
+→ decisão/conceito
+→ requisito
+→ aceitação
+→ incremento
+→ código
+→ teste
+→ evidência
+→ estado
+```
+
+Entregáveis:
+
+```text
+docs/traceability/TRACEABILITY.yaml
+docs/traceability/TRACEABILITY.md
+```
+
+### G9 — Configurar Codex e Claude
+
+Atualizar `AGENTS.md` para:
+
+- apontar para `SSOT.md`;
+- declarar a matriz de autoridade;
+- proibir drafts como autoridade;
+- permitir drafts apenas em tarefas de migração/auditoria;
+- ordenar interrupção diante de colisões.
+
+Atualizar `CLAUDE.md` para importar:
+
+```md
+@AGENTS.md
+```
+
+Eliminar a duplicação que hoje já produziu estado divergente da ADR.
+
+Criar o pacote:
+
+```text
+docs/context/packs/INC-002.md
+```
+
+Esse pacote deve referenciar IDs canônicos, não copiar textos livremente.
+
+### G10 — Implementar validação automática
+
+Criar um validador, preferencialmente aproveitando o Python já presente no repositório, para verificar:
+
+- IDs duplicados;
+- estados inválidos;
+- links quebrados;
+- fontes sem hash;
+- requisitos sem critério ou adiamento;
+- `VERIFIED` sem evidência;
+- referência a draft como autoridade;
+- itens `supersedes` inexistentes;
+- pacote de contexto desatualizado;
+- divergência entre YAML e Markdown gerado.
+
+Entregáveis sugeridos:
+
+```text
+scripts/validate_ssot.py
+tests/docs/test_ssot.py
+.github/workflows/ssot.yml
+```
+
+### G11 — Cutover
+
+Somente depois dos gates:
+
+- Davi revisa o relatório;
+- ADR-002 muda para `DECIDIDO`;
+- `SYSTEM_SPEC.md` passa a autoridade canônica do software;
+- fonte do Drive de software passa a `MIGRATED_SUPERSEDED`;
+- Drive esportivo mantém o papel aprovado;
+- NotebookLM permanece opcional;
+- pacote de INC-002 é regenerado;
+- desenvolvimento é retomado.
+
+Entregável:
+
+```text
+docs/evidence/SSOT-MIGRATION.md
+```
+
+### G12 — Rollback
+
+Se qualquer gate falhar:
+
+- não alterar a autoridade;
+- não apagar fontes;
+- manter a migração na branch;
+- corrigir o conflito;
+- repetir o gate;
+- permitir reversão por commit.
+
+## 4. Decisões que exigem sua autoridade
+
+| ID proposto | Decisão necessária | Recomendação | Bloqueia |
+| --- | --- | --- | --- |
+| GOV-001 | Confirmar formalmente a arquitetura híbrida documental | Aprovar | Toda a migração |
+| GOV-002 | Git será autoridade final do software? | Sim, após gate | Cutover |
+| GOV-003 | Drive continuará autoridade do conhecimento esportivo amplo? | Sim, inicialmente | `GAME_MODEL` |
+| GOV-004 | NotebookLM poderá ser usado em auditorias solicitadas? | Sim, opcional e não autoritativo | Política dos agentes |
+| GOV-005 | Drafts serão preservados como fontes não canônicas? | Sim | Registro de fontes |
+| GOV-006 | A migração documental bloqueará mudanças de domínio em INC-002? | Bloquear apenas mudanças dependentes de requisito ainda não consolidado | Roadmap |
+| GOV-007 | Aprovar os três vocabulários separados de estado | Sim | Validadores |
+| ID-001 | Preservar RF-001–RF-052 da spec-GD? | Sim | `SYSTEM_SPEC` |
+| ID-002 | Como tratar RF-P/CA-P? | Manter namespace de módulo ou renumerar após aprovação; não misturar agora | Prancheta |
+| PROD-001 | O produto é somente análise de vídeo ou inclui cockpit de competição? | Decisão indispensável | Escopo completo |
+| PROD-002 | A prancheta pertence ao sistema oficial? | Registrar sim/não/futuro | Módulo prancheta |
+| PROD-003 | Portal das atletas faz parte do produto completo? | Preservar como futuro, pois a spec o declara decidido | Roadmap |
+| PROD-004 | PWA móvel/cockpit é módulo do mesmo produto ou produto separado? | Não incorporar sem decisão | Arquitetura runtime |
+| PROD-005 | Cloud, sincronização e banco remoto são objetivos futuros? | Manter como TEC pendente | ADR futura |
+| PROD-006 | IA assistiva integra o produto completo? | Sim como futuro, sem decisão esportiva automática | Módulo IA |
+| DOM-001 | Ratificar a árvore direta → indireta → posicionado | Registrar a definição já consolidada | `GAME_MODEL` |
+| DOM-002 | Ratificar papéis, cores e posições da prancheta | Verificar decisões alegadas no draft | Prancheta |
+| DOM-003 | Texto livre ou taxonomia fechada para fases da prancheta? | Texto livre até taxonomia consolidada | Prancheta |
+| DOM-004 | Confirmar como regras IHF e conceitos CEPRAEA se relacionam | `supports`, nunca equivalência automática | Mapeamento |
+| DEL-001 | Em qual incremento entra a prancheta? | Depois do primeiro fluxo, salvo nova prioridade | Plano |
+| DEL-002 | O identificador `M3` continua válido? | Substituir por incremento oficial | Rastreabilidade |
+| TECH-001 | A ADR-001 local-first continua orientando INC-002? | Sim | Implementação atual |
+| TECH-002 | A proposta C4/cloud será preservada como ADR candidata? | Sim | Arquivo de arquitetura |
+
+## 5. Decisões já conhecidas que precisam apenas ser registradas
+
+Não precisam necessariamente ser decididas novamente, mas precisam de proveniência:
+
+- Davi é autoridade esportiva;
+- `LANCE` é unidade canônica;
+- vídeo é fonte;
+- original é imutável;
+- fatos e interpretação permanecem separados;
+- múltiplas atletas, ações, fontes e coleções por lance;
+- fases das equipes são independentes;
+- taxonomias abertas permanecem extensíveis;
+- T3 exige instalação e ausência de vantagem herdada predominante;
+- código sem evidência não significa `VERIFIED`;
+- NotebookLM não é autoridade;
+- drafts não são SSOT;
+- referências de proveniência não são apagadas.
+
+## Definição de concluído
+
+A implementação da arquitetura documental estará concluída somente quando:
+
+```text
+todos os drafts estiverem inventariados
++ todas as afirmações normativas estiverem contabilizadas
++ todas as decisões bloqueadoras estiverem registradas
++ os documentos SSOT estiverem versionados
++ todos os IDs forem únicos
++ a rastreabilidade estiver completa
++ os validadores passarem
++ Codex e Claude usarem o mesmo roteador
++ Davi aprovar o relatório de migração
++ o cutover de autoridade estiver registrado
+```
+
+Essas são as ações que devem substituir a atual estrutura predominantemente analítica de [arquitetura-hibrida.md](/home/davis/analise-video/.local/arquitetura-hibrida.md).

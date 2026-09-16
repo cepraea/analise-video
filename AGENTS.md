@@ -8,6 +8,8 @@
 - Ordem de desenvolvimento: `docs/IMPLEMENTATION_PLAN.md`.
 - Rastreabilidade: `docs/TRACEABILITY.md`.
 - Estado comprovado: `docs/IMPLEMENTATION_STATUS.md`, código, testes e evidências.
+- Decisões: `docs/governance/DECISIONS.yaml`.
+- Fontes e baselines: `docs/governance/SOURCES.yaml`.
 
 ## Estados preservados pelo projeto
 
@@ -33,3 +35,11 @@
 | classificação/significado esportivo | `GAME_MODEL.md` |
 | incremento em execução | `IMPLEMENTATION_PLAN.md` |
 | avaliação do que já funciona | `IMPLEMENTATION_STATUS.md` + testes |
+| governança ou auditoria | `SSOT.md` + rota em `docs/context/ROUTES.yaml` |
+
+## Exclusões de contexto
+
+- Consulte `docs/context/ROUTES.yaml` antes de ampliar o contexto.
+- Exclua `archive/` e `.local/drafts/` de buscas normais.
+- Acesse `archive/` somente em auditoria, por SHA-256 exato.
+- Pare diante de conflito de autoridade, referência quebrada ou documento obrigatório ausente.

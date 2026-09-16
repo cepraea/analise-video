@@ -1,0 +1,136 @@
+---
+name: atlan-data-context
+description: Skill dedicada para consultas sob demanda ao Atlan MCP Server. Permite recuperar definições do glossário de negócios, esquemas de dados, linhagem (lineage) e métricas de qualidade via Model Context Protocol (MCP) com payloads enxutos.
+---
+
+# SKILL: Atlan Data Context (MCP Integration)
+
+## 1. Propósito e Visão Geral
+Esta skill fornece o guia de instrução para agentes de IA (Claude Code, Codex, Cursor) realizarem consultas sob demanda ao **Atlan MCP Server**. Ela traduz termos de negócio, modelos de dados e linhagem em contexto de alto sinal e baixo ruído, evitando inferências incorretas ou adivinhação de schemas.
+
+---
+
+## 2. Pré-requisitos e Autenticação
+- **Servidor MCP**: Atlan MCP Server ativo via transporte `HTTP` ou `stdio`.
+- **Variáveis de Ambiente**:
+  - `ATLAN_BASE_URL`: Endpoint da instância Atlan (ex.: `https://company.atlan.com`).
+  - `ATLAN_API_KEY`: Token de autenticação da API.
+- **Protocolo**: Chamadas via JSON-RPC 2.0 ou ferramentas expostas nativamente no cliente MCP.
+
+---
+
+## 3. Ferramentas Disponíveis e Payloads JSON-RPC
+
+### A. `atlan_get_context` — Consulta ao Glossário e Termos de Negócio
+Recupera definições oficiais, regras de negócio e conceitos do glossário corporativo.
+
+**Quando Usar**: Antes de criar modelos de dados, tabelas ou APIs que utilizem conceitos de negócio (ex.: "MRR", "Active Customer", "Churn Rate").
+
+**Payload JSON-RPC**:
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "tools/call",
+  "params": {
+    "name": "atlan_get_context",
+    "arguments": {
+      "query": "Active Customer Definition",
+      "context_repo": "finance-ontology-v1",
+      "max_results": 3
+    }
+  },
+  "id": 1
+}
+```
+
+---
+
+### B. `atlan_get_schema` — Inspeção de Esquemas de Tabelas e Colunas
+Recupera os metadados técnicos, tipos de colunas e descrições de tabelas auditadas.
+
+**Quando Usar**: Ao escrever queries SQL, criar migrações de banco ou definir DTOs no código.
+
+**Payload JSON-RPC**:
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "tools/call",
+  "params": {
+    "name": "atlan_get_schema",
+    "arguments": {
+      "database": "analytics_prod",
+      "schema": "finance",
+      "table": "dim_customers"
+    }
+  },
+  "id": 2
+}
+```
+
+---
+
+### C. `atlan_get_lineage` — Inspeção de Linhagem de Dados (Data Lineage)
+Mapeia a origem e os impactos downstream de alterações em tabelas ou pipelines.
+
+**Quando Usar**: Antes de refatorar pipelines de ETL, views SQL ou tabelas compartilhadas para evitar quebrar relatórios e dashboards downstream.
+
+**Payload JSON-RPC**:
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "tools/call",
+  "params": {
+    "name": "atlan_get_lineage",
+    "arguments": {
+      "asset_qualified_name": "default/snowflake/170921/ANALYTICS/FINANCE/DIM_CUSTOMERS",
+      "direction": "BOTH",
+      "depth": 2
+    }
+  },
+  "id": 3
+}
+```
+
+---
+
+### D. `atlan_get_data_quality` — Verificação de Qualidade e Certificação
+Verifica o status de qualidade, testes de asserção e nível de certificação dos dados.
+
+**Quando Usar**: Para validar se uma tabela ou dataset está marcado como "Certified" antes de usá-lo em código de produção.
+
+**Payload JSON-RPC**:
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "tools/call",
+  "params": {
+    "name": "atlan_get_data_quality",
+    "arguments": {
+      "asset_qualified_name": "default/snowflake/170921/ANALYTICS/FINANCE/DIM_CUSTOMERS"
+    }
+  },
+  "id": 4
+}
+```
+
+---
+
+## 4. Fluxo de Execução Recomendado (JIT Context)
+
+1. **Etapa de Descoberta (Tier 1)**: O agente lê a descrição enxuta desta skill no catálogo.
+2. **Etapa de Ativação (Tier 2)**: Quando a tarefa envolve dados corporativos, o agente executa a ferramenta `atlan_get_context` ou `atlan_get_schema`.
+3. **Etapa de Injeção de Resposta**: O resultado do Atlan MCP Server é injetado no turno atual como um trecho de contexto formatado:
+   ```markdown
+   ## Contexto Atlan Encontrado
+   - **Termo**: Active Customer
+   - **Definição**: Cliente com pelo menos 1 transação paga nos últimos 30 dias.
+   - **Tabela Recomendada**: `analytics_prod.finance.dim_customers` (Certificada)
+   ```
+4. **Etapa de Limpeza**: Apenas a informação extraída é mantida no resumo de histórico; o payload JSON bruto da resposta é descartado para preservar a janela de contexto.
+
+---
+
+## 5. Diretrizes Rígidas de Otimização de Tokens
+- **Proibido Dumps Massivos**: Nunca recupere todos os schemas do banco de uma vez. Faça requisições focadas por entidade (`max_results: 3-5`).
+- **Respeite o Limite 40-60%**: Manter a ocupação do contexto em no máximo 60% para evitar o fenômeno *lost-in-the-middle* e degradação de atenção do modelo.
+- **Tratamento de Erros**: Se a API da Atlan retornar erro de permissão ou conexão, informe o usuário e use as convenções locais descritas em `memory/architecture-rules.md`.

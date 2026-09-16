@@ -1,0 +1,278 @@
+# Plano-Mestre da Arquitetura Híbrida e do Contexto Mínimo
+
+## Controle
+
+| Campo | Valor |
+| --- | --- |
+| Status | `DECIDIDO PARCIALMENTE` |
+| Autoridade de aprovação | Davi |
+| Natureza | Orquestrador dos subplanos; não é SSOT |
+| Escopo | Documentação completa do sistema, governança, decisões, rastreabilidade e contexto para agentes |
+| Fora do escopo | Substituição automática da ADR de runtime vigente |
+| Gate inicial | `P0 — G0, G0-R2 e correção sucessora G0-R3 publicados; G1 materializado` |
+
+## Resultado pretendido
+
+Construir uma arquitetura documental que permita desenvolver o sistema completo sem entregar todo o corpus a cada agente.
+
+O desenho combina:
+
+```text
+cânone federado por responsabilidade
++ registro central de fontes e decisões
++ grafo de rastreabilidade validável
++ roteamento por tipo de tarefa
++ pacote mínimo por incremento
++ evidência para estados comprovados
+```
+
+A arquitetura garante completude estrutural verificável. Ela não garante correção esportiva sem Davi, nem funcionalidade sem testes e evidências.
+
+## Por que o plano foi dividido
+
+O plano monolítico anterior ultrapassou mil linhas e misturou diagnóstico, padrões de escrita, decisões, migração, contexto, automação e cutover. Isso o torna útil como fonte histórica, mas inadequado como contexto operacional.
+
+Este plano-mestre contém somente:
+
+- arquitetura-alvo;
+- ordem de execução;
+- gates globais;
+- subplanos aplicáveis;
+- decisões bloqueadoras;
+- condição de conclusão.
+
+Cada execução deve abrir apenas este arquivo e o subplano do gate atual.
+
+## Subplanos
+
+| Ordem | Subplano | Responsabilidade |
+| --- | --- | --- |
+| 1 | [Governança e decisões](./01-governanca-e-decisoes.md) | Autoridade, estados, IDs, fontes e decisões |
+| 2 | [Migração da SSOT](./02-migracao-ssot.md) | Extração, conflitos e promoção do corpus completo |
+| 3 | [Contexto mínimo](./03-contexto-minimo.md) | Roteador, estrutura, pacotes, Codex/Claude, MCP e garfos |
+| 4 | [Rastreabilidade e validação](./04-rastreabilidade-e-validacao.md) | Grafo, geradores, testes e CI documental |
+| 5 | [Cutover e operação](./05-cutover-e-operacao.md) | Piloto, promoção de autoridade, rollback e manutenção |
+
+## Estado atual confirmado
+
+### Runtime
+
+A `ADR-001` orienta o `INC-002` com um monólito modular local-first: React/TypeScript/Vite, FastAPI/Python, SQLite, mídia local e HTTP/JSON. A aprovação é limitada e possui riscos; cloud, portal e IA não pertencem ao primeiro fluxo.
+
+### Documentação
+
+O repositório possui um bootstrap federado:
+
+```text
+AGENTS.md
+  → SYSTEM_SPEC.md
+  → GAME_MODEL.md
+  → architecture/ADR-*.md
+  → IMPLEMENTATION_PLAN.md
+  → TRACEABILITY.md
+  → IMPLEMENTATION_STATUS.md + evidence/
+```
+
+Ainda faltam registro de fontes, decisões, política de IDs, rastreabilidade legível por máquina, pacotes de contexto e validação automática.
+
+### Propostas do NotebookLM
+
+São insumos não canônicos. A decisão de adoção está em [notebooklm-contexto.md](../auditoria/notebooklm-contexto.md). Atlan, MCP, grafo AST, hooks e Lore Protocol não entram no baseline.
+
+## Arquitetura-alvo versionada
+
+```text
+.gitattributes
+AGENTS.md
+CLAUDE.md
+
+archive/
+└── ssot/
+    └── objects/
+        └── sha256/                    # bytes imutáveis por conteúdo; fora das rotas normais
+
+docs/
+├── SSOT.md
+├── SYSTEM_SPEC.md
+├── GAME_MODEL.md
+├── OFFICIAL_RULES_MAPPING.md
+├── IMPLEMENTATION_PLAN.md
+├── IMPLEMENTATION_STATUS.md
+├── TRACEABILITY.yaml
+├── TRACEABILITY.md                 # gerado
+├── governance/
+│   ├── AUTHORITY.md
+│   ├── STATES.md
+│   ├── ID_POLICY.md
+│   ├── DOCUMENTATION_STANDARD.md
+│   ├── SOURCES.yaml
+│   ├── DECISIONS.yaml
+│   └── DECISION_LOG.md             # gerado
+├── context/
+│   ├── CONTEXT_POLICY.md
+│   ├── ROUTES.yaml
+│   └── packs/
+│       └── INC-002.md              # gerado
+├── architecture/
+│   ├── ADR-001.md
+│   └── ADR-002-ssot-and-context.md
+├── modules/                         # somente módulos aprovados
+├── contracts/                       # somente contratos necessários
+├── features/                        # Gherkin quando houver exemplos aprovados
+└── evidence/
+    ├── SSOT-MIGRATION.md
+    └── ssot-migration/
+        ├── BASELINES.yaml
+        └── baselines/
+            ├── g0/                    # snapshot original + lacunas históricas explícitas
+            ├── g0-r2/                 # primeira revisão sucessora, preservada
+            └── g0-r3/                 # estado final após validadores canônicos
+
+scripts/docs/
+├── build_decision_log.py
+├── build_traceability_view.py
+├── build_context_pack.py
+├── validate_ssot.py
+├── validate_routes.py
+└── promote_baseline.py
+
+tests/docs/
+├── fixtures/
+└── test_ssot.py
+```
+
+Arquivos condicionais, como OpenAPI, C4/YAML, JSON Schema e módulos, só serão criados quando um requisito aprovado exigir seu contrato. Estrutura vazia não é documentação completa.
+
+## Camadas de contexto
+
+| Camada | Conteúdo | Carregamento |
+| --- | --- | --- |
+| C0 — roteador | `AGENTS.md` e importação do Claude | Sempre, curto e estável |
+| C1 — índice de autoridade | `SSOT.md`, `AUTHORITY.md`, `ROUTES.yaml` | Conforme o tipo da tarefa |
+| C2 — cânone | requisito, domínio, ADR, plano ou estado | Somente arquivos e seções aplicáveis |
+| C3 — decisão e dependências | decisões e rastreabilidade por ID | Quando a tarefa altera ou depende do item |
+| C4 — pacote do incremento | resumo gerado, hashes e condições de parada | Em trabalho de implementação |
+| C5 — procedimento | comandos, checklist ou skill validada | Apenas durante a operação correspondente |
+| C6 — evidência | testes, relatórios e fontes originais | Em verificação, auditoria ou conflito |
+
+## Fluxo global de implementação
+
+### P0 — Baseline e decisões de governança
+
+Executar os gates G0 e G1 do subplano de governança.
+
+Saída obrigatória:
+
+- inventário e hashes;
+- ADR-002;
+- autoridade, estados e política de IDs;
+- decisões conhecidas registradas sem rediscussão;
+- decisões realmente abertas apresentadas a Davi.
+
+### P1 — Extração e reconciliação
+
+Executar os gates M0 a M3 da migração da SSOT.
+
+Saída obrigatória:
+
+- catálogo de afirmações;
+- matriz de duplicações e conflitos;
+- paridade da especificação extensa;
+- modelo esportivo reconciliado;
+- módulos candidatos separados.
+
+### P2 — Contexto mínimo em arquivos
+
+Executar os gates C0 a C3 do subplano de contexto.
+
+Saída obrigatória:
+
+- `AGENTS.md` comum e curto;
+- `CLAUDE.md` sem duplicação;
+- rotas por tarefa;
+- pacote gerado do INC-002;
+- política de busca e delegação.
+
+### P3 — Rastreabilidade e enforcement
+
+Executar os gates V0 a V3.
+
+Saída obrigatória:
+
+- YAML canônico;
+- Markdown gerado;
+- validador e testes;
+- CI bloqueando inconsistências estruturais.
+
+### P4 — Piloto e cutover
+
+Executar O0 a O3.
+
+Saída obrigatória:
+
+- ensaio equivalente com Codex e Claude;
+- métricas do contexto;
+- correções do piloto;
+- aprovação de Davi;
+- corte de autoridade e rollback documentados.
+
+### P5 — Otimizações opcionais
+
+Somente após o piloto, avaliar:
+
+- skills específicas do repositório;
+- trailers Git mínimos;
+- índice de símbolos multi-linguagem;
+- servidor MCP local e somente leitura;
+- busca semântica;
+- execução paralela por subagentes.
+
+Cada adoção exige problema mensurado, alternativa simples comparada e ADR quando houver impacto arquitetural.
+
+## Decisões bloqueadoras
+
+| ID | Estado | Decisão ou questão | Gate |
+| --- | --- | --- | --- |
+| GOV-001 | `DECIDIDO` | Adotar a arquitetura híbrida | P0 |
+| DOC-001 | `DECIDIDO` | Aplicar `DOCUMENTATION_STANDARD.md` | P0 |
+| GOV-SRC-001 | `DECIDIDO` | Nunca sobrescrever baseline publicado | P0 |
+| GOV-SRC-002 | `DECIDIDO` | Preservar os oito controles sem autoridade de produto | P0 |
+| GOV-002 | `PENDENTE` | Git será autoridade operacional do software após o cutover? | P4 |
+| GOV-003 | `PENDENTE` | Drive continua fonte do conhecimento esportivo amplo? | P4 |
+| GOV-004 | `PENDENTE` | NotebookLM permanece apenas como ferramenta consultiva? | P0 |
+| GOV-006 | `PENDENTE` | Migração bloqueia o INC-002? | P0 |
+| ID-001 | `PENDENTE` | Preservar RF-001 a RF-052? | P0/P1 |
+| ID-002 | `PENDENTE` | Tratamento de RF-P/CA-P | P1 |
+| PROD-001 | `PENDENTE` | Limite do produto completo | P1 |
+
+As demais decisões específicas permanecem nos respectivos subplanos e não devem ocupar o contexto de gates não relacionados.
+
+## Princípios de menor custo e menor complexidade
+
+1. arquivos versionados antes de serviços;
+2. busca lexical antes de índice semântico;
+3. links e IDs antes de copiar texto;
+4. geradores determinísticos antes de edição duplicada;
+5. validação estrutural antes de automação inteligente;
+6. contexto estático mínimo e contexto dinâmico por tarefa;
+7. nenhuma API paga obrigatória;
+8. nenhuma ferramenta simulada como autoridade;
+9. nenhuma geração de imagem em todo commit sem necessidade comprovada;
+10. nenhuma decisão esportiva delegada a agente ou subagente.
+
+## Definition of Done global
+
+- [ ] Os cinco subplanos atingiram seus critérios de saída.
+- [ ] O corpus foi contabilizado sem apagar fontes.
+- [ ] Decisões e conflitos possuem autoridade e proveniência.
+- [ ] A especificação permite planejar o sistema completo.
+- [ ] O pacote do INC-002 contém contexto mínimo suficiente e hashes válidos.
+- [ ] Codex e Claude recebem autoridades equivalentes.
+- [ ] A rastreabilidade liga fonte, decisão, requisito, incremento, código, teste e evidência.
+- [ ] O CI rejeita IDs, estados, referências e evidências inválidas.
+- [ ] Tecnologias opcionais permanecem fora até justificativa mensurada.
+- [ ] Davi aprovou o cutover e o rollback é executável.
+
+## Próxima ação
+
+P0 possui G0 preservado, G0-R2 preservado e G0-R3 como revisão final após a inclusão dos validadores canônicos. A criação de G0-R3, em vez da sobrescrita de G0-R2, aplica `GOV-SRC-001`. Prosseguir para P1/M0 sem promover automaticamente afirmações dos drafts. Qualquer correção futura exige outra revisão sucessora.

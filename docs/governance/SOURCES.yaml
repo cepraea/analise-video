@@ -1,0 +1,37 @@
+schema_version: 1
+authority_statements:
+  - id: SRC-AUTH-DAVI-2026-09-16
+    type: authority_statement
+    authority: Davi Sermenho
+    captured_at: 2026-09-16
+    scope:
+      - GOV-001
+      - DOC-001
+      - GOV-SRC-001
+      - GOV-SRC-002
+    locator: conversation_authority_record
+    eligible_for_product_claims: true
+
+baseline_catalogs:
+  - baseline_id: G0
+    manifest: docs/evidence/ssot-migration/baselines/g0/G0-SOURCES.yaml
+  - baseline_id: G0-R2
+    manifest: docs/evidence/ssot-migration/baselines/g0-r2/G0-R2-SOURCES.yaml
+  - baseline_id: G0-R3
+    manifest: docs/evidence/ssot-migration/baselines/g0-r3/G0-R3-SOURCES.yaml
+  - baseline_id: G0-R4
+    manifest: docs/evidence/ssot-migration/baselines/g0-r4/G0-R4-SOURCES.yaml
+
+control_artifacts:
+  classification: OPERATIONAL_CONTROL
+  eligible_for_product_claims: false
+  decision_id: GOV-SRC-002
+  paths:
+    - .local/drafts/arquitetura/README.md
+    - .local/drafts/arquitetura/auditoria/notebooklm-contexto.md
+    - .local/drafts/arquitetura/plano/PLANO-MESTRE.md
+    - .local/drafts/arquitetura/plano/01-governanca-e-decisoes.md
+    - .local/drafts/arquitetura/plano/02-migracao-ssot.md
+    - .local/drafts/arquitetura/plano/03-contexto-minimo.md
+    - .local/drafts/arquitetura/plano/04-rastreabilidade-e-validacao.md
+    - .local/drafts/arquitetura/plano/05-cutover-e-operacao.md

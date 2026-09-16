@@ -1,0 +1,69 @@
+schema_version: 1
+generated_view: docs/governance/DECISION_LOG.md
+decisions:
+  - id: GOV-001
+    title: Arquitetura documental híbrida
+    status: DECIDIDO
+    authority: Davi Sermenho
+    decided_at: 2026-09-16
+    statement: >-
+      O projeto adota uma SSOT federada por responsabilidade, com registro
+      central de decisões e fontes, rotas de contexto e evidência versionada.
+    provenance:
+      - source_id: SRC-AUTH-DAVI-2026-09-16
+        locator: aprovação explícita da arquitetura híbrida e do ADR-002
+    affected_documents:
+      - docs/SSOT.md
+      - docs/architecture/ADR-002-ssot-and-context.md
+      - docs/context/ROUTES.yaml
+    supersedes: []
+
+  - id: DOC-001
+    title: Padrão de documentação
+    status: DECIDIDO
+    authority: Davi Sermenho
+    decided_at: 2026-09-16
+    statement: >-
+      DOCUMENTATION_STANDARD.md é o padrão normativo para organizar, escrever,
+      versionar e validar a documentação do projeto.
+    provenance:
+      - source_id: SRC-AUTH-DAVI-2026-09-16
+        locator: aprovação explícita de DOCUMENTATION_STANDARD.md
+    affected_documents:
+      - docs/governance/DOCUMENTATION_STANDARD.md
+    supersedes: []
+
+  - id: GOV-SRC-001
+    title: Imutabilidade de baselines publicados
+    status: DECIDIDO
+    authority: Davi Sermenho
+    decided_at: 2026-09-16
+    statement: >-
+      Um baseline publicado nunca é sobrescrito; qualquer mudança produz uma
+      revisão sucessora com manifesto e hashes próprios.
+    provenance:
+      - source_id: SRC-AUTH-DAVI-2026-09-16
+        locator: aprovação explícita sobre revisões sucessoras
+    affected_documents:
+      - docs/governance/DOCUMENTATION_STANDARD.md
+      - docs/evidence/ssot-migration/BASELINES.yaml
+      - archive/ssot/objects/sha256/
+    supersedes:
+      - GOV-PENDING-SOURCE-REVISION-001
+
+  - id: GOV-SRC-002
+    title: Classificação dos artefatos de controle do G0
+    status: DECIDIDO
+    authority: Davi Sermenho
+    decided_at: 2026-09-16
+    statement: >-
+      Os oito arquivos de controle do G0 são integralmente preservados e
+      rastreados como controle operacional, sem autoridade para definir o produto.
+    provenance:
+      - source_id: SRC-AUTH-DAVI-2026-09-16
+        locator: aprovação explícita sobre os oito arquivos de controle
+    affected_documents:
+      - docs/governance/SOURCES.yaml
+      - docs/evidence/ssot-migration/BASELINES.yaml
+    supersedes:
+      - GOV-PENDING-SOURCE-SCOPE-002

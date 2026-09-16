@@ -1,0 +1,106 @@
+#!/usr/bin/env python3
+"""Render the deterministic repository graph produced by map_repo_ast.py."""
+
+from __future__ import annotations
+
+import argparse
+import json
+from pathlib import Path
+
+
+HIGH_LEVEL_TYPES = {"File", "Class", "Module", "Function"}
+COLORS = {
+    "File": "#3498db",
+    "Class": "#2ecc71",
+    "Function": "#e67e22",
+    "Method": "#f1c40f",
+    "Module": "#9b59b6",
+    "ExternalSymbol": "#e74c3c",
+    "Unknown": "#95a5a6",
+}
+
+
+def load_dependencies():
+    try:
+        import matplotlib
+
+        matplotlib.use("Agg")
+        import matplotlib.pyplot as plt
+        import networkx as nx
+    except ImportError as exc:
+        raise SystemExit(
+            f"Missing dependency: {exc}. Install with: pip install -r requirements.txt"
+        ) from exc
+    return plt, nx
+
+
+def render(input_path: Path, output_path: Path, high_level: bool) -> tuple[int, int]:
+    plt, nx = load_dependencies()
+    data = json.loads(input_path.read_text(encoding="utf-8"))
+    selected = [
+        node
+        for node in data.get("nodes", [])
+        if not high_level or node.get("type") in HIGH_LEVEL_TYPES
+    ]
+    selected_ids = {node["id"] for node in selected}
+
+    graph = nx.MultiDiGraph()
+    for node in selected:
+        graph.add_node(
+            node["id"],
+            type=node.get("type", "Unknown"),
+            label=node.get("label", node["id"]),
+        )
+    for edge in data.get("edges", []):
+        if edge.get("source") in selected_ids and edge.get("target") in selected_ids:
+            graph.add_edge(edge["source"], edge["target"], relation=edge.get("relation", "UNKNOWN"))
+
+    if graph.number_of_nodes() == 0:
+        raise SystemExit("Graph is empty; nothing to render")
+
+    positions = nx.spring_layout(graph, k=1.0 if high_level else 0.55, seed=42)
+    labels = {
+        node_id: (attrs["label"][:29] + "…" if len(attrs["label"]) > 30 else attrs["label"])
+        for node_id, attrs in graph.nodes(data=True)
+    }
+    colors = [COLORS.get(attrs["type"], COLORS["Unknown"]) for _, attrs in graph.nodes(data=True)]
+    sizes = [
+        1300 if attrs["type"] == "File" else 950 if attrs["type"] == "Class" else 650
+        for _, attrs in graph.nodes(data=True)
+    ]
+
+    plt.figure(figsize=(16, 12) if high_level else (20, 15), dpi=200)
+    plt.title(
+        "Repository symbol graph — high level" if high_level else "Repository symbol graph — complete",
+        fontsize=15,
+        fontweight="bold",
+        pad=24,
+    )
+    nx.draw_networkx_nodes(
+        graph, positions, node_color=colors, node_size=sizes, alpha=0.9, edgecolors="#2c3e50"
+    )
+    nx.draw_networkx_edges(
+        graph, positions, width=0.8, alpha=0.35, edge_color="#7f8c8d", arrowsize=9
+    )
+    nx.draw_networkx_labels(graph, positions, labels=labels, font_size=7)
+    plt.axis("off")
+    plt.tight_layout()
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    plt.savefig(output_path, bbox_inches="tight", format="png")
+    plt.close()
+    return graph.number_of_nodes(), graph.number_of_edges()
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("input", nargs="?", default="repo_knowledge_graph.json")
+    parser.add_argument("output", nargs="?", default="repo_architecture_graph.png")
+    parser.add_argument("--high-level", "--filtered", action="store_true", dest="high_level")
+    args = parser.parse_args()
+    nodes, edges = render(Path(args.input).resolve(), Path(args.output).resolve(), args.high_level)
+    print(f"Graph image written to {Path(args.output).resolve()}: {nodes} nodes, {edges} edges")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

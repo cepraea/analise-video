@@ -1,3 +1,5 @@
+@AGENTS.md
+
 # CLAUDE.md — Entrada de contexto
 
 O contexto do projeto está distribuído por responsabilidade:
@@ -11,3 +13,5 @@ O contexto do projeto está distribuído por responsabilidade:
 - `docs/IMPLEMENTATION_STATUS.md` — estado comprovado da implementação.
 
 O primeiro fluxo funcional permanece `NOT_IMPLEMENTED`. Taxonomias esportivas em estado parcial ou pendente não estão fechadas por este repositório.
+
+O resumo acima é mantido como fallback durante o piloto da importação. As rotas comuns estão em `docs/context/ROUTES.yaml`.
