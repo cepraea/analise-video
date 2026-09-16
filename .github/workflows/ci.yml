@@ -40,30 +40,7 @@ jobs:
       - name: Verify recovered LFS objects
         run: |
           git lfs fsck --objects --pointers
-          python - <<'PY'
-          import hashlib
-          import json
-          from pathlib import Path
-          import subprocess
-
-          listing = json.loads(subprocess.check_output(
-              ["git", "lfs", "ls-files", "--json"], text=True
-          ))
-          files = listing.get("files", [])
-          if not files:
-              raise SystemExit("No LFS objects found; baseline binaries must be tracked")
-          for entry in files:
-              path = Path(entry["name"])
-              if entry.get("oid_type") != "sha256" or not path.is_file():
-                  raise SystemExit(f"Invalid or missing LFS object: {path}")
-              if path.stat().st_size != entry["size"]:
-                  raise SystemExit(f"LFS size mismatch (possibly an unrecovered pointer): {path}")
-              with path.open("rb") as handle:
-                  digest = hashlib.file_digest(handle, "sha256").hexdigest()
-              if digest != entry["oid"]:
-                  raise SystemExit(f"Recovered LFS bytes do not match the pointer: {path}")
-          print(f"Verified {len(files)} recovered LFS objects")
-          PY
+          python scripts/docs/validate_lfs.py
 
       - name: Validate baseline lineage and hashes
         env:

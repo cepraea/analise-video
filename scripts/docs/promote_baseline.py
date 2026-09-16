@@ -22,10 +22,12 @@ import yaml
 if __package__:
     from .validate_baselines import (
         SOURCE_CATALOG_PATH, manifest_identity_matches, validate_catalogs, validate_lineage,
+        object_directory_error, object_file_error,
     )
 else:
     from validate_baselines import (
         SOURCE_CATALOG_PATH, manifest_identity_matches, validate_catalogs, validate_lineage,
+        object_directory_error, object_file_error,
     )
 
 
@@ -74,11 +76,15 @@ def git_value(repo: Path, *args: str) -> str:
 
 
 def store_object(source: Path, object_dir: Path, expected: str | None = None) -> str:
+    if error := object_directory_error(object_dir):
+        raise ValueError(error)
     digest = sha256(source)
     if expected is not None and digest != expected:
         raise ValueError(f"hash mismatch for {source}: expected {expected}, got {digest}")
     target = object_dir / digest
-    if target.exists():
+    if target.exists() or target.is_symlink():
+        if error := object_file_error(object_dir, digest):
+            raise ValueError(error)
         if sha256(target) != digest:
             raise ValueError(f"immutable object corrupted: {target}")
         return digest
@@ -91,6 +97,8 @@ def store_object(source: Path, object_dir: Path, expected: str | None = None) ->
         try:
             os.link(temporary, target)  # Exclusive creation; never replace an existing object.
         except FileExistsError:
+            if error := object_file_error(object_dir, digest):
+                raise ValueError(error)
             if sha256(target) != digest:
                 raise ValueError(f"immutable object corrupted: {target}")
     finally:

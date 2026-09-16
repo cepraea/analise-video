@@ -7,6 +7,7 @@ import argparse
 import hashlib
 from pathlib import Path
 import re
+import stat
 import subprocess
 
 import yaml
@@ -15,6 +16,34 @@ import yaml
 REGISTRY_PATH = "docs/evidence/ssot-migration/BASELINES.yaml"
 SOURCE_CATALOG_PATH = "docs/governance/SOURCES.yaml"
 BASELINE_ROOT = "docs/evidence/ssot-migration/baselines/"
+OBJECT_ROOT = "archive/ssot/objects/sha256"
+
+
+def object_directory_error(directory: Path) -> str | None:
+    """Do not let any symlink component redirect the content-addressed store."""
+    try:
+        if directory.resolve() != directory.absolute() or not directory.is_dir():
+            return f"invalid object directory (missing or symlinked): {directory}"
+    except (OSError, RuntimeError) as exc:
+        return f"invalid object directory: {directory}: {exc}"
+    return None
+
+
+def object_file_error(directory: Path, digest: str) -> str | None:
+    if not isinstance(digest, str) or re.fullmatch(r"[0-9a-f]{64}", digest) is None:
+        return f"invalid object SHA-256: {digest}"
+    if error := object_directory_error(directory):
+        return error
+    path = directory / digest
+    try:
+        mode = path.lstat().st_mode  # Never follow even a dangling symlink.
+        if not stat.S_ISREG(mode) or path.resolve().parent != directory.absolute():
+            return f"object must be a regular non-symlink file: {path}"
+    except FileNotFoundError:
+        return f"object missing: {path}"
+    except (OSError, RuntimeError) as exc:
+        return f"cannot inspect object: {path}: {exc}"
+    return None
 
 
 def manifest_identity_matches(metadata: dict, baseline_id: str) -> bool:
@@ -174,7 +203,7 @@ def validate(repo: Path, base_ref: str | None = None) -> list[str]:
     if base_ref is not None:
         errors.extend(validate_immutability(repo, base_ref))
 
-    object_dir = repo / "archive/ssot/objects/sha256"
+    object_dir = repo / OBJECT_ROOT
     verified_objects: set[str] = set()
     for record in records:
         if record.get("immutable") is not True:
@@ -219,8 +248,8 @@ def validate(repo: Path, base_ref: str | None = None) -> list[str]:
             object_path = object_dir / digest
             if digest in declared_missing:
                 continue
-            if not object_path.exists():
-                errors.append(f"{record['id']}: object missing for {item['path']}: {digest}")
+            if error := object_file_error(object_dir, digest):
+                errors.append(f"{record['id']}: {item['path']}: {error}")
                 continue
             if digest not in verified_objects:
                 actual = sha256(object_path)

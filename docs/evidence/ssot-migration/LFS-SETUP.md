@@ -26,6 +26,10 @@ Antes de cada commit que acrescente objetos ao archive:
 4. revisar `.gitattributes` e `git check-attr filter diff merge text -- <caminho>`;
 5. após staging autorizado, confirmar o pointer no índice e executar `git lfs status`.
 
+Executar também `python3 scripts/docs/validate_lfs.py` após o staging e `git lfs fsck --objects --pointers`. O CI exige que todos os binários disponíveis referenciados nos manifestos estejam no LFS, inclusive os hashes de revisões futuras. Rastrear apenas os dez objetos iniciais não satisfaz esse controle quando novos binários são publicados. Se o objeto já entrou no índice como blob comum, ajustar a regra por hash e executar novamente `git add -- <caminho>` para gerar o pointer.
+
+A classificação considera extensões e tipos de mídia declarados. Quando esses dados são ambíguos, verifica assinatura PDF/PNG e os bytes completos: NUL ou conteúdo não UTF-8 requerem LFS. Objetos textuais UTF-8 sem declaração binária permanecem no Git normal.
+
 Nenhuma migração de histórico é necessária: os objetos ainda não foram commitados. Esta configuração não resolve as oito lacunas históricas já declaradas no G0 e não modifica revisões publicadas.
 
 ## Verificação executada

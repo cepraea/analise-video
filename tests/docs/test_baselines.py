@@ -537,6 +537,75 @@ class BaselineTests(unittest.TestCase):
         self.assertEqual(target.read_text(), "corrupt existing object")
         self.assertEqual(list(objects.glob(f".{digest}.*")), [])
 
+    def test_existing_symlink_object_is_rejected_without_modifying_target(self):
+        source = self.source_root / "contexto/known.md"
+        digest = promoter.sha256(source)
+        objects = self.repo / validator.OBJECT_ROOT
+        target = objects / digest
+        external = self.write("mutable-source.md", source.read_text())
+        target.unlink()
+        target.symlink_to(external)
+        with self.assertRaisesRegex(ValueError, "regular non-symlink"):
+            promoter.store_object(source, objects)
+        self.assertTrue(target.is_symlink())
+        self.assertEqual(external.read_bytes(), source.read_bytes())
+        self.assert_error("regular non-symlink", self.base)
+
+    def test_dangling_symlink_object_is_rejected_without_replacement(self):
+        source = self.source_root / "contexto/known.md"
+        digest = promoter.sha256(source)
+        objects = self.repo / validator.OBJECT_ROOT
+        target = objects / digest
+        target.unlink()
+        target.symlink_to(self.repo / "missing-source.md")
+        with self.assertRaisesRegex(ValueError, "regular non-symlink"):
+            promoter.store_object(source, objects)
+        self.assertTrue(target.is_symlink())
+        self.assertFalse(target.exists())
+        self.assert_error("regular non-symlink", self.base)
+
+    def test_nonregular_object_is_rejected(self):
+        source = self.source_root / "contexto/known.md"
+        digest = promoter.sha256(source)
+        objects = self.repo / validator.OBJECT_ROOT
+        target = objects / digest
+        target.unlink()
+        target.mkdir()
+        with self.assertRaisesRegex(ValueError, "regular non-symlink"):
+            promoter.store_object(source, objects)
+        self.assert_error("regular non-symlink", self.base)
+
+    def test_symlinked_object_directory_is_rejected(self):
+        source = self.source_root / "contexto/known.md"
+        objects = self.repo / validator.OBJECT_ROOT
+        original = objects.with_name("original-store")
+        objects.rename(original)
+        objects.symlink_to(original, target_is_directory=True)
+        with self.assertRaisesRegex(ValueError, "invalid object directory"):
+            promoter.store_object(source, objects)
+        self.assert_error("invalid object directory", self.base)
+
+    def test_symlink_created_during_exclusive_publication_is_rejected(self):
+        source = self.write("new-source.md", "new independent object\n")
+        digest = promoter.sha256(source)
+        objects = self.repo / validator.OBJECT_ROOT
+        target = objects / digest
+        def create_symlink_instead(source_path, destination):
+            Path(destination).symlink_to(source)
+            raise FileExistsError("concurrent symlink")
+        with patch.object(promoter.os, "link", side_effect=create_symlink_instead):
+            with self.assertRaisesRegex(ValueError, "regular non-symlink"):
+                promoter.store_object(source, objects)
+        self.assertTrue(target.is_symlink())
+        self.assertEqual(list(objects.glob(f".{digest}.*")), [])
+
+    def test_invalid_digest_cannot_escape_object_directory(self):
+        for digest in ("../outside", "A" * 64, None):
+            with self.subTest(digest=digest):
+                self.assertIn("invalid object SHA-256", validator.object_file_error(
+                    self.repo / validator.OBJECT_ROOT, digest,
+                ))
+
     def test_registration_failure_rolls_back_publication_and_can_retry(self):
         previous = (self.repo / validator.REGISTRY_PATH).read_bytes()
         with patch.object(promoter.os, "replace", side_effect=OSError("registration failed")):

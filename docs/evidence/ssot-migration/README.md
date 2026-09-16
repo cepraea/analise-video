@@ -15,6 +15,10 @@ python -m unittest discover -s tests/docs -p 'test_*.py' -v
 
 Antes de aceitar uma publicação, o validador exige manifestos com caminhos relativos dentro da árvore de baselines, sem travessia por `..` nem escape por links simbólicos. Para cada sucessor, os arquivos de checksums de fontes e controles são obrigatórios e devem corresponder integralmente ao manifesto, sem entradas ausentes, adicionais, duplicadas ou malformadas.
 
+Objetos por SHA-256 devem ser arquivos regulares, sem links simbólicos, dentro do diretório físico do armazenamento. O promotor rejeita links existentes, inclusive links quebrados ou criados durante uma disputa de publicação; o validador também rejeita diretórios de armazenamento redirecionados por symlinks.
+
+O CI executa `scripts/docs/validate_lfs.py` além de `git lfs fsck`. O inventário esperado vem de todos os manifestos de fontes e controles, não apenas da lista de arquivos já rastreados pelo LFS. Cada binário disponível deve aparecer no LFS, ter um pointer correspondente no índice e possuir bytes recuperados com tamanho e SHA-256 corretos. Somente as ausências históricas explicitamente declaradas no G0 são dispensadas. Os objetos são acessados por hashes exatos; não há varredura recursiva de `archive/`.
+
 Os testes usam repositórios temporários e cobrem reescrita de snapshots, remoção de registros, ciclos, herança de classificação, falhas de publicação, numeração de sucessores, localização dos manifestos e integridade dos inventários de checksums. Eles não alteram o archive publicado.
 
 O promotor resolve o predecessor pelo registro versionado, prepara os arquivos em diretório temporário e serializa publicações por lock local no diretório Git. Se a preparação ou o registro falhar, o destino da nova revisão não permanece publicado. Objetos já copiados e verificados podem permanecer no armazenamento por conteúdo e ser reutilizados na nova tentativa; snapshots anteriores nunca são removidos.
