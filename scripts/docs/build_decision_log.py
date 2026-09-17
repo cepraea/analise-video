@@ -22,8 +22,9 @@ def build(source: Path) -> str:
     ]
     for item in decisions:
         statement = " ".join(str(item["statement"]).split()).replace("|", "\\|")
+        date = item.get("decided_at") or "—"
         lines.append(
-            f"| `{item['id']}` | `{item['status']}` | {item['decided_at']} | "
+            f"| `{item['id']}` | `{item['status']}` | {date} | "
             f"{item['authority']} | {statement} |"
         )
     lines.extend(["", "Fonte canônica: [`DECISIONS.yaml`](./DECISIONS.yaml).", ""])

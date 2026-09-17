@@ -1,0 +1,16 @@
+schema_version: 1
+output: docs/context/graph/repo-knowledge-graph.json
+roots:
+  - backend/src
+  - frontend/src
+  - scripts
+extensions: [.py, .ts, .tsx, .js, .jsx]
+exclude:
+  - '**/__pycache__/**'
+  - '**/*.generated.*'
+  - node_modules/**
+  - dist/**
+  - build/**
+extractors:
+  python: python-ast-v1
+  javascript_typescript: typescript-compiler-api-v1

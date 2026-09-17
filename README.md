@@ -156,7 +156,7 @@ As fontes do Drive mantêm autoridade superior aos snapshots derivados.
 - `CLAUDE.md` — entrada para Claude Code.
 - `docs/SYSTEM_SPEC.md` — requisitos necessários ao desenvolvimento inicial.
 - `docs/GAME_MODEL.md` — conceitos esportivos relevantes à implementação.
-- `docs/architecture/ADR-001.md` — hipótese de arquitetura local-first.
+- `docs/architecture/ADR-001-primeira-implementacao.md` — hipótese de arquitetura local-first.
 - `docs/IMPLEMENTATION_PLAN.md` — incrementos INC-000 a INC-007.
 - `docs/TRACEABILITY.md` — relação entre requisitos, incrementos e evidências.
 - `docs/IMPLEMENTATION_STATUS.md` — estado comprovado da implementação.

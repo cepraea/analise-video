@@ -1,0 +1,1076 @@
+{
+  "date": "2026-09-17",
+  "scope": "one Markdown selector correction; no product increment or universal efficiency claim",
+  "artifact_directory": "/home/davis/backups/analise-video/context-evaluation-20260917T034833Z",
+  "setup": {
+    "root": "/home/davis/analise-video",
+    "base_revision": "598800a94f7638aa78b1a7db910de2686d70abb1",
+    "source_revision": "571ce15ebefe83684f963e31981b99c13e1277ad",
+    "manifest_sha256": "24ab3ace5544c19f01d149ea80b99e362937d871124d53ea17b0cee28c292394",
+    "files": 102,
+    "claude_session_id": "3ffb6c57-190f-4445-8a2e-49fbd77f7c01",
+    "created_utc": "2026-09-17T03:48:33.572818+00:00"
+  },
+  "task_file": "/home/davis/backups/analise-video/context-evaluation-20260917T034833Z/task.txt",
+  "baseline_independent_tests": {
+    "tests": 8,
+    "failures": 1,
+    "errors": 6,
+    "log": "/home/davis/backups/analise-video/context-evaluation-20260917T034833Z/baseline-independent-tests.txt"
+  },
+  "baseline_doc_tests": 80,
+  "baseline_checks": [
+    {
+      "command": [
+        "make",
+        "context-check"
+      ],
+      "exit_code": 0,
+      "log": "baseline-check-0.txt"
+    },
+    {
+      "command": [
+        "make",
+        "test-docs"
+      ],
+      "exit_code": 0,
+      "log": "baseline-check-1.txt"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "log": "baseline-check-2.txt"
+    }
+  ],
+  "agents": {
+    "codex": {
+      "version": "0.144.5",
+      "session_id": "01a0ad7b-3efa-7351-83b5-d33b7ba6e4af",
+      "model": "gpt-5.6-sol",
+      "base_revision": "598800a94f7638aa78b1a7db910de2686d70abb1",
+      "prompt_sha256": "3e2b676fc90686ab11abda1a81eccb6672416083aded3b745ff659b94aa64fb7",
+      "exit_code": 0,
+      "started_utc": "2026-09-17T03:48:48.272593+00:00",
+      "ended_utc": "2026-09-17T03:53:18.466317+00:00",
+      "elapsed_seconds": 270.207,
+      "entry_reported": "AGENTS.md via native instructions; Claude uses CLAUDE.md import; no explicit tool read of entry",
+      "context_reads_observed": [
+        "docs/context/ROUTES.yaml",
+        "docs/context/README.md",
+        "docs/context/CONTEXT_POLICY.md",
+        "docs/context/PACKS.yaml",
+        "scripts/docs/requirements.txt",
+        "Makefile",
+        "scripts/docs/build_context_pack.py",
+        "tests/docs/test_context.py",
+        "docs/context/packs/INC-002.md",
+        "skills/feature-workflow/SKILL.md",
+        "skills/build-and-test/SKILL.md",
+        "skills/code-review/SKILL.md"
+      ],
+      "skills_read": [
+        "skills/feature-workflow/SKILL.md",
+        "skills/build-and-test/SKILL.md",
+        "skills/code-review/SKILL.md"
+      ],
+      "changed_files": [
+        "docs/context/packs/INC-002.md",
+        "scripts/docs/build_context_pack.py",
+        "tests/docs/test_context.py"
+      ],
+      "doc_test_count": 83,
+      "independent_test_count": 8,
+      "verification": {
+        "agent": "codex",
+        "verified_utc": "2026-09-17T03:54:01.869241+00:00",
+        "checks": [
+          {
+            "command": [
+              "python3",
+              "/home/davis/backups/analise-video/context-evaluation-20260917T034833Z/independent_checks.py",
+              "/home/davis/backups/analise-video/context-evaluation-20260917T034833Z/codex"
+            ],
+            "exit_code": 0,
+            "log": "codex-independent-check-0.txt",
+            "log_sha256": "9bac9ecfef5e431a547f8a77bb3fcb9cd2abbf6886c7cbbb3959d846d2277add"
+          },
+          {
+            "command": [
+              "make",
+              "context-check"
+            ],
+            "exit_code": 0,
+            "log": "codex-independent-check-1.txt",
+            "log_sha256": "88941580ce115ddd1915c6fd1f5cf66af1d0cdc6fe98e7b0ba7d62605ef5cb75"
+          },
+          {
+            "command": [
+              "make",
+              "test-docs"
+            ],
+            "exit_code": 0,
+            "log": "codex-independent-check-2.txt",
+            "log_sha256": "3b023eed8e7d1a2df1c3c46c2107db88d377f199da0e8e126f63858681344211"
+          },
+          {
+            "command": [
+              "git",
+              "diff",
+              "--check"
+            ],
+            "exit_code": 0,
+            "log": "codex-independent-check-3.txt",
+            "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        ],
+        "changed_files": [
+          "docs/context/packs/INC-002.md",
+          "scripts/docs/build_context_pack.py",
+          "tests/docs/test_context.py"
+        ],
+        "scope_valid": true,
+        "untracked_files": []
+      },
+      "usage_raw": {
+        "input_tokens": 825358,
+        "cached_input_tokens": 767488,
+        "output_tokens": 10197,
+        "reasoning_output_tokens": 5163
+      },
+      "patch_sha256": "e6a783bb3e02f9e5adcaa5c7c07d2fceb83ece84b8965060c23cbc77746e2c1c",
+      "events_sha256": "67134d435fb2ed0a9a4bb977d61a940e2dc686e24f37712325890094aa61c431",
+      "self_review": "no findings reported; final streams preserve review",
+      "parent_review": "no blocking correctness findings; both passed independent contract tests",
+      "routing_limitations": [],
+      "artifacts": {
+        "events": "/home/davis/backups/analise-video/context-evaluation-20260917T034833Z/codex-events.jsonl",
+        "stderr": "/home/davis/backups/analise-video/context-evaluation-20260917T034833Z/codex-stderr.txt",
+        "analysis": "/home/davis/backups/analise-video/context-evaluation-20260917T034833Z/codex-analysis.json",
+        "patch": "/home/davis/backups/analise-video/context-evaluation-20260917T034833Z/codex-change.patch",
+        "verification": "/home/davis/backups/analise-video/context-evaluation-20260917T034833Z/codex-independent-verification.json"
+      }
+    },
+    "claude": {
+      "version": "2.1.179",
+      "session_id": "3ffb6c57-190f-4445-8a2e-49fbd77f7c01",
+      "model": "claude-sonnet-4-6",
+      "base_revision": "598800a94f7638aa78b1a7db910de2686d70abb1",
+      "prompt_sha256": "3e2b676fc90686ab11abda1a81eccb6672416083aded3b745ff659b94aa64fb7",
+      "exit_code": 0,
+      "started_utc": "2026-09-17T03:48:48.272598+00:00",
+      "ended_utc": "2026-09-17T03:52:08.244387+00:00",
+      "elapsed_seconds": 199.981,
+      "entry_reported": "AGENTS.md via native instructions; Claude uses CLAUDE.md import; no explicit tool read of entry",
+      "context_reads_observed": [
+        "docs/context/CONTEXT_POLICY.md",
+        "docs/context/README.md",
+        "docs/context/ROUTES.yaml",
+        "scripts/docs/build_context_pack.py",
+        "skills/build-and-test/SKILL.md",
+        "skills/code-review/SKILL.md",
+        "skills/feature-workflow/SKILL.md",
+        "tests/docs/test_context.py"
+      ],
+      "skills_read": [
+        "skills/feature-workflow/SKILL.md",
+        "skills/build-and-test/SKILL.md",
+        "skills/code-review/SKILL.md"
+      ],
+      "changed_files": [
+        "docs/context/packs/INC-002.md",
+        "scripts/docs/build_context_pack.py",
+        "tests/docs/test_context.py"
+      ],
+      "doc_test_count": 81,
+      "independent_test_count": 8,
+      "verification": {
+        "agent": "claude",
+        "verified_utc": "2026-09-17T03:52:51.431420+00:00",
+        "checks": [
+          {
+            "command": [
+              "python3",
+              "/home/davis/backups/analise-video/context-evaluation-20260917T034833Z/independent_checks.py",
+              "/home/davis/backups/analise-video/context-evaluation-20260917T034833Z/claude"
+            ],
+            "exit_code": 0,
+            "log": "claude-independent-check-0.txt",
+            "log_sha256": "9bac9ecfef5e431a547f8a77bb3fcb9cd2abbf6886c7cbbb3959d846d2277add"
+          },
+          {
+            "command": [
+              "make",
+              "context-check"
+            ],
+            "exit_code": 0,
+            "log": "claude-independent-check-1.txt",
+            "log_sha256": "ede1c0f4dc6500e42367fee17b6e00289c08cb81931e06ef5db8f3c7f2e81055"
+          },
+          {
+            "command": [
+              "make",
+              "test-docs"
+            ],
+            "exit_code": 0,
+            "log": "claude-independent-check-2.txt",
+            "log_sha256": "f48f3ea411d2b6645efbab3b4e280cb764a122073bd951286f8e9795b4ac5e9c"
+          },
+          {
+            "command": [
+              "git",
+              "diff",
+              "--check"
+            ],
+            "exit_code": 0,
+            "log": "claude-independent-check-3.txt",
+            "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        ],
+        "changed_files": [
+          "docs/context/packs/INC-002.md",
+          "scripts/docs/build_context_pack.py",
+          "tests/docs/test_context.py"
+        ],
+        "scope_valid": true,
+        "untracked_files": []
+      },
+      "usage_raw": {
+        "usage": {
+          "input_tokens": 15,
+          "cache_creation_input_tokens": 64040,
+          "cache_read_input_tokens": 713295,
+          "output_tokens": 10263,
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 64040,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "inference_geo": "not_available",
+          "iterations": [
+            {
+              "input_tokens": 1,
+              "output_tokens": 1316,
+              "cache_read_input_tokens": 62207,
+              "cache_creation_input_tokens": 1833,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 1833
+              },
+              "type": "message"
+            }
+          ],
+          "speed": "standard"
+        },
+        "modelUsage": {
+          "claude-sonnet-4-6": {
+            "inputTokens": 15,
+            "outputTokens": 10263,
+            "cacheReadInputTokens": 713295,
+            "cacheCreationInputTokens": 64040,
+            "webSearchRequests": 0,
+            "costUSD": 0.7522185,
+            "contextWindow": 200000,
+            "maxOutputTokens": 32000
+          }
+        },
+        "total_cost_usd": 0.7522185,
+        "duration_ms": 189803,
+        "duration_api_ms": 164044,
+        "num_turns": 20,
+        "is_error": false,
+        "permission_denials": [
+          {
+            "tool_name": "mcp__plugin_mem0_mem0__search_memories",
+            "tool_use_id": "toolu_013tc7BHjwWvAdFo3GEmc4wg",
+            "tool_input": {
+              "query": "context pack build_context_pack section selector",
+              "filters": {
+                "AND": [
+                  {
+                    "user_id": "davis"
+                  },
+                  {
+                    "app_id": "context-evaluation-20260917T034833Z-base"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "tool_name": "mcp__plugin_mem0_mem0__search_memories",
+            "tool_use_id": "toolu_01BjsT7BdbVjEsdMBtcDP2s4",
+            "tool_input": {
+              "query": "markdown ATX heading parser section extraction",
+              "filters": {
+                "AND": [
+                  {
+                    "user_id": "davis"
+                  },
+                  {
+                    "app_id": "context-evaluation-20260917T034833Z-base"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "patch_sha256": "b9df4b088c613bb3325f30575c839d6ee851f3648a067543076bdcb10d039104",
+      "events_sha256": "efd9c70bceb1c6edf7126331cd16a57a16a8438604ddcc115eda0b371444a526",
+      "self_review": "no findings reported; final streams preserve review",
+      "parent_review": "no blocking correctness findings; both passed independent contract tests",
+      "routing_limitations": [
+        "triggered PACKS.yaml not explicitly read",
+        "relevant requirements.txt and Makefile not explicitly read"
+      ],
+      "artifacts": {
+        "events": "/home/davis/backups/analise-video/context-evaluation-20260917T034833Z/claude-events.jsonl",
+        "stderr": "/home/davis/backups/analise-video/context-evaluation-20260917T034833Z/claude-stderr.txt",
+        "analysis": "/home/davis/backups/analise-video/context-evaluation-20260917T034833Z/claude-analysis.json",
+        "patch": "/home/davis/backups/analise-video/context-evaluation-20260917T034833Z/claude-change.patch",
+        "verification": "/home/davis/backups/analise-video/context-evaluation-20260917T034833Z/claude-independent-verification.json"
+      }
+    }
+  },
+  "parent_preservation": {
+    "operational_files_checked": 102,
+    "operational_changes_before_integration": [],
+    "git_status_unchanged": true,
+    "original_files_checked": 33,
+    "original_mismatches": []
+  },
+  "integration": {
+    "integrated_utc": "2026-09-17T03:54:25.418318+00:00",
+    "selected_agent": "codex",
+    "files": [
+      "scripts/docs/build_context_pack.py",
+      "tests/docs/test_context.py"
+    ],
+    "source_patch_sha256": "e6a783bb3e02f9e5adcaa5c7c07d2fceb83ece84b8965060c23cbc77746e2c1c",
+    "reasons": [
+      "narrow normalization using spaces and tabs",
+      "three focused regression methods",
+      "exact excerpt equality and mixed duplicate headings"
+    ],
+    "pack": "regenerated from final root sources separately",
+    "parent_workspace_preserved_until_integration": true
+  },
+  "limitations": [
+    "one run per agent with distinct default models and global configurations",
+    "no before/after retrieval benchmark",
+    "aggregate tokens are not simultaneous window utilization",
+    "Claude cost is a CLI estimate; subscription billing not observed",
+    "Mem0: Codex searches returned Memory search failed; Claude searches denied by native-tool allowlist",
+    "Mem0 app id inferred from temporary clone remote, not analise-video",
+    "no Phoenix per-session trace coverage verified",
+    "no native project skill registration validated"
+  ],
+  "parent_final_verification": {
+    "verified_utc": "2026-09-17T03:57:42.104280+00:00",
+    "checks": [
+      {
+        "command": [
+          "python3",
+          "/home/davis/backups/analise-video/context-evaluation-20260917T034833Z/independent_checks.py",
+          "/home/davis/analise-video"
+        ],
+        "exit_code": 0,
+        "log": "/home/davis/backups/analise-video/context-evaluation-20260917T034833Z/root-final-check-0.txt",
+        "log_sha256": "9bac9ecfef5e431a547f8a77bb3fcb9cd2abbf6886c7cbbb3959d846d2277add"
+      },
+      {
+        "command": [
+          "make",
+          "context-check"
+        ],
+        "exit_code": 0,
+        "log": "/home/davis/backups/analise-video/context-evaluation-20260917T034833Z/root-final-check-1.txt",
+        "log_sha256": "b6c8ce657ea0b4a8188c3502faf599e9e9755d94a11b3cc45aee215d84d4989e"
+      },
+      {
+        "command": [
+          "make",
+          "test-docs"
+        ],
+        "exit_code": 0,
+        "log": "/home/davis/backups/analise-video/context-evaluation-20260917T034833Z/root-final-check-2.txt",
+        "log_sha256": "626b96c7b4130de14255a5bc19619d7c7f479d36ca28ab53b169ac920741135d"
+      },
+      {
+        "command": [
+          "git",
+          "diff",
+          "--check"
+        ],
+        "exit_code": 0,
+        "log": "/home/davis/backups/analise-video/context-evaluation-20260917T034833Z/root-final-check-3.txt",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "doc_tests": 83,
+    "independent_tests": 8
+  },
+  "skill_validation": [
+    {
+      "skill": "feature-workflow",
+      "command": [
+        "python3",
+        "/home/davis/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+        "skills/feature-workflow"
+      ],
+      "exit_code": 0,
+      "output": "Skill is valid!\n"
+    },
+    {
+      "skill": "build-and-test",
+      "command": [
+        "python3",
+        "/home/davis/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+        "skills/build-and-test"
+      ],
+      "exit_code": 0,
+      "output": "Skill is valid!\n"
+    },
+    {
+      "skill": "code-review",
+      "command": [
+        "python3",
+        "/home/davis/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+        "skills/code-review"
+      ],
+      "exit_code": 0,
+      "output": "Skill is valid!\n"
+    }
+  ],
+  "claude_followups": [
+    {
+      "attempt": 1,
+      "artifact_directory": "/home/davis/backups/analise-video/context-claude-retest-20260917T041834Z",
+      "setup": {
+        "root": "/home/davis/analise-video",
+        "base_revision": "f4475dfd9dea236caef33afb1ed4c42c0cc6e0ac",
+        "original_baseline_revision": "598800a94f7638aa78b1a7db910de2686d70abb1",
+        "original_evaluation_directory": "/home/davis/backups/analise-video/context-evaluation-20260917T034833Z",
+        "claude_session_id": "d01d6eb7-e58f-4bf3-9f85-f29adb37edd0",
+        "prompt_sha256": "3e2b676fc90686ab11abda1a81eccb6672416083aded3b745ff659b94aa64fb7",
+        "instruction_changes": [
+          "docs/context/packs/INC-002.md",
+          "skills/build-and-test/SKILL.md",
+          "skills/feature-workflow/SKILL.md"
+        ],
+        "generator_equals_original_baseline": true,
+        "tests_equal_original_baseline": true,
+        "source_workspace_files": 104,
+        "created_utc": "2026-09-17T04:18:35.368621+00:00"
+      },
+      "run": {
+        "command": [
+          "/home/davis/.vscode-server/extensions/anthropic.claude-code-2.1.179-linux-x64/resources/native-binary/claude",
+          "-p",
+          "--session-id",
+          "d01d6eb7-e58f-4bf3-9f85-f29adb37edd0",
+          "--output-format",
+          "stream-json",
+          "--verbose",
+          "--permission-mode",
+          "dontAsk",
+          "--tools",
+          "Read,Edit,Write,Glob,Grep,Bash",
+          "--allowedTools",
+          "Read",
+          "Edit",
+          "Write",
+          "Glob",
+          "Grep",
+          "Bash"
+        ],
+        "started_utc": "2026-09-17T04:18:45.677989+00:00",
+        "base_revision": "f4475dfd9dea236caef33afb1ed4c42c0cc6e0ac",
+        "prompt_sha256": "3e2b676fc90686ab11abda1a81eccb6672416083aded3b745ff659b94aa64fb7",
+        "pid": 82002,
+        "exit_code": 0,
+        "elapsed_seconds": 199.529,
+        "ended_utc": "2026-09-17T04:22:05.171299+00:00"
+      },
+      "observed_model": "claude-sonnet-4-6",
+      "session_id": "d01d6eb7-e58f-4bf3-9f85-f29adb37edd0",
+      "read_acceptance": {
+        "pack_read_successfully": false,
+        "pack_read_before_first_edit": false,
+        "manifest_read_successfully": true,
+        "manifest_read_before_first_test": true,
+        "three_skills_read": true
+      },
+      "read_events": [
+        {
+          "path": "docs/context/ROUTES.yaml",
+          "event_index": 34,
+          "result": {
+            "event_index": 36,
+            "is_error": false
+          }
+        },
+        {
+          "path": "docs/context/README.md",
+          "event_index": 85,
+          "result": {
+            "event_index": 88,
+            "is_error": false
+          }
+        },
+        {
+          "path": "docs/context/CONTEXT_POLICY.md",
+          "event_index": 86,
+          "result": {
+            "event_index": 89,
+            "is_error": false
+          }
+        },
+        {
+          "path": "skills/feature-workflow/SKILL.md",
+          "event_index": 87,
+          "result": {
+            "event_index": 92,
+            "is_error": false
+          }
+        },
+        {
+          "path": "skills/build-and-test/SKILL.md",
+          "event_index": 90,
+          "result": {
+            "event_index": 93,
+            "is_error": false
+          }
+        },
+        {
+          "path": "skills/code-review/SKILL.md",
+          "event_index": 91,
+          "result": {
+            "event_index": 94,
+            "is_error": false
+          }
+        },
+        {
+          "path": "scripts/docs/build_context_pack.py",
+          "event_index": 112,
+          "result": {
+            "event_index": 114,
+            "is_error": false
+          }
+        },
+        {
+          "path": "tests/docs/test_context.py",
+          "event_index": 113,
+          "result": {
+            "event_index": 117,
+            "is_error": false
+          }
+        },
+        {
+          "path": "scripts/docs/requirements.txt",
+          "event_index": 115,
+          "result": {
+            "event_index": 116,
+            "is_error": false
+          }
+        }
+      ],
+      "doc_test_count": 81,
+      "independent_test_count": 8,
+      "independent_verification": {
+        "agent": "claude",
+        "verified_utc": "2026-09-17T04:23:19.801716+00:00",
+        "checks": [
+          {
+            "command": [
+              "python3",
+              "/home/davis/backups/analise-video/context-claude-retest-20260917T041834Z/independent_checks.py",
+              "/home/davis/backups/analise-video/context-claude-retest-20260917T041834Z/claude"
+            ],
+            "exit_code": 0,
+            "log": "claude-independent-check-0.txt",
+            "log_sha256": "9bac9ecfef5e431a547f8a77bb3fcb9cd2abbf6886c7cbbb3959d846d2277add"
+          },
+          {
+            "command": [
+              "make",
+              "context-check"
+            ],
+            "exit_code": 0,
+            "log": "claude-independent-check-1.txt",
+            "log_sha256": "5fbdb80db94079b7d5aa6f0b58755848579e4feb4bdfddf544d4215ef883afcf"
+          },
+          {
+            "command": [
+              "make",
+              "test-docs"
+            ],
+            "exit_code": 0,
+            "log": "claude-independent-check-2.txt",
+            "log_sha256": "da787fcc2db0b515b2f4cbe4df06b540724a08eaf94f1d0d1028aee7987a42cb"
+          },
+          {
+            "command": [
+              "git",
+              "diff",
+              "--check"
+            ],
+            "exit_code": 0,
+            "log": "claude-independent-check-3.txt",
+            "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        ],
+        "changed_files": [
+          "docs/context/packs/INC-002.md",
+          "scripts/docs/build_context_pack.py",
+          "tests/docs/test_context.py"
+        ],
+        "scope_valid": true,
+        "untracked_files": []
+      },
+      "usage_raw": {
+        "usage": {
+          "input_tokens": 13,
+          "cache_creation_input_tokens": 32702,
+          "cache_read_input_tokens": 657686,
+          "output_tokens": 11639,
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 32702,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "inference_geo": "not_available",
+          "iterations": [
+            {
+              "input_tokens": 1,
+              "output_tokens": 1414,
+              "cache_read_input_tokens": 64420,
+              "cache_creation_input_tokens": 1818,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 1818
+              },
+              "type": "message"
+            }
+          ],
+          "speed": "standard"
+        },
+        "modelUsage": {
+          "claude-sonnet-4-6": {
+            "inputTokens": 13,
+            "outputTokens": 11639,
+            "cacheReadInputTokens": 657686,
+            "cacheCreationInputTokens": 32702,
+            "webSearchRequests": 0,
+            "costUSD": 0.5681418,
+            "contextWindow": 200000,
+            "maxOutputTokens": 32000
+          }
+        },
+        "total_cost_usd": 0.5681418,
+        "num_turns": 20,
+        "permission_denials": [
+          {
+            "tool_name": "mcp__plugin_mem0_mem0__search_memories",
+            "tool_use_id": "toolu_018ZbXE5yRq2NtyuEM4oo4id",
+            "tool_input": {
+              "query": "context pack build_context_pack section selector",
+              "filters": {
+                "AND": [
+                  {
+                    "user_id": "davis"
+                  },
+                  {
+                    "app_id": "context-claude-retest-20260917T041834Z-base"
+                  },
+                  {
+                    "metadata.type": "project"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "tool_name": "mcp__plugin_mem0_mem0__search_memories",
+            "tool_use_id": "toolu_01CdppVpZoEavfsMPWHoRAe8",
+            "tool_input": {
+              "query": "markdown ATX heading parser fix",
+              "filters": {
+                "AND": [
+                  {
+                    "user_id": "davis"
+                  },
+                  {
+                    "app_id": "context-claude-retest-20260917T041834Z-base"
+                  },
+                  {
+                    "metadata.type": "feedback"
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "is_error": false
+      },
+      "events_sha256": "272b1c8b2835a86b4f6a4d3d816c31ce0a5bd48c0a37cf3156b11678b597169a",
+      "patch_sha256": "6598c9b4fc8e859732cbedc234a5bc510fcc0c8d4ac6fb4aad0fecb92b6bb583",
+      "read_outcome": "FAILED for PACKS consultation; manifest verified",
+      "code_review": "parent inspected candidate diff and independent contract; no blocking correctness findings",
+      "parent_code_integration": "existing Codex fix retained; followup patches preserved in disposable checkouts"
+    },
+    {
+      "attempt": 2,
+      "artifact_directory": "/home/davis/backups/analise-video/context-claude-retest-20260917T042230Z",
+      "setup": {
+        "root": "/home/davis/analise-video",
+        "base_revision": "baf01f6df8e1b480f306ab4d0bd6ce2e3256ef81",
+        "original_baseline_revision": "598800a94f7638aa78b1a7db910de2686d70abb1",
+        "original_evaluation_directory": "/home/davis/backups/analise-video/context-evaluation-20260917T034833Z",
+        "previous_attempt_directory": "/home/davis/backups/analise-video/context-claude-retest-20260917T041834Z",
+        "iteration": 2,
+        "claude_session_id": "0d736dd8-9150-4774-8ede-beb04167a3c3",
+        "prompt_sha256": "3e2b676fc90686ab11abda1a81eccb6672416083aded3b745ff659b94aa64fb7",
+        "instruction_changes": [
+          "docs/context/packs/INC-002.md",
+          "skills/build-and-test/SKILL.md",
+          "skills/feature-workflow/SKILL.md"
+        ],
+        "generator_equals_original_baseline": true,
+        "tests_equal_original_baseline": true,
+        "source_workspace_files": 104,
+        "created_utc": "2026-09-17T04:22:52.726211+00:00"
+      },
+      "run": {
+        "command": [
+          "/home/davis/.vscode-server/extensions/anthropic.claude-code-2.1.179-linux-x64/resources/native-binary/claude",
+          "-p",
+          "--session-id",
+          "0d736dd8-9150-4774-8ede-beb04167a3c3",
+          "--output-format",
+          "stream-json",
+          "--verbose",
+          "--permission-mode",
+          "dontAsk",
+          "--tools",
+          "Read,Edit,Write,Glob,Grep,Bash",
+          "--allowedTools",
+          "Read",
+          "Edit",
+          "Write",
+          "Glob",
+          "Grep",
+          "Bash"
+        ],
+        "started_utc": "2026-09-17T04:22:52.813442+00:00",
+        "base_revision": "baf01f6df8e1b480f306ab4d0bd6ce2e3256ef81",
+        "prompt_sha256": "3e2b676fc90686ab11abda1a81eccb6672416083aded3b745ff659b94aa64fb7",
+        "pid": 86449,
+        "exit_code": 0,
+        "elapsed_seconds": 247.63,
+        "ended_utc": "2026-09-17T04:27:00.404179+00:00"
+      },
+      "observed_model": "claude-sonnet-4-6",
+      "session_id": "0d736dd8-9150-4774-8ede-beb04167a3c3",
+      "read_acceptance": {
+        "pack_read_successfully": true,
+        "pack_read_before_first_edit": true,
+        "manifest_read_successfully": true,
+        "manifest_read_before_first_test": true,
+        "three_skills_read": true
+      },
+      "read_events": [
+        {
+          "path": "docs/context/ROUTES.yaml",
+          "event_index": 59,
+          "result": {
+            "event_index": 61,
+            "is_error": false
+          }
+        },
+        {
+          "path": "docs/context/README.md",
+          "event_index": 93,
+          "result": {
+            "event_index": 95,
+            "is_error": false
+          }
+        },
+        {
+          "path": "docs/context/CONTEXT_POLICY.md",
+          "event_index": 94,
+          "result": {
+            "event_index": 96,
+            "is_error": false
+          }
+        },
+        {
+          "path": "skills/feature-workflow/SKILL.md",
+          "event_index": 97,
+          "result": {
+            "event_index": 100,
+            "is_error": false
+          }
+        },
+        {
+          "path": "skills/build-and-test/SKILL.md",
+          "event_index": 98,
+          "result": {
+            "event_index": 101,
+            "is_error": false
+          }
+        },
+        {
+          "path": "skills/code-review/SKILL.md",
+          "event_index": 99,
+          "result": {
+            "event_index": 102,
+            "is_error": false
+          }
+        },
+        {
+          "path": "docs/context/PACKS.yaml",
+          "event_index": 155,
+          "result": {
+            "event_index": 157,
+            "is_error": false
+          }
+        },
+        {
+          "path": "scripts/docs/build_context_pack.py",
+          "event_index": 156,
+          "result": {
+            "event_index": 160,
+            "is_error": false
+          }
+        },
+        {
+          "path": "tests/docs/test_context.py",
+          "event_index": 158,
+          "result": {
+            "event_index": 162,
+            "is_error": false
+          }
+        },
+        {
+          "path": "scripts/docs/requirements.txt",
+          "event_index": 159,
+          "result": {
+            "event_index": 161,
+            "is_error": false
+          }
+        },
+        {
+          "path": "tests/docs/test_context.py",
+          "event_index": 857,
+          "result": {
+            "event_index": 858,
+            "is_error": false
+          }
+        }
+      ],
+      "doc_test_count": 81,
+      "independent_test_count": 8,
+      "independent_verification": {
+        "agent": "claude",
+        "verified_utc": "2026-09-17T04:27:38.039043+00:00",
+        "checks": [
+          {
+            "command": [
+              "python3",
+              "/home/davis/backups/analise-video/context-claude-retest-20260917T042230Z/independent_checks.py",
+              "/home/davis/backups/analise-video/context-claude-retest-20260917T042230Z/claude"
+            ],
+            "exit_code": 0,
+            "log": "claude-independent-check-0.txt",
+            "log_sha256": "17788c42853fd22e219baf24e896477aca14aafabea011685e26ff4cf6828e59"
+          },
+          {
+            "command": [
+              "make",
+              "context-check"
+            ],
+            "exit_code": 0,
+            "log": "claude-independent-check-1.txt",
+            "log_sha256": "a37f70885d341f6b2d0dffae3bf39c7553581d5111ea87e383ffccd0cdd9ee74"
+          },
+          {
+            "command": [
+              "make",
+              "test-docs"
+            ],
+            "exit_code": 0,
+            "log": "claude-independent-check-2.txt",
+            "log_sha256": "a9557ee0886cca9a0a656ec88f267af567dfe55fc04226fcc9fd234dac90906c"
+          },
+          {
+            "command": [
+              "git",
+              "diff",
+              "--check"
+            ],
+            "exit_code": 0,
+            "log": "claude-independent-check-3.txt",
+            "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        ],
+        "changed_files": [
+          "docs/context/packs/INC-002.md",
+          "scripts/docs/build_context_pack.py",
+          "tests/docs/test_context.py"
+        ],
+        "scope_valid": true,
+        "untracked_files": []
+      },
+      "usage_raw": {
+        "usage": {
+          "input_tokens": 15,
+          "cache_creation_input_tokens": 34318,
+          "cache_read_input_tokens": 799591,
+          "output_tokens": 12641,
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 34318,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "inference_geo": "not_available",
+          "iterations": [
+            {
+              "input_tokens": 1,
+              "output_tokens": 1018,
+              "cache_read_input_tokens": 66130,
+              "cache_creation_input_tokens": 1724,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 1724
+              },
+              "type": "message"
+            }
+          ],
+          "speed": "standard"
+        },
+        "modelUsage": {
+          "claude-sonnet-4-6": {
+            "inputTokens": 15,
+            "outputTokens": 12641,
+            "cacheReadInputTokens": 799591,
+            "cacheCreationInputTokens": 34318,
+            "webSearchRequests": 0,
+            "costUSD": 0.6354453,
+            "contextWindow": 200000,
+            "maxOutputTokens": 32000
+          }
+        },
+        "total_cost_usd": 0.6354453,
+        "num_turns": 24,
+        "permission_denials": [
+          {
+            "tool_name": "mcp__plugin_mem0_mem0__search_memories",
+            "tool_use_id": "toolu_01ATCkh7zvkT55ZfG2CSRpYV",
+            "tool_input": {
+              "query": "context tools build_context_pack section selector",
+              "filters": {
+                "AND": [
+                  {
+                    "user_id": "davis"
+                  },
+                  {
+                    "app_id": "context-claude-retest-20260917T042230Z-base"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "tool_name": "mcp__plugin_mem0_mem0__search_memories",
+            "tool_use_id": "toolu_01LXEAjYaWVaQWgYKXKMG1V9",
+            "tool_input": {
+              "query": "markdown ATX heading parser bug fix",
+              "filters": {
+                "AND": [
+                  {
+                    "user_id": "davis"
+                  },
+                  {
+                    "app_id": "context-claude-retest-20260917T042230Z-base"
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "is_error": false
+      },
+      "events_sha256": "42c1b921be9ffec439bacac1d7f99cb5c0838db32f6b89bc996c3356c721c59d",
+      "patch_sha256": "7b0f67f2df24ba77a3742b9da6092f80b095a122f8bad64ff89d04bbe72a66a8",
+      "read_outcome": "VERIFIED for this task",
+      "code_review": "parent inspected candidate diff and independent contract; no blocking correctness findings",
+      "parent_code_integration": "existing Codex fix retained; followup patches preserved in disposable checkouts"
+    }
+  ],
+  "followup_scope": "same original defect and prompt; first clarification omitted PACKS, second separated the triggered consultation; no general adherence or efficiency claim",
+  "claude_followup_parent_final_verification": {
+    "verified_utc": "2026-09-17T04:29:19.230369+00:00",
+    "parent_changes_after_launch": [
+      "docs/IMPLEMENTATION_STATUS.md",
+      "docs/context/packs/INC-002.md",
+      "docs/evidence/context-architecture-checklist.md",
+      "docs/evidence/context-file-integration.md",
+      "docs/evidence/context-session-evaluation.json",
+      "docs/evidence/context-session-evaluation.md"
+    ],
+    "parent_code_and_tests_unchanged": true,
+    "preexisting_user_changes_preserved": true,
+    "originals_checked": 33,
+    "broken_links": [],
+    "local_links_checked": 131,
+    "historical_groups": 40,
+    "criteria": 16,
+    "checks": [
+      {
+        "command": [
+          "make",
+          "context-check"
+        ],
+        "exit_code": 0,
+        "log": "root-final-check-0.txt",
+        "log_sha256": "b6c8ce657ea0b4a8188c3502faf599e9e9755d94a11b3cc45aee215d84d4989e"
+      },
+      {
+        "command": [
+          "make",
+          "test-docs"
+        ],
+        "exit_code": 0,
+        "log": "root-final-check-1.txt",
+        "log_sha256": "4712707f2db122e920ec0003392b9b1b655a41b6bac60d4a710181b2eeea8936"
+      },
+      {
+        "command": [
+          "git",
+          "diff",
+          "--check"
+        ],
+        "exit_code": 0,
+        "log": "root-final-check-2.txt",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ]
+  }
+}

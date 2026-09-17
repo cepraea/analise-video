@@ -67,3 +67,452 @@ decisions:
       - docs/evidence/ssot-migration/BASELINES.yaml
     supersedes:
       - GOV-PENDING-SOURCE-SCOPE-002
+
+  # === Invariantes de domínio (INV-*) — G2 ===
+
+  - id: INV-001
+    title: Autoridade esportiva CEPRAEA
+    status: DECIDIDO
+    authority: Davi Sermenho
+    decided_at: 2026-09-16
+    statement: >-
+      Davi Sermenho é a única autoridade sobre o significado esportivo do modelo
+      CEPRAEA. Nenhuma decisão de classificação ou interpretação esportiva pode
+      ser delegada a agentes de IA ou inferida automaticamente.
+    provenance:
+      - source_id: SRC-AUTH-DAVI-2026-09-16
+        locator: "AGENTS.md — Invariantes já documentados"
+    affected_documents:
+      - AGENTS.md
+      - docs/GAME_MODEL.md
+      - docs/governance/AUTHORITY.md
+    supersedes: []
+
+  - id: INV-002
+    title: LANCE como unidade canônica; vídeo como fonte
+    status: DECIDIDO
+    authority: Davi Sermenho
+    decided_at: 2026-09-16
+    statement: >-
+      LANCE é a unidade canônica do modelo de dados. O vídeo é a fonte primária
+      da qual os lances são extraídos e identificados.
+    provenance:
+      - source_id: SRC-AUTH-DAVI-2026-09-16
+        locator: "AGENTS.md — Invariantes já documentados"
+    affected_documents:
+      - AGENTS.md
+      - docs/GAME_MODEL.md
+      - docs/SYSTEM_SPEC.md
+    supersedes: []
+
+  - id: INV-003
+    title: Imutabilidade de arquivos originais
+    status: DECIDIDO
+    authority: Davi Sermenho
+    decided_at: 2026-09-16
+    statement: >-
+      Arquivos de vídeo e demais fontes originais são imutáveis. Derivados e
+      anotações permanecem em estruturas separadas dos originais, que nunca
+      são modificados.
+    provenance:
+      - source_id: SRC-AUTH-DAVI-2026-09-16
+        locator: "AGENTS.md — Invariantes já documentados"
+    affected_documents:
+      - AGENTS.md
+      - docs/SYSTEM_SPEC.md
+    supersedes: []
+
+  - id: INV-004
+    title: Separação entre fatos e interpretação
+    status: DECIDIDO
+    authority: Davi Sermenho
+    decided_at: 2026-09-16
+    statement: >-
+      Fatos observáveis e timestamps permanecem em estruturas separadas de
+      interpretações, classificações e feedback. Essas dimensões nunca são
+      misturadas em um único campo.
+    provenance:
+      - source_id: SRC-AUTH-DAVI-2026-09-16
+        locator: "AGENTS.md — Invariantes já documentados"
+    affected_documents:
+      - AGENTS.md
+      - docs/GAME_MODEL.md
+      - docs/SYSTEM_SPEC.md
+    supersedes: []
+
+  - id: INV-005
+    title: Relações múltiplas por lance
+    status: DECIDIDO
+    authority: Davi Sermenho
+    decided_at: 2026-09-16
+    statement: >-
+      Um lance pode possuir várias atletas, várias ações, várias coleções e
+      várias fontes associadas simultaneamente.
+    provenance:
+      - source_id: SRC-AUTH-DAVI-2026-09-16
+        locator: "AGENTS.md — Invariantes já documentados"
+    affected_documents:
+      - AGENTS.md
+      - docs/GAME_MODEL.md
+      - docs/SYSTEM_SPEC.md
+    supersedes: []
+
+  - id: INV-006
+    title: Independência de fases das equipes
+    status: DECIDIDO
+    authority: Davi Sermenho
+    decided_at: 2026-09-16
+    statement: >-
+      As fases de cada equipe em um lance são independentes entre si e devem
+      ser modeladas e registradas separadamente.
+    provenance:
+      - source_id: SRC-AUTH-DAVI-2026-09-16
+        locator: "AGENTS.md — Invariantes já documentados"
+    affected_documents:
+      - AGENTS.md
+      - docs/GAME_MODEL.md
+    supersedes: []
+
+  - id: INV-007
+    title: Extensibilidade de taxonomias abertas
+    status: DECIDIDO
+    authority: Davi Sermenho
+    decided_at: 2026-09-16
+    statement: >-
+      Taxonomias esportivas em aberto permanecem extensíveis. Nenhum valor de
+      classificação em estado pendente ou parcial é tratado como conjunto fechado.
+    provenance:
+      - source_id: SRC-AUTH-DAVI-2026-09-16
+        locator: "AGENTS.md — Invariantes já documentados"
+    affected_documents:
+      - AGENTS.md
+      - docs/GAME_MODEL.md
+    supersedes: []
+
+  - id: INV-008
+    title: T3 — Condição de ataque instalado
+    status: DECIDIDO
+    authority: Davi Sermenho
+    decided_at: 2026-09-16
+    statement: >-
+      T3 (ataque instalado / ataque posicionado) exige instalação ofensiva
+      completa e ausência de vantagem herdada predominante. Instalação incompleta
+      redireciona para T1 (transição direta); vantagem herdada predominante
+      redireciona para T2 (transição indireta).
+    provenance:
+      - source_id: SRC-AUTH-DAVI-2026-09-16
+        locator: "AGENTS.md — Invariantes já documentados; GAME_MODEL.md"
+    affected_documents:
+      - AGENTS.md
+      - docs/GAME_MODEL.md
+    supersedes: []
+
+  - id: INV-009
+    title: VERIFIED depende de evidência reproduzível
+    status: DECIDIDO
+    authority: Davi Sermenho
+    decided_at: 2026-09-16
+    statement: >-
+      Código existente, sozinho, não comprova funcionalidade. O estado VERIFIED
+      só pode ser atribuído quando existe evidência reproduzível correspondente
+      (testes passando e registros de evidência referenciados).
+    provenance:
+      - source_id: SRC-AUTH-DAVI-2026-09-16
+        locator: "AGENTS.md — Invariantes já documentados; STATES.md"
+    affected_documents:
+      - AGENTS.md
+      - docs/IMPLEMENTATION_STATUS.md
+      - docs/governance/STATES.md
+    supersedes: []
+
+  # === Decisões de governança adicionais (G2) ===
+
+  - id: GOV-005
+    title: Rascunhos e históricos como fontes imutáveis não canônicas
+    status: DECIDIDO
+    authority: Davi Sermenho
+    decided_at: 2026-09-16
+    statement: >-
+      Rascunhos em .local/drafts/ e históricos em .local/ são fontes imutáveis
+      de migração, não documentação canônica operacional. Uma afirmação contida
+      em rascunho só é promovida após confirmação de sua fonte ou ratificação
+      de Davi.
+    provenance:
+      - source_id: SRC-AUTH-DAVI-2026-09-16
+        locator: "Política para rascunhos, históricos e protótipos"
+    affected_documents:
+      - docs/governance/DOCUMENTATION_STANDARD.md
+      - docs/context/ROUTES.yaml
+    supersedes: []
+
+  - id: GOV-007
+    title: Vocabulários de estado aprovados
+    status: DECIDIDO
+    authority: Davi Sermenho
+    decided_at: 2026-09-16
+    statement: >-
+      O projeto adota quatro vocabulários de estado independentes — estado do
+      documento, estado da decisão, estado de verificação da afirmação e estado
+      de implementação — conforme definidos em STATES.md.
+    provenance:
+      - source_id: SRC-AUTH-DAVI-2026-09-16
+        locator: aprovação explícita de STATES.md
+    affected_documents:
+      - docs/governance/STATES.md
+    supersedes: []
+
+  - id: GOV-NLM-001
+    title: NotebookLM sem autoridade normativa
+    status: DECIDIDO
+    authority: Davi Sermenho
+    decided_at: 2026-09-16
+    statement: >-
+      O NotebookLM não possui autoridade normativa. Seus resultados são hipóteses
+      ou sínteses que precisam ser verificadas na fonte antes de entrar na SSOT.
+      Agentes de código não devem depender do NotebookLM para executar incrementos.
+    provenance:
+      - source_id: SRC-AUTH-DAVI-2026-09-16
+        locator: "auditoria notebooklm-contexto.md — veredito executivo"
+    affected_documents:
+      - docs/governance/DOCUMENTATION_STANDARD.md
+      - docs/context/ROUTES.yaml
+    supersedes: []
+
+  - id: INFRA-001
+    title: Sem dependência de API paga obrigatória
+    status: DECIDIDO
+    authority: Davi Sermenho
+    decided_at: 2026-09-16
+    statement: >-
+      Nenhuma API paga é dependência obrigatória do primeiro fluxo funcional.
+      A arquitetura utiliza Claude Pro e ChatGPT Plus (assinaturas fixas) como
+      ferramentas de IA, sem chamadas pagas adicionais por uso.
+    provenance:
+      - source_id: SRC-AUTH-DAVI-2026-09-16
+        locator: restrição de custo explicitada pelo autor
+    affected_documents:
+      - AGENTS.md
+      - docs/governance/DOCUMENTATION_STANDARD.md
+    supersedes: []
+
+  # === Padrões de documentação (DOC-002 a DOC-005) ===
+
+  - id: DOC-002
+    title: Preservação dos namespaces RF e RNF
+    status: DECIDIDO
+    authority: Davi Sermenho
+    decided_at: 2026-09-16
+    statement: >-
+      Os prefixos RF e RNF são preservados. As siglas FR e NFR não devem ser
+      introduzidas sem decisão explícita de migração de IDs.
+    provenance:
+      - source_id: SRC-AUTH-DAVI-2026-09-16
+        locator: "Decisões que exigem autoridade de Davi — DOC-002"
+    affected_documents:
+      - docs/governance/ID_POLICY.md
+      - docs/SYSTEM_SPEC.md
+    supersedes: []
+
+  - id: DOC-003
+    title: Modelo C4 em YAML como fonte canônica arquitetural
+    status: DECIDIDO
+    authority: Davi Sermenho
+    decided_at: 2026-09-16
+    statement: >-
+      O modelo C4 em YAML é a fonte estruturada e canônica dos elementos
+      arquiteturais e relações. Vistas Mermaid são derivadas e devem ser geradas
+      ou validadas contra o modelo YAML.
+    provenance:
+      - source_id: SRC-AUTH-DAVI-2026-09-16
+        locator: "Decisões que exigem autoridade de Davi — DOC-003"
+    affected_documents:
+      - docs/governance/DOCUMENTATION_STANDARD.md
+      - docs/architecture/ADR-002-ssot-and-context.md
+      - docs/architecture/C4_MODEL.yaml
+      - docs/architecture/views/context.mmd
+      - docs/architecture/views/containers.mmd
+    supersedes: []
+
+  - id: DOC-004
+    title: OpenAPI como autoridade do contrato HTTP
+    status: DECIDIDO
+    authority: Davi Sermenho
+    decided_at: 2026-09-16
+    statement: >-
+      OpenAPI é o contrato canônico da API HTTP. Gherkin fornece exemplos concretos
+      e critérios de aceitação rastreados aos requisitos. Nenhum deles substitui
+      requisitos de produto nem regras de domínio.
+    provenance:
+      - source_id: SRC-AUTH-DAVI-2026-09-16
+        locator: "Decisões que exigem autoridade de Davi — DOC-004"
+    affected_documents:
+      - docs/governance/DOCUMENTATION_STANDARD.md
+    supersedes: []
+
+  - id: DOC-005
+    title: Three Amigos sob demanda
+    status: DECIDIDO
+    authority: Davi Sermenho
+    decided_at: 2026-09-16
+    statement: >-
+      Three Amigos é aplicado somente quando ambiguidade entre domínio,
+      implementação e verificação justificar a colaboração. Não é cerimônia
+      obrigatória para toda alteração.
+    provenance:
+      - source_id: SRC-AUTH-DAVI-2026-09-16
+        locator: "Decisões que exigem autoridade de Davi — DOC-005"
+    affected_documents:
+      - docs/governance/DOCUMENTATION_STANDARD.md
+    supersedes: []
+
+  # === Decisão técnica ===
+
+  - id: TECH-002
+    title: Grafo local de código endereçado por conteúdo
+    status: DECIDIDO
+    authority: Davi Sermenho
+    decided_at: 2026-09-17
+    statement: >-
+      O projeto adota um grafo local de código para Python, JavaScript e
+      TypeScript, com hashes do corpus e dos extratores, consulta limitada por
+      módulo ou símbolo e conferência dos bytes do índice quando o corpus, a
+      configuração ou um extrator mudar. Vistas são derivadas sob demanda, sem
+      staging automático, API paga ou substituição do modelo C4 canônico.
+    provenance:
+      - source_id: SRC-AUTH-DAVI-2026-09-17-A10-A11
+        locator: implementação explícita de A10/A11
+    affected_documents:
+      - docs/architecture/ADR-002-ssot-and-context.md
+      - docs/context/GRAPH.yaml
+      - docs/context/README.md
+      - docs/evidence/context-architecture-checklist.md
+      - docs/evidence/context-file-integration.md
+      - scripts/context/build_code_graph.py
+      - scripts/context/extract_typescript_graph.mjs
+      - scripts/context/query_code_graph.py
+      - scripts/context/build_code_graph_views.py
+    supersedes: []
+
+  - id: TECH-001
+    title: ADR-001 como autoridade de arquitetura para o INC-002
+    status: DECIDIDO
+    authority: Davi Sermenho
+    decided_at: 2026-09-16
+    statement: >-
+      A ADR-001 (monólito modular local-first: React/TypeScript/Vite, FastAPI/Python,
+      SQLite, mídia local, HTTP/JSON) continua sendo a autoridade de arquitetura para
+      o INC-002 até ser substituída por uma ADR aprovada. Propostas de cloud, PWA,
+      serviço gerenciado ou visão computacional permanecem em ADR candidata separada.
+    provenance:
+      - source_id: SRC-AUTH-DAVI-2026-09-16
+        locator: "Decisões que exigem autoridade de Davi — TECH-001"
+    affected_documents:
+      - docs/architecture/ADR-001-primeira-implementacao.md
+      - docs/architecture/ADR-002-ssot-and-context.md
+      - AGENTS.md
+    supersedes: []
+
+  # === Decisões PENDENTE — aguardam autoridade de Davi (G3) ===
+
+  - id: GOV-002
+    title: Git como autoridade operacional do software após cutover
+    status: PENDENTE
+    authority: Davi Sermenho
+    decided_at: null
+    statement: >-
+      Pendente (G4/piloto): o Git se torna a autoridade operacional completa do
+      software após a migração validada (G11)? Recomendação técnica — sim, somente
+      após a conclusão do G11.
+    provenance: []
+    affected_documents:
+      - docs/SSOT.md
+      - docs/governance/AUTHORITY.md
+    supersedes: []
+
+  - id: GOV-003
+    title: Google Drive como fonte do conhecimento esportivo amplo
+    status: PENDENTE
+    authority: Davi Sermenho
+    decided_at: null
+    statement: >-
+      Pendente (G4/piloto): o Google Drive continua como ambiente de conhecimento
+      esportivo amplo após a migração? Recomendação técnica — sim, com promoção
+      controlada para GAME_MODEL.md.
+    provenance: []
+    affected_documents:
+      - docs/governance/SOURCES.yaml
+      - docs/governance/AUTHORITY.md
+    supersedes: []
+
+  - id: GOV-004
+    title: NotebookLM como ferramenta consultiva opcional
+    status: PENDENTE
+    authority: Davi Sermenho
+    decided_at: null
+    statement: >-
+      Pendente (G4/piloto): o NotebookLM permanece disponível para pesquisa e
+      auditoria não normativa? Recomendação técnica — sim, opcional e sem
+      autoridade normativa (ver GOV-NLM-001).
+    provenance: []
+    affected_documents:
+      - docs/governance/DOCUMENTATION_STANDARD.md
+    supersedes: []
+
+  - id: GOV-006
+    title: Bloqueio do INC-002 pela migração documental
+    status: PENDENTE
+    authority: Davi Sermenho
+    decided_at: null
+    statement: >-
+      Pendente: a migração documental completa bloqueia o INC-002? Recomendação
+      técnica — bloquear apenas mudanças de esquema dependentes de requisitos
+      ainda conflitantes.
+    provenance: []
+    affected_documents:
+      - docs/IMPLEMENTATION_PLAN.md
+      - docs/IMPLEMENTATION_STATUS.md
+    supersedes: []
+
+  - id: ID-001
+    title: Preservação dos IDs RF-001 a RF-052
+    status: PENDENTE
+    authority: Davi Sermenho
+    decided_at: null
+    statement: >-
+      Pendente (G5): preservar os IDs RF-001 a RF-052 da baseline mais completa,
+      corrigindo por sucessão, nunca por reutilização silenciosa? Recomendação
+      técnica — sim.
+    provenance: []
+    affected_documents:
+      - docs/governance/ID_POLICY.md
+      - docs/SYSTEM_SPEC.md
+    supersedes: []
+
+  - id: ID-002
+    title: Tratamento dos namespaces RFP e CAP da prancheta
+    status: PENDENTE
+    authority: Davi Sermenho
+    decided_at: null
+    statement: >-
+      Pendente (G7): como tratar os namespaces RFP e CAP da especificação da
+      prancheta? Recomendação técnica — manter namespace modular até decisão de
+      incorporação; mapear sem renumerar automaticamente.
+    provenance: []
+    affected_documents:
+      - docs/governance/ID_POLICY.md
+    supersedes: []
+
+  - id: PROD-001
+    title: Limite do produto completo
+    status: PENDENTE
+    authority: Davi Sermenho
+    decided_at: null
+    statement: >-
+      Pendente (G7): o produto é somente análise de vídeo ou inclui o cockpit
+      completo de competição (prancheta, portal, assistência por IA, cockpit)?
+      Define o escopo dos módulos a promover.
+    provenance: []
+    affected_documents:
+      - docs/SYSTEM_SPEC.md
+      - docs/IMPLEMENTATION_PLAN.md
+    supersedes: []

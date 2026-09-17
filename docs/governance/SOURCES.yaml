@@ -1,5 +1,14 @@
 schema_version: 1
 authority_statements:
+  - id: SRC-AUTH-DAVI-2026-09-17-A10-A11
+    type: authority_statement
+    authority: Davi Sermenho
+    captured_at: 2026-09-17
+    scope:
+      - TECH-002
+    locator: pedido explícito para implementar A10/A11 nesta conversa
+    eligible_for_product_claims: false
+
   - id: SRC-AUTH-DAVI-2026-09-16
     type: authority_statement
     authority: Davi Sermenho

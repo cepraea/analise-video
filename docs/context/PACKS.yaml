@@ -1,0 +1,62 @@
+schema_version: 1
+
+# Seletores explícitos. Dependências são resolvidas antes de gerar qualquer saída.
+documents:
+  entry:
+    path: AGENTS.md
+    depends_on: [precedence, policy, authority]
+    references:
+      - CLAUDE.md
+      - docs/context/README.md
+      - skills/feature-workflow/SKILL.md
+      - skills/build-and-test/SKILL.md
+      - skills/code-review/SKILL.md
+  precedence:
+    path: docs/SSOT.md
+  policy:
+    path: docs/context/CONTEXT_POLICY.md
+  authority:
+    path: docs/governance/AUTHORITY.md
+  specification:
+    path: docs/SYSTEM_SPEC.md
+  architecture:
+    path: docs/architecture/ADR-001-primeira-implementacao.md
+  plan:
+    path: docs/IMPLEMENTATION_PLAN.md
+    sections:
+      - Objetivo
+      - INC-002 — Catálogo mínimo
+    depends_on: [specification, architecture]
+  status:
+    path: docs/IMPLEMENTATION_STATUS.md
+    sections: [Estado global]
+  traceability:
+    path: docs/TRACEABILITY.md
+    sections: [Nota sobre RNF-006]
+    table:
+      section: Requisitos e critérios do produto
+      ids: [RF-001, RF-002, RF-003, RF-005, RF-013, RF-030, RNF-002, RNF-005, RNF-006]
+
+packs:
+  INC-002:
+    route: implementation_increment
+    documents: [entry, plan, status, traceability]
+    decisions:
+      - GOV-001
+      - DOC-001
+      - INV-001
+      - INV-002
+      - INV-003
+      - INV-004
+      - INV-005
+      - INV-006
+      - INV-007
+      - INV-009
+      - GOV-005
+      - GOV-NLM-001
+      - INFRA-001
+      - TECH-001
+      - GOV-006
+      - ID-001
+      - GOV-002
+      - GOV-003

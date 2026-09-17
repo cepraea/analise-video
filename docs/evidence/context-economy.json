@@ -1,0 +1,1358 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-09-17T04:56:28.018603+00:00",
+  "experiment": "context-economy-20260917T044514Z",
+  "artifact_directory": "/home/davis/backups/analise-video/context-economy-20260917T044514Z",
+  "protocol": {
+    "root": "/home/davis/analise-video",
+    "base_revision": "baf01f6df8e1b480f306ab4d0bd6ce2e3256ef81",
+    "cli_version": "2.1.179",
+    "cli_path": "/home/davis/.vscode-server/extensions/anthropic.claude-code-2.1.179-linux-x64/resources/native-binary/claude",
+    "model": "claude-sonnet-4-6",
+    "effort": "medium",
+    "sampling": "3 paired repetitions; alternating AB/BA/AB",
+    "profiles": {
+      "after": {
+        "files": [
+          "AGENTS.md",
+          "CLAUDE.md",
+          "docs/context/README.md",
+          "docs/context/CONTEXT_POLICY.md",
+          "docs/context/ROUTES.yaml",
+          "docs/context/PACKS.yaml",
+          "skills/feature-workflow/SKILL.md",
+          "skills/build-and-test/SKILL.md",
+          "skills/code-review/SKILL.md",
+          "scripts/docs/requirements.txt",
+          "Makefile",
+          "scripts/docs/build_context_pack.py",
+          "tests/docs/test_context.py"
+        ],
+        "file_count": 13,
+        "raw_source_bytes": 40655,
+        "context_utf8_bytes": 41333,
+        "prompt_utf8_bytes": 42947,
+        "prompt_sha256": "737edcf4048a2151b20d933c059a7ef678f4d20ba1ca78054ca74f51a6d31502",
+        "source_sha256": {
+          "AGENTS.md": "50afba826ca8688e39436906b755d474be8a97804461ba20008050c42efa4b53",
+          "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+          "docs/context/README.md": "5fa5357760eea55470c6af901527186379da96f074a2c880af26105dabe34ff0",
+          "docs/context/CONTEXT_POLICY.md": "8138e6efd81132dfcaa0d67aadacec4645154619b21fb002aff6436fd8c4cb71",
+          "docs/context/ROUTES.yaml": "ae13b108d49f6560b26edca875d19c06b77ca55bdb9c4ecb0f19a3c2bd56dc59",
+          "docs/context/PACKS.yaml": "dbe8ddaf45472b094a63fa5e808ba50bc1fffe1a5804469d654ecd4106aaee2c",
+          "skills/feature-workflow/SKILL.md": "b2853ff3f2212e52a68af2b9b78df527f32db091ee0c3312fce462dfbc1d748e",
+          "skills/build-and-test/SKILL.md": "31057b25b1a67cd781a8551debbf7607e4e2382465e1c98000e21b2019a61107",
+          "skills/code-review/SKILL.md": "73f717f9a90aeed2555398e585a12e15fc2983796378be15206d8c53e9a36924",
+          "scripts/docs/requirements.txt": "71749243f84428fee225bfaa796dca5ef6c1e83a98f6d2a407df615b0390d6fb",
+          "Makefile": "b325f985e2ee49d52c1ba7fcd1bca1452d679d0bd9524e168916514442bba674",
+          "scripts/docs/build_context_pack.py": "c5b547f4e56433e91e1a33a4028560f8ca8c416fe9e78c694295f46c81b4880e",
+          "tests/docs/test_context.py": "c138b2e33d67d0c3696bd410b2cb16af5aff019cbf02e100c95ee3bb0c51d448"
+        }
+      },
+      "before": {
+        "files": [
+          "AGENTS.md",
+          "CLAUDE.md",
+          "docs/context/README.md",
+          "docs/context/CONTEXT_POLICY.md",
+          "docs/context/ROUTES.yaml",
+          "docs/context/PACKS.yaml",
+          "skills/feature-workflow/SKILL.md",
+          "skills/build-and-test/SKILL.md",
+          "skills/code-review/SKILL.md",
+          "scripts/docs/requirements.txt",
+          "Makefile",
+          "scripts/docs/build_context_pack.py",
+          "tests/docs/test_context.py",
+          "docs/SYSTEM_SPEC.md",
+          "docs/GAME_MODEL.md",
+          "docs/IMPLEMENTATION_PLAN.md",
+          "docs/IMPLEMENTATION_STATUS.md",
+          "docs/TRACEABILITY.md",
+          "docs/governance/DECISIONS.yaml",
+          "docs/SSOT.md",
+          "docs/governance/AUTHORITY.md",
+          "docs/architecture/ADR-001.md",
+          "docs/architecture/ADR-002-ssot-and-context.md",
+          "docs/governance/SOURCES.yaml",
+          "docs/governance/DOCUMENTATION_STANDARD.md"
+        ],
+        "file_count": 25,
+        "raw_source_bytes": 106116,
+        "context_utf8_bytes": 107467,
+        "prompt_utf8_bytes": 109081,
+        "prompt_sha256": "f86fd3caf83afedef355819b01e957906cd21d415280d9e1f66f4ae80350db9e",
+        "source_sha256": {
+          "AGENTS.md": "50afba826ca8688e39436906b755d474be8a97804461ba20008050c42efa4b53",
+          "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+          "docs/context/README.md": "5fa5357760eea55470c6af901527186379da96f074a2c880af26105dabe34ff0",
+          "docs/context/CONTEXT_POLICY.md": "8138e6efd81132dfcaa0d67aadacec4645154619b21fb002aff6436fd8c4cb71",
+          "docs/context/ROUTES.yaml": "ae13b108d49f6560b26edca875d19c06b77ca55bdb9c4ecb0f19a3c2bd56dc59",
+          "docs/context/PACKS.yaml": "dbe8ddaf45472b094a63fa5e808ba50bc1fffe1a5804469d654ecd4106aaee2c",
+          "skills/feature-workflow/SKILL.md": "b2853ff3f2212e52a68af2b9b78df527f32db091ee0c3312fce462dfbc1d748e",
+          "skills/build-and-test/SKILL.md": "31057b25b1a67cd781a8551debbf7607e4e2382465e1c98000e21b2019a61107",
+          "skills/code-review/SKILL.md": "73f717f9a90aeed2555398e585a12e15fc2983796378be15206d8c53e9a36924",
+          "scripts/docs/requirements.txt": "71749243f84428fee225bfaa796dca5ef6c1e83a98f6d2a407df615b0390d6fb",
+          "Makefile": "b325f985e2ee49d52c1ba7fcd1bca1452d679d0bd9524e168916514442bba674",
+          "scripts/docs/build_context_pack.py": "c5b547f4e56433e91e1a33a4028560f8ca8c416fe9e78c694295f46c81b4880e",
+          "tests/docs/test_context.py": "c138b2e33d67d0c3696bd410b2cb16af5aff019cbf02e100c95ee3bb0c51d448",
+          "docs/SYSTEM_SPEC.md": "b6d27767653bdc8ac0e47db17020187d0815de8c2cd837b6f89b25f87664a45f",
+          "docs/GAME_MODEL.md": "d0229cf42b0bd47f2009ff889089c20e4d1e7f0b0739832dfaada1b1834746db",
+          "docs/IMPLEMENTATION_PLAN.md": "836dcaba89af490e15d977e7710ac7bc1066c2d8f388fc486059ac2e10545d55",
+          "docs/IMPLEMENTATION_STATUS.md": "a80d4de5cfd952ba4a894b53e16942a35ff14551a673ba57b081a92c60d54dae",
+          "docs/TRACEABILITY.md": "e34d899f67429e3c211aa3f2ada77b2243db960920505126871c479fed12c55e",
+          "docs/governance/DECISIONS.yaml": "0d3cd7523282aa5b82d1e2a0fbf2a0ad5351b161cfde45d7d15eed3d80c93fa0",
+          "docs/SSOT.md": "9184c116026d136bb7dba0125bdd769152fd4cc6f1eb6aa2de01a04088ebf018",
+          "docs/governance/AUTHORITY.md": "43c31514192589351f26258d1d537d5494b0c2fc9310486804d7065fcb01b297",
+          "docs/architecture/ADR-001.md": "4a3c1f36dd6629b5ba9675113648f465d2068adf8a2a703c7e9a2c09957ec641",
+          "docs/architecture/ADR-002-ssot-and-context.md": "ad5ddc4dbcbdd4c647625ba14f1b977921f641155108107c0435af2e3e319328",
+          "docs/governance/SOURCES.yaml": "ce327fa4ce2e6ebab26e307f27f8cb36ad73faa4a881015488ed068e97ceda4c",
+          "docs/governance/DOCUMENTATION_STANDARD.md": "c235f9d236b4bb88a800ddf0693590c77ca0c1eb2b8d4a50cedc5ee0615eb419"
+        }
+      }
+    },
+    "runs": [
+      {
+        "name": "run01",
+        "condition": "before",
+        "pair": 1,
+        "session_id": "0b97a95f-24be-4272-a371-a6609ccfea9e"
+      },
+      {
+        "name": "run02",
+        "condition": "after",
+        "pair": 1,
+        "session_id": "6a5b8462-4a63-4d86-97fd-bc850890eede"
+      },
+      {
+        "name": "run03",
+        "condition": "after",
+        "pair": 2,
+        "session_id": "96ae77e2-847b-48fe-a644-64c744ce1426"
+      },
+      {
+        "name": "run04",
+        "condition": "before",
+        "pair": 2,
+        "session_id": "092844e8-2934-419f-9329-e2503569548e"
+      },
+      {
+        "name": "run05",
+        "condition": "before",
+        "pair": 3,
+        "session_id": "f31ebaed-c3b9-493d-84a3-99f97749a9c8"
+      },
+      {
+        "name": "run06",
+        "condition": "after",
+        "pair": 3,
+        "session_id": "e73fa727-24da-4df7-bf4b-5ca0f7f33625"
+      }
+    ],
+    "metrics_defined_before_runs": [
+      "model input tokens without cache",
+      "prompt/source bytes",
+      "output tokens",
+      "CLI estimate USD",
+      "elapsed wall time",
+      "independent correctness",
+      "document tests and context integrity"
+    ],
+    "cache": "DISABLE_PROMPT_CACHING=1; reject cached results",
+    "isolation": "safe-mode, fixed system prompt, no tools, no session persistence, empty strict MCP config, setting sources disabled",
+    "task_mode": "one response per session, corrections executed by independent evaluator; not a full CLI workflow benchmark",
+    "before_definition": "reconstructed broad control, not measured historical startup",
+    "created_utc": "2026-09-17T04:45:15.125043+00:00"
+  },
+  "preservation_audit": {
+    "operational_files_unchanged_during_all_six_trials": 104,
+    "author_originals_unchanged": 33,
+    "git_status_unchanged_during_trials": true,
+    "main_code_not_replaced": true
+  },
+  "runs": [
+    {
+      "run": {
+        "name": "run01",
+        "condition": "before",
+        "pair": 1,
+        "session_id": "0b97a95f-24be-4272-a371-a6609ccfea9e",
+        "command": [
+          "/home/davis/.vscode-server/extensions/anthropic.claude-code-2.1.179-linux-x64/resources/native-binary/claude",
+          "-p",
+          "--session-id",
+          "0b97a95f-24be-4272-a371-a6609ccfea9e",
+          "--model",
+          "claude-sonnet-4-6",
+          "--effort",
+          "medium",
+          "--safe-mode",
+          "--setting-sources",
+          "",
+          "--strict-mcp-config",
+          "--mcp-config",
+          "/home/davis/backups/analise-video/context-economy-20260917T044514Z/empty-mcp.json",
+          "--no-session-persistence",
+          "--system-prompt",
+          "Você é um assistente de engenharia avaliando uma correção Python pequena. Use o contexto fornecido e responda apenas ao contrato JSON solicitado. Não alegue executar ferramentas ou testes.",
+          "--tools",
+          "",
+          "--permission-mode",
+          "dontAsk",
+          "--output-format",
+          "stream-json",
+          "--verbose"
+        ],
+        "started_utc": "2026-09-17T04:45:40.566724+00:00",
+        "prompt_sha256": "f86fd3caf83afedef355819b01e957906cd21d415280d9e1f66f4ae80350db9e",
+        "exit_code": 0,
+        "elapsed_seconds": 95.633,
+        "ended_utc": "2026-09-17T04:47:16.192434+00:00"
+      },
+      "observed_model": "claude-sonnet-4-6",
+      "tools": [],
+      "mcp_servers": [],
+      "usage": {
+        "input_tokens": 35291,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 6731,
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 35291,
+            "output_tokens": 6731,
+            "cache_read_input_tokens": 0,
+            "cache_creation_input_tokens": 0,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "modelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 34528,
+          "outputTokens": 18,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.034618,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        },
+        "claude-sonnet-4-6": {
+          "inputTokens": 35291,
+          "outputTokens": 6731,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.20683800000000002,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        }
+      },
+      "cost_estimate_usd": 0.24145600000000003,
+      "cold_cache_verified": true,
+      "native_tool_calls": 0,
+      "checks": [
+        {
+          "command": [
+            "make",
+            "context"
+          ],
+          "exit_code": 0,
+          "log": "run01-check-0.txt",
+          "sha256": "b0263dfebdfa957212aa0c7ba964dd3534871a010886333ab854fc8f404bc07e"
+        },
+        {
+          "command": [
+            "python3",
+            "/home/davis/backups/analise-video/context-economy-20260917T044514Z/independent_checks.py",
+            "/home/davis/backups/analise-video/context-economy-20260917T044514Z/run01"
+          ],
+          "exit_code": 0,
+          "log": "run01-check-1.txt",
+          "sha256": "9bac9ecfef5e431a547f8a77bb3fcb9cd2abbf6886c7cbbb3959d846d2277add"
+        },
+        {
+          "command": [
+            "make",
+            "context-check"
+          ],
+          "exit_code": 0,
+          "log": "run01-check-2.txt",
+          "sha256": "9eb922398397bf4c68763a3cd28752d3b38357bfdac123a5cdb55848e9ad655a"
+        },
+        {
+          "command": [
+            "make",
+            "test-docs"
+          ],
+          "exit_code": 0,
+          "log": "run01-check-3.txt",
+          "sha256": "2092f87bdaaab48df7ac5ff0cc3250f44884a78a6d5adf29a43d95a09c38de97"
+        },
+        {
+          "command": [
+            "git",
+            "diff",
+            "--check"
+          ],
+          "exit_code": 0,
+          "log": "run01-check-4.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "quality_passed": true,
+      "changed_files": [
+        "docs/context/packs/INC-002.md",
+        "scripts/docs/build_context_pack.py",
+        "tests/docs/test_context.py"
+      ],
+      "patch_sha256": "32fb20cc0d82c3ca60f9f19cc4d5d0fc610c46522bfcd3a57b48b0b16f8cb8f7",
+      "review_static": "## Revisão estática\n\n### Mudança\nO único token alterado é o padrão regex em `section()`. A expressão original `(.+?)\\s*$` capturava os hashes de fechamento ATX (ex.: `###`) como parte do título, porque `\\s*` não absorve `#`. O novo grupo opcional `(?:\\s+#+)?` consome exatamente um espaço ou mais seguido de um ou mais `#` antes do `\\s*$`, alinhando-se à especificação CommonMark para headings ATX.\n\n### Comportamento preservado\n- **C# literal**: `#` sem espaço precedente não é absorvido pelo grupo opcional; `C# Foo` continua sendo capturado integralmente.\n- **Fenced headings**: a guarda `fence is None` não muda; headings em blocos cercados continuam ignorados.\n- **Subsections/fronteiras**: a lógica pós-captura (`end = next(...)`) é inalterada.\n- **Duplicatas**: a detecção de duplicatas compara `item[2] == title`, onde `item[2]` agora é o título normalizado sem os hashes. Dois headings `## Dup ###` e `## Dup` produzirão dois itens com `title == \"Dup\"`, mantendo a rejeição por duplicata.\n\n### Riscos e limites\n1. **`\"## C# ###\"` (C# com hashes de fechamento)**: o grupo opcional corresponderia ao ` ###` final, produzindo título `\"C#\"`. Isso está correto segundo a spec ATX, mas é um caso raro e não estava no comportamento anterior (que produzia `\"C# ###\"`, também incorreto).\n2. **Tabs como separador**: `\\s+` em `(?:\\s+#+)?` também absorve tabs antes dos hashes de fechamento. CommonMark permite isso; considera-se correto.\n3. **Regressão de pacotes existentes**: todos os títulos de seção declarados em `PACKS.yaml` (ex. `\"Objetivo\"`, `\"INC-002 — Catálogo mínimo\"`, `\"Estado global\"`, `\"Nota sobre RNF-006\"`, `\"Requisitos e critérios do produto\"`) não contêm hashes de fechamento, portanto o comportamento de extração desses trechos não muda.\n4. **Testes não executados**: esta análise é estática. Nenhum teste foi executado. Verificações necessárias: `make test-docs` e `make context-check` numa cópia isolada do repositório.",
+      "claimed_context_sources": [
+        "scripts/docs/build_context_pack.py",
+        "tests/docs/test_context.py",
+        "docs/context/README.md",
+        "docs/context/ROUTES.yaml",
+        "skills/feature-workflow/SKILL.md",
+        "skills/build-and-test/SKILL.md",
+        "skills/code-review/SKILL.md",
+        "AGENTS.md"
+      ],
+      "events_sha256": "0a6a46128b50a5ffb6e7e2acc66597a2439cee85af4d50131224ff2e6e75d7d3",
+      "document_test_count": 81,
+      "independent_test_count": 8,
+      "independent_test_passed": true
+    },
+    {
+      "run": {
+        "name": "run02",
+        "condition": "after",
+        "pair": 1,
+        "session_id": "6a5b8462-4a63-4d86-97fd-bc850890eede",
+        "command": [
+          "/home/davis/.vscode-server/extensions/anthropic.claude-code-2.1.179-linux-x64/resources/native-binary/claude",
+          "-p",
+          "--session-id",
+          "6a5b8462-4a63-4d86-97fd-bc850890eede",
+          "--model",
+          "claude-sonnet-4-6",
+          "--effort",
+          "medium",
+          "--safe-mode",
+          "--setting-sources",
+          "",
+          "--strict-mcp-config",
+          "--mcp-config",
+          "/home/davis/backups/analise-video/context-economy-20260917T044514Z/empty-mcp.json",
+          "--no-session-persistence",
+          "--system-prompt",
+          "Você é um assistente de engenharia avaliando uma correção Python pequena. Use o contexto fornecido e responda apenas ao contrato JSON solicitado. Não alegue executar ferramentas ou testes.",
+          "--tools",
+          "",
+          "--permission-mode",
+          "dontAsk",
+          "--output-format",
+          "stream-json",
+          "--verbose"
+        ],
+        "started_utc": "2026-09-17T04:47:16.194341+00:00",
+        "prompt_sha256": "737edcf4048a2151b20d933c059a7ef678f4d20ba1ca78054ca74f51a6d31502",
+        "exit_code": 0,
+        "elapsed_seconds": 91.69,
+        "ended_utc": "2026-09-17T04:48:47.876286+00:00"
+      },
+      "observed_model": "claude-sonnet-4-6",
+      "tools": [],
+      "mcp_servers": [],
+      "usage": {
+        "input_tokens": 14189,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 6075,
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 14189,
+            "output_tokens": 6075,
+            "cache_read_input_tokens": 0,
+            "cache_creation_input_tokens": 0,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "modelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 13426,
+          "outputTokens": 19,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.013521,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        },
+        "claude-sonnet-4-6": {
+          "inputTokens": 14189,
+          "outputTokens": 6075,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.133692,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        }
+      },
+      "cost_estimate_usd": 0.147213,
+      "cold_cache_verified": true,
+      "native_tool_calls": 0,
+      "checks": [
+        {
+          "command": [
+            "make",
+            "context"
+          ],
+          "exit_code": 0,
+          "log": "run02-check-0.txt",
+          "sha256": "b0263dfebdfa957212aa0c7ba964dd3534871a010886333ab854fc8f404bc07e"
+        },
+        {
+          "command": [
+            "python3",
+            "/home/davis/backups/analise-video/context-economy-20260917T044514Z/independent_checks.py",
+            "/home/davis/backups/analise-video/context-economy-20260917T044514Z/run02"
+          ],
+          "exit_code": 0,
+          "log": "run02-check-1.txt",
+          "sha256": "9bac9ecfef5e431a547f8a77bb3fcb9cd2abbf6886c7cbbb3959d846d2277add"
+        },
+        {
+          "command": [
+            "make",
+            "context-check"
+          ],
+          "exit_code": 0,
+          "log": "run02-check-2.txt",
+          "sha256": "8c869285fed4a58cdd7e6dfd04976c79d83e368cbb799574ccc2e2a7f3e754bb"
+        },
+        {
+          "command": [
+            "make",
+            "test-docs"
+          ],
+          "exit_code": 0,
+          "log": "run02-check-3.txt",
+          "sha256": "e01568820864ca3e5cc88aac29654c25d5935102c7ed84a42823190d0c293662"
+        },
+        {
+          "command": [
+            "git",
+            "diff",
+            "--check"
+          ],
+          "exit_code": 0,
+          "log": "run02-check-4.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "quality_passed": true,
+      "changed_files": [
+        "docs/context/packs/INC-002.md",
+        "scripts/docs/build_context_pack.py",
+        "tests/docs/test_context.py"
+      ],
+      "patch_sha256": "9c9c1447e36db8468eb2465c4b2d548be5dd77d0e3839619460048e6b6099895",
+      "review_static": "**Causa-raiz confirmada:** `re.match(r\"^(#{1,6}) (.+?)\\s*$\", line)` captura o título bruto incluindo os hashes de fechamento opcionais (ex.: `\"Alvo ###\"`), porque `\\s*$` só consome espaços em branco antes do fim da linha/string, não `#`. A comparação com `title` então falha.\n\n**Correção mínima:** pós-processar `match.group(2)` com `re.sub(r\"\\s+#+$\", \"\", raw)`, removendo apenas sequências de `#` precedidas de espaço no final da linha — exatamente o que a especificação ATX CommonMark define como hashes de fechamento opcionais.\n\n**Propriedades preservadas:**\n- `C#` sem espaço precedente não é afetado pela substituição.\n- Títulos duplicados após normalização continuam sendo rejeitados (dois nomes distintos que resultam no mesmo valor normalizado produzem `len(matches) == 2`).\n- Headings dentro de fences continuam ignorados; a lógica de fence não foi alterada.\n- O texto retornado começa no `start` original dentro de `text`, então os bytes do trecho são preservados (ex.: `## Alvo ###\\n\\n...`).\n- Nenhuma reescrita do parser completo.\n\n**Riscos e limites:**\n- Títulos que terminam com `#` sem espaço precedente (ex.: `## Versão 2#`) não serão afetados, o que é correto per spec, mas é um caso de borda não testado explicitamente na suíte existente.\n- O regex `\\s+#+$` usa `$` que em Python, dentro de `re.sub`, ancora ao final da string; se `match.group(2)` contiver `\\n` (não esperado pois a linha já foi split), o comportamento seria diferente — não é o caso aqui.\n- A função não valida conformidade completa com CommonMark; serve o escopo do projeto.\n- **Testes não foram executados por mim.** A avaliação é estática. Verificações necessárias: `make test-docs` e `python3 scripts/docs/build_context_pack.py INC-002 --check` após regeneração com `make context`.",
+      "claimed_context_sources": [
+        "scripts/docs/build_context_pack.py",
+        "tests/docs/test_context.py",
+        "AGENTS.md",
+        "docs/context/ROUTES.yaml",
+        "skills/feature-workflow/SKILL.md",
+        "skills/code-review/SKILL.md",
+        "skills/build-and-test/SKILL.md"
+      ],
+      "events_sha256": "9d2e2338fe90c9b7e4a8f3352be695e88f247362a3118b2bcdca9ccf42de8cc5",
+      "document_test_count": 81,
+      "independent_test_count": 8,
+      "independent_test_passed": true
+    },
+    {
+      "run": {
+        "name": "run03",
+        "condition": "after",
+        "pair": 2,
+        "session_id": "96ae77e2-847b-48fe-a644-64c744ce1426",
+        "command": [
+          "/home/davis/.vscode-server/extensions/anthropic.claude-code-2.1.179-linux-x64/resources/native-binary/claude",
+          "-p",
+          "--session-id",
+          "96ae77e2-847b-48fe-a644-64c744ce1426",
+          "--model",
+          "claude-sonnet-4-6",
+          "--effort",
+          "medium",
+          "--safe-mode",
+          "--setting-sources",
+          "",
+          "--strict-mcp-config",
+          "--mcp-config",
+          "/home/davis/backups/analise-video/context-economy-20260917T044514Z/empty-mcp.json",
+          "--no-session-persistence",
+          "--system-prompt",
+          "Você é um assistente de engenharia avaliando uma correção Python pequena. Use o contexto fornecido e responda apenas ao contrato JSON solicitado. Não alegue executar ferramentas ou testes.",
+          "--tools",
+          "",
+          "--permission-mode",
+          "dontAsk",
+          "--output-format",
+          "stream-json",
+          "--verbose"
+        ],
+        "started_utc": "2026-09-17T04:48:47.884678+00:00",
+        "prompt_sha256": "737edcf4048a2151b20d933c059a7ef678f4d20ba1ca78054ca74f51a6d31502",
+        "exit_code": 0,
+        "elapsed_seconds": 77.55,
+        "ended_utc": "2026-09-17T04:50:05.425217+00:00"
+      },
+      "observed_model": "claude-sonnet-4-6",
+      "tools": [],
+      "mcp_servers": [],
+      "usage": {
+        "input_tokens": 14189,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 4694,
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 14189,
+            "output_tokens": 4694,
+            "cache_read_input_tokens": 0,
+            "cache_creation_input_tokens": 0,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "modelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 13426,
+          "outputTokens": 16,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.013506,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        },
+        "claude-sonnet-4-6": {
+          "inputTokens": 14189,
+          "outputTokens": 4694,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.112977,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        }
+      },
+      "cost_estimate_usd": 0.12648299999999998,
+      "cold_cache_verified": true,
+      "native_tool_calls": 0,
+      "checks": [
+        {
+          "command": [
+            "make",
+            "context"
+          ],
+          "exit_code": 0,
+          "log": "run03-check-0.txt",
+          "sha256": "b0263dfebdfa957212aa0c7ba964dd3534871a010886333ab854fc8f404bc07e"
+        },
+        {
+          "command": [
+            "python3",
+            "/home/davis/backups/analise-video/context-economy-20260917T044514Z/independent_checks.py",
+            "/home/davis/backups/analise-video/context-economy-20260917T044514Z/run03"
+          ],
+          "exit_code": 0,
+          "log": "run03-check-1.txt",
+          "sha256": "9bac9ecfef5e431a547f8a77bb3fcb9cd2abbf6886c7cbbb3959d846d2277add"
+        },
+        {
+          "command": [
+            "make",
+            "context-check"
+          ],
+          "exit_code": 0,
+          "log": "run03-check-2.txt",
+          "sha256": "eb6b09ba8d53295d8f519c96870bd51b38c853483647663cf2a8b7ddab415534"
+        },
+        {
+          "command": [
+            "make",
+            "test-docs"
+          ],
+          "exit_code": 0,
+          "log": "run03-check-3.txt",
+          "sha256": "d308b4e21a31cb03db7e2439e33ab4b8dbadf65712afac2e4f9043ee37727ecf"
+        },
+        {
+          "command": [
+            "git",
+            "diff",
+            "--check"
+          ],
+          "exit_code": 0,
+          "log": "run03-check-4.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "quality_passed": true,
+      "changed_files": [
+        "docs/context/packs/INC-002.md",
+        "scripts/docs/build_context_pack.py",
+        "tests/docs/test_context.py"
+      ],
+      "patch_sha256": "861bba83dab8aedd60bc5e9fdcc950f2e1ffb2a6d4e65eac48675262ef7ef441",
+      "review_static": "A causa raiz é clara: o regex `^(#{1,6}) (.+?)\\s*$` captura os hashes de fechamento opcionais (e.g. `###`) como parte do título porque `\\s*` só consome espaços, não `#`. A correção aplica `re.sub(r'\\s+#+\\s*$', '', raw_title)` apenas ao título normalizado usado na comparação; os offsets de bytes e o texto do trecho extraído permanecem intocados.\n\nRiscos e limites identificados estaticamente:\n1. **Compatibilidade CommonMark**: O padrão `\\s+#+\\s*$` exige ao menos um espaço antes dos hashes finais, consistente com a especificação ATX. Títulos que terminam em `#` sem espaço precedente (e.g. `C#`, `C##`) não são afetados. Risco residual: título intencionalmente terminado em ` #` seria strip-ado — caso atípico e fora do escopo atual.\n2. **Duplicatas após normalização**: `## Alvo` e `## Alvo ###` agora normalizam para `\"Alvo\"`, sendo corretamente rejeitados como duplicatas pela lógica existente de `len(matches) != 1`.\n3. **Fenced headings**: A exclusão por fence não é alterada; o bloco de detecção de fence ocorre antes da linha de match.\n4. **Limites de seção**: os offsets são calculados com base na linha original, não no título normalizado; a lógica `depth <= level` permanece correta.\n5. **Impacto no `excerpt` e no `build`**: Nenhum; `section()` retorna a fatia de bytes original — apenas a busca pelo título usa o valor normalizado.\n6. **Testes não executados**: esta é uma revisão estática. É necessário executar `make test-docs` e `make context-check` em cópia isolada para confirmar que todos os casos de regressão passam e que o pacote INC-002 permanece válido.",
+      "claimed_context_sources": [
+        "scripts/docs/build_context_pack.py",
+        "tests/docs/test_context.py",
+        "AGENTS.md",
+        "docs/context/ROUTES.yaml",
+        "docs/context/README.md",
+        "skills/feature-workflow/SKILL.md",
+        "skills/code-review/SKILL.md"
+      ],
+      "events_sha256": "a8c5aff2a2a49421fd72d7985df9c2782b536e31ec5ea2a8e6fd82dafb6713cf",
+      "document_test_count": 81,
+      "independent_test_count": 8,
+      "independent_test_passed": true
+    },
+    {
+      "run": {
+        "name": "run04",
+        "condition": "before",
+        "pair": 2,
+        "session_id": "092844e8-2934-419f-9329-e2503569548e",
+        "command": [
+          "/home/davis/.vscode-server/extensions/anthropic.claude-code-2.1.179-linux-x64/resources/native-binary/claude",
+          "-p",
+          "--session-id",
+          "092844e8-2934-419f-9329-e2503569548e",
+          "--model",
+          "claude-sonnet-4-6",
+          "--effort",
+          "medium",
+          "--safe-mode",
+          "--setting-sources",
+          "",
+          "--strict-mcp-config",
+          "--mcp-config",
+          "/home/davis/backups/analise-video/context-economy-20260917T044514Z/empty-mcp.json",
+          "--no-session-persistence",
+          "--system-prompt",
+          "Você é um assistente de engenharia avaliando uma correção Python pequena. Use o contexto fornecido e responda apenas ao contrato JSON solicitado. Não alegue executar ferramentas ou testes.",
+          "--tools",
+          "",
+          "--permission-mode",
+          "dontAsk",
+          "--output-format",
+          "stream-json",
+          "--verbose"
+        ],
+        "started_utc": "2026-09-17T04:50:05.440906+00:00",
+        "prompt_sha256": "f86fd3caf83afedef355819b01e957906cd21d415280d9e1f66f4ae80350db9e",
+        "exit_code": 0,
+        "elapsed_seconds": 139.82,
+        "ended_utc": "2026-09-17T04:52:25.253249+00:00"
+      },
+      "observed_model": "claude-sonnet-4-6",
+      "tools": [],
+      "mcp_servers": [],
+      "usage": {
+        "input_tokens": 35291,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 8894,
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 35291,
+            "output_tokens": 8894,
+            "cache_read_input_tokens": 0,
+            "cache_creation_input_tokens": 0,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "modelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 34528,
+          "outputTokens": 16,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.034608,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        },
+        "claude-sonnet-4-6": {
+          "inputTokens": 35291,
+          "outputTokens": 8894,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.23928300000000002,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        }
+      },
+      "cost_estimate_usd": 0.273891,
+      "cold_cache_verified": true,
+      "native_tool_calls": 0,
+      "checks": [
+        {
+          "command": [
+            "make",
+            "context"
+          ],
+          "exit_code": 0,
+          "log": "run04-check-0.txt",
+          "sha256": "b0263dfebdfa957212aa0c7ba964dd3534871a010886333ab854fc8f404bc07e"
+        },
+        {
+          "command": [
+            "python3",
+            "/home/davis/backups/analise-video/context-economy-20260917T044514Z/independent_checks.py",
+            "/home/davis/backups/analise-video/context-economy-20260917T044514Z/run04"
+          ],
+          "exit_code": 1,
+          "log": "run04-check-1.txt",
+          "sha256": "51adffe8b56b50facb756a3d96469963df9a3400debf632e0230c1e2588ac0f7"
+        },
+        {
+          "command": [
+            "make",
+            "context-check"
+          ],
+          "exit_code": 0,
+          "log": "run04-check-2.txt",
+          "sha256": "72b4fc864c146fa8fa3f56712c2c3be39b27540763bd1915f004b217ca283e1a"
+        },
+        {
+          "command": [
+            "make",
+            "test-docs"
+          ],
+          "exit_code": 0,
+          "log": "run04-check-3.txt",
+          "sha256": "ec9f6c46be2a74eb2b200fe6f9536d6992126ddf459045d91ebd310abdc41b78"
+        },
+        {
+          "command": [
+            "git",
+            "diff",
+            "--check"
+          ],
+          "exit_code": 0,
+          "log": "run04-check-4.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "quality_passed": false,
+      "changed_files": [
+        "docs/context/packs/INC-002.md",
+        "scripts/docs/build_context_pack.py",
+        "tests/docs/test_context.py"
+      ],
+      "patch_sha256": "2b666ba323507ae20ee680ed4053453951ea30463290fb969f5a4e4912bc6c39",
+      "review_static": "A correção substitui uma linha por duas: extrai `match.group(2)` (título cru), aplica `re.sub(r\" +#+$\", \"\", ...)` para remover a sequência opcional de fechamento ATX (espaço seguido de um ou mais `#` no final da string), e usa o resultado normalizado na lista `headings`. O texto original retornado pela função (`text[start:end].rstrip()`) não é alterado — a normalização afeta apenas a chave de comparação interna.\n\n**Riscos e limites:**\n- O padrão `r\" +#+$\"` exige um espaço literal imediatamente antes dos `#` de fechamento, alinhado ao CommonMark. Hashes sem espaço antecedente (como `C#`) não são afetados. ✓\n- Dois títulos que diferem apenas nos hashes de fechamento (`## Foo` e `## Foo ##`) agora normalizam para o mesmo valor e levantam `ValueError` se ambos aparecerem — comportamento esperado pelo enunciado.\n- A substituição opera sobre `match.group(2)`, que já tem espaços finais absorvidos pelo `\\s*$` do regex; `.rstrip()` adicional foi omitido por ser redundante.\n- O risco de substituição incorreta em títulos como `## A ## B` é nulo: `B` não é `#`, portanto `r\" +#+$\"` não casaria no final.\n- **Testes não foram executados por mim.** É necessário rodar `make test-docs` e `make context-check` em ambiente limpo para confirmar ausência de regressões no pacote INC-002 e nos demais testes de `ContextTests`.",
+      "claimed_context_sources": [
+        "scripts/docs/build_context_pack.py",
+        "tests/docs/test_context.py",
+        "AGENTS.md",
+        "docs/context/ROUTES.yaml",
+        "docs/context/README.md"
+      ],
+      "events_sha256": "8768aabec7e7a3ca71636aececc217c774dfc2837c87b436322a4d466182813f",
+      "document_test_count": 81,
+      "independent_test_count": 8,
+      "independent_test_passed": false
+    },
+    {
+      "run": {
+        "name": "run05",
+        "condition": "before",
+        "pair": 3,
+        "session_id": "f31ebaed-c3b9-493d-84a3-99f97749a9c8",
+        "command": [
+          "/home/davis/.vscode-server/extensions/anthropic.claude-code-2.1.179-linux-x64/resources/native-binary/claude",
+          "-p",
+          "--session-id",
+          "f31ebaed-c3b9-493d-84a3-99f97749a9c8",
+          "--model",
+          "claude-sonnet-4-6",
+          "--effort",
+          "medium",
+          "--safe-mode",
+          "--setting-sources",
+          "",
+          "--strict-mcp-config",
+          "--mcp-config",
+          "/home/davis/backups/analise-video/context-economy-20260917T044514Z/empty-mcp.json",
+          "--no-session-persistence",
+          "--system-prompt",
+          "Você é um assistente de engenharia avaliando uma correção Python pequena. Use o contexto fornecido e responda apenas ao contrato JSON solicitado. Não alegue executar ferramentas ou testes.",
+          "--tools",
+          "",
+          "--permission-mode",
+          "dontAsk",
+          "--output-format",
+          "stream-json",
+          "--verbose"
+        ],
+        "started_utc": "2026-09-17T04:52:25.274038+00:00",
+        "prompt_sha256": "f86fd3caf83afedef355819b01e957906cd21d415280d9e1f66f4ae80350db9e",
+        "exit_code": 0,
+        "elapsed_seconds": 115.635,
+        "ended_utc": "2026-09-17T04:54:20.902129+00:00"
+      },
+      "observed_model": "claude-sonnet-4-6",
+      "tools": [],
+      "mcp_servers": [],
+      "usage": {
+        "input_tokens": 35291,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 8298,
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 35291,
+            "output_tokens": 8298,
+            "cache_read_input_tokens": 0,
+            "cache_creation_input_tokens": 0,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "modelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 34528,
+          "outputTokens": 20,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.034628000000000006,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        },
+        "claude-sonnet-4-6": {
+          "inputTokens": 35291,
+          "outputTokens": 8298,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.23034300000000002,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        }
+      },
+      "cost_estimate_usd": 0.264971,
+      "cold_cache_verified": true,
+      "native_tool_calls": 0,
+      "checks": [
+        {
+          "command": [
+            "make",
+            "context"
+          ],
+          "exit_code": 0,
+          "log": "run05-check-0.txt",
+          "sha256": "b0263dfebdfa957212aa0c7ba964dd3534871a010886333ab854fc8f404bc07e"
+        },
+        {
+          "command": [
+            "python3",
+            "/home/davis/backups/analise-video/context-economy-20260917T044514Z/independent_checks.py",
+            "/home/davis/backups/analise-video/context-economy-20260917T044514Z/run05"
+          ],
+          "exit_code": 0,
+          "log": "run05-check-1.txt",
+          "sha256": "9bac9ecfef5e431a547f8a77bb3fcb9cd2abbf6886c7cbbb3959d846d2277add"
+        },
+        {
+          "command": [
+            "make",
+            "context-check"
+          ],
+          "exit_code": 0,
+          "log": "run05-check-2.txt",
+          "sha256": "2522720b2763d33102b2a33e8e9ac28d8abc68fc6060bf949630a06d34364c8a"
+        },
+        {
+          "command": [
+            "make",
+            "test-docs"
+          ],
+          "exit_code": 0,
+          "log": "run05-check-3.txt",
+          "sha256": "4180205bc182d29aae0097b67813d964a94c6b6fdecf5e65ad8108ca9e6bcea5"
+        },
+        {
+          "command": [
+            "git",
+            "diff",
+            "--check"
+          ],
+          "exit_code": 0,
+          "log": "run05-check-4.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "quality_passed": true,
+      "changed_files": [
+        "docs/context/packs/INC-002.md",
+        "scripts/docs/build_context_pack.py",
+        "tests/docs/test_context.py"
+      ],
+      "patch_sha256": "ad868f3454fc93ca823e8202f7820e465dde99b771fd0f8265ac3d15e2390049",
+      "review_static": "**Alteração**\n\nUma única linha é alterada na função `section()`. A regex que captura o título de um heading ATX passa de `^(#{1,6}) (.+?)\\s*$` para `^(#{1,6}) (.+?)(?:\\s+#+)?\\s*$`.\n\nO grupo não-capturante `(?:\\s+#+)?` absorve opcionalmente uma sequência de um ou mais espaços seguidos de um ou mais `#` (conforme a especificação CommonMark para headings de fechamento). Sem ele, `## Alvo ###\\n` tinha o grupo 2 capturado como `\"Alvo ###\"` e o lookup por `\"Alvo\"` não encontrava correspondência, levantando `ValueError`.\n\n**Por que os invariantes são preservados**\n\n- *Hashes literais (C#)*: a sequência `# ` que não é precedida por espaço não ativa `\\s+#+`, portanto `\"C# API\"` é capturado integralmente.\n- *Subseções*: a lógica de fronteira (`depth <= level`) não é tocada.\n- *Rejeição de duplicatas pós-normalização*: dois headings `## Dup ###` e `## Dup` agora produzem o mesmo título normalizado `\"Dup\"`, portanto `len(matches) == 2` e `ValueError` é levantado — regressão corretamente coberta pelo teste.\n- *Exclusão de headings em fences*: o bloco de detecção de fences não é alterado.\n- *Preservação dos bytes originais*: `text[start:end].rstrip()` continua operando sobre os bytes brutos do texto; o título normalizado é usado apenas para indexação/lookup, não para substituir o slice retornado.\n\n**Riscos e limites**\n\n1. A regex assume que a linha já foi extraída com `splitlines(keepends=True)`. O `$` do Python reconhece a posição antes do `\\n` final sem `re.MULTILINE`, o que está correto aqui.\n2. O padrão ignora fechamento com somente espaços (sem `#`) — comportamento idêntico ao original; isso é consistente com CommonMark.\n3. Headings do tipo setext (sublinhados) não são suportados antes nem depois desta correção — fora do escopo da mudança.\n4. **Testes não foram executados por mim**; a análise é estática. As verificações necessárias são `make test-docs` e `make context-check` no repositório, seguidas de regeneração do pacote INC-002 se o conteúdo das fontes mudou.",
+      "claimed_context_sources": [
+        "scripts/docs/build_context_pack.py",
+        "tests/docs/test_context.py",
+        "AGENTS.md",
+        "docs/context/README.md",
+        "docs/context/ROUTES.yaml",
+        "skills/feature-workflow/SKILL.md",
+        "skills/build-and-test/SKILL.md",
+        "skills/code-review/SKILL.md"
+      ],
+      "events_sha256": "0bf8f19403add32c31c1d22db4bfc485cdc68405f5cedaa5b2e341b90943ad87",
+      "document_test_count": 81,
+      "independent_test_count": 8,
+      "independent_test_passed": true
+    },
+    {
+      "run": {
+        "name": "run06",
+        "condition": "after",
+        "pair": 3,
+        "session_id": "e73fa727-24da-4df7-bf4b-5ca0f7f33625",
+        "command": [
+          "/home/davis/.vscode-server/extensions/anthropic.claude-code-2.1.179-linux-x64/resources/native-binary/claude",
+          "-p",
+          "--session-id",
+          "e73fa727-24da-4df7-bf4b-5ca0f7f33625",
+          "--model",
+          "claude-sonnet-4-6",
+          "--effort",
+          "medium",
+          "--safe-mode",
+          "--setting-sources",
+          "",
+          "--strict-mcp-config",
+          "--mcp-config",
+          "/home/davis/backups/analise-video/context-economy-20260917T044514Z/empty-mcp.json",
+          "--no-session-persistence",
+          "--system-prompt",
+          "Você é um assistente de engenharia avaliando uma correção Python pequena. Use o contexto fornecido e responda apenas ao contrato JSON solicitado. Não alegue executar ferramentas ou testes.",
+          "--tools",
+          "",
+          "--permission-mode",
+          "dontAsk",
+          "--output-format",
+          "stream-json",
+          "--verbose"
+        ],
+        "started_utc": "2026-09-17T04:54:20.926851+00:00",
+        "prompt_sha256": "737edcf4048a2151b20d933c059a7ef678f4d20ba1ca78054ca74f51a6d31502",
+        "exit_code": 0,
+        "elapsed_seconds": 77.407,
+        "ended_utc": "2026-09-17T04:55:38.324676+00:00"
+      },
+      "observed_model": "claude-sonnet-4-6",
+      "tools": [],
+      "mcp_servers": [],
+      "usage": {
+        "input_tokens": 14189,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 5650,
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 14189,
+            "output_tokens": 5650,
+            "cache_read_input_tokens": 0,
+            "cache_creation_input_tokens": 0,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "modelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 13426,
+          "outputTokens": 14,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.013496000000000001,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        },
+        "claude-sonnet-4-6": {
+          "inputTokens": 14189,
+          "outputTokens": 5650,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.12731699999999999,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        }
+      },
+      "cost_estimate_usd": 0.140813,
+      "cold_cache_verified": true,
+      "native_tool_calls": 0,
+      "checks": [
+        {
+          "command": [
+            "make",
+            "context"
+          ],
+          "exit_code": 0,
+          "log": "run06-check-0.txt",
+          "sha256": "b0263dfebdfa957212aa0c7ba964dd3534871a010886333ab854fc8f404bc07e"
+        },
+        {
+          "command": [
+            "python3",
+            "/home/davis/backups/analise-video/context-economy-20260917T044514Z/independent_checks.py",
+            "/home/davis/backups/analise-video/context-economy-20260917T044514Z/run06"
+          ],
+          "exit_code": 0,
+          "log": "run06-check-1.txt",
+          "sha256": "9bac9ecfef5e431a547f8a77bb3fcb9cd2abbf6886c7cbbb3959d846d2277add"
+        },
+        {
+          "command": [
+            "make",
+            "context-check"
+          ],
+          "exit_code": 0,
+          "log": "run06-check-2.txt",
+          "sha256": "994ea19fa652188af80bf9d903247d22d2657d9372066068beb19141d463465f"
+        },
+        {
+          "command": [
+            "make",
+            "test-docs"
+          ],
+          "exit_code": 0,
+          "log": "run06-check-3.txt",
+          "sha256": "d2f56449729753ecf87a9231a491b29669af998b1923e237d83c312c954333e3"
+        },
+        {
+          "command": [
+            "git",
+            "diff",
+            "--check"
+          ],
+          "exit_code": 0,
+          "log": "run06-check-4.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "quality_passed": true,
+      "changed_files": [
+        "docs/context/packs/INC-002.md",
+        "scripts/docs/build_context_pack.py",
+        "tests/docs/test_context.py"
+      ],
+      "patch_sha256": "319dac595ccf98d378d5ce23e5198ef4404a5d63f436a742c74d1a19ed4241dc",
+      "review_static": "**Correção**: a única mudança é acrescentar `raw_title = re.sub(r'\\s+#+\\s*$', '', match.group(2))` e usar `raw_title` em vez de `match.group(2)` no append. O padrão `\\s+#+\\s*$` exige pelo menos um espaço antes da sequência de `#`, logo `C#` (sem espaço precedente) não é afetado. O texto retornado (`text[start:end].rstrip()`) continua usando os offsets originais, então o trecho preserva o heading literal (`## Alvo ###`).\n\n**Riscos e limites**:\n- `match.group(2)` nunca contém `\\n` (o `\\s*$` da regex do match consome o newline da linha), portanto o `re.sub` opera sobre texto limpo.\n- Títulos compostos apenas de `#` (ex.: `## ###`) seriam normalizados para string vazia, mas esse caso não ocorre nos seletores do projeto; não é corrigido aqui para não alargar o escopo.\n- O teste de duplicidade cobre o risco de dois headings distintos colidirem após normalização (ex.: `## Dup ###` e `## Dup`), produzindo `ValueError` correto.\n- A alteração não toca lógica de fence, offsets, dependência de documentos, integridade de hash nem rota; regressões nessas áreas cobertas pelos testes existentes.\n- **Testes não foram executados por mim**; a validação real depende de `make test-docs` numa cópia isolada do repositório.",
+      "claimed_context_sources": [
+        "scripts/docs/build_context_pack.py",
+        "tests/docs/test_context.py",
+        "AGENTS.md",
+        "docs/context/ROUTES.yaml",
+        "skills/feature-workflow/SKILL.md",
+        "skills/code-review/SKILL.md"
+      ],
+      "events_sha256": "bfc79f15283f7d5dc4bfd3245fdd72188489ad474443193593dc829cd2f6213a",
+      "document_test_count": 81,
+      "independent_test_count": 8,
+      "independent_test_passed": true
+    }
+  ],
+  "summary": {
+    "before": {
+      "input_tokens": {
+        "values": [
+          35291,
+          35291,
+          35291
+        ],
+        "mean": 35291,
+        "median": 35291,
+        "min": 35291,
+        "max": 35291
+      },
+      "output_tokens": {
+        "values": [
+          6731,
+          8894,
+          8298
+        ],
+        "mean": 7974.333333333333,
+        "median": 8298,
+        "min": 6731,
+        "max": 8894
+      },
+      "total_tokens": {
+        "values": [
+          42022,
+          44185,
+          43589
+        ],
+        "mean": 43265.333333333336,
+        "median": 43589,
+        "min": 42022,
+        "max": 44185
+      },
+      "elapsed_seconds": {
+        "values": [
+          95.633,
+          139.82,
+          115.635
+        ],
+        "mean": 117.02933333333333,
+        "median": 115.635,
+        "min": 95.633,
+        "max": 139.82
+      },
+      "cli_cost_estimate_usd": {
+        "values": [
+          0.24145600000000003,
+          0.273891,
+          0.264971
+        ],
+        "mean": 0.260106,
+        "median": 0.264971,
+        "min": 0.24145600000000003,
+        "max": 0.273891
+      },
+      "quality_passed": 2,
+      "attempts": 3
+    },
+    "after": {
+      "input_tokens": {
+        "values": [
+          14189,
+          14189,
+          14189
+        ],
+        "mean": 14189,
+        "median": 14189,
+        "min": 14189,
+        "max": 14189
+      },
+      "output_tokens": {
+        "values": [
+          6075,
+          4694,
+          5650
+        ],
+        "mean": 5473,
+        "median": 5650,
+        "min": 4694,
+        "max": 6075
+      },
+      "total_tokens": {
+        "values": [
+          20264,
+          18883,
+          19839
+        ],
+        "mean": 19662,
+        "median": 19839,
+        "min": 18883,
+        "max": 20264
+      },
+      "elapsed_seconds": {
+        "values": [
+          91.69,
+          77.55,
+          77.407
+        ],
+        "mean": 82.21566666666666,
+        "median": 77.55,
+        "min": 77.407,
+        "max": 91.69
+      },
+      "cli_cost_estimate_usd": {
+        "values": [
+          0.147213,
+          0.12648299999999998,
+          0.140813
+        ],
+        "mean": 0.13816966666666666,
+        "median": 0.140813,
+        "min": 0.12648299999999998,
+        "max": 0.147213
+      },
+      "quality_passed": 3,
+      "attempts": 3
+    }
+  },
+  "mean_reduction_percent": {
+    "input_tokens": 59.79428182822816,
+    "output_tokens": 31.36730343184383,
+    "total_tokens": 54.554839902616415,
+    "elapsed_seconds": 29.747812514241446,
+    "cli_cost_estimate_usd": 46.87947734128907,
+    "raw_source_bytes": 61.68815258773418,
+    "context_utf8_bytes": 61.53889100840257,
+    "prompt_utf8_bytes": 60.628340407587025,
+    "file_count": 48.0
+  },
+  "pairs": [
+    {
+      "pair": 1,
+      "before_run": "run01",
+      "after_run": "run02",
+      "input_tokens_saved": 21102,
+      "input_token_reduction_percent": 59.79428182822816
+    },
+    {
+      "pair": 2,
+      "before_run": "run04",
+      "after_run": "run03",
+      "input_tokens_saved": 21102,
+      "input_token_reduction_percent": 59.79428182822816
+    },
+    {
+      "pair": 3,
+      "before_run": "run05",
+      "after_run": "run06",
+      "input_tokens_saved": 21102,
+      "input_token_reduction_percent": 59.79428182822816
+    }
+  ],
+  "scope": "One technical correction; Claude Sonnet 4.6; provided inline context; reconstructed broad control versus task-specific excerpt. Not historical startup or full autonomous workflow.",
+  "limitations": [
+    "Three paired repetitions of one task; descriptive results, no statistical generalization.",
+    "Context_sources is self-reported consideration of supplied files; no native Read calls; no proof of route-trigger ordering.",
+    "Model output and wall time can vary; mean differences are observed only, not established latency or quality superiority.",
+    "CLI USD estimates are not subscription invoices or quota measurements.",
+    "Codex controlled before/after not measured in this experiment.",
+    "No code graphs, hooks, automatic compaction, memory quality or product increment is verified by this experiment."
+  ],
+  "parent_review_findings": [
+    {
+      "run": "run04",
+      "file": "scripts/docs/build_context_pack.py",
+      "function": "section",
+      "scenario": "Optional closing hashes separated from heading title by a tab, e.g. ## Ação\t### .",
+      "impact": "re.sub(r\" +#+$\",...) handles spaces only and leaves the closure in the title; lookup raises ValueError.",
+      "evidence": "run04-check-1.txt",
+      "priority": "medium",
+      "disposition": "Benchmark failure retained; no response repair or replacement in the main workspace."
+    }
+  ],
+  "evaluator": {
+    "script_sha256": "490bb933aebf1c94b65fcb023d5c4e38794a7423087ae8e505cd0a94164cf745",
+    "independent_checks_sha256": "752d2e7281e4c396b227edc13392fdc22622e75b00259d3a33774ecda8f9f151",
+    "baseline_check_log_sha256": "b3100c2992daef61a9b08344f18720f0d6ecff094319b6eef7453aa2662b0513",
+    "baseline_expected_failure": true,
+    "review": "Each proposal applied exactly once by a deterministic adapter, except uniform JSON fence stripping and test indentation normalization; no inference retries or response repair."
+  }
+}

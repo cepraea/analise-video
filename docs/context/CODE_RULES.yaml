@@ -1,0 +1,47 @@
+schema_version: 1
+
+manual_code:
+  extensions: [.py, .js, .jsx, .ts, .tsx]
+  exclude:
+    - archive/**
+    - .local/**
+    - .git/**
+    - .venv/**
+    - node_modules/**
+    - dist/**
+    - build/**
+    - '**/__pycache__/**'
+    - '**/*.generated.*'
+    - docs/evidence/ssot-migration/baselines/**
+  warning_lines: 300
+  maximum_lines: 500
+  size_exceptions:
+    - path: frontend/src/App.tsx
+      maximum_lines: 800
+      reason: componente legado do primeiro fluxo; separar por responsabilidade na próxima alteração estrutural
+      responsible: repository-maintainer
+      review_when: próxima alteração estrutural no componente
+    - path: frontend/src/App.test.tsx
+      maximum_lines: 600
+      reason: suíte legada do primeiro fluxo; dividir junto da decomposição de App.tsx
+      responsible: repository-maintainer
+      review_when: próxima alteração estrutural na suíte
+    - path: tests/docs/test_baselines.py
+      maximum_lines: 700
+      reason: suíte de invariantes de baseline existente antes da política executável
+      responsible: repository-maintainer
+      review_when: inclusão de uma nova família de casos
+
+naming:
+  opaque_stems: [common, helper, helpers, misc, util, utils]
+  path_exceptions: []
+
+function_prefix_contracts:
+  - path: backend/src/cepraea_video/spike_media.py
+    symbol: list_media
+    allowed_prefixes: [list_, query_, find_]
+    behavior: consulta de mídia sem mutação
+  - path: backend/src/cepraea_video/spike_media.py
+    symbol: resolve_media
+    allowed_prefixes: [resolve_, query_, find_]
+    behavior: resolução de caminho sem mutação

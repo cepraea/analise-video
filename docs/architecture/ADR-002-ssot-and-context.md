@@ -34,6 +34,10 @@ Os oito artefatos de controle do G0 são preservados e rastreados, mas ficam for
 
 Esta ADR não adota MCP, Atlan, banco vetorial, grafo AST, hooks Git, Lore Protocol, C4/YAML ou geração de imagens como dependências do contexto mínimo. Cada item exige necessidade mensurada e decisão própria quando afetar a arquitetura.
 
+Evolução posterior: `DOC-003`, aprovada em 2026-09-16, adotou o modelo C4 em YAML como fonte arquitetural canônica e vistas Mermaid como derivados. Essa decisão posterior substitui somente a não adoção de C4/YAML registrada aqui; não adota grafo AST, hooks, Lore, MCP, Atlan ou geração de imagens.
+
+Evolução posterior: `TECH-002`, aprovada em 2026-09-17, adotou o grafo local de código endereçado pelos hashes do corpus e dos extratores, com conferência pertinente do índice e vistas Mermaid sob demanda. O grafo descreve código observado e permanece separado do modelo C4 canônico. A decisão não adota MCP, Atlan, API paga, PDF obrigatório ou staging automático.
+
 ## Alternativas consideradas
 
 ### Arquivo único

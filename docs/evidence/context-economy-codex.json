@@ -1,0 +1,1603 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-09-17T05:24:53.695413+00:00",
+  "experiment": "context-economy-codex-20260917T050454Z",
+  "artifact_directory": "/home/davis/backups/analise-video/context-economy-codex-20260917T050454Z",
+  "protocol": {
+    "root": "/home/davis/analise-video",
+    "prior_experiment": "/home/davis/backups/analise-video/context-economy-20260917T044514Z",
+    "base_revision": "baf01f6df8e1b480f306ab4d0bd6ce2e3256ef81",
+    "cli_path": "/home/davis/.nvm/versions/node/v24.14.1/bin/codex",
+    "cli_version": "0.144.5",
+    "model": "gpt-5.6-sol",
+    "effort": "medium",
+    "profiles": {
+      "after": {
+        "files": [
+          "AGENTS.md",
+          "CLAUDE.md",
+          "docs/context/README.md",
+          "docs/context/CONTEXT_POLICY.md",
+          "docs/context/ROUTES.yaml",
+          "docs/context/PACKS.yaml",
+          "skills/feature-workflow/SKILL.md",
+          "skills/build-and-test/SKILL.md",
+          "skills/code-review/SKILL.md",
+          "scripts/docs/requirements.txt",
+          "Makefile",
+          "scripts/docs/build_context_pack.py",
+          "tests/docs/test_context.py"
+        ],
+        "file_count": 13,
+        "raw_source_bytes": 40655,
+        "context_utf8_bytes": 41333,
+        "prompt_utf8_bytes": 42947,
+        "prompt_sha256": "737edcf4048a2151b20d933c059a7ef678f4d20ba1ca78054ca74f51a6d31502",
+        "source_sha256": {
+          "AGENTS.md": "50afba826ca8688e39436906b755d474be8a97804461ba20008050c42efa4b53",
+          "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+          "docs/context/README.md": "5fa5357760eea55470c6af901527186379da96f074a2c880af26105dabe34ff0",
+          "docs/context/CONTEXT_POLICY.md": "8138e6efd81132dfcaa0d67aadacec4645154619b21fb002aff6436fd8c4cb71",
+          "docs/context/ROUTES.yaml": "ae13b108d49f6560b26edca875d19c06b77ca55bdb9c4ecb0f19a3c2bd56dc59",
+          "docs/context/PACKS.yaml": "dbe8ddaf45472b094a63fa5e808ba50bc1fffe1a5804469d654ecd4106aaee2c",
+          "skills/feature-workflow/SKILL.md": "b2853ff3f2212e52a68af2b9b78df527f32db091ee0c3312fce462dfbc1d748e",
+          "skills/build-and-test/SKILL.md": "31057b25b1a67cd781a8551debbf7607e4e2382465e1c98000e21b2019a61107",
+          "skills/code-review/SKILL.md": "73f717f9a90aeed2555398e585a12e15fc2983796378be15206d8c53e9a36924",
+          "scripts/docs/requirements.txt": "71749243f84428fee225bfaa796dca5ef6c1e83a98f6d2a407df615b0390d6fb",
+          "Makefile": "b325f985e2ee49d52c1ba7fcd1bca1452d679d0bd9524e168916514442bba674",
+          "scripts/docs/build_context_pack.py": "c5b547f4e56433e91e1a33a4028560f8ca8c416fe9e78c694295f46c81b4880e",
+          "tests/docs/test_context.py": "c138b2e33d67d0c3696bd410b2cb16af5aff019cbf02e100c95ee3bb0c51d448"
+        }
+      },
+      "before": {
+        "files": [
+          "AGENTS.md",
+          "CLAUDE.md",
+          "docs/context/README.md",
+          "docs/context/CONTEXT_POLICY.md",
+          "docs/context/ROUTES.yaml",
+          "docs/context/PACKS.yaml",
+          "skills/feature-workflow/SKILL.md",
+          "skills/build-and-test/SKILL.md",
+          "skills/code-review/SKILL.md",
+          "scripts/docs/requirements.txt",
+          "Makefile",
+          "scripts/docs/build_context_pack.py",
+          "tests/docs/test_context.py",
+          "docs/SYSTEM_SPEC.md",
+          "docs/GAME_MODEL.md",
+          "docs/IMPLEMENTATION_PLAN.md",
+          "docs/IMPLEMENTATION_STATUS.md",
+          "docs/TRACEABILITY.md",
+          "docs/governance/DECISIONS.yaml",
+          "docs/SSOT.md",
+          "docs/governance/AUTHORITY.md",
+          "docs/architecture/ADR-001.md",
+          "docs/architecture/ADR-002-ssot-and-context.md",
+          "docs/governance/SOURCES.yaml",
+          "docs/governance/DOCUMENTATION_STANDARD.md"
+        ],
+        "file_count": 25,
+        "raw_source_bytes": 106116,
+        "context_utf8_bytes": 107467,
+        "prompt_utf8_bytes": 109081,
+        "prompt_sha256": "f86fd3caf83afedef355819b01e957906cd21d415280d9e1f66f4ae80350db9e",
+        "source_sha256": {
+          "AGENTS.md": "50afba826ca8688e39436906b755d474be8a97804461ba20008050c42efa4b53",
+          "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+          "docs/context/README.md": "5fa5357760eea55470c6af901527186379da96f074a2c880af26105dabe34ff0",
+          "docs/context/CONTEXT_POLICY.md": "8138e6efd81132dfcaa0d67aadacec4645154619b21fb002aff6436fd8c4cb71",
+          "docs/context/ROUTES.yaml": "ae13b108d49f6560b26edca875d19c06b77ca55bdb9c4ecb0f19a3c2bd56dc59",
+          "docs/context/PACKS.yaml": "dbe8ddaf45472b094a63fa5e808ba50bc1fffe1a5804469d654ecd4106aaee2c",
+          "skills/feature-workflow/SKILL.md": "b2853ff3f2212e52a68af2b9b78df527f32db091ee0c3312fce462dfbc1d748e",
+          "skills/build-and-test/SKILL.md": "31057b25b1a67cd781a8551debbf7607e4e2382465e1c98000e21b2019a61107",
+          "skills/code-review/SKILL.md": "73f717f9a90aeed2555398e585a12e15fc2983796378be15206d8c53e9a36924",
+          "scripts/docs/requirements.txt": "71749243f84428fee225bfaa796dca5ef6c1e83a98f6d2a407df615b0390d6fb",
+          "Makefile": "b325f985e2ee49d52c1ba7fcd1bca1452d679d0bd9524e168916514442bba674",
+          "scripts/docs/build_context_pack.py": "c5b547f4e56433e91e1a33a4028560f8ca8c416fe9e78c694295f46c81b4880e",
+          "tests/docs/test_context.py": "c138b2e33d67d0c3696bd410b2cb16af5aff019cbf02e100c95ee3bb0c51d448",
+          "docs/SYSTEM_SPEC.md": "b6d27767653bdc8ac0e47db17020187d0815de8c2cd837b6f89b25f87664a45f",
+          "docs/GAME_MODEL.md": "d0229cf42b0bd47f2009ff889089c20e4d1e7f0b0739832dfaada1b1834746db",
+          "docs/IMPLEMENTATION_PLAN.md": "836dcaba89af490e15d977e7710ac7bc1066c2d8f388fc486059ac2e10545d55",
+          "docs/IMPLEMENTATION_STATUS.md": "a80d4de5cfd952ba4a894b53e16942a35ff14551a673ba57b081a92c60d54dae",
+          "docs/TRACEABILITY.md": "e34d899f67429e3c211aa3f2ada77b2243db960920505126871c479fed12c55e",
+          "docs/governance/DECISIONS.yaml": "0d3cd7523282aa5b82d1e2a0fbf2a0ad5351b161cfde45d7d15eed3d80c93fa0",
+          "docs/SSOT.md": "9184c116026d136bb7dba0125bdd769152fd4cc6f1eb6aa2de01a04088ebf018",
+          "docs/governance/AUTHORITY.md": "43c31514192589351f26258d1d537d5494b0c2fc9310486804d7065fcb01b297",
+          "docs/architecture/ADR-001.md": "4a3c1f36dd6629b5ba9675113648f465d2068adf8a2a703c7e9a2c09957ec641",
+          "docs/architecture/ADR-002-ssot-and-context.md": "ad5ddc4dbcbdd4c647625ba14f1b977921f641155108107c0435af2e3e319328",
+          "docs/governance/SOURCES.yaml": "ce327fa4ce2e6ebab26e307f27f8cb36ad73faa4a881015488ed068e97ceda4c",
+          "docs/governance/DOCUMENTATION_STANDARD.md": "c235f9d236b4bb88a800ddf0693590c77ca0c1eb2b8d4a50cedc5ee0615eb419"
+        }
+      }
+    },
+    "task_sha256": "9335e5a597c8afe49215b8255dabe7dd92a86f7f2da489bcfc800286e43db348",
+    "system_sha256": "121f5a070e6bdef289892fe2b2a45e5e881f9c1ac61cf8f1276b20efefefe9e1",
+    "configuration_arguments": [
+      "-c",
+      "model=\"gpt-5.6-sol\"",
+      "-c",
+      "model_reasoning_effort=\"medium\"",
+      "-c",
+      "project_doc_max_bytes=0",
+      "-c",
+      "model_instructions_file=\"/home/davis/backups/analise-video/context-economy-codex-20260917T050454Z/system.txt\"",
+      "-c",
+      "developer_instructions=\"\"",
+      "-c",
+      "web_search=\"disabled\"",
+      "-c",
+      "mcp_servers={}",
+      "-c",
+      "skills.config=[{path=\"/home/davis/.agents/skills/notebooklm\",enabled=false},{path=\"/home/davis/.agents/skills/professional-designer\",enabled=false},{path=\"/home/davis/.codex/skills/.system/imagegen\",enabled=false},{path=\"/home/davis/.codex/skills/.system/openai-docs\",enabled=false},{path=\"/home/davis/.codex/skills/.system/plugin-creator\",enabled=false},{path=\"/home/davis/.codex/skills/.system/review-agent\",enabled=false},{path=\"/home/davis/.codex/skills/.system/skill-creator\",enabled=false},{path=\"/home/davis/.codex/skills/.system/skill-installer\",enabled=false}]",
+      "--disable",
+      "apps",
+      "--disable",
+      "plugins",
+      "--disable",
+      "hooks",
+      "--disable",
+      "multi_agent",
+      "--disable",
+      "shell_tool",
+      "--disable",
+      "unified_exec",
+      "--disable",
+      "code_mode_host",
+      "--disable",
+      "goals",
+      "--disable",
+      "browser_use",
+      "--disable",
+      "image_generation",
+      "--disable",
+      "in_app_browser",
+      "--disable",
+      "shell_snapshot",
+      "--disable",
+      "memories",
+      "--disable",
+      "workspace_dependencies"
+    ],
+    "sampling": "3 paired repetitions; alternating AB/BA/AB",
+    "runs": [
+      {
+        "name": "run01",
+        "condition": "before",
+        "pair": 1
+      },
+      {
+        "name": "run02",
+        "condition": "after",
+        "pair": 1
+      },
+      {
+        "name": "run03",
+        "condition": "after",
+        "pair": 2
+      },
+      {
+        "name": "run04",
+        "condition": "before",
+        "pair": 2
+      },
+      {
+        "name": "run05",
+        "condition": "before",
+        "pair": 3
+      },
+      {
+        "name": "run06",
+        "condition": "after",
+        "pair": 3
+      }
+    ],
+    "metrics_defined_before_runs": [
+      "gross input tokens including cached subset",
+      "cached input tokens",
+      "uncached input tokens = gross - cached",
+      "source/context/prompt bytes",
+      "output tokens",
+      "CLI elapsed wall time",
+      "functional checks and independent review"
+    ],
+    "cache_policy": "No verified Codex CLI switch to disable provider prompt caching. Preserve identical configuration and fresh sessions; record cached_input_tokens separately. Primary metric gross input is not reduced by cached subset. Do not compare cold latency or billed savings when cache hits differ. Cache creation count and financial cost may be unavailable.",
+    "isolation": "exec --ignore-user-config --ignore-rules --ephemeral --strict-config --sandbox read-only; shell/apps/plugins/hooks/MCP/browser/multi-agent disabled; no automatic AGENTS loading (provided inline); fixed model instructions; global skills disabled by explicit overrides; reject tool calls or multiple turns",
+    "task_mode": "one response per fresh session, supplied inline context; independent deterministic evaluator applies and runs tests; not full autonomous workflow",
+    "before_definition": "same reconstructed broad control as Claude, not retroactive startup measurement",
+    "quality_policy": "retain all six attempts, including invalid outputs/test failures; no repair or new inference; uniform JSON fence removal and test indentation normalization only",
+    "created_utc": "2026-09-17T05:16:32.821487+00:00"
+  },
+  "runs": [
+    {
+      "run": {
+        "name": "run01",
+        "condition": "before",
+        "pair": 1,
+        "command": [
+          "/home/davis/.nvm/versions/node/v24.14.1/bin/codex",
+          "--ask-for-approval",
+          "never",
+          "exec",
+          "--json",
+          "--color",
+          "never",
+          "--ignore-user-config",
+          "--ignore-rules",
+          "--ephemeral",
+          "--strict-config",
+          "--sandbox",
+          "read-only",
+          "-C",
+          "/home/davis/backups/analise-video/context-economy-codex-20260917T050454Z/run01",
+          "--output-last-message",
+          "/home/davis/backups/analise-video/context-economy-codex-20260917T050454Z/run01-final.txt",
+          "-c",
+          "forced_login_method=\"chatgpt\"",
+          "-c",
+          "model=\"gpt-5.6-sol\"",
+          "-c",
+          "model_reasoning_effort=\"medium\"",
+          "-c",
+          "project_doc_max_bytes=0",
+          "-c",
+          "model_instructions_file=\"/home/davis/backups/analise-video/context-economy-codex-20260917T050454Z/system.txt\"",
+          "-c",
+          "developer_instructions=\"\"",
+          "-c",
+          "web_search=\"disabled\"",
+          "-c",
+          "mcp_servers={}",
+          "-c",
+          "skills.config=[{path=\"/home/davis/.agents/skills/notebooklm\",enabled=false},{path=\"/home/davis/.agents/skills/professional-designer\",enabled=false},{path=\"/home/davis/.codex/skills/.system/imagegen\",enabled=false},{path=\"/home/davis/.codex/skills/.system/openai-docs\",enabled=false},{path=\"/home/davis/.codex/skills/.system/plugin-creator\",enabled=false},{path=\"/home/davis/.codex/skills/.system/review-agent\",enabled=false},{path=\"/home/davis/.codex/skills/.system/skill-creator\",enabled=false},{path=\"/home/davis/.codex/skills/.system/skill-installer\",enabled=false}]",
+          "--disable",
+          "apps",
+          "--disable",
+          "plugins",
+          "--disable",
+          "hooks",
+          "--disable",
+          "multi_agent",
+          "--disable",
+          "shell_tool",
+          "--disable",
+          "unified_exec",
+          "--disable",
+          "code_mode_host",
+          "--disable",
+          "goals",
+          "--disable",
+          "browser_use",
+          "--disable",
+          "image_generation",
+          "--disable",
+          "in_app_browser",
+          "--disable",
+          "shell_snapshot",
+          "--disable",
+          "memories",
+          "--disable",
+          "workspace_dependencies",
+          "-"
+        ],
+        "started_utc": "2026-09-17T05:17:10.575616+00:00",
+        "prompt_sha256": "f86fd3caf83afedef355819b01e957906cd21d415280d9e1f66f4ae80350db9e",
+        "exit_code": 0,
+        "elapsed_seconds": 49.547,
+        "ended_utc": "2026-09-17T05:18:00.115559+00:00",
+        "session_id": "01a0adcc-24a7-7e60-930d-a94ef999f72b"
+      },
+      "configured_model": "gpt-5.6-sol",
+      "configured_effort": "medium",
+      "runtime_model_metadata": "Not exposed by codex exec --json; explicit model override, strict config and bundled model catalog recorded.",
+      "usage": {
+        "input_tokens": 30612,
+        "cached_input_tokens": 0,
+        "output_tokens": 2100,
+        "reasoning_output_tokens": 1453
+      },
+      "cache_read_zero": true,
+      "cache_creation_tokens": null,
+      "uncached_input_tokens": 30612,
+      "native_tool_calls": 0,
+      "turn_count": 1,
+      "checks": [
+        {
+          "command": [
+            "make",
+            "context"
+          ],
+          "exit_code": 0,
+          "log": "run01-check-0.txt",
+          "sha256": "b0263dfebdfa957212aa0c7ba964dd3534871a010886333ab854fc8f404bc07e"
+        },
+        {
+          "command": [
+            "python3",
+            "/home/davis/backups/analise-video/context-economy-codex-20260917T050454Z/independent_checks.py",
+            "/home/davis/backups/analise-video/context-economy-codex-20260917T050454Z/run01"
+          ],
+          "exit_code": 0,
+          "log": "run01-check-1.txt",
+          "sha256": "9bac9ecfef5e431a547f8a77bb3fcb9cd2abbf6886c7cbbb3959d846d2277add"
+        },
+        {
+          "command": [
+            "make",
+            "context-check"
+          ],
+          "exit_code": 0,
+          "log": "run01-check-2.txt",
+          "sha256": "6f0bfe6152e24c0efcf1370c848754bf5bd62d905f61e293512e09692976dd7d"
+        },
+        {
+          "command": [
+            "make",
+            "test-docs"
+          ],
+          "exit_code": 0,
+          "log": "run01-check-3.txt",
+          "sha256": "8e6eec29d6e22b1fa4fbcefc94e6048140eaa97fd414e5c42e8e3aaf35ca5c5c"
+        },
+        {
+          "command": [
+            "git",
+            "diff",
+            "--check"
+          ],
+          "exit_code": 0,
+          "log": "run01-check-4.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "quality_passed": true,
+      "changed_files": [
+        "docs/context/packs/INC-002.md",
+        "scripts/docs/build_context_pack.py",
+        "tests/docs/test_context.py"
+      ],
+      "patch_sha256": "8d11b47cb3246d7623f62ac36ace4b01690663fabfcd41dd4e4aa49e8ca27bdc",
+      "review_static": "A alteração normaliza apenas hashes ATX de fechamento precedidos por espaço, portanto preserva hashes literais como em C#, offsets e bytes do trecho retornado, limites por nível, subseções e a exclusão existente de headings em fences. Títulos equivalentes com e sem fechamento passam a ser detectados como duplicados. Mantém as limitações atuais do parser simplificado, inclusive a exigência de um espaço após os hashes de abertura. Devem ser executados make test-docs e make context-check; nenhum teste foi executado por mim.",
+      "claimed_context_sources": [
+        "AGENTS.md",
+        "docs/context/README.md",
+        "docs/context/CONTEXT_POLICY.md",
+        "docs/context/ROUTES.yaml",
+        "docs/context/PACKS.yaml",
+        "skills/feature-workflow/SKILL.md",
+        "skills/build-and-test/SKILL.md",
+        "skills/code-review/SKILL.md",
+        "scripts/docs/requirements.txt",
+        "Makefile",
+        "scripts/docs/build_context_pack.py",
+        "tests/docs/test_context.py"
+      ],
+      "events_sha256": "8633417e331bd31e9fcfecbd3a67b267b4af9828abfe56e906318f5910ecd8b4",
+      "independent_test_count": 8,
+      "document_test_count": 81,
+      "independent_test_passed": true,
+      "runtime_model_mentions": [
+        "gpt-5.6-sol"
+      ],
+      "diagnostics": {
+        "models_cache_load_error": true,
+        "personality_base_fallback": true
+      },
+      "stderr_sha256": "ece2970d2d87349ea6a87bcfa7eafada733c40458d21e75ac60f93a9602993d5",
+      "final_response_sha256": "c96cf918898906ed11bd8585f00b159b71fb4815dd1aca66643cbf9198695877"
+    },
+    {
+      "run": {
+        "name": "run02",
+        "condition": "after",
+        "pair": 1,
+        "command": [
+          "/home/davis/.nvm/versions/node/v24.14.1/bin/codex",
+          "--ask-for-approval",
+          "never",
+          "exec",
+          "--json",
+          "--color",
+          "never",
+          "--ignore-user-config",
+          "--ignore-rules",
+          "--ephemeral",
+          "--strict-config",
+          "--sandbox",
+          "read-only",
+          "-C",
+          "/home/davis/backups/analise-video/context-economy-codex-20260917T050454Z/run02",
+          "--output-last-message",
+          "/home/davis/backups/analise-video/context-economy-codex-20260917T050454Z/run02-final.txt",
+          "-c",
+          "forced_login_method=\"chatgpt\"",
+          "-c",
+          "model=\"gpt-5.6-sol\"",
+          "-c",
+          "model_reasoning_effort=\"medium\"",
+          "-c",
+          "project_doc_max_bytes=0",
+          "-c",
+          "model_instructions_file=\"/home/davis/backups/analise-video/context-economy-codex-20260917T050454Z/system.txt\"",
+          "-c",
+          "developer_instructions=\"\"",
+          "-c",
+          "web_search=\"disabled\"",
+          "-c",
+          "mcp_servers={}",
+          "-c",
+          "skills.config=[{path=\"/home/davis/.agents/skills/notebooklm\",enabled=false},{path=\"/home/davis/.agents/skills/professional-designer\",enabled=false},{path=\"/home/davis/.codex/skills/.system/imagegen\",enabled=false},{path=\"/home/davis/.codex/skills/.system/openai-docs\",enabled=false},{path=\"/home/davis/.codex/skills/.system/plugin-creator\",enabled=false},{path=\"/home/davis/.codex/skills/.system/review-agent\",enabled=false},{path=\"/home/davis/.codex/skills/.system/skill-creator\",enabled=false},{path=\"/home/davis/.codex/skills/.system/skill-installer\",enabled=false}]",
+          "--disable",
+          "apps",
+          "--disable",
+          "plugins",
+          "--disable",
+          "hooks",
+          "--disable",
+          "multi_agent",
+          "--disable",
+          "shell_tool",
+          "--disable",
+          "unified_exec",
+          "--disable",
+          "code_mode_host",
+          "--disable",
+          "goals",
+          "--disable",
+          "browser_use",
+          "--disable",
+          "image_generation",
+          "--disable",
+          "in_app_browser",
+          "--disable",
+          "shell_snapshot",
+          "--disable",
+          "memories",
+          "--disable",
+          "workspace_dependencies",
+          "-"
+        ],
+        "started_utc": "2026-09-17T05:18:00.121688+00:00",
+        "prompt_sha256": "737edcf4048a2151b20d933c059a7ef678f4d20ba1ca78054ca74f51a6d31502",
+        "exit_code": 0,
+        "elapsed_seconds": 67.554,
+        "ended_utc": "2026-09-17T05:19:07.670604+00:00",
+        "session_id": "01a0adcc-e10b-7112-a71a-aab971fa24ff"
+      },
+      "configured_model": "gpt-5.6-sol",
+      "configured_effort": "medium",
+      "runtime_model_metadata": "Not exposed by codex exec --json; explicit model override, strict config and bundled model catalog recorded.",
+      "usage": {
+        "input_tokens": 14166,
+        "cached_input_tokens": 0,
+        "output_tokens": 2315,
+        "reasoning_output_tokens": 1552
+      },
+      "cache_read_zero": true,
+      "cache_creation_tokens": null,
+      "uncached_input_tokens": 14166,
+      "native_tool_calls": 0,
+      "turn_count": 1,
+      "checks": [
+        {
+          "command": [
+            "make",
+            "context"
+          ],
+          "exit_code": 0,
+          "log": "run02-check-0.txt",
+          "sha256": "b0263dfebdfa957212aa0c7ba964dd3534871a010886333ab854fc8f404bc07e"
+        },
+        {
+          "command": [
+            "python3",
+            "/home/davis/backups/analise-video/context-economy-codex-20260917T050454Z/independent_checks.py",
+            "/home/davis/backups/analise-video/context-economy-codex-20260917T050454Z/run02"
+          ],
+          "exit_code": 0,
+          "log": "run02-check-1.txt",
+          "sha256": "9bac9ecfef5e431a547f8a77bb3fcb9cd2abbf6886c7cbbb3959d846d2277add"
+        },
+        {
+          "command": [
+            "make",
+            "context-check"
+          ],
+          "exit_code": 0,
+          "log": "run02-check-2.txt",
+          "sha256": "cac257bf20c4e4dc91d0753ae9a56195376978f9e0f3d6449a3d770d6a03b540"
+        },
+        {
+          "command": [
+            "make",
+            "test-docs"
+          ],
+          "exit_code": 0,
+          "log": "run02-check-3.txt",
+          "sha256": "27fff5bb5a1af2ab308d03cf8aa781cc6896fea332b039e8d9e59a9404f2b368"
+        },
+        {
+          "command": [
+            "git",
+            "diff",
+            "--check"
+          ],
+          "exit_code": 0,
+          "log": "run02-check-4.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "quality_passed": true,
+      "changed_files": [
+        "docs/context/packs/INC-002.md",
+        "scripts/docs/build_context_pack.py",
+        "tests/docs/test_context.py"
+      ],
+      "patch_sha256": "f262820c9007c3880b89c2b94719a3cbe917f75fc9bc1245a8d402f2f083ec7a",
+      "review_static": "A alteração normaliza apenas sequências de hashes finais precedidas por espaço ou tabulação, mantendo C# literal e preservando integralmente os bytes do trecho por continuar usando os offsets do texto original. A lista normalizada mantém a rejeição de duplicatas e o cálculo existente de fronteiras; headings dentro de fences continuam excluídos. O escopo permanece limitado ao formato ATX já aceito pelo parser, inclusive sua exigência atual de um espaço após os hashes iniciais. É necessário executar `make test-docs` e `make context-check`; nenhum teste foi executado por mim.",
+      "claimed_context_sources": [
+        "AGENTS.md",
+        "CLAUDE.md",
+        "docs/context/README.md",
+        "docs/context/CONTEXT_POLICY.md",
+        "docs/context/ROUTES.yaml",
+        "docs/context/PACKS.yaml",
+        "skills/feature-workflow/SKILL.md",
+        "skills/build-and-test/SKILL.md",
+        "skills/code-review/SKILL.md",
+        "scripts/docs/requirements.txt",
+        "Makefile",
+        "scripts/docs/build_context_pack.py",
+        "tests/docs/test_context.py"
+      ],
+      "events_sha256": "e7e98cda7d2fa16622c2820e38ab6a6a7c3d77e87f00bb7861cc3bc97ab8139f",
+      "independent_test_count": 8,
+      "document_test_count": 81,
+      "independent_test_passed": true,
+      "runtime_model_mentions": [
+        "gpt-5.6-sol"
+      ],
+      "diagnostics": {
+        "models_cache_load_error": false,
+        "personality_base_fallback": true
+      },
+      "stderr_sha256": "94dee14f01fabf5ee5550a75bffda2a3eca9129b3ff323f1c10702921a7dc51d",
+      "final_response_sha256": "adeba377af883b37c70ac531d9bad89dbec26d620f762c3524f2dc96aced2dd8"
+    },
+    {
+      "run": {
+        "name": "run03",
+        "condition": "after",
+        "pair": 2,
+        "command": [
+          "/home/davis/.nvm/versions/node/v24.14.1/bin/codex",
+          "--ask-for-approval",
+          "never",
+          "exec",
+          "--json",
+          "--color",
+          "never",
+          "--ignore-user-config",
+          "--ignore-rules",
+          "--ephemeral",
+          "--strict-config",
+          "--sandbox",
+          "read-only",
+          "-C",
+          "/home/davis/backups/analise-video/context-economy-codex-20260917T050454Z/run03",
+          "--output-last-message",
+          "/home/davis/backups/analise-video/context-economy-codex-20260917T050454Z/run03-final.txt",
+          "-c",
+          "forced_login_method=\"chatgpt\"",
+          "-c",
+          "model=\"gpt-5.6-sol\"",
+          "-c",
+          "model_reasoning_effort=\"medium\"",
+          "-c",
+          "project_doc_max_bytes=0",
+          "-c",
+          "model_instructions_file=\"/home/davis/backups/analise-video/context-economy-codex-20260917T050454Z/system.txt\"",
+          "-c",
+          "developer_instructions=\"\"",
+          "-c",
+          "web_search=\"disabled\"",
+          "-c",
+          "mcp_servers={}",
+          "-c",
+          "skills.config=[{path=\"/home/davis/.agents/skills/notebooklm\",enabled=false},{path=\"/home/davis/.agents/skills/professional-designer\",enabled=false},{path=\"/home/davis/.codex/skills/.system/imagegen\",enabled=false},{path=\"/home/davis/.codex/skills/.system/openai-docs\",enabled=false},{path=\"/home/davis/.codex/skills/.system/plugin-creator\",enabled=false},{path=\"/home/davis/.codex/skills/.system/review-agent\",enabled=false},{path=\"/home/davis/.codex/skills/.system/skill-creator\",enabled=false},{path=\"/home/davis/.codex/skills/.system/skill-installer\",enabled=false}]",
+          "--disable",
+          "apps",
+          "--disable",
+          "plugins",
+          "--disable",
+          "hooks",
+          "--disable",
+          "multi_agent",
+          "--disable",
+          "shell_tool",
+          "--disable",
+          "unified_exec",
+          "--disable",
+          "code_mode_host",
+          "--disable",
+          "goals",
+          "--disable",
+          "browser_use",
+          "--disable",
+          "image_generation",
+          "--disable",
+          "in_app_browser",
+          "--disable",
+          "shell_snapshot",
+          "--disable",
+          "memories",
+          "--disable",
+          "workspace_dependencies",
+          "-"
+        ],
+        "started_utc": "2026-09-17T05:19:07.674563+00:00",
+        "prompt_sha256": "737edcf4048a2151b20d933c059a7ef678f4d20ba1ca78054ca74f51a6d31502",
+        "exit_code": 0,
+        "elapsed_seconds": 85.054,
+        "ended_utc": "2026-09-17T05:20:32.718965+00:00",
+        "session_id": "01a0adcd-e892-7610-b9e5-37e0569ec4b7"
+      },
+      "configured_model": "gpt-5.6-sol",
+      "configured_effort": "medium",
+      "runtime_model_metadata": "Not exposed by codex exec --json; explicit model override, strict config and bundled model catalog recorded.",
+      "usage": {
+        "input_tokens": 14166,
+        "cached_input_tokens": 0,
+        "output_tokens": 3032,
+        "reasoning_output_tokens": 2356
+      },
+      "cache_read_zero": true,
+      "cache_creation_tokens": null,
+      "uncached_input_tokens": 14166,
+      "native_tool_calls": 0,
+      "turn_count": 1,
+      "checks": [
+        {
+          "command": [
+            "make",
+            "context"
+          ],
+          "exit_code": 0,
+          "log": "run03-check-0.txt",
+          "sha256": "b0263dfebdfa957212aa0c7ba964dd3534871a010886333ab854fc8f404bc07e"
+        },
+        {
+          "command": [
+            "python3",
+            "/home/davis/backups/analise-video/context-economy-codex-20260917T050454Z/independent_checks.py",
+            "/home/davis/backups/analise-video/context-economy-codex-20260917T050454Z/run03"
+          ],
+          "exit_code": 0,
+          "log": "run03-check-1.txt",
+          "sha256": "9bac9ecfef5e431a547f8a77bb3fcb9cd2abbf6886c7cbbb3959d846d2277add"
+        },
+        {
+          "command": [
+            "make",
+            "context-check"
+          ],
+          "exit_code": 0,
+          "log": "run03-check-2.txt",
+          "sha256": "3522f6895939d2dcb9b0dd8a0f6d4d7991ce5c8ecfb677e63010f4a5fea5ef2f"
+        },
+        {
+          "command": [
+            "make",
+            "test-docs"
+          ],
+          "exit_code": 0,
+          "log": "run03-check-3.txt",
+          "sha256": "25dba66d444fd9da5e00e0710ef06c1fcf111ffe7b9d8b1232b0a10c17c1cce1"
+        },
+        {
+          "command": [
+            "git",
+            "diff",
+            "--check"
+          ],
+          "exit_code": 0,
+          "log": "run03-check-4.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "quality_passed": true,
+      "changed_files": [
+        "docs/context/packs/INC-002.md",
+        "scripts/docs/build_context_pack.py",
+        "tests/docs/test_context.py"
+      ],
+      "patch_sha256": "959417135acb5338d6aa052e147014a60ae12f7bde703da0cab309ae79e7cbea",
+      "review_static": "Revisão estática: a alteração normaliza apenas sequências finais de hashes precedidas por espaço ou tabulação, como exige o fechamento ATX; portanto, preserva títulos literais como C#. A normalização afeta somente a chave usada para seleção e duplicidade: o trecho continua sendo recortado do texto original, subseções continuam incluídas, headings em fences continuam ignorados e títulos equivalentes após normalização continuam rejeitados. O parser de fences e a exigência preexistente de um espaço após os hashes de abertura não são ampliados. Não executei testes. Devem ser verificados make test-docs e make context-check; como o gerador integra os fingerprints, os pacotes derivados precisarão ser regenerados antes da conferência de integridade.",
+      "claimed_context_sources": [
+        "AGENTS.md",
+        "docs/context/README.md",
+        "docs/context/CONTEXT_POLICY.md",
+        "docs/context/ROUTES.yaml",
+        "docs/context/PACKS.yaml",
+        "skills/feature-workflow/SKILL.md",
+        "skills/build-and-test/SKILL.md",
+        "skills/code-review/SKILL.md",
+        "scripts/docs/requirements.txt",
+        "Makefile",
+        "scripts/docs/build_context_pack.py",
+        "tests/docs/test_context.py"
+      ],
+      "events_sha256": "0b834488b7fbd813d6065b195e0af3c93583f867647eca3d6ccb5f941c2c1761",
+      "independent_test_count": 8,
+      "document_test_count": 81,
+      "independent_test_passed": true,
+      "runtime_model_mentions": [
+        "gpt-5.6-sol"
+      ],
+      "diagnostics": {
+        "models_cache_load_error": false,
+        "personality_base_fallback": true
+      },
+      "stderr_sha256": "844409ad7db46c0222e25c33af5688fa405d2568b332a06a348b3061e73382df",
+      "final_response_sha256": "60d8ecb15c74e1ac03c5d93436a9d818d3f842c44c85765525679b87d7ce2d3e"
+    },
+    {
+      "run": {
+        "name": "run04",
+        "condition": "before",
+        "pair": 2,
+        "command": [
+          "/home/davis/.nvm/versions/node/v24.14.1/bin/codex",
+          "--ask-for-approval",
+          "never",
+          "exec",
+          "--json",
+          "--color",
+          "never",
+          "--ignore-user-config",
+          "--ignore-rules",
+          "--ephemeral",
+          "--strict-config",
+          "--sandbox",
+          "read-only",
+          "-C",
+          "/home/davis/backups/analise-video/context-economy-codex-20260917T050454Z/run04",
+          "--output-last-message",
+          "/home/davis/backups/analise-video/context-economy-codex-20260917T050454Z/run04-final.txt",
+          "-c",
+          "forced_login_method=\"chatgpt\"",
+          "-c",
+          "model=\"gpt-5.6-sol\"",
+          "-c",
+          "model_reasoning_effort=\"medium\"",
+          "-c",
+          "project_doc_max_bytes=0",
+          "-c",
+          "model_instructions_file=\"/home/davis/backups/analise-video/context-economy-codex-20260917T050454Z/system.txt\"",
+          "-c",
+          "developer_instructions=\"\"",
+          "-c",
+          "web_search=\"disabled\"",
+          "-c",
+          "mcp_servers={}",
+          "-c",
+          "skills.config=[{path=\"/home/davis/.agents/skills/notebooklm\",enabled=false},{path=\"/home/davis/.agents/skills/professional-designer\",enabled=false},{path=\"/home/davis/.codex/skills/.system/imagegen\",enabled=false},{path=\"/home/davis/.codex/skills/.system/openai-docs\",enabled=false},{path=\"/home/davis/.codex/skills/.system/plugin-creator\",enabled=false},{path=\"/home/davis/.codex/skills/.system/review-agent\",enabled=false},{path=\"/home/davis/.codex/skills/.system/skill-creator\",enabled=false},{path=\"/home/davis/.codex/skills/.system/skill-installer\",enabled=false}]",
+          "--disable",
+          "apps",
+          "--disable",
+          "plugins",
+          "--disable",
+          "hooks",
+          "--disable",
+          "multi_agent",
+          "--disable",
+          "shell_tool",
+          "--disable",
+          "unified_exec",
+          "--disable",
+          "code_mode_host",
+          "--disable",
+          "goals",
+          "--disable",
+          "browser_use",
+          "--disable",
+          "image_generation",
+          "--disable",
+          "in_app_browser",
+          "--disable",
+          "shell_snapshot",
+          "--disable",
+          "memories",
+          "--disable",
+          "workspace_dependencies",
+          "-"
+        ],
+        "started_utc": "2026-09-17T05:20:32.720232+00:00",
+        "prompt_sha256": "f86fd3caf83afedef355819b01e957906cd21d415280d9e1f66f4ae80350db9e",
+        "exit_code": 0,
+        "elapsed_seconds": 40.82,
+        "ended_utc": "2026-09-17T05:21:13.538357+00:00",
+        "session_id": "01a0adcf-34a3-7101-a3de-4e9450a7355e"
+      },
+      "configured_model": "gpt-5.6-sol",
+      "configured_effort": "medium",
+      "runtime_model_metadata": "Not exposed by codex exec --json; explicit model override, strict config and bundled model catalog recorded.",
+      "usage": {
+        "input_tokens": 30612,
+        "cached_input_tokens": 0,
+        "output_tokens": 2068,
+        "reasoning_output_tokens": 1349
+      },
+      "cache_read_zero": true,
+      "cache_creation_tokens": null,
+      "uncached_input_tokens": 30612,
+      "native_tool_calls": 0,
+      "turn_count": 1,
+      "checks": [
+        {
+          "command": [
+            "make",
+            "context"
+          ],
+          "exit_code": 0,
+          "log": "run04-check-0.txt",
+          "sha256": "b0263dfebdfa957212aa0c7ba964dd3534871a010886333ab854fc8f404bc07e"
+        },
+        {
+          "command": [
+            "python3",
+            "/home/davis/backups/analise-video/context-economy-codex-20260917T050454Z/independent_checks.py",
+            "/home/davis/backups/analise-video/context-economy-codex-20260917T050454Z/run04"
+          ],
+          "exit_code": 0,
+          "log": "run04-check-1.txt",
+          "sha256": "9bac9ecfef5e431a547f8a77bb3fcb9cd2abbf6886c7cbbb3959d846d2277add"
+        },
+        {
+          "command": [
+            "make",
+            "context-check"
+          ],
+          "exit_code": 0,
+          "log": "run04-check-2.txt",
+          "sha256": "a90abcdc42e4008e567f3eededd0463980fdf4341f20045bb77a50f3a24cf2cb"
+        },
+        {
+          "command": [
+            "make",
+            "test-docs"
+          ],
+          "exit_code": 0,
+          "log": "run04-check-3.txt",
+          "sha256": "a0ba303b851b18afa5bfb35f99a96bf60af27b589054bce338f5931672a2db22"
+        },
+        {
+          "command": [
+            "git",
+            "diff",
+            "--check"
+          ],
+          "exit_code": 0,
+          "log": "run04-check-4.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "quality_passed": true,
+      "changed_files": [
+        "docs/context/packs/INC-002.md",
+        "scripts/docs/build_context_pack.py",
+        "tests/docs/test_context.py"
+      ],
+      "patch_sha256": "950d8cacb2fa729bda771eef886ec998a7028151547aa5085eefdc2b41b1392a",
+      "review_static": "A alteração é localizada: normaliza apenas sequências finais de hashes precedidas por espaço ou tabulação, preservando títulos literais como C# e os bytes originais do trecho retornado. A coleta existente de níveis, fronteiras, subseções e exclusão de headings dentro de fences permanece intacta; duplicatas passam a ser rejeitadas depois da normalização. Limite mantido deliberadamente: a sintaxe geral do parser ATX não foi reescrita. É necessário executar make test-docs e make context-check; nenhum teste foi executado por mim.",
+      "claimed_context_sources": [
+        "AGENTS.md",
+        "docs/context/README.md",
+        "docs/context/CONTEXT_POLICY.md",
+        "docs/context/ROUTES.yaml",
+        "docs/context/PACKS.yaml",
+        "skills/feature-workflow/SKILL.md",
+        "skills/build-and-test/SKILL.md",
+        "skills/code-review/SKILL.md",
+        "scripts/docs/requirements.txt",
+        "Makefile",
+        "scripts/docs/build_context_pack.py",
+        "tests/docs/test_context.py",
+        "docs/governance/DOCUMENTATION_STANDARD.md"
+      ],
+      "events_sha256": "cd802f479d6e95d0ca1e7ab807d39109b94255be8c92889e6ee467be08bef1d6",
+      "independent_test_count": 8,
+      "document_test_count": 81,
+      "independent_test_passed": true,
+      "runtime_model_mentions": [
+        "gpt-5.6-sol"
+      ],
+      "diagnostics": {
+        "models_cache_load_error": false,
+        "personality_base_fallback": true
+      },
+      "stderr_sha256": "a7a2ad05a3204230fc5efaf2c6c353dc2a8095e98d1c7fedd24ec248fe05058a",
+      "final_response_sha256": "94fe3dc2949fbdb26f03ce151868bd4fbfd776f0d651aeda0e79e3a068b6d3f7"
+    },
+    {
+      "run": {
+        "name": "run05",
+        "condition": "before",
+        "pair": 3,
+        "command": [
+          "/home/davis/.nvm/versions/node/v24.14.1/bin/codex",
+          "--ask-for-approval",
+          "never",
+          "exec",
+          "--json",
+          "--color",
+          "never",
+          "--ignore-user-config",
+          "--ignore-rules",
+          "--ephemeral",
+          "--strict-config",
+          "--sandbox",
+          "read-only",
+          "-C",
+          "/home/davis/backups/analise-video/context-economy-codex-20260917T050454Z/run05",
+          "--output-last-message",
+          "/home/davis/backups/analise-video/context-economy-codex-20260917T050454Z/run05-final.txt",
+          "-c",
+          "forced_login_method=\"chatgpt\"",
+          "-c",
+          "model=\"gpt-5.6-sol\"",
+          "-c",
+          "model_reasoning_effort=\"medium\"",
+          "-c",
+          "project_doc_max_bytes=0",
+          "-c",
+          "model_instructions_file=\"/home/davis/backups/analise-video/context-economy-codex-20260917T050454Z/system.txt\"",
+          "-c",
+          "developer_instructions=\"\"",
+          "-c",
+          "web_search=\"disabled\"",
+          "-c",
+          "mcp_servers={}",
+          "-c",
+          "skills.config=[{path=\"/home/davis/.agents/skills/notebooklm\",enabled=false},{path=\"/home/davis/.agents/skills/professional-designer\",enabled=false},{path=\"/home/davis/.codex/skills/.system/imagegen\",enabled=false},{path=\"/home/davis/.codex/skills/.system/openai-docs\",enabled=false},{path=\"/home/davis/.codex/skills/.system/plugin-creator\",enabled=false},{path=\"/home/davis/.codex/skills/.system/review-agent\",enabled=false},{path=\"/home/davis/.codex/skills/.system/skill-creator\",enabled=false},{path=\"/home/davis/.codex/skills/.system/skill-installer\",enabled=false}]",
+          "--disable",
+          "apps",
+          "--disable",
+          "plugins",
+          "--disable",
+          "hooks",
+          "--disable",
+          "multi_agent",
+          "--disable",
+          "shell_tool",
+          "--disable",
+          "unified_exec",
+          "--disable",
+          "code_mode_host",
+          "--disable",
+          "goals",
+          "--disable",
+          "browser_use",
+          "--disable",
+          "image_generation",
+          "--disable",
+          "in_app_browser",
+          "--disable",
+          "shell_snapshot",
+          "--disable",
+          "memories",
+          "--disable",
+          "workspace_dependencies",
+          "-"
+        ],
+        "started_utc": "2026-09-17T05:21:13.540778+00:00",
+        "prompt_sha256": "f86fd3caf83afedef355819b01e957906cd21d415280d9e1f66f4ae80350db9e",
+        "exit_code": 0,
+        "elapsed_seconds": 74.788,
+        "ended_utc": "2026-09-17T05:22:28.318012+00:00",
+        "session_id": "01a0adcf-d3f2-7da1-9e0f-1b79eb40d49e"
+      },
+      "configured_model": "gpt-5.6-sol",
+      "configured_effort": "medium",
+      "runtime_model_metadata": "Not exposed by codex exec --json; explicit model override, strict config and bundled model catalog recorded.",
+      "usage": {
+        "input_tokens": 30612,
+        "cached_input_tokens": 0,
+        "output_tokens": 2562,
+        "reasoning_output_tokens": 1908
+      },
+      "cache_read_zero": true,
+      "cache_creation_tokens": null,
+      "uncached_input_tokens": 30612,
+      "native_tool_calls": 0,
+      "turn_count": 1,
+      "checks": [
+        {
+          "command": [
+            "make",
+            "context"
+          ],
+          "exit_code": 0,
+          "log": "run05-check-0.txt",
+          "sha256": "b0263dfebdfa957212aa0c7ba964dd3534871a010886333ab854fc8f404bc07e"
+        },
+        {
+          "command": [
+            "python3",
+            "/home/davis/backups/analise-video/context-economy-codex-20260917T050454Z/independent_checks.py",
+            "/home/davis/backups/analise-video/context-economy-codex-20260917T050454Z/run05"
+          ],
+          "exit_code": 0,
+          "log": "run05-check-1.txt",
+          "sha256": "9bac9ecfef5e431a547f8a77bb3fcb9cd2abbf6886c7cbbb3959d846d2277add"
+        },
+        {
+          "command": [
+            "make",
+            "context-check"
+          ],
+          "exit_code": 0,
+          "log": "run05-check-2.txt",
+          "sha256": "78ad8ce8afde01da1bc386a1e5ebf792c095adfb10370a9d7c976593ab904567"
+        },
+        {
+          "command": [
+            "make",
+            "test-docs"
+          ],
+          "exit_code": 0,
+          "log": "run05-check-3.txt",
+          "sha256": "8107bbd989d6ed77a46506dc4a3d9c6c0fd31ba8ff4273816362413cd8615120"
+        },
+        {
+          "command": [
+            "git",
+            "diff",
+            "--check"
+          ],
+          "exit_code": 0,
+          "log": "run05-check-4.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "quality_passed": true,
+      "changed_files": [
+        "docs/context/packs/INC-002.md",
+        "scripts/docs/build_context_pack.py",
+        "tests/docs/test_context.py"
+      ],
+      "patch_sha256": "8abf5e14a88f14cfcbe6d5eb5353877989c858c45b2607254d488eba6d344421",
+      "review_static": "Alteração restrita à normalização de hashes ATX de fechamento precedidos por espaço; o recorte continua sendo feito pelos offsets originais, preservando o heading e o conteúdo. O teste cobre o defeito, C# literal, subseção, fronteira, heading dentro de fence e duplicidade após normalização. Permanecem os limites preexistentes do parser simplificado, como exigir espaço após os hashes iniciais. Não executei testes; é necessário verificar make test-docs e make context-check.",
+      "claimed_context_sources": [
+        "AGENTS.md",
+        "docs/context/README.md",
+        "docs/context/CONTEXT_POLICY.md",
+        "docs/context/ROUTES.yaml",
+        "docs/context/PACKS.yaml",
+        "skills/feature-workflow/SKILL.md",
+        "skills/build-and-test/SKILL.md",
+        "skills/code-review/SKILL.md",
+        "scripts/docs/requirements.txt",
+        "Makefile",
+        "scripts/docs/build_context_pack.py",
+        "tests/docs/test_context.py"
+      ],
+      "events_sha256": "9897549ab1365a75665943f69727d8e8e67027ad835258aa0b5a3c65ac5c12f6",
+      "independent_test_count": 8,
+      "document_test_count": 81,
+      "independent_test_passed": true,
+      "runtime_model_mentions": [
+        "gpt-5.6-sol"
+      ],
+      "diagnostics": {
+        "models_cache_load_error": false,
+        "personality_base_fallback": true
+      },
+      "stderr_sha256": "54db4a1664b971b6350a69d72c4e9a87c5aafce8fa5083a0e7257e026500b3d2",
+      "final_response_sha256": "b5d8b586a11daadfac9b7cc7c97351341dc8309d8c4cccdbb67ff80855d806fb"
+    },
+    {
+      "run": {
+        "name": "run06",
+        "condition": "after",
+        "pair": 3,
+        "command": [
+          "/home/davis/.nvm/versions/node/v24.14.1/bin/codex",
+          "--ask-for-approval",
+          "never",
+          "exec",
+          "--json",
+          "--color",
+          "never",
+          "--ignore-user-config",
+          "--ignore-rules",
+          "--ephemeral",
+          "--strict-config",
+          "--sandbox",
+          "read-only",
+          "-C",
+          "/home/davis/backups/analise-video/context-economy-codex-20260917T050454Z/run06",
+          "--output-last-message",
+          "/home/davis/backups/analise-video/context-economy-codex-20260917T050454Z/run06-final.txt",
+          "-c",
+          "forced_login_method=\"chatgpt\"",
+          "-c",
+          "model=\"gpt-5.6-sol\"",
+          "-c",
+          "model_reasoning_effort=\"medium\"",
+          "-c",
+          "project_doc_max_bytes=0",
+          "-c",
+          "model_instructions_file=\"/home/davis/backups/analise-video/context-economy-codex-20260917T050454Z/system.txt\"",
+          "-c",
+          "developer_instructions=\"\"",
+          "-c",
+          "web_search=\"disabled\"",
+          "-c",
+          "mcp_servers={}",
+          "-c",
+          "skills.config=[{path=\"/home/davis/.agents/skills/notebooklm\",enabled=false},{path=\"/home/davis/.agents/skills/professional-designer\",enabled=false},{path=\"/home/davis/.codex/skills/.system/imagegen\",enabled=false},{path=\"/home/davis/.codex/skills/.system/openai-docs\",enabled=false},{path=\"/home/davis/.codex/skills/.system/plugin-creator\",enabled=false},{path=\"/home/davis/.codex/skills/.system/review-agent\",enabled=false},{path=\"/home/davis/.codex/skills/.system/skill-creator\",enabled=false},{path=\"/home/davis/.codex/skills/.system/skill-installer\",enabled=false}]",
+          "--disable",
+          "apps",
+          "--disable",
+          "plugins",
+          "--disable",
+          "hooks",
+          "--disable",
+          "multi_agent",
+          "--disable",
+          "shell_tool",
+          "--disable",
+          "unified_exec",
+          "--disable",
+          "code_mode_host",
+          "--disable",
+          "goals",
+          "--disable",
+          "browser_use",
+          "--disable",
+          "image_generation",
+          "--disable",
+          "in_app_browser",
+          "--disable",
+          "shell_snapshot",
+          "--disable",
+          "memories",
+          "--disable",
+          "workspace_dependencies",
+          "-"
+        ],
+        "started_utc": "2026-09-17T05:22:28.320030+00:00",
+        "prompt_sha256": "737edcf4048a2151b20d933c059a7ef678f4d20ba1ca78054ca74f51a6d31502",
+        "exit_code": 0,
+        "elapsed_seconds": 57.428,
+        "ended_utc": "2026-09-17T05:23:25.746017+00:00",
+        "session_id": "01a0add0-f8d7-7652-a033-f18c793a9000"
+      },
+      "configured_model": "gpt-5.6-sol",
+      "configured_effort": "medium",
+      "runtime_model_metadata": "Not exposed by codex exec --json; explicit model override, strict config and bundled model catalog recorded.",
+      "usage": {
+        "input_tokens": 14166,
+        "cached_input_tokens": 0,
+        "output_tokens": 2708,
+        "reasoning_output_tokens": 1958
+      },
+      "cache_read_zero": true,
+      "cache_creation_tokens": null,
+      "uncached_input_tokens": 14166,
+      "native_tool_calls": 0,
+      "turn_count": 1,
+      "checks": [
+        {
+          "command": [
+            "make",
+            "context"
+          ],
+          "exit_code": 0,
+          "log": "run06-check-0.txt",
+          "sha256": "b0263dfebdfa957212aa0c7ba964dd3534871a010886333ab854fc8f404bc07e"
+        },
+        {
+          "command": [
+            "python3",
+            "/home/davis/backups/analise-video/context-economy-codex-20260917T050454Z/independent_checks.py",
+            "/home/davis/backups/analise-video/context-economy-codex-20260917T050454Z/run06"
+          ],
+          "exit_code": 0,
+          "log": "run06-check-1.txt",
+          "sha256": "9bac9ecfef5e431a547f8a77bb3fcb9cd2abbf6886c7cbbb3959d846d2277add"
+        },
+        {
+          "command": [
+            "make",
+            "context-check"
+          ],
+          "exit_code": 0,
+          "log": "run06-check-2.txt",
+          "sha256": "9e0443a70896f86bc44f571d48be8b365293f94843b02c8dd1a82d6b4cb13d36"
+        },
+        {
+          "command": [
+            "make",
+            "test-docs"
+          ],
+          "exit_code": 0,
+          "log": "run06-check-3.txt",
+          "sha256": "25dba66d444fd9da5e00e0710ef06c1fcf111ffe7b9d8b1232b0a10c17c1cce1"
+        },
+        {
+          "command": [
+            "git",
+            "diff",
+            "--check"
+          ],
+          "exit_code": 0,
+          "log": "run06-check-4.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "quality_passed": true,
+      "changed_files": [
+        "docs/context/packs/INC-002.md",
+        "scripts/docs/build_context_pack.py",
+        "tests/docs/test_context.py"
+      ],
+      "patch_sha256": "59c3ddb31027d1877523493336f7f83c957d305106c1db2b5eeefff849f0bf89",
+      "review_static": "Revisão estática: a alteração normaliza somente sequências finais de hashes precedidas por espaço ou tabulação, preservando hashes literais como em C#, offsets, bytes do trecho retornado, limites por nível, subseções e exclusão de headings dentro de fences. Títulos equivalentes com e sem hashes de fechamento continuam sendo rejeitados como duplicados após a normalização. O limite é o comportamento Markdown já aceito pelo parser existente; não há tentativa de reimplementar CommonMark. Eu não executei testes. Devem ser verificados make test-docs e make context-check.",
+      "claimed_context_sources": [
+        "AGENTS.md",
+        "docs/context/README.md",
+        "docs/context/CONTEXT_POLICY.md",
+        "docs/context/ROUTES.yaml",
+        "docs/context/PACKS.yaml",
+        "skills/feature-workflow/SKILL.md",
+        "skills/build-and-test/SKILL.md",
+        "skills/code-review/SKILL.md",
+        "scripts/docs/requirements.txt",
+        "Makefile",
+        "scripts/docs/build_context_pack.py",
+        "tests/docs/test_context.py"
+      ],
+      "events_sha256": "e592f40fd8ae6a53af644596da3da44f89c355b7dbb765f59984da7df4829ee0",
+      "independent_test_count": 8,
+      "document_test_count": 81,
+      "independent_test_passed": true,
+      "runtime_model_mentions": [
+        "gpt-5.6-sol"
+      ],
+      "diagnostics": {
+        "models_cache_load_error": true,
+        "personality_base_fallback": true
+      },
+      "stderr_sha256": "b96bfde68a4aee97b19270494238e87bc87ac75325452197429fd4329a7269b2",
+      "final_response_sha256": "f6a578f9c6cd6e57506fcb12acb8f000b7ae667de13fbd08d4714d65b72e3d5b"
+    }
+  ],
+  "summary": {
+    "before": {
+      "input_tokens": {
+        "values": [
+          30612,
+          30612,
+          30612
+        ],
+        "mean": 30612,
+        "median": 30612,
+        "min": 30612,
+        "max": 30612
+      },
+      "cached_input_tokens": {
+        "values": [
+          0,
+          0,
+          0
+        ],
+        "mean": 0,
+        "median": 0,
+        "min": 0,
+        "max": 0
+      },
+      "uncached_input_tokens": {
+        "values": [
+          30612,
+          30612,
+          30612
+        ],
+        "mean": 30612,
+        "median": 30612,
+        "min": 30612,
+        "max": 30612
+      },
+      "output_tokens": {
+        "values": [
+          2100,
+          2068,
+          2562
+        ],
+        "mean": 2243.3333333333335,
+        "median": 2100,
+        "min": 2068,
+        "max": 2562
+      },
+      "reasoning_output_tokens": {
+        "values": [
+          1453,
+          1349,
+          1908
+        ],
+        "mean": 1570,
+        "median": 1453,
+        "min": 1349,
+        "max": 1908
+      },
+      "total_tokens": {
+        "values": [
+          32712,
+          32680,
+          33174
+        ],
+        "mean": 32855.333333333336,
+        "median": 32712,
+        "min": 32680,
+        "max": 33174
+      },
+      "elapsed_seconds": {
+        "values": [
+          49.547,
+          40.82,
+          74.788
+        ],
+        "mean": 55.05166666666666,
+        "median": 49.547,
+        "min": 40.82,
+        "max": 74.788
+      },
+      "quality_passed": 3,
+      "attempts": 3
+    },
+    "after": {
+      "input_tokens": {
+        "values": [
+          14166,
+          14166,
+          14166
+        ],
+        "mean": 14166,
+        "median": 14166,
+        "min": 14166,
+        "max": 14166
+      },
+      "cached_input_tokens": {
+        "values": [
+          0,
+          0,
+          0
+        ],
+        "mean": 0,
+        "median": 0,
+        "min": 0,
+        "max": 0
+      },
+      "uncached_input_tokens": {
+        "values": [
+          14166,
+          14166,
+          14166
+        ],
+        "mean": 14166,
+        "median": 14166,
+        "min": 14166,
+        "max": 14166
+      },
+      "output_tokens": {
+        "values": [
+          2315,
+          3032,
+          2708
+        ],
+        "mean": 2685,
+        "median": 2708,
+        "min": 2315,
+        "max": 3032
+      },
+      "reasoning_output_tokens": {
+        "values": [
+          1552,
+          2356,
+          1958
+        ],
+        "mean": 1955.3333333333333,
+        "median": 1958,
+        "min": 1552,
+        "max": 2356
+      },
+      "total_tokens": {
+        "values": [
+          16481,
+          17198,
+          16874
+        ],
+        "mean": 16851,
+        "median": 16874,
+        "min": 16481,
+        "max": 17198
+      },
+      "elapsed_seconds": {
+        "values": [
+          67.554,
+          85.054,
+          57.428
+        ],
+        "mean": 70.012,
+        "median": 67.554,
+        "min": 57.428,
+        "max": 85.054
+      },
+      "quality_passed": 3,
+      "attempts": 3
+    }
+  },
+  "mean_reduction_percent": {
+    "input_tokens": 53.72402979223834,
+    "cached_input_tokens": null,
+    "uncached_input_tokens": 53.72402979223834,
+    "output_tokens": -19.687964338781573,
+    "total_tokens": 48.71152324330905,
+    "elapsed_seconds": -27.175077957070638,
+    "raw_source_bytes": 61.68815258773418,
+    "context_utf8_bytes": 61.53889100840257,
+    "prompt_utf8_bytes": 60.628340407587025,
+    "file_count": 48.0
+  },
+  "pairs": [
+    {
+      "pair": 1,
+      "before_run": "run01",
+      "after_run": "run02",
+      "input_tokens_saved": 16446,
+      "input_token_reduction_percent": 53.72402979223834,
+      "before_cached_input_tokens": 0,
+      "after_cached_input_tokens": 0
+    },
+    {
+      "pair": 2,
+      "before_run": "run04",
+      "after_run": "run03",
+      "input_tokens_saved": 16446,
+      "input_token_reduction_percent": 53.72402979223834,
+      "before_cached_input_tokens": 0,
+      "after_cached_input_tokens": 0
+    },
+    {
+      "pair": 3,
+      "before_run": "run05",
+      "after_run": "run06",
+      "input_tokens_saved": 16446,
+      "input_token_reduction_percent": 53.72402979223834,
+      "before_cached_input_tokens": 0,
+      "after_cached_input_tokens": 0
+    }
+  ],
+  "cache_read_zero_all": true,
+  "cache_creation_tokens": null,
+  "financial_cost": {
+    "value": null,
+    "reason": "Not exposed by Codex exec JSON; subscription authentication; no invoice or quota measure."
+  },
+  "scope": "One technical correction; configured gpt-5.6-sol medium; inline supplied context; same reconstructed broad control and technical excerpt as Claude; not historical startup or full autonomous workflow.",
+  "limitations": [
+    "Three paired repetitions of one task; descriptive observations only.",
+    "Codex cache not disabled; primary input includes cache subset; cache creation not exposed.",
+    "No native context read calls; context_sources is self-reported consideration of supplied contents, not route compliance.",
+    "CLI does not expose actual response model metadata; explicit pinned model, strict configuration, bundled catalog recorded.",
+    "Different models/tokenizers/CLI system wrappers: do not compare agents as a quality or speed ranking.",
+    "No graphs/hooks/compaction/memory/traces or product increment verified by this experiment."
+  ],
+  "evaluator": {
+    "script_sha256": "3d0da07b60c3089c647d263f62b52d1fe06b0cb81e247ebc4dfa1c9f73a23f17",
+    "independent_checks_sha256": "752d2e7281e4c396b227edc13392fdc22622e75b00259d3a33774ecda8f9f151",
+    "baseline_check_log_sha256": "ee2d742614dc2bc6354af61628ced99fd60cc4738520c9e7d73e5baf70526748",
+    "baseline_expected_failure": true,
+    "adapter": "Same application, AST restriction, tests and checks as Claude; only Codex event/usage parser differs. Uniform JSON fence stripping and test indentation normalization; no repair or inference retries."
+  },
+  "preservation_audit": {
+    "operational_files_unchanged_during_all_six_trials": 106,
+    "author_originals_unchanged": 33,
+    "git_status_unchanged_during_trials": true,
+    "main_code_not_replaced": true
+  },
+  "parent_review": {
+    "reviewed_utc": "2026-09-17T05:24:53.590894+00:00",
+    "target": "All six generator diffs, proposed regression methods, static reviews, AST scope restriction and independent contract.",
+    "reviewer": "Parent executor; no separate agent or paid API.",
+    "findings": [],
+    "scope": "No defect found in the covered selection contract; not a full CommonMark audit. All proposals remain in isolated copies.",
+    "runs": [
+      {
+        "name": "run01",
+        "proposal_sha256": "1666764d671a1ac63bd354d1fd311b8381f60024d534ab6e64b46a9041f908ae",
+        "generator_change": "closing-hash normalization inside section()",
+        "checked_risks": [
+          "original slice preservation",
+          "literal hashes",
+          "normalized duplicate headings",
+          "boundaries/subsections",
+          "fenced headings",
+          "tab separator"
+        ],
+        "disposition": "retained for evaluation; not integrated into main code"
+      },
+      {
+        "name": "run02",
+        "proposal_sha256": "8ecd21de435551d9ba9c0f447da6ab7c1e55ec98eb537391c94a3ba325824d1e",
+        "generator_change": "closing-hash normalization inside section()",
+        "checked_risks": [
+          "original slice preservation",
+          "literal hashes",
+          "normalized duplicate headings",
+          "boundaries/subsections",
+          "fenced headings",
+          "tab separator"
+        ],
+        "disposition": "retained for evaluation; not integrated into main code"
+      },
+      {
+        "name": "run03",
+        "proposal_sha256": "61e55013abda1ca901639a405680900a90c3fe9ead1468dbeec7d41a9649038c",
+        "generator_change": "closing-hash normalization inside section()",
+        "checked_risks": [
+          "original slice preservation",
+          "literal hashes",
+          "normalized duplicate headings",
+          "boundaries/subsections",
+          "fenced headings",
+          "tab separator"
+        ],
+        "disposition": "retained for evaluation; not integrated into main code"
+      },
+      {
+        "name": "run04",
+        "proposal_sha256": "4817718995f262cb034cc222fe3740d0839cf8b7bcbc5b89d0ee795e0a4662c3",
+        "generator_change": "closing-hash normalization inside section()",
+        "checked_risks": [
+          "original slice preservation",
+          "literal hashes",
+          "normalized duplicate headings",
+          "boundaries/subsections",
+          "fenced headings",
+          "tab separator"
+        ],
+        "disposition": "retained for evaluation; not integrated into main code"
+      },
+      {
+        "name": "run05",
+        "proposal_sha256": "2518044e73b47380646250e76c9d6e9c4222571693bb9eff2eceabc3b676ac55",
+        "generator_change": "closing-hash normalization inside section()",
+        "checked_risks": [
+          "original slice preservation",
+          "literal hashes",
+          "normalized duplicate headings",
+          "boundaries/subsections",
+          "fenced headings",
+          "tab separator"
+        ],
+        "disposition": "retained for evaluation; not integrated into main code"
+      },
+      {
+        "name": "run06",
+        "proposal_sha256": "ad7e26b0390fa58c2573461ddb03521f16c558edd4a93f02bfef7edd8cf09ba8",
+        "generator_change": "closing-hash normalization inside section()",
+        "checked_risks": [
+          "original slice preservation",
+          "literal hashes",
+          "normalized duplicate headings",
+          "boundaries/subsections",
+          "fenced headings",
+          "tab separator"
+        ],
+        "disposition": "retained for evaluation; not integrated into main code"
+      }
+    ]
+  }
+}

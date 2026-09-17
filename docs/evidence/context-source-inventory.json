@@ -1,0 +1,167 @@
+[
+  {
+    "path": "AGENTS (1).md",
+    "size": 5275,
+    "sha256": "e0a80098daf620cf6887427e301f33fc5c17c1f99a8f52bb75fd573bc34e0380"
+  },
+  {
+    "path": "AGENTS-v2.md",
+    "size": 3809,
+    "sha256": "24f87aa584c926ef3af64a4fecc37b824249bbb7e43f6422e7265842658847d5"
+  },
+  {
+    "path": "Makefile",
+    "size": 1302,
+    "sha256": "f48ee9b5f9f016a27315bcfc1da674639bc945a8cc05d33369e4833f43be9172"
+  },
+  {
+    "path": "QUICKSTART.md",
+    "size": 3141,
+    "sha256": "8531fbaee0da7a9ebc61edba02f7d03e115f3b61e8c5445093bfab36e2d13152"
+  },
+  {
+    "path": "REVIEW.md",
+    "size": 2310,
+    "sha256": "cb63dc80132d33ca473147b32c4736d7cd8c9940383aba49566fb3bf3786ce7f"
+  },
+  {
+    "path": "Regras-Nomes.md",
+    "size": 4327,
+    "sha256": "87f0045682a060afaca873bd1ba789a4eb2a5c1bc5dc5c795f71cb71ffd15779"
+  },
+  {
+    "path": "SKILL.md",
+    "size": 3527,
+    "sha256": "ec19182b0ca5d9d98f9a6695ecce89cdb284c941a57a8aadcadfe2ae09f4f713"
+  },
+  {
+    "path": "architecture-rules.md",
+    "size": 2309,
+    "sha256": "b9c2269f0b4f92644457a9635a59ce5c291f2d5ad87a5f086d27fc93215a9d9d"
+  },
+  {
+    "path": "atlan-data-context-SKILL.md",
+    "size": 4870,
+    "sha256": "6a8899b24f25ca5a3eeed1ec48f38fbb258e5412a0afc278b3d2b73b30f6f9a8"
+  },
+  {
+    "path": "claudeignore",
+    "size": 456,
+    "sha256": "c35a290daa2ee1f1615423c3ee330dbc229463a5cf3d012fde9f39b08092f9e8"
+  },
+  {
+    "path": "commit-msg-lore.js",
+    "size": 4714,
+    "sha256": "5031dd90dfb84032ea0976cf130353a3033e0e26399cec3d4012df16a07c18f1"
+  },
+  {
+    "path": "feature-workflow-SKILL.md",
+    "size": 3686,
+    "sha256": "c6ce6c77425ea9acf83911915e12a74d99baf925dd2389b9c455523ca5fe47c5"
+  },
+  {
+    "path": "generate_pdf_report.py",
+    "size": 9154,
+    "sha256": "d341fe84062f49771576456b35862474f712a14d3d11ffed7c4e30292fbdd87c"
+  },
+  {
+    "path": "git-lore-commit.sh",
+    "size": 2028,
+    "sha256": "b9b769e019a7d73065ad2d3abc924030c5885339ad7079f093c7b3224e297dce"
+  },
+  {
+    "path": "historico/historico-notebooklm.json",
+    "size": 183306,
+    "sha256": "f1a0bb35d236e65993602303b3df6be13dded998142a8b24331f2ab92763fabc"
+  },
+  {
+    "path": "llms.txt",
+    "size": 1334,
+    "sha256": "7a287349c9d41eec93fa74e4d2c1391e71511377e5dcf6be3aee774d59e0c5b0"
+  },
+  {
+    "path": "map_repo_ast.py",
+    "size": 14931,
+    "sha256": "4e142f2c820200fb0a69443c9783b00ee8437ad407b0e820047a80c63541c887"
+  },
+  {
+    "path": "package.json",
+    "size": 393,
+    "sha256": "7cba6f692849b13228de6d958779c6296e8e746de7c967268aaef0bf98eed5e3"
+  },
+  {
+    "path": "pre-commit-review-v2.js",
+    "size": 6117,
+    "sha256": "fa4e3b3111d43b1f309d1ef3ade66059661c4d91bc6fd14501ed65d62bf2bde8"
+  },
+  {
+    "path": "pre-commit-review.js",
+    "size": 4545,
+    "sha256": "d59997c83164ff202aae03be4e63cd55dfb905129970f4dcf179be5623b6af5c"
+  },
+  {
+    "path": "relatorio-analise-acoplamento.pdf",
+    "size": 2142050,
+    "sha256": "bb9da3e8c6aba4e553bcc250fe99746d724464e470cce36dd05ffc28af18a8e6"
+  },
+  {
+    "path": "repo_architecture_graph-v2.png",
+    "size": 2411944,
+    "sha256": "2481411cce385990193cbb0b783a4f640b0c91eb9468f5bdef4230174cc6e002"
+  },
+  {
+    "path": "repo_architecture_graph.png",
+    "size": 583483,
+    "sha256": "ebec639fec3ef0fd265d5e7393a7212fcf1496499575b0313727136c844ec8ca"
+  },
+  {
+    "path": "repo_knowledge_graph.json",
+    "size": 50990,
+    "sha256": "6f288c8f626fb81dfd6b656eef4406fde598b5707b6ded411d290e477f9d5d03"
+  },
+  {
+    "path": "requirements.txt",
+    "size": 120,
+    "sha256": "01991adcd0e71c7f96bbbf967f7f803ec8a42605d9428c1c1b2fe7eb62abf990"
+  },
+  {
+    "path": "skills-atlan-data-context-SKILL.md",
+    "size": 4870,
+    "sha256": "6a8899b24f25ca5a3eeed1ec48f38fbb258e5412a0afc278b3d2b73b30f6f9a8"
+  },
+  {
+    "path": "skills-build-and-test-SKILL.md",
+    "size": 1542,
+    "sha256": "867ed1000558ff3b5ebbaeb4ff060bfa9acf12fd563bda198b7b8fbae24b4870"
+  },
+  {
+    "path": "skills-code-review-SKILL.md",
+    "size": 3550,
+    "sha256": "5c863e88fbe3c573b86d381b31227e548b1596f9ad10253056fd8192fdf6d018"
+  },
+  {
+    "path": "skills-feature-workflow-SKILL.md",
+    "size": 3868,
+    "sha256": "7b0c03779b8fd4a540e3fdd786f7cdc1739240b8d3960a51f91704e8b69bc514"
+  },
+  {
+    "path": "skills-lore-commit-SKILL.md",
+    "size": 4473,
+    "sha256": "73b217e9011b3fefdb7f23109399d138dc8e2458040ab71eef85b60022d32225"
+  },
+  {
+    "path": "tech-stack.md",
+    "size": 1555,
+    "sha256": "9ff8962c11bb540190475f58bc8d34fa367f03e58d96b08bf7e2b778d0f8f8c2"
+  },
+  {
+    "path": "test-atlan-mcp.js",
+    "size": 4569,
+    "sha256": "8810e47143043cabd405c2ae9354a1fff647c5c4fe34cf754b2d71fadfccdf3e"
+  },
+  {
+    "path": "visualize_graph.py",
+    "size": 3654,
+    "sha256": "a162a814cae6485f000d49f94fd5a5186ed84b1588648ad5f82ceb9465488a5f"
+  }
+]

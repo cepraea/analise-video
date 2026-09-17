@@ -31,8 +31,28 @@ jobs:
       - name: Install documentation dependencies
         run: python -m pip install -r scripts/docs/requirements.txt
 
+      - name: Setup Node 22 for TypeScript graph extraction
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.12.0'
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install TypeScript graph dependency
+        working-directory: frontend
+        run: npm install --no-audit --no-fund
+
       - name: Validate context routes
         run: python scripts/docs/validate_routes.py
+
+      - name: Verify generated context packs
+        run: python scripts/docs/build_context_pack.py --all --check
+
+      - name: Verify code graph against commit bytes
+        run: |
+          python scripts/context/build_code_graph.py --source commit --revision HEAD --check
+          python scripts/context/build_code_graph_views.py
+          python scripts/context/build_code_graph_views.py --check
 
       - name: Test baseline regression cases
         run: python -m unittest discover -s tests/docs -p 'test_*.py' -v

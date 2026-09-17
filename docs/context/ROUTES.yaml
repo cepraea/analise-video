@@ -19,6 +19,20 @@ defaults:
     - broken_id_reference
 
 routes:
+  context_maintenance:
+    required:
+      - docs/context/README.md
+      - docs/context/CONTEXT_POLICY.md
+    optional:
+      - path: docs/context/PACKS.yaml
+        when: change_affects_pack_generation_or_integrity
+      - path: docs/governance/DECISIONS.yaml
+        when: change_affects_authority_or_approved_behavior
+      - path: docs/governance/DOCUMENTATION_STANDARD.md
+        when: change_affects_document_format_or_path_conventions
+      - path: docs/architecture/ADR-002-ssot-and-context.md
+        when: change_affects_context_architecture
+
   product_requirement:
     required:
       - docs/SYSTEM_SPEC.md
@@ -38,7 +52,7 @@ routes:
     required:
       - docs/SSOT.md
       - docs/governance/DECISIONS.yaml
-      - docs/architecture/ADR-001.md
+      - docs/architecture/ADR-001-primeira-implementacao.md
       - docs/architecture/ADR-002-ssot-and-context.md
     optional:
       - path: docs/IMPLEMENTATION_PLAN.md
