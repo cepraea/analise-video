@@ -59,4 +59,4 @@ Antes da primeira edição, inclusive de testes, confirme em uma linha: `rota=<n
 
 Memórias e resultados de IA auxiliam a descoberta; confirme decisões e estados nos documentos responsáveis. A presença de um pacote não aprova pendências nem autoriza ampliar o incremento.
 
-Ao final de cada tarefa, entregue a *próxima ação* lógica para alcançar o objetivo (DONE) de forma eficiente.
+Ao final de cada tarefa, entregue as três *próximas ações* lógicas, em ordem de execução, com passos concretos para alcançar o objetivo (`DONE`).
