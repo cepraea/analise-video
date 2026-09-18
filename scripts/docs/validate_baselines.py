@@ -17,6 +17,16 @@ REGISTRY_PATH = "docs/evidence/ssot-migration/BASELINES.yaml"
 SOURCE_CATALOG_PATH = "docs/governance/SOURCES.yaml"
 BASELINE_ROOT = "docs/evidence/ssot-migration/baselines/"
 OBJECT_ROOT = "archive/ssot/objects/sha256"
+CONTROL_PATHS = [
+    "README.md",
+    "auditoria/notebooklm-contexto.md",
+    "plano/PLANO-MESTRE.md",
+    "plano/01-governanca-e-decisoes.md",
+    "plano/02-migracao-ssot.md",
+    "plano/03-contexto-minimo.md",
+    "plano/04-rastreabilidade-e-validacao.md",
+    "plano/05-cutover-e-operacao.md",
+]
 
 
 def object_directory_error(directory: Path) -> str | None:
@@ -117,6 +127,33 @@ def validate_checksums(path: Path, items: list[dict], baseline_id: str) -> list[
         errors.append(f"{label}: duplicate manifest paths")
     if actual != expected:
         errors.append(f"{label}: checksums differ from manifest")
+    return errors
+
+
+def validate_successor_controls(
+    controls: object, metadata: dict, baseline_id: str,
+) -> list[str]:
+    """Require every successor to preserve the canonical operational controls."""
+    if not isinstance(controls, list):
+        return [f"{baseline_id}: controls must be a list"]
+    errors: list[str] = []
+    paths = [item.get("path") for item in controls if isinstance(item, dict)]
+    if (
+        len(paths) != len(controls)
+        or set(paths) != set(CONTROL_PATHS)
+        or len(paths) != len(CONTROL_PATHS)
+    ):
+        errors.append(f"{baseline_id}: successor must preserve exactly the eight operational controls")
+    for item in controls:
+        if not isinstance(item, dict):
+            continue
+        path = item.get("path", "<missing>")
+        if item.get("classification") != "OPERATIONAL_CONTROL":
+            errors.append(f"{baseline_id}: {path}: control classification must be OPERATIONAL_CONTROL")
+        if item.get("eligible_for_product_claims") is not False:
+            errors.append(f"{baseline_id}: {path}: control must be ineligible for product claims")
+    if metadata.get("control_artifact_count") != len(CONTROL_PATHS):
+        errors.append(f"{baseline_id}: control_artifact_count must be {len(CONTROL_PATHS)}")
     return errors
 
 
@@ -231,14 +268,17 @@ def validate(repo: Path, base_ref: str | None = None) -> list[str]:
             if len(items) != promotion["declared_items"]:
                 errors.append("G0 declared item count differs from source and control manifests")
         else:
-            items = manifest.get("sources", []) + manifest.get("controls", [])
+            metadata = manifest.get("baseline", {})
+            declared_controls = manifest.get("controls", [])
+            errors.extend(validate_successor_controls(declared_controls, metadata, record["id"]))
+            controls = declared_controls if isinstance(declared_controls, list) else []
+            items = manifest.get("sources", []) + controls
             for suffix, category in (("SHA256SUMS", "sources"), ("CONTROL-SHA256SUMS", "controls")):
                 errors.extend(validate_checksums(
                     manifest_path.with_name(f"{record['id']}-{suffix}.txt"),
                     manifest.get(category, []), record["id"],
                 ))
             declared_missing = set()
-            metadata = manifest.get("baseline", {})
             for field in ("id", "predecessor", "completeness"):
                 if metadata.get(field) != record.get(field):
                     errors.append(f"{record['id']}: manifest {field} differs from registry")

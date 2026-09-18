@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": {
     "kind": "index",
-    "revision": "index@571ce15ebefe83684f963e31981b99c13e1277ad"
+    "revision": "index@af3e3c57fa8e7113f8e5a3792e534b441e961cfe"
   },
   "configuration": {
     "path": "docs/context/GRAPH.yaml",
@@ -88,11 +88,11 @@
     },
     {
       "path": "scripts/docs/promote_baseline.py",
-      "sha256": "d052c179001da64e37d1de77dbed17952520d38cab0d606816328464805575fc"
+      "sha256": "98d7f0047e248c738458dc9f375b4367029e4c619c4a3c7bb6434470045152db"
     },
     {
       "path": "scripts/docs/validate_baselines.py",
-      "sha256": "405accd8a2e97b1c13486613a21fecff9893a3708d2442ec9095254fd286d43e"
+      "sha256": "a1c065b67c0db9ff1eab73e13a1d63017773b641aad5117730c9b210d6888601"
     },
     {
       "path": "scripts/docs/validate_lfs.py",
@@ -6136,14 +6136,14 @@
       "type": "file",
       "path": "scripts/docs/promote_baseline.py",
       "module": "scripts.docs.promote_baseline",
-      "sha256": "d052c179001da64e37d1de77dbed17952520d38cab0d606816328464805575fc"
+      "sha256": "98d7f0047e248c738458dc9f375b4367029e4c619c4a3c7bb6434470045152db"
     },
     {
       "id": "file:scripts/docs/validate_baselines.py",
       "type": "file",
       "path": "scripts/docs/validate_baselines.py",
       "module": "scripts.docs.validate_baselines",
-      "sha256": "405accd8a2e97b1c13486613a21fecff9893a3708d2442ec9095254fd286d43e"
+      "sha256": "a1c065b67c0db9ff1eab73e13a1d63017773b641aad5117730c9b210d6888601"
     },
     {
       "id": "file:scripts/docs/validate_lfs.py",
@@ -7229,7 +7229,7 @@
       "name": "discover_successor_sources",
       "qualified": "discover_successor_sources",
       "kind": "function",
-      "line": 313
+      "line": 302
     },
     {
       "id": "symbol:scripts/docs/promote_baseline.py#dump_yaml",
@@ -7238,7 +7238,7 @@
       "name": "dump_yaml",
       "qualified": "dump_yaml",
       "kind": "function",
-      "line": 114
+      "line": 103
     },
     {
       "id": "symbol:scripts/docs/promote_baseline.py#git_value",
@@ -7247,7 +7247,7 @@
       "name": "git_value",
       "qualified": "git_value",
       "kind": "function",
-      "line": 74
+      "line": 63
     },
     {
       "id": "symbol:scripts/docs/promote_baseline.py#load_registry",
@@ -7256,7 +7256,7 @@
       "name": "load_registry",
       "qualified": "load_registry",
       "kind": "function",
-      "line": 118
+      "line": 107
     },
     {
       "id": "symbol:scripts/docs/promote_baseline.py#main",
@@ -7265,7 +7265,7 @@
       "name": "main",
       "qualified": "main",
       "kind": "function",
-      "line": 447
+      "line": 436
     },
     {
       "id": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
@@ -7274,7 +7274,7 @@
       "name": "prepare_g0",
       "qualified": "prepare_g0",
       "kind": "function",
-      "line": 259
+      "line": 248
     },
     {
       "id": "symbol:scripts/docs/promote_baseline.py#prepare_successor",
@@ -7283,7 +7283,7 @@
       "name": "prepare_successor",
       "qualified": "prepare_successor",
       "kind": "function",
-      "line": 365
+      "line": 354
     },
     {
       "id": "symbol:scripts/docs/promote_baseline.py#promote_g0",
@@ -7292,7 +7292,7 @@
       "name": "promote_g0",
       "qualified": "promote_g0",
       "kind": "function",
-      "line": 244
+      "line": 233
     },
     {
       "id": "symbol:scripts/docs/promote_baseline.py#promote_successor",
@@ -7301,7 +7301,7 @@
       "name": "promote_successor",
       "qualified": "promote_successor",
       "kind": "function",
-      "line": 349
+      "line": 338
     },
     {
       "id": "symbol:scripts/docs/promote_baseline.py#publication",
@@ -7310,7 +7310,7 @@
       "name": "publication",
       "qualified": "publication",
       "kind": "function",
-      "line": 182
+      "line": 171
     },
     {
       "id": "symbol:scripts/docs/promote_baseline.py#resolve_predecessor",
@@ -7319,7 +7319,7 @@
       "name": "resolve_predecessor",
       "qualified": "resolve_predecessor",
       "kind": "function",
-      "line": 216
+      "line": 205
     },
     {
       "id": "symbol:scripts/docs/promote_baseline.py#sha256",
@@ -7328,7 +7328,7 @@
       "name": "sha256",
       "qualified": "sha256",
       "kind": "function",
-      "line": 66
+      "line": 55
     },
     {
       "id": "symbol:scripts/docs/promote_baseline.py#store_object",
@@ -7337,7 +7337,7 @@
       "name": "store_object",
       "qualified": "store_object",
       "kind": "function",
-      "line": 78
+      "line": 67
     },
     {
       "id": "symbol:scripts/docs/promote_baseline.py#update_registry",
@@ -7346,7 +7346,7 @@
       "name": "update_registry",
       "qualified": "update_registry",
       "kind": "function",
-      "line": 125
+      "line": 114
     },
     {
       "id": "symbol:scripts/docs/promote_baseline.py#update_registry.stage_bytes",
@@ -7355,7 +7355,7 @@
       "name": "stage_bytes",
       "qualified": "update_registry.stage_bytes",
       "kind": "method",
-      "line": 144
+      "line": 133
     },
     {
       "id": "symbol:scripts/docs/promote_baseline.py#write_new",
@@ -7364,7 +7364,7 @@
       "name": "write_new",
       "qualified": "write_new",
       "kind": "function",
-      "line": 109
+      "line": 98
     },
     {
       "id": "symbol:scripts/docs/validate_baselines.py#main",
@@ -7373,7 +7373,7 @@
       "name": "main",
       "qualified": "main",
       "kind": "function",
-      "line": 267
+      "line": 307
     },
     {
       "id": "symbol:scripts/docs/validate_baselines.py#manifest_identity_matches",
@@ -7382,7 +7382,7 @@
       "name": "manifest_identity_matches",
       "qualified": "manifest_identity_matches",
       "kind": "function",
-      "line": 49
+      "line": 59
     },
     {
       "id": "symbol:scripts/docs/validate_baselines.py#object_directory_error",
@@ -7391,7 +7391,7 @@
       "name": "object_directory_error",
       "qualified": "object_directory_error",
       "kind": "function",
-      "line": 22
+      "line": 32
     },
     {
       "id": "symbol:scripts/docs/validate_baselines.py#object_file_error",
@@ -7400,7 +7400,7 @@
       "name": "object_file_error",
       "qualified": "object_file_error",
       "kind": "function",
-      "line": 32
+      "line": 42
     },
     {
       "id": "symbol:scripts/docs/validate_baselines.py#sha256",
@@ -7409,7 +7409,7 @@
       "name": "sha256",
       "qualified": "sha256",
       "kind": "function",
-      "line": 185
+      "line": 222
     },
     {
       "id": "symbol:scripts/docs/validate_baselines.py#valid_manifest_location",
@@ -7418,7 +7418,7 @@
       "name": "valid_manifest_location",
       "qualified": "valid_manifest_location",
       "kind": "function",
-      "line": 79
+      "line": 89
     },
     {
       "id": "symbol:scripts/docs/validate_baselines.py#validate",
@@ -7427,7 +7427,7 @@
       "name": "validate",
       "qualified": "validate",
       "kind": "function",
-      "line": 193
+      "line": 230
     },
     {
       "id": "symbol:scripts/docs/validate_baselines.py#validate_catalogs",
@@ -7436,7 +7436,7 @@
       "name": "validate_catalogs",
       "qualified": "validate_catalogs",
       "kind": "function",
-      "line": 57
+      "line": 67
     },
     {
       "id": "symbol:scripts/docs/validate_baselines.py#validate_checksums",
@@ -7445,7 +7445,7 @@
       "name": "validate_checksums",
       "qualified": "validate_checksums",
       "kind": "function",
-      "line": 94
+      "line": 104
     },
     {
       "id": "symbol:scripts/docs/validate_baselines.py#validate_immutability",
@@ -7454,7 +7454,7 @@
       "name": "validate_immutability",
       "qualified": "validate_immutability",
       "kind": "function",
-      "line": 146
+      "line": 183
     },
     {
       "id": "symbol:scripts/docs/validate_baselines.py#validate_immutability.git",
@@ -7463,7 +7463,7 @@
       "name": "git",
       "qualified": "validate_immutability.git",
       "kind": "method",
-      "line": 150
+      "line": 187
     },
     {
       "id": "symbol:scripts/docs/validate_baselines.py#validate_lineage",
@@ -7472,7 +7472,16 @@
       "name": "validate_lineage",
       "qualified": "validate_lineage",
       "kind": "function",
-      "line": 123
+      "line": 160
+    },
+    {
+      "id": "symbol:scripts/docs/validate_baselines.py#validate_successor_controls",
+      "type": "symbol",
+      "path": "scripts/docs/validate_baselines.py",
+      "name": "validate_successor_controls",
+      "qualified": "validate_successor_controls",
+      "kind": "function",
+      "line": 133
     },
     {
       "id": "symbol:scripts/docs/validate_lfs.py#declares_binary",
@@ -13705,7 +13714,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 467
+      "line": 456
     },
     {
       "source": "file:scripts/docs/promote_baseline.py",
@@ -13877,7 +13886,7 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 467
+      "line": 456
     },
     {
       "source": "file:scripts/docs/promote_baseline.py",
@@ -13969,7 +13978,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 284
+      "line": 324
     },
     {
       "source": "file:scripts/docs/validate_baselines.py",
@@ -14041,7 +14050,7 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 284
+      "line": 324
     },
     {
       "source": "file:scripts/docs/validate_baselines.py",
@@ -14123,6 +14132,13 @@
     {
       "source": "file:scripts/docs/validate_baselines.py",
       "target": "symbol:scripts/docs/validate_baselines.py#validate_lineage",
+      "type": "contains",
+      "method": "ast",
+      "confidence": 1.0
+    },
+    {
+      "source": "file:scripts/docs/validate_baselines.py",
+      "target": "symbol:scripts/docs/validate_baselines.py#validate_successor_controls",
       "type": "contains",
       "method": "ast",
       "confidence": 1.0
@@ -24139,7 +24155,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 331
+      "line": 320
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#discover_successor_sources",
@@ -24147,7 +24163,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 333
+      "line": 322
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#discover_successor_sources",
@@ -24155,7 +24171,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 334
+      "line": 323
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#discover_successor_sources",
@@ -24163,7 +24179,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 335
+      "line": 324
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#discover_successor_sources",
@@ -24171,7 +24187,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 345
+      "line": 334
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#discover_successor_sources",
@@ -24179,7 +24195,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 340
+      "line": 329
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#discover_successor_sources",
@@ -24187,7 +24203,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 319
+      "line": 308
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#discover_successor_sources",
@@ -24195,7 +24211,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 321
+      "line": 310
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#discover_successor_sources",
@@ -24203,7 +24219,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 321
+      "line": 310
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#discover_successor_sources",
@@ -24211,7 +24227,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 339
+      "line": 328
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#discover_successor_sources",
@@ -24219,7 +24235,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 326
+      "line": 315
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#discover_successor_sources",
@@ -24227,7 +24243,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 331
+      "line": 320
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#discover_successor_sources",
@@ -24235,7 +24251,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 322
+      "line": 311
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#discover_successor_sources",
@@ -24243,7 +24259,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 318
+      "line": 307
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#discover_successor_sources",
@@ -24251,7 +24267,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 318
+      "line": 307
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#discover_successor_sources",
@@ -24259,7 +24275,7 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 341
+      "line": 330
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#dump_yaml",
@@ -24267,7 +24283,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 115
+      "line": 104
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#git_value",
@@ -24275,7 +24291,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 75
+      "line": 64
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#git_value",
@@ -24283,7 +24299,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 75
+      "line": 64
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#load_registry",
@@ -24291,7 +24307,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 120
+      "line": 109
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#load_registry",
@@ -24299,7 +24315,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 121
+      "line": 110
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#load_registry",
@@ -24307,7 +24323,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 121
+      "line": 110
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#main",
@@ -24315,7 +24331,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 452
+      "line": 441
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#main",
@@ -24323,7 +24339,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 452
+      "line": 441
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#main",
@@ -24331,23 +24347,31 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
+      "line": 437
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#main",
+      "target": "external:call:scripts/docs/promote_baseline.py#int",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 446
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#main",
+      "target": "external:call:scripts/docs/promote_baseline.py#int",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
       "line": 448
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#main",
-      "target": "external:call:scripts/docs/promote_baseline.py#int",
+      "target": "external:call:scripts/docs/promote_baseline.py#match.group",
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 457
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#main",
-      "target": "external:call:scripts/docs/promote_baseline.py#int",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 459
+      "line": 446
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#main",
@@ -24355,15 +24379,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 457
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#main",
-      "target": "external:call:scripts/docs/promote_baseline.py#match.group",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 459
+      "line": 448
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#main",
@@ -24371,7 +24387,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 449
+      "line": 438
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#main",
@@ -24379,7 +24395,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 450
+      "line": 439
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#main",
@@ -24387,7 +24403,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 458
+      "line": 447
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#main",
@@ -24395,7 +24411,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 451
+      "line": 440
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#main",
@@ -24403,7 +24419,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 456
+      "line": 445
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#main",
@@ -24411,7 +24427,7 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 454
+      "line": 443
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#main",
@@ -24419,7 +24435,7 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 462
+      "line": 451
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
@@ -24427,7 +24443,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 286
+      "line": 275
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
@@ -24435,7 +24451,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 286
+      "line": 275
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
@@ -24443,7 +24459,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 274
+      "line": 263
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
@@ -24451,7 +24467,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 279
+      "line": 268
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
@@ -24459,7 +24475,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 291
+      "line": 280
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
@@ -24467,7 +24483,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 301
+      "line": 290
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
@@ -24475,7 +24491,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 301
+      "line": 290
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
@@ -24483,7 +24499,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 301
+      "line": 290
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
@@ -24491,99 +24507,11 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 289
+      "line": 278
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
       "target": "external:call:scripts/docs/promote_baseline.py#len",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 304
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
-      "target": "external:call:scripts/docs/promote_baseline.py#len",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 304
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
-      "target": "external:call:scripts/docs/promote_baseline.py#len",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 305
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
-      "target": "external:call:scripts/docs/promote_baseline.py#len",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 310
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
-      "target": "external:call:scripts/docs/promote_baseline.py#len",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 310
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
-      "target": "external:call:scripts/docs/promote_baseline.py#line.split",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 287
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
-      "target": "external:call:scripts/docs/promote_baseline.py#logical.lstrip",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 288
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
-      "target": "external:call:scripts/docs/promote_baseline.py#missing.append",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 283
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
-      "target": "external:call:scripts/docs/promote_baseline.py#missing.append",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 295
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
-      "target": "external:call:scripts/docs/promote_baseline.py#object_dir.mkdir",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 263
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
-      "target": "external:call:scripts/docs/promote_baseline.py#recovered.append",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 281
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
-      "target": "external:call:scripts/docs/promote_baseline.py#recovered.append",
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
@@ -24591,7 +24519,55 @@
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
-      "target": "external:call:scripts/docs/promote_baseline.py#shutil.copyfile",
+      "target": "external:call:scripts/docs/promote_baseline.py#len",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 293
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
+      "target": "external:call:scripts/docs/promote_baseline.py#len",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 294
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
+      "target": "external:call:scripts/docs/promote_baseline.py#len",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 299
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
+      "target": "external:call:scripts/docs/promote_baseline.py#len",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 299
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
+      "target": "external:call:scripts/docs/promote_baseline.py#line.split",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 276
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
+      "target": "external:call:scripts/docs/promote_baseline.py#logical.lstrip",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 277
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
+      "target": "external:call:scripts/docs/promote_baseline.py#missing.append",
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
@@ -24599,11 +24575,51 @@
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
+      "target": "external:call:scripts/docs/promote_baseline.py#missing.append",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 284
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
+      "target": "external:call:scripts/docs/promote_baseline.py#object_dir.mkdir",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 252
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
+      "target": "external:call:scripts/docs/promote_baseline.py#recovered.append",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 270
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
+      "target": "external:call:scripts/docs/promote_baseline.py#recovered.append",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 282
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
+      "target": "external:call:scripts/docs/promote_baseline.py#shutil.copyfile",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 261
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
       "target": "external:call:scripts/docs/promote_baseline.py#yaml.safe_load",
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 274
+      "line": 263
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
@@ -24611,7 +24627,7 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 309
+      "line": 298
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
@@ -24619,19 +24635,11 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 279
+      "line": 268
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
       "target": "symbol:scripts/docs/promote_baseline.py#sha256",
-      "type": "calls",
-      "method": "ast-lexical-name-resolution",
-      "confidence": 0.8,
-      "line": 291
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
-      "target": "symbol:scripts/docs/promote_baseline.py#store_object",
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
@@ -24643,7 +24651,15 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 292
+      "line": 269
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
+      "target": "symbol:scripts/docs/promote_baseline.py#store_object",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 281
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_g0",
@@ -24651,7 +24667,7 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 309
+      "line": 298
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_successor",
@@ -24659,7 +24675,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 420
+      "line": 409
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_successor",
@@ -24667,7 +24683,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 424
+      "line": 413
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_successor",
@@ -24675,7 +24691,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 375
+      "line": 364
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_successor",
@@ -24683,7 +24699,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 390
+      "line": 379
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_successor",
@@ -24691,7 +24707,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 390
+      "line": 379
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_successor",
@@ -24699,7 +24715,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 390
+      "line": 379
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_successor",
@@ -24707,7 +24723,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 405
+      "line": 394
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_successor",
@@ -24715,7 +24731,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 406
+      "line": 395
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_successor",
@@ -24723,7 +24739,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 436
+      "line": 425
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_successor",
@@ -24731,7 +24747,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 437
+      "line": 426
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_successor",
@@ -24739,7 +24755,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 441
+      "line": 430
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_successor",
@@ -24747,7 +24763,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 441
+      "line": 430
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_successor",
@@ -24755,7 +24771,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 444
+      "line": 433
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_successor",
@@ -24763,7 +24779,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 444
+      "line": 433
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_successor",
@@ -24771,7 +24787,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 368
+      "line": 357
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_successor",
@@ -24779,7 +24795,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 380
+      "line": 369
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_successor",
@@ -24787,7 +24803,7 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 371
+      "line": 360
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_successor",
@@ -24795,51 +24811,11 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 417
+      "line": 406
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_successor",
       "target": "symbol:scripts/docs/promote_baseline.py#git_value",
-      "type": "calls",
-      "method": "ast-lexical-name-resolution",
-      "confidence": 0.8,
-      "line": 399
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#prepare_successor",
-      "target": "symbol:scripts/docs/promote_baseline.py#git_value",
-      "type": "calls",
-      "method": "ast-lexical-name-resolution",
-      "confidence": 0.8,
-      "line": 400
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#prepare_successor",
-      "target": "symbol:scripts/docs/promote_baseline.py#resolve_predecessor",
-      "type": "calls",
-      "method": "ast-lexical-name-resolution",
-      "confidence": 0.8,
-      "line": 370
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#prepare_successor",
-      "target": "symbol:scripts/docs/promote_baseline.py#sha256",
-      "type": "calls",
-      "method": "ast-lexical-name-resolution",
-      "confidence": 0.8,
-      "line": 381
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#prepare_successor",
-      "target": "symbol:scripts/docs/promote_baseline.py#store_object",
-      "type": "calls",
-      "method": "ast-lexical-name-resolution",
-      "confidence": 0.8,
-      "line": 386
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#prepare_successor",
-      "target": "symbol:scripts/docs/promote_baseline.py#store_object",
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
@@ -24847,11 +24823,43 @@
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_successor",
-      "target": "symbol:scripts/docs/promote_baseline.py#write_new",
+      "target": "symbol:scripts/docs/promote_baseline.py#git_value",
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 417
+      "line": 389
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#prepare_successor",
+      "target": "symbol:scripts/docs/promote_baseline.py#resolve_predecessor",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 359
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#prepare_successor",
+      "target": "symbol:scripts/docs/promote_baseline.py#sha256",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 370
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#prepare_successor",
+      "target": "symbol:scripts/docs/promote_baseline.py#store_object",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 375
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#prepare_successor",
+      "target": "symbol:scripts/docs/promote_baseline.py#store_object",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 377
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_successor",
@@ -24859,7 +24867,7 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 418
+      "line": 406
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_successor",
@@ -24867,7 +24875,7 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 422
+      "line": 407
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#prepare_successor",
@@ -24875,7 +24883,15 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 443
+      "line": 411
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#prepare_successor",
+      "target": "symbol:scripts/docs/promote_baseline.py#write_new",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 432
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#promote_g0",
@@ -24883,7 +24899,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 256
+      "line": 245
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#promote_g0",
@@ -24891,7 +24907,7 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 254
+      "line": 243
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#promote_g0",
@@ -24899,7 +24915,7 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 253
+      "line": 242
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#promote_successor",
@@ -24907,7 +24923,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 350
+      "line": 339
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#promote_successor",
@@ -24915,7 +24931,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 362
+      "line": 351
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#promote_successor",
@@ -24923,7 +24939,7 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 361
+      "line": 350
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#promote_successor",
@@ -24931,99 +24947,11 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 360
+      "line": 349
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#publication",
       "target": "external:call:scripts/docs/promote_baseline.py#'; '.join",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 200
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#publication",
-      "target": "external:call:scripts/docs/promote_baseline.py#FileExistsError",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 194
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#publication",
-      "target": "external:call:scripts/docs/promote_baseline.py#Path",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 188
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#publication",
-      "target": "external:call:scripts/docs/promote_baseline.py#Path",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 205
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#publication",
-      "target": "external:call:scripts/docs/promote_baseline.py#ValueError",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 197
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#publication",
-      "target": "external:call:scripts/docs/promote_baseline.py#ValueError",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 200
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#publication",
-      "target": "external:call:scripts/docs/promote_baseline.py#any",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 196
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#publication",
-      "target": "external:call:scripts/docs/promote_baseline.py#destination.exists",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 193
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#publication",
-      "target": "external:call:scripts/docs/promote_baseline.py#destination.parent.mkdir",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 203
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#publication",
-      "target": "external:call:scripts/docs/promote_baseline.py#destination.rename",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 212
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#publication",
-      "target": "external:call:scripts/docs/promote_baseline.py#fcntl.flock",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 192
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#publication",
-      "target": "external:call:scripts/docs/promote_baseline.py#lock_path.is_absolute",
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
@@ -25031,11 +24959,99 @@
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#publication",
+      "target": "external:call:scripts/docs/promote_baseline.py#FileExistsError",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 183
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#publication",
+      "target": "external:call:scripts/docs/promote_baseline.py#Path",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 177
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#publication",
+      "target": "external:call:scripts/docs/promote_baseline.py#Path",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 194
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#publication",
+      "target": "external:call:scripts/docs/promote_baseline.py#ValueError",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 186
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#publication",
+      "target": "external:call:scripts/docs/promote_baseline.py#ValueError",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 189
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#publication",
+      "target": "external:call:scripts/docs/promote_baseline.py#any",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 185
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#publication",
+      "target": "external:call:scripts/docs/promote_baseline.py#destination.exists",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 182
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#publication",
+      "target": "external:call:scripts/docs/promote_baseline.py#destination.parent.mkdir",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 192
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#publication",
+      "target": "external:call:scripts/docs/promote_baseline.py#destination.rename",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 201
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#publication",
+      "target": "external:call:scripts/docs/promote_baseline.py#fcntl.flock",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 181
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#publication",
+      "target": "external:call:scripts/docs/promote_baseline.py#lock_path.is_absolute",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 178
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#publication",
       "target": "external:call:scripts/docs/promote_baseline.py#lock_path.open",
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 191
+      "line": 180
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#publication",
@@ -25043,7 +25059,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 206
+      "line": 195
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#publication",
@@ -25051,7 +25067,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 208
+      "line": 197
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#publication",
@@ -25059,7 +25075,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 204
+      "line": 193
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#publication",
@@ -25067,7 +25083,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 198
+      "line": 187
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#publication",
@@ -25075,7 +25091,7 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 188
+      "line": 177
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#publication",
@@ -25083,7 +25099,7 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 195
+      "line": 184
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#publication",
@@ -25091,7 +25107,7 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 202
+      "line": 191
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#publication",
@@ -25099,7 +25115,7 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 210
+      "line": 199
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#resolve_predecessor",
@@ -25107,7 +25123,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 223
+      "line": 212
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#resolve_predecessor",
@@ -25115,7 +25131,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 231
+      "line": 220
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#resolve_predecessor",
@@ -25123,7 +25139,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 230
+      "line": 219
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#resolve_predecessor",
@@ -25131,7 +25147,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 223
+      "line": 212
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#resolve_predecessor",
@@ -25139,7 +25155,31 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 226
+      "line": 215
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#resolve_predecessor",
+      "target": "external:call:scripts/docs/promote_baseline.py#ValueError",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 218
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#resolve_predecessor",
+      "target": "external:call:scripts/docs/promote_baseline.py#ValueError",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 222
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#resolve_predecessor",
+      "target": "external:call:scripts/docs/promote_baseline.py#ValueError",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 225
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#resolve_predecessor",
@@ -25151,27 +25191,11 @@
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#resolve_predecessor",
-      "target": "external:call:scripts/docs/promote_baseline.py#ValueError",
+      "target": "external:call:scripts/docs/promote_baseline.py#len",
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 233
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#resolve_predecessor",
-      "target": "external:call:scripts/docs/promote_baseline.py#ValueError",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 236
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#resolve_predecessor",
-      "target": "external:call:scripts/docs/promote_baseline.py#ValueError",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 240
+      "line": 209
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#resolve_predecessor",
@@ -25179,7 +25203,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 220
+      "line": 209
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#resolve_predecessor",
@@ -25187,15 +25211,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 220
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#resolve_predecessor",
-      "target": "external:call:scripts/docs/promote_baseline.py#len",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 225
+      "line": 214
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#resolve_predecessor",
@@ -25203,7 +25219,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 221
+      "line": 210
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#resolve_predecessor",
@@ -25211,7 +25227,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 235
+      "line": 224
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#resolve_predecessor",
@@ -25219,7 +25235,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 239
+      "line": 228
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#resolve_predecessor",
@@ -25227,7 +25243,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 235
+      "line": 224
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#resolve_predecessor",
@@ -25235,7 +25251,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 232
+      "line": 221
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#resolve_predecessor",
@@ -25243,7 +25259,15 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 234
+      "line": 223
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#resolve_predecessor",
+      "target": "external:call:scripts/docs/promote_baseline.py#record.get",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 217
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#resolve_predecessor",
@@ -25255,19 +25279,11 @@
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#resolve_predecessor",
-      "target": "external:call:scripts/docs/promote_baseline.py#record.get",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 239
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#resolve_predecessor",
       "target": "external:call:scripts/docs/promote_baseline.py#set",
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 220
+      "line": 209
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#resolve_predecessor",
@@ -25275,7 +25291,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 218
+      "line": 207
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#resolve_predecessor",
@@ -25283,7 +25299,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 234
+      "line": 223
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#resolve_predecessor",
@@ -25291,7 +25307,7 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 217
+      "line": 206
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#sha256",
@@ -25299,7 +25315,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 71
+      "line": 60
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#sha256",
@@ -25307,7 +25323,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 70
+      "line": 59
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#sha256",
@@ -25315,7 +25331,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 69
+      "line": 58
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#sha256",
@@ -25323,7 +25339,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 67
+      "line": 56
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#sha256",
@@ -25331,7 +25347,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 69
+      "line": 58
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#sha256",
@@ -25339,11 +25355,67 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 68
+      "line": 57
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#store_object",
       "target": "external:call:scripts/docs/promote_baseline.py#Path",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 81
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#store_object",
+      "target": "external:call:scripts/docs/promote_baseline.py#ValueError",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 69
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#store_object",
+      "target": "external:call:scripts/docs/promote_baseline.py#ValueError",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 72
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#store_object",
+      "target": "external:call:scripts/docs/promote_baseline.py#ValueError",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 76
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#store_object",
+      "target": "external:call:scripts/docs/promote_baseline.py#ValueError",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 78
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#store_object",
+      "target": "external:call:scripts/docs/promote_baseline.py#ValueError",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 85
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#store_object",
+      "target": "external:call:scripts/docs/promote_baseline.py#ValueError",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 90
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#store_object",
+      "target": "external:call:scripts/docs/promote_baseline.py#ValueError",
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
@@ -25351,31 +25423,23 @@
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#store_object",
-      "target": "external:call:scripts/docs/promote_baseline.py#ValueError",
+      "target": "external:call:scripts/docs/promote_baseline.py#object_directory_error",
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 80
+      "line": 68
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#store_object",
-      "target": "external:call:scripts/docs/promote_baseline.py#ValueError",
+      "target": "external:call:scripts/docs/promote_baseline.py#object_file_error",
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 83
+      "line": 75
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#store_object",
-      "target": "external:call:scripts/docs/promote_baseline.py#ValueError",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 87
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#store_object",
-      "target": "external:call:scripts/docs/promote_baseline.py#ValueError",
+      "target": "external:call:scripts/docs/promote_baseline.py#object_file_error",
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
@@ -25383,59 +25447,11 @@
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#store_object",
-      "target": "external:call:scripts/docs/promote_baseline.py#ValueError",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 96
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#store_object",
-      "target": "external:call:scripts/docs/promote_baseline.py#ValueError",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 101
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#store_object",
-      "target": "external:call:scripts/docs/promote_baseline.py#ValueError",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 103
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#store_object",
-      "target": "external:call:scripts/docs/promote_baseline.py#object_directory_error",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 79
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#store_object",
-      "target": "external:call:scripts/docs/promote_baseline.py#object_file_error",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 86
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#store_object",
-      "target": "external:call:scripts/docs/promote_baseline.py#object_file_error",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 100
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#store_object",
       "target": "external:call:scripts/docs/promote_baseline.py#os.link",
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 98
+      "line": 87
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#store_object",
@@ -25443,7 +25459,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 94
+      "line": 83
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#store_object",
@@ -25451,7 +25467,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 85
+      "line": 74
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#store_object",
@@ -25459,7 +25475,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 85
+      "line": 74
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#store_object",
@@ -25467,7 +25483,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 91
+      "line": 80
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#store_object",
@@ -25475,7 +25491,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 105
+      "line": 94
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#store_object",
@@ -25483,7 +25499,7 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 81
+      "line": 70
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#store_object",
@@ -25491,7 +25507,7 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 88
+      "line": 77
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#store_object",
@@ -25499,7 +25515,7 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 95
+      "line": 84
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#store_object",
@@ -25507,7 +25523,7 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 102
+      "line": 91
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#update_registry",
@@ -25515,7 +25531,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 133
+      "line": 122
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#update_registry",
@@ -25523,7 +25539,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 171
+      "line": 160
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#update_registry",
@@ -25531,7 +25547,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 130
+      "line": 119
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#update_registry",
@@ -25539,7 +25555,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 133
+      "line": 122
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#update_registry",
@@ -25547,7 +25563,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 129
+      "line": 118
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#update_registry",
@@ -25555,7 +25571,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 160
+      "line": 149
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#update_registry",
@@ -25563,23 +25579,23 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
+      "line": 145
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#update_registry",
+      "target": "external:call:scripts/docs/promote_baseline.py#os.replace",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 148
+    },
+    {
+      "source": "symbol:scripts/docs/promote_baseline.py#update_registry",
+      "target": "external:call:scripts/docs/promote_baseline.py#os.replace",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
       "line": 156
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#update_registry",
-      "target": "external:call:scripts/docs/promote_baseline.py#os.replace",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 159
-    },
-    {
-      "source": "symbol:scripts/docs/promote_baseline.py#update_registry",
-      "target": "external:call:scripts/docs/promote_baseline.py#os.replace",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 167
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#update_registry",
@@ -25587,7 +25603,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 170
+      "line": 159
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#update_registry",
@@ -25595,7 +25611,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 137
+      "line": 126
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#update_registry",
@@ -25603,7 +25619,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 162
+      "line": 151
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#update_registry",
@@ -25611,7 +25627,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 142
+      "line": 131
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#update_registry",
@@ -25619,7 +25635,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 135
+      "line": 124
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#update_registry",
@@ -25627,7 +25643,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 136
+      "line": 125
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#update_registry",
@@ -25635,7 +25651,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 155
+      "line": 144
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#update_registry",
@@ -25643,7 +25659,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 156
+      "line": 145
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#update_registry",
@@ -25651,7 +25667,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 157
+      "line": 146
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#update_registry",
@@ -25659,7 +25675,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 155
+      "line": 144
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#update_registry",
@@ -25667,7 +25683,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 155
+      "line": 144
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#update_registry",
@@ -25675,7 +25691,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 165
+      "line": 154
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#update_registry",
@@ -25683,7 +25699,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 178
+      "line": 167
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#update_registry",
@@ -25691,7 +25707,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 131
+      "line": 120
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#update_registry",
@@ -25699,7 +25715,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 135
+      "line": 124
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#update_registry",
@@ -25707,7 +25723,7 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 156
+      "line": 145
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#update_registry",
@@ -25715,7 +25731,7 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 128
+      "line": 117
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#update_registry.stage_bytes",
@@ -25723,7 +25739,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 146
+      "line": 135
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#update_registry.stage_bytes",
@@ -25731,7 +25747,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 150
+      "line": 139
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#update_registry.stage_bytes",
@@ -25739,7 +25755,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 149
+      "line": 138
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#update_registry.stage_bytes",
@@ -25747,7 +25763,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 148
+      "line": 137
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#update_registry.stage_bytes",
@@ -25755,7 +25771,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 150
+      "line": 139
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#update_registry.stage_bytes",
@@ -25763,7 +25779,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 145
+      "line": 134
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#update_registry.stage_bytes",
@@ -25771,7 +25787,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 147
+      "line": 136
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#write_new",
@@ -25779,7 +25795,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 111
+      "line": 100
     },
     {
       "source": "symbol:scripts/docs/promote_baseline.py#write_new",
@@ -25787,7 +25803,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 110
+      "line": 99
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#main",
@@ -25795,7 +25811,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 272
+      "line": 312
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#main",
@@ -25803,7 +25819,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 272
+      "line": 312
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#main",
@@ -25811,7 +25827,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 268
+      "line": 308
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#main",
@@ -25819,7 +25835,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 269
+      "line": 309
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#main",
@@ -25827,7 +25843,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 270
+      "line": 310
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#main",
@@ -25835,7 +25851,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 271
+      "line": 311
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#main",
@@ -25843,7 +25859,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 275
+      "line": 315
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#main",
@@ -25851,7 +25867,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 277
+      "line": 317
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#main",
@@ -25859,7 +25875,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 279
+      "line": 319
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#main",
@@ -25867,7 +25883,7 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 272
+      "line": 312
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#manifest_identity_matches",
@@ -25875,7 +25891,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 54
+      "line": 64
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#manifest_identity_matches",
@@ -25883,7 +25899,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 54
+      "line": 64
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#manifest_identity_matches",
@@ -25891,7 +25907,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 52
+      "line": 62
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#object_directory_error",
@@ -25899,7 +25915,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 25
+      "line": 35
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#object_directory_error",
@@ -25907,7 +25923,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 25
+      "line": 35
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#object_directory_error",
@@ -25915,7 +25931,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 25
+      "line": 35
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#object_file_error",
@@ -25923,7 +25939,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 40
+      "line": 50
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#object_file_error",
@@ -25931,7 +25947,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 33
+      "line": 43
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#object_file_error",
@@ -25939,7 +25955,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 39
+      "line": 49
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#object_file_error",
@@ -25947,7 +25963,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 40
+      "line": 50
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#object_file_error",
@@ -25955,7 +25971,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 33
+      "line": 43
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#object_file_error",
@@ -25963,7 +25979,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 40
+      "line": 50
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#object_file_error",
@@ -25971,7 +25987,7 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 35
+      "line": 45
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#sha256",
@@ -25979,7 +25995,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 190
+      "line": 227
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#sha256",
@@ -25987,7 +26003,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 189
+      "line": 226
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#sha256",
@@ -25995,7 +26011,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 188
+      "line": 225
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#sha256",
@@ -26003,7 +26019,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 186
+      "line": 223
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#sha256",
@@ -26011,7 +26027,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 188
+      "line": 225
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#sha256",
@@ -26019,7 +26035,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 187
+      "line": 224
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#valid_manifest_location",
@@ -26027,7 +26043,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 88
+      "line": 98
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#valid_manifest_location",
@@ -26035,7 +26051,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 88
+      "line": 98
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#valid_manifest_location",
@@ -26043,7 +26059,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 82
+      "line": 92
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#valid_manifest_location",
@@ -26051,7 +26067,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 87
+      "line": 97
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#valid_manifest_location",
@@ -26059,7 +26075,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 85
+      "line": 95
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#valid_manifest_location",
@@ -26067,7 +26083,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 87
+      "line": 97
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#valid_manifest_location",
@@ -26075,7 +26091,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 83
+      "line": 93
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate",
@@ -26083,7 +26099,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 223
+      "line": 260
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate",
@@ -26091,7 +26107,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 226
+      "line": 263
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate",
@@ -26099,291 +26115,11 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 226
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#errors.append",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 200
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#errors.append",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 210
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#errors.append",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 212
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#errors.append",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 216
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#errors.append",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 221
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#errors.append",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 230
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#errors.append",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 232
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#errors.append",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 244
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#errors.append",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 252
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#errors.append",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 257
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#errors.append",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 261
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#errors.append",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
       "line": 263
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#errors.extend",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 201
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#errors.extend",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 202
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#errors.extend",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 204
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#errors.extend",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 236
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#index.get",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 197
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#index_path.read_text",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 196
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#item.get",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 198
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#items.append",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 228
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#len",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 199
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#len",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 199
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#len",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 231
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#line.split",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 227
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#list",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 222
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#logical_path.lstrip",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 228
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#manifest.get",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 220
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#manifest.get",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 222
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#manifest.get",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 234
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#manifest.get",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 234
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#manifest.get",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 238
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#manifest.get",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 241
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#manifest_path.is_file",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 215
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#manifest_path.read_text",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 218
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#manifest_path.with_name",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 225
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#manifest_path.with_name",
+      "target": "external:call:scripts/docs/validate_baselines.py#errors.append",
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
@@ -26391,87 +26127,31 @@
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#metadata.get",
+      "target": "external:call:scripts/docs/validate_baselines.py#errors.append",
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 243
+      "line": 247
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#record.get",
+      "target": "external:call:scripts/docs/validate_baselines.py#errors.append",
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 209
+      "line": 249
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#record.get",
+      "target": "external:call:scripts/docs/validate_baselines.py#errors.append",
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 211
+      "line": 253
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#record.get",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 243
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#record.get",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 260
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#record.get",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 262
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#record.get",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 262
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#set",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 199
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#set",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 207
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#set",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 240
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#verified_objects.add",
+      "target": "external:call:scripts/docs/validate_baselines.py#errors.append",
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
@@ -26479,11 +26159,355 @@
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate",
-      "target": "external:call:scripts/docs/validate_baselines.py#yaml.safe_load",
+      "target": "external:call:scripts/docs/validate_baselines.py#errors.append",
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 196
+      "line": 267
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#errors.append",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 269
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#errors.append",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 284
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#errors.append",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 292
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#errors.append",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 297
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#errors.append",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 301
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#errors.append",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 303
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#errors.extend",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 238
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#errors.extend",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 239
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#errors.extend",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 241
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#errors.extend",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 273
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#errors.extend",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 277
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#index.get",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 234
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#index_path.read_text",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 233
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#isinstance",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 274
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#item.get",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 235
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#items.append",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 265
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#len",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 236
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#len",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 236
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#len",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 268
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#line.split",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 264
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#list",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 259
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#logical_path.lstrip",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 265
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#manifest.get",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 257
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#manifest.get",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 259
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#manifest.get",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 271
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#manifest.get",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 272
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#manifest.get",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 275
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#manifest.get",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 279
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#manifest_path.is_file",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 252
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#manifest_path.read_text",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 255
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#manifest_path.with_name",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 262
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#manifest_path.with_name",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 278
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#metadata.get",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 283
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#record.get",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 246
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#record.get",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 248
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#record.get",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 283
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#record.get",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 300
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#record.get",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 302
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#record.get",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 302
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#set",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 236
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#set",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 244
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#set",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 281
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#verified_objects.add",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 298
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate",
@@ -26491,7 +26515,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 218
+      "line": 233
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate",
@@ -26499,7 +26523,15 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 223
+      "line": 255
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "external:call:scripts/docs/validate_baselines.py#yaml.safe_load",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 260
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate",
@@ -26507,7 +26539,7 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 220
+      "line": 257
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate",
@@ -26515,7 +26547,7 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 251
+      "line": 291
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate",
@@ -26523,7 +26555,7 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 255
+      "line": 295
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate",
@@ -26531,7 +26563,7 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 211
+      "line": 248
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate",
@@ -26539,7 +26571,7 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 202
+      "line": 239
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate",
@@ -26547,7 +26579,7 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 236
+      "line": 277
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate",
@@ -26555,7 +26587,7 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 204
+      "line": 241
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate",
@@ -26563,7 +26595,15 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 201
+      "line": 238
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate",
+      "target": "symbol:scripts/docs/validate_baselines.py#validate_successor_controls",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 273
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_catalogs",
@@ -26571,7 +26611,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 60
+      "line": 70
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_catalogs",
@@ -26579,7 +26619,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 64
+      "line": 74
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_catalogs",
@@ -26587,7 +26627,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 61
+      "line": 71
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_catalogs",
@@ -26595,7 +26635,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 70
+      "line": 80
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_catalogs",
@@ -26603,7 +26643,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 73
+      "line": 83
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_catalogs",
@@ -26611,7 +26651,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 61
+      "line": 71
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_catalogs",
@@ -26619,7 +26659,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 61
+      "line": 71
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_catalogs",
@@ -26627,7 +26667,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 64
+      "line": 74
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_catalogs",
@@ -26635,7 +26675,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 64
+      "line": 74
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_catalogs",
@@ -26643,7 +26683,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 65
+      "line": 75
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_catalogs",
@@ -26651,7 +26691,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 64
+      "line": 74
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_catalogs",
@@ -26659,7 +26699,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 65
+      "line": 75
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_catalogs",
@@ -26667,7 +26707,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 69
+      "line": 79
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_catalogs",
@@ -26675,7 +26715,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 69
+      "line": 79
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_catalogs",
@@ -26683,7 +26723,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 60
+      "line": 70
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_checksums",
@@ -26691,31 +26731,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 106
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate_checksums",
-      "target": "external:call:scripts/docs/validate_baselines.py#errors.append",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 109
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate_checksums",
-      "target": "external:call:scripts/docs/validate_baselines.py#errors.append",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 113
-    },
-    {
-      "source": "symbol:scripts/docs/validate_baselines.py#validate_checksums",
-      "target": "external:call:scripts/docs/validate_baselines.py#errors.append",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 117
+      "line": 116
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_checksums",
@@ -26727,11 +26743,27 @@
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_checksums",
-      "target": "external:call:scripts/docs/validate_baselines.py#len",
+      "target": "external:call:scripts/docs/validate_baselines.py#errors.append",
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 116
+      "line": 123
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate_checksums",
+      "target": "external:call:scripts/docs/validate_baselines.py#errors.append",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 127
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate_checksums",
+      "target": "external:call:scripts/docs/validate_baselines.py#errors.append",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 129
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_checksums",
@@ -26739,7 +26771,15 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 116
+      "line": 126
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate_checksums",
+      "target": "external:call:scripts/docs/validate_baselines.py#len",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 126
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_checksums",
@@ -26747,7 +26787,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 111
+      "line": 121
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_checksums",
@@ -26755,7 +26795,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 98
+      "line": 108
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_checksums",
@@ -26763,7 +26803,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 100
+      "line": 110
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_checksums",
@@ -26771,7 +26811,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 100
+      "line": 110
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_checksums",
@@ -26779,7 +26819,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 98
+      "line": 108
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_checksums",
@@ -26787,7 +26827,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 98
+      "line": 108
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_checksums",
@@ -26795,7 +26835,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 107
+      "line": 117
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_immutability",
@@ -26803,7 +26843,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 178
+      "line": 215
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_immutability",
@@ -26811,7 +26851,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 178
+      "line": 215
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_immutability",
@@ -26819,7 +26859,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 174
+      "line": 211
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_immutability",
@@ -26827,7 +26867,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 160
+      "line": 197
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_immutability",
@@ -26835,7 +26875,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 162
+      "line": 199
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_immutability",
@@ -26843,7 +26883,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 169
+      "line": 206
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_immutability",
@@ -26851,7 +26891,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 168
+      "line": 205
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_immutability",
@@ -26859,7 +26899,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 170
+      "line": 207
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_immutability",
@@ -26867,7 +26907,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 172
+      "line": 209
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_immutability",
@@ -26875,7 +26915,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 179
+      "line": 216
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_immutability",
@@ -26883,7 +26923,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 154
+      "line": 191
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_immutability",
@@ -26891,7 +26931,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 155
+      "line": 192
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_immutability",
@@ -26899,7 +26939,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 158
+      "line": 195
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_immutability",
@@ -26907,7 +26947,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 176
+      "line": 213
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_immutability",
@@ -26915,7 +26955,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 177
+      "line": 214
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_immutability",
@@ -26923,7 +26963,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 154
+      "line": 191
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_immutability",
@@ -26931,7 +26971,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 154
+      "line": 191
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_immutability",
@@ -26939,7 +26979,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 175
+      "line": 212
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_immutability",
@@ -26947,7 +26987,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 167
+      "line": 204
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_immutability",
@@ -26955,7 +26995,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 171
+      "line": 208
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_immutability",
@@ -26963,7 +27003,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 178
+      "line": 215
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_immutability",
@@ -26971,7 +27011,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 158
+      "line": 195
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_immutability",
@@ -26979,7 +27019,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 162
+      "line": 199
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_immutability",
@@ -26987,7 +27027,7 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 171
+      "line": 208
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_immutability.git",
@@ -26995,7 +27035,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 151
+      "line": 188
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_lineage",
@@ -27003,7 +27043,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 129
+      "line": 166
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_lineage",
@@ -27011,7 +27051,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 142
+      "line": 179
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_lineage",
@@ -27019,7 +27059,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 128
+      "line": 165
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_lineage",
@@ -27027,7 +27067,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 130
+      "line": 167
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_lineage",
@@ -27035,7 +27075,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 136
+      "line": 173
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_lineage",
@@ -27043,7 +27083,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 140
+      "line": 177
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_lineage",
@@ -27051,7 +27091,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 126
+      "line": 163
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_lineage",
@@ -27059,7 +27099,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 132
+      "line": 169
     },
     {
       "source": "symbol:scripts/docs/validate_baselines.py#validate_lineage",
@@ -27067,7 +27107,167 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 138
+      "line": 175
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate_successor_controls",
+      "target": "external:call:scripts/docs/validate_baselines.py#errors.append",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 146
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate_successor_controls",
+      "target": "external:call:scripts/docs/validate_baselines.py#errors.append",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 152
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate_successor_controls",
+      "target": "external:call:scripts/docs/validate_baselines.py#errors.append",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 154
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate_successor_controls",
+      "target": "external:call:scripts/docs/validate_baselines.py#errors.append",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 156
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate_successor_controls",
+      "target": "external:call:scripts/docs/validate_baselines.py#isinstance",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 137
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate_successor_controls",
+      "target": "external:call:scripts/docs/validate_baselines.py#isinstance",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 140
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate_successor_controls",
+      "target": "external:call:scripts/docs/validate_baselines.py#isinstance",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 148
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate_successor_controls",
+      "target": "external:call:scripts/docs/validate_baselines.py#item.get",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 140
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate_successor_controls",
+      "target": "external:call:scripts/docs/validate_baselines.py#item.get",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 150
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate_successor_controls",
+      "target": "external:call:scripts/docs/validate_baselines.py#item.get",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 151
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate_successor_controls",
+      "target": "external:call:scripts/docs/validate_baselines.py#item.get",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 153
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate_successor_controls",
+      "target": "external:call:scripts/docs/validate_baselines.py#len",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 142
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate_successor_controls",
+      "target": "external:call:scripts/docs/validate_baselines.py#len",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 142
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate_successor_controls",
+      "target": "external:call:scripts/docs/validate_baselines.py#len",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 144
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate_successor_controls",
+      "target": "external:call:scripts/docs/validate_baselines.py#len",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 144
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate_successor_controls",
+      "target": "external:call:scripts/docs/validate_baselines.py#len",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 155
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate_successor_controls",
+      "target": "external:call:scripts/docs/validate_baselines.py#len",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 156
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate_successor_controls",
+      "target": "external:call:scripts/docs/validate_baselines.py#metadata.get",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 155
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate_successor_controls",
+      "target": "external:call:scripts/docs/validate_baselines.py#set",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 143
+    },
+    {
+      "source": "symbol:scripts/docs/validate_baselines.py#validate_successor_controls",
+      "target": "external:call:scripts/docs/validate_baselines.py#set",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 143
     },
     {
       "source": "symbol:scripts/docs/validate_lfs.py#declares_binary",
@@ -29630,5 +29830,5 @@
       "line": 36
     }
   ],
-  "graph_sha256": "519266d61b1ed90941aec74bd09a980cf7c60125c039956e0fc57dcf346701ad"
+  "graph_sha256": "1d62da6b55a08f512cff7152e928ecbf1d21f3935dd02b847392578c9e9c724f"
 }

@@ -21,26 +21,15 @@ import yaml
 
 if __package__:
     from .validate_baselines import (
-        SOURCE_CATALOG_PATH, manifest_identity_matches, validate_catalogs, validate_lineage,
+        CONTROL_PATHS, SOURCE_CATALOG_PATH, manifest_identity_matches, validate_catalogs, validate_lineage,
         object_directory_error, object_file_error,
     )
 else:
     from validate_baselines import (
-        SOURCE_CATALOG_PATH, manifest_identity_matches, validate_catalogs, validate_lineage,
+        CONTROL_PATHS, SOURCE_CATALOG_PATH, manifest_identity_matches, validate_catalogs, validate_lineage,
         object_directory_error, object_file_error,
     )
 
-
-CONTROL_PATHS = [
-    "README.md",
-    "auditoria/notebooklm-contexto.md",
-    "plano/PLANO-MESTRE.md",
-    "plano/01-governanca-e-decisoes.md",
-    "plano/02-migracao-ssot.md",
-    "plano/03-contexto-minimo.md",
-    "plano/04-rastreabilidade-e-validacao.md",
-    "plano/05-cutover-e-operacao.md",
-]
 NEW_SOURCE_METADATA = {
     "contexto/generate_pdf_report.py": {
         "id": "SRC-NLM-PDF-GENERATOR",

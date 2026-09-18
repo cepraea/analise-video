@@ -352,6 +352,36 @@ class BaselineTests(unittest.TestCase):
             path.write_text(original, encoding="utf-8")
         self.assertEqual(validator.validate(self.repo, self.base), [])
 
+    def test_successor_must_preserve_all_operational_controls(self):
+        path = self.manifest_path("G0-R2")
+        original = yaml.safe_load(path.read_text())
+        checksum_path = path.with_name("G0-R2-CONTROL-SHA256SUMS.txt")
+
+        mutations = {
+            "empty": lambda manifest: manifest.update(controls=[]),
+            "renamed": lambda manifest: manifest["controls"][0].update(path="renamed.md"),
+            "reclassified": lambda manifest: manifest["controls"][0].update(classification="SOURCE"),
+            "product authority": lambda manifest: manifest["controls"][0].update(
+                eligible_for_product_claims=True
+            ),
+            "wrong count": lambda manifest: manifest["baseline"].update(control_artifact_count=7),
+        }
+        for name, mutate in mutations.items():
+            with self.subTest(mutation=name):
+                manifest = yaml.safe_load(yaml.safe_dump(original))
+                mutate(manifest)
+                self.write_yaml(str(path.relative_to(self.repo)), manifest)
+                checksum_path.write_text(
+                    "".join(
+                        f"{item['sha256']}  {item['path']}\n"
+                        for item in manifest["controls"]
+                    ),
+                    encoding="utf-8",
+                )
+                self.assert_error("control")
+
+        self.write_yaml(str(path.relative_to(self.repo)), original)
+
     def test_checksum_order_and_paths_with_spaces_are_preserved(self):
         items = [
             {"path": "directory/file with spaces.md", "sha256": "a" * 64},
