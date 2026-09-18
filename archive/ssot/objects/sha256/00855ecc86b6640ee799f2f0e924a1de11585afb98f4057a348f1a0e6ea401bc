@@ -1,0 +1,132 @@
+# Subplano 04 — Rastreabilidade e Validação
+
+## Objetivo
+
+Transformar autoridade, decisões, requisitos, incrementos, código, testes e evidências em relações verificáveis por máquina.
+
+## V0 — Grafo canônico
+
+Criar `docs/TRACEABILITY.yaml` com nós e relações tipadas.
+
+```yaml
+nodes:
+  - id: RF-001
+    type: requirement
+    authority: docs/SYSTEM_SPEC.md
+    decision_status: DECIDIDO
+    implementation_status: NOT_IMPLEMENTED
+    source_claims:
+      - CLM-0001
+
+edges:
+  - from: SRC-SPEC-GD
+    to: RF-001
+    type: defines
+  - from: INC-002
+    to: RF-001
+    type: delivers
+```
+
+Relações iniciais:
+
+- `defines`;
+- `supports`;
+- `constrains`;
+- `conflicts_with`;
+- `supersedes`;
+- `delivers`;
+- `implements`;
+- `verifies`;
+- `evidences`.
+
+## V1 — Derivados determinísticos
+
+- [ ] Gerar `TRACEABILITY.md` a partir do YAML.
+- [ ] Gerar `DECISION_LOG.md` a partir de `DECISIONS.yaml`.
+- [ ] Gerar o pacote do incremento a partir de rotas e grafo.
+- [ ] Inserir cabeçalho de arquivo gerado.
+- [ ] Falhar se o derivado versionado estiver desatualizado.
+
+Nenhuma informação normativa pode existir somente no Markdown gerado.
+
+## V2 — Validador
+
+Implementar `scripts/docs/validate_ssot.py` para verificar:
+
+- IDs duplicados;
+- namespaces inválidos;
+- estados fora dos vocabulários;
+- fontes sem hash ou tipo;
+- decisões sem autoridade ou proveniência;
+- links internos quebrados;
+- relações com nós inexistentes;
+- ciclos de `supersedes`;
+- requisito ativo sem aceitação ou adiamento;
+- `VERIFIED` sem teste e evidência;
+- draft usado como autoridade;
+- pacote com hash vencido;
+- divergência entre YAML e Markdown gerado;
+- arquivos condicionais sem decisão autorizadora.
+
+## V3 — Testes e CI
+
+### Estrutura
+
+```text
+tests/docs/
+├── fixtures/
+│   ├── valid/
+│   └── invalid/
+└── test_ssot.py
+
+.github/workflows/
+└── ssot.yml
+```
+
+### Casos mínimos
+
+- [ ] fixture válida passa;
+- [ ] ID duplicado falha;
+- [ ] decisão sem autoridade falha;
+- [ ] fonte sem hash falha;
+- [ ] referência inexistente falha;
+- [ ] ciclo de sucessão falha;
+- [ ] `VERIFIED` sem evidência falha;
+- [ ] pacote vencido falha;
+- [ ] Markdown gerado alterado manualmente falha.
+
+## Validação de formatos condicionais
+
+Quando existirem:
+
+- OpenAPI deve usar validador compatível com a versão aprovada;
+- JSON Schema deve ter fixtures positivas e negativas;
+- Gherkin deve possuir tags de requisito e critério;
+- Mermaid deve ser parseável;
+- modelo C4 deve usar schema ou ferramenta decidida em ADR;
+- EARS pode ter lint estrutural, mas a semântica continua humana.
+
+## Grafo de código
+
+O grafo de rastreabilidade documental não depende do protótipo AST do NotebookLM.
+
+Se um índice estrutural de código for aprovado futuramente, ele deve:
+
+- cobrir Python e TypeScript/TSX;
+- resolver imports internos;
+- materializar destinos de chamadas quando possível;
+- distinguir chamada inferida de relação comprovada;
+- gerar saída textual consultável;
+- selecionar subgrafos por tarefa;
+- evitar PNG obrigatório;
+- provar ganho sobre `rg` e ferramentas de linguagem.
+
+## Definition of Done
+
+- [ ] Todos os requisitos canônicos possuem fonte.
+- [ ] Todas as decisões possuem autoridade e impacto.
+- [ ] Requisitos ativos possuem aceitação ou adiamento.
+- [ ] Todo `VERIFIED` possui evidência reproduzível.
+- [ ] Derivados são determinísticos.
+- [ ] Fixtures inválidas comprovam que os gates bloqueiam erros.
+- [ ] CI e validação local produzem o mesmo resultado.

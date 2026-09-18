@@ -1,0 +1,10 @@
+{
+  "name": "ai-context-repo",
+  "version": "1.0.0",
+  "description": "Repositório com arquitetura de contexto para agentes de IA",
+  "scripts": {
+    "graph:map": "python3 map_repo_ast.py . repo_knowledge_graph.json",
+    "graph:visualize": "python3 visualize_graph.py repo_knowledge_graph.json repo_architecture_graph.png",
+    "graph": "npm run graph:map && npm run graph:visualize"
+  }
+}

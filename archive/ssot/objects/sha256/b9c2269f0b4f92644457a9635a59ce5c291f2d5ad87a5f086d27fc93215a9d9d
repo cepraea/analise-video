@@ -1,0 +1,31 @@
+# Memory: Architecture Rules & System Invariants
+
+> **PROPÓSITO**: Definir as restrições arquiteturais invioláveis, limites de isolamento de estado e regras de domínio que orientam o raciocínio de agentes de IA neste repositório.
+
+---
+
+## 1. Princípios de Isolamento e Modulariedade
+* **Responsabilidade Única**: Cada arquivo/módulo deve ter um propósito único e delimitado. Arquivos que ultrapassarem 300-500 linhas de código devem ser refatorados em submódulos.
+* **Limites de Camada**: A camada de apresentação (UI/CLI) nunca deve acessar bancos de dados ou serviços externos diretamente; todas as operações devem passar pela camada de serviços/domínio.
+* **Proibição de Estado Global Mutável**: É proibido manter estado mutável global. O estado da aplicação deve ser explícito, encapsulado e injetado via dependências.
+
+---
+
+## 2. Padrões de Interface e Tipagem
+* **Contratos Explícitos**: Todas as assinaturas de funções e rotinas de exportação pública devem possuir tipos explícitos de entrada e saída.
+* **Proibição de Tipos Genéricos Imprecisos**: O uso de tipos genéricos ou opacos (como `any` no TypeScript ou `object` irrestrito no Python) é estritamente proibido. Use interfaces fortes ou `unknown` acompanhado de type-guards.
+* **Imutabilidade por Padrão**: Dê preferência a estruturas de dados imutáveis para repassar contexto entre serviços.
+
+---
+
+## 3. Tratamento de Erros e Resiliência
+* **Sem Captura Silenciosa de Erros**: Blocos `try/catch` vazios ou que apenas ignoram exceções sem o devido tratamento ou registro logado são estritamente proibidos.
+* **Exceções Orientadas ao Domínio**: Lance exceções específicas do domínio da aplicação em vez de erros genéricos.
+* **Rastreabilidade**: Todas as exceções em serviços assíncronos devem preservar a pilha de erros (*stack trace*) original para facilitar diagnósticos e debugging por sub-agentes.
+
+---
+
+## 4. Proibições e Regras Anti-Padrão (Invariantes)
+1. **NUNCA** modifique arquivos de migração de banco de dados (`migrations/`) já executados em produção.
+2. **NUNCA** incorpore credenciais, tokens de API ou segredos diretamente no código-fonte.
+3. **NUNCA** contorne as rotinas de validação de dados de entrada na borda da aplicação (*edge/API layer*).

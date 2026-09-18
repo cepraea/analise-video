@@ -1,0 +1,117 @@
+#!/usr/bin/env node
+
+/**
+ * Pre-Commit Review & Governance Check
+ * Script de verificação automatizada baseado em AGENTS.md, REVIEW.md e Lore Protocol.
+ * 
+ * Valida arquivos staged no Git quanto a:
+ * 1. Limite de tamanho de arquivo (<= 500 linhas)
+ * 2. Padrões proibidos (uso de 'any', blocos catch silenciados, console.log em prod)
+ * 3. Arquivos protegidos (.env, migrations diretas)
+ */
+
+const { execSync } = require('child_process');
+const fs = require('fs');
+const path = require('path');
+
+// Cores para saída no terminal
+const RED = '\x1b[31m';
+const GREEN = '\x1b[32m';
+const YELLOW = '\x1b[33m';
+const CYAN = '\x1b[36m';
+const RESET = '\x1b[0m';
+
+console.log(`${CYAN}🔍 Executando verificação pré-commit (AGENTS.md & REVIEW.md)...${RESET}\n`);
+
+let hasErrors = false;
+let warningsCount = 0;
+
+// 1. Obter lista de arquivos em staging no Git
+function getStagedFiles() {
+  try {
+    const output = execSync('git diff --cached --name-only --diff-filter=ACM', { encoding: 'utf-8' });
+    return output.split('\n').filter(file => file.trim().length > 0);
+  } catch (err) {
+    // Se não estiver num repositório git ou falhar o comando, retorna lista vazia para evitar quebras
+    return [];
+  }
+}
+
+const stagedFiles = getStagedFiles();
+
+if (stagedFiles.length === 0) {
+  console.log(`${GREEN}✔ Nenhum arquivo no staging do Git para verificar (ou fora de um repo git).${RESET}`);
+  process.exit(0);
+}
+
+console.log(`📁 Arquivos no staging (${stagedFiles.length}):`);
+stagedFiles.forEach(f => console.log(`   - ${f}`));
+console.log('');
+
+// 2. Inspecionar cada arquivo no staging
+stagedFiles.forEach(filePath => {
+  if (!fs.existsSync(filePath)) return;
+
+  // Ignorar arquivos binários ou de documentação compilada
+  if (filePath.match(/\.(png|jpg|jpeg|gif|ico|pdf|zip|gz|exe|tar|woff|ttf|eot)$/i)) return;
+
+  const content = fs.readFileSync(filePath, 'utf-8');
+  const lines = content.split('\n');
+
+  // Regra 1: Limite de tamanho de arquivo (AGENTS.md: <= 500 linhas)
+  if (lines.length > 500) {
+    console.log(`${YELLOW}⚠️ [AVISO] ${filePath}: Arquivo possui ${lines.length} linhas (limite recomendado: 500 linhas em AGENTS.md).${RESET}`);
+    warningsCount++;
+  }
+
+  // Regra 2: Modificação direta em arquivos sensíveis / protegidos
+  if (filePath.includes('migrations/') && !filePath.endsWith('.md')) {
+    console.log(`${RED}❌ [ERRO] ${filePath}: Alteração direta em migração proibida sem especificação técnica prévia (AGENTS.md).${RESET}`);
+    hasErrors = true;
+  }
+
+  if (filePath.endsWith('.env') || filePath.endsWith('.env.local')) {
+    console.log(`${RED}❌ [ERRO] ${filePath}: Arquivos .env não devem ser commitados.${RESET}`);
+    hasErrors = true;
+  }
+
+  // Inspeção linha a linha para código JS/TS
+  lines.forEach((line, index) => {
+    const lineNum = index + 1;
+
+    if (filePath.match(/\.(ts|tsx|js|jsx)$/)) {
+      // Regra 3: Proibição de tipos 'any' genéricos
+      if (line.match(/:\s*any\b/) || line.match(/\bas\s+any\b/)) {
+        console.log(`${RED}❌ [ERRO] ${filePath}:${lineNum}: Uso de tipo genérico 'any' detectado (Regra AGENTS.md).${RESET}`);
+        hasErrors = true;
+      }
+
+      // Regra 4: Tratamento de erro silenciado (catch vazio)
+      if (line.match(/catch\s*\([^)]*\)\s*\{\s*\}/) || line.match(/catch\s*\{\s*\}/)) {
+        console.log(`${RED}❌ [ERRO] ${filePath}:${lineNum}: Bloco catch silenciado sem tratamento ou log de erro (Regra REVIEW.md).${RESET}`);
+        hasErrors = true;
+      }
+
+      // Regra 5: console.log em código de produção (Aviso)
+      if (line.match(/\bconsole\.log\(/) && !filePath.includes('test') && !filePath.includes('spec')) {
+        console.log(`${YELLOW}⚠️ [AVISO] ${filePath}:${lineNum}: 'console.log' encontrado. Considere remover ou usar logger estruturado.${RESET}`);
+        warningsCount++;
+      }
+    }
+  });
+});
+
+// 3. Resultado final
+console.log('\n---------------------------------------------------');
+if (hasErrors) {
+  console.log(`${RED}❌ Verificação de Pre-Commit FALHOU. Corrija os erros acima antes de commitar.${RESET}`);
+  console.log(`${YELLOW}Lembre-se: Para decisões de arquitetura aceitas, inclua os Git Trailers (Constraint:, Rejected:, Tested:) no commit (Lore Protocol).${RESET}`);
+  process.exit(1);
+} else {
+  if (warningsCount > 0) {
+    console.log(`${YELLOW}⚠️ Commit APROVADO com ${warningsCount} aviso(s).${RESET}`);
+  } else {
+    console.log(`${GREEN}✨ Todas as verificações de AGENTS.md e REVIEW.md passaram com sucesso!${RESET}`);
+  }
+  process.exit(0);
+}

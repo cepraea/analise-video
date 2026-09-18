@@ -1,0 +1,5107 @@
+{
+  "metadata": {
+    "schema_version": 2,
+    "repository": "analise-video",
+    "root_path": ".",
+    "git_commit": "3f7d38b3d06cb9db5c10be33e36750360e39bff6",
+    "source_extensions": {
+      ".py": 8,
+      ".ts": 3,
+      ".tsx": 3
+    },
+    "total_files": 14,
+    "nodes_count": 314,
+    "edges_count": 479,
+    "high_level_nodes_count": 102,
+    "high_level_edges_count": 145,
+    "missing_endpoints_count": 0,
+    "endpoint_materialization_percent": 100.0,
+    "parse_errors_count": 0,
+    "generator_sha256": "4e142f2c820200fb0a69443c9783b00ee8437ad407b0e820047a80c63541c887"
+  },
+  "nodes": [
+    {
+      "id": "class:backend/src/cepraea_video/config.py:RuntimePaths",
+      "type": "Class",
+      "label": "RuntimePaths",
+      "file": "backend/src/cepraea_video/config.py"
+    },
+    {
+      "id": "class:backend/src/cepraea_video/main.py:SpikeIntervalDeletion",
+      "type": "Class",
+      "label": "SpikeIntervalDeletion",
+      "file": "backend/src/cepraea_video/main.py"
+    },
+    {
+      "id": "class:backend/src/cepraea_video/main.py:SpikeIntervalInput",
+      "type": "Class",
+      "label": "SpikeIntervalInput",
+      "file": "backend/src/cepraea_video/main.py"
+    },
+    {
+      "id": "class:backend/src/cepraea_video/main.py:SpikeIntervalUpdate",
+      "type": "Class",
+      "label": "SpikeIntervalUpdate",
+      "file": "backend/src/cepraea_video/main.py"
+    },
+    {
+      "id": "class:backend/src/cepraea_video/spike_storage.py:SpikeInterval",
+      "type": "Class",
+      "label": "SpikeInterval",
+      "file": "backend/src/cepraea_video/spike_storage.py"
+    },
+    {
+      "id": "external:AbortController",
+      "type": "ExternalSymbol",
+      "label": "AbortController"
+    },
+    {
+      "id": "external:Array.from",
+      "type": "ExternalSymbol",
+      "label": "Array.from"
+    },
+    {
+      "id": "external:BaseModel",
+      "type": "ExternalSymbol",
+      "label": "BaseModel"
+    },
+    {
+      "id": "external:Boolean",
+      "type": "ExternalSymbol",
+      "label": "Boolean"
+    },
+    {
+      "id": "external:EDIT_STEPS.map",
+      "type": "ExternalSymbol",
+      "label": "EDIT_STEPS.map"
+    },
+    {
+      "id": "external:Error",
+      "type": "ExternalSymbol",
+      "label": "Error"
+    },
+    {
+      "id": "external:FastAPI",
+      "type": "ExternalSymbol",
+      "label": "FastAPI"
+    },
+    {
+      "id": "external:Field",
+      "type": "ExternalSymbol",
+      "label": "Field"
+    },
+    {
+      "id": "external:FileResponse",
+      "type": "ExternalSymbol",
+      "label": "FileResponse"
+    },
+    {
+      "id": "external:HTTPException",
+      "type": "ExternalSymbol",
+      "label": "HTTPException"
+    },
+    {
+      "id": "external:JSON.parse",
+      "type": "ExternalSymbol",
+      "label": "JSON.parse"
+    },
+    {
+      "id": "external:JSON.stringify",
+      "type": "ExternalSymbol",
+      "label": "JSON.stringify"
+    },
+    {
+      "id": "external:Math.abs",
+      "type": "ExternalSymbol",
+      "label": "Math.abs"
+    },
+    {
+      "id": "external:Math.floor",
+      "type": "ExternalSymbol",
+      "label": "Math.floor"
+    },
+    {
+      "id": "external:Math.max",
+      "type": "ExternalSymbol",
+      "label": "Math.max"
+    },
+    {
+      "id": "external:Math.min",
+      "type": "ExternalSymbol",
+      "label": "Math.min"
+    },
+    {
+      "id": "external:Math.round",
+      "type": "ExternalSymbol",
+      "label": "Math.round"
+    },
+    {
+      "id": "external:Number",
+      "type": "ExternalSymbol",
+      "label": "Number"
+    },
+    {
+      "id": "external:Number.isFinite",
+      "type": "ExternalSymbol",
+      "label": "Number.isFinite"
+    },
+    {
+      "id": "external:Object.defineProperty",
+      "type": "ExternalSymbol",
+      "label": "Object.defineProperty"
+    },
+    {
+      "id": "external:PLAYBACK_RATES.map",
+      "type": "ExternalSymbol",
+      "label": "PLAYBACK_RATES.map"
+    },
+    {
+      "id": "external:PLAYBACK_RATES.some",
+      "type": "ExternalSymbol",
+      "label": "PLAYBACK_RATES.some"
+    },
+    {
+      "id": "external:Path",
+      "type": "ExternalSymbol",
+      "label": "Path"
+    },
+    {
+      "id": "external:RuntimePaths",
+      "type": "ExternalSymbol",
+      "label": "RuntimePaths"
+    },
+    {
+      "id": "external:SpikeInterval",
+      "type": "ExternalSymbol",
+      "label": "SpikeInterval"
+    },
+    {
+      "id": "external:String",
+      "type": "ExternalSymbol",
+      "label": "String"
+    },
+    {
+      "id": "external:TestClient",
+      "type": "ExternalSymbol",
+      "label": "TestClient"
+    },
+    {
+      "id": "external:ValueError",
+      "type": "ExternalSymbol",
+      "label": "ValueError"
+    },
+    {
+      "id": "external:afterEach",
+      "type": "ExternalSymbol",
+      "label": "afterEach"
+    },
+    {
+      "id": "external:all",
+      "type": "ExternalSymbol",
+      "label": "all"
+    },
+    {
+      "id": "external:app.delete",
+      "type": "ExternalSymbol",
+      "label": "app.delete"
+    },
+    {
+      "id": "external:app.get",
+      "type": "ExternalSymbol",
+      "label": "app.get"
+    },
+    {
+      "id": "external:app.patch",
+      "type": "ExternalSymbol",
+      "label": "app.patch"
+    },
+    {
+      "id": "external:app.post",
+      "type": "ExternalSymbol",
+      "label": "app.post"
+    },
+    {
+      "id": "external:asdict",
+      "type": "ExternalSymbol",
+      "label": "asdict"
+    },
+    {
+      "id": "external:async",
+      "type": "ExternalSymbol",
+      "label": "async"
+    },
+    {
+      "id": "external:available.some",
+      "type": "ExternalSymbol",
+      "label": "available.some"
+    },
+    {
+      "id": "external:candidate.is_file",
+      "type": "ExternalSymbol",
+      "label": "candidate.is_file"
+    },
+    {
+      "id": "external:cleanup",
+      "type": "ExternalSymbol",
+      "label": "cleanup"
+    },
+    {
+      "id": "external:client.get",
+      "type": "ExternalSymbol",
+      "label": "client.get"
+    },
+    {
+      "id": "external:client.patch",
+      "type": "ExternalSymbol",
+      "label": "client.patch"
+    },
+    {
+      "id": "external:client.post",
+      "type": "ExternalSymbol",
+      "label": "client.post"
+    },
+    {
+      "id": "external:client.request",
+      "type": "ExternalSymbol",
+      "label": "client.request"
+    },
+    {
+      "id": "external:closing",
+      "type": "ExternalSymbol",
+      "label": "closing"
+    },
+    {
+      "id": "external:connection.execute",
+      "type": "ExternalSymbol",
+      "label": "connection.execute"
+    },
+    {
+      "id": "external:connection.executemany",
+      "type": "ExternalSymbol",
+      "label": "connection.executemany"
+    },
+    {
+      "id": "external:controller.abort",
+      "type": "ExternalSymbol",
+      "label": "controller.abort"
+    },
+    {
+      "id": "external:createRoot",
+      "type": "ExternalSymbol",
+      "label": "createRoot"
+    },
+    {
+      "id": "external:database_path",
+      "type": "ExternalSymbol",
+      "label": "database_path"
+    },
+    {
+      "id": "external:dataclass",
+      "type": "ExternalSymbol",
+      "label": "dataclass"
+    },
+    {
+      "id": "external:db_path.is_file",
+      "type": "ExternalSymbol",
+      "label": "db_path.is_file"
+    },
+    {
+      "id": "external:defineConfig",
+      "type": "ExternalSymbol",
+      "label": "defineConfig"
+    },
+    {
+      "id": "external:delete_interval",
+      "type": "ExternalSymbol",
+      "label": "delete_interval"
+    },
+    {
+      "id": "external:deletionReason.trim",
+      "type": "ExternalSymbol",
+      "label": "deletionReason.trim"
+    },
+    {
+      "id": "external:describe",
+      "type": "ExternalSymbol",
+      "label": "describe"
+    },
+    {
+      "id": "external:dict",
+      "type": "ExternalSymbol",
+      "label": "dict"
+    },
+    {
+      "id": "external:document.body.append",
+      "type": "ExternalSymbol",
+      "label": "document.body.append"
+    },
+    {
+      "id": "external:document.createElement",
+      "type": "ExternalSymbol",
+      "label": "document.createElement"
+    },
+    {
+      "id": "external:document.getElementById",
+      "type": "ExternalSymbol",
+      "label": "document.getElementById"
+    },
+    {
+      "id": "external:endswith",
+      "type": "ExternalSymbol",
+      "label": "endswith"
+    },
+    {
+      "id": "external:ensure_runtime_directories",
+      "type": "ExternalSymbol",
+      "label": "ensure_runtime_directories"
+    },
+    {
+      "id": "external:event.composedPath",
+      "type": "ExternalSymbol",
+      "label": "event.composedPath"
+    },
+    {
+      "id": "external:event.key.toLowerCase",
+      "type": "ExternalSymbol",
+      "label": "event.key.toLowerCase"
+    },
+    {
+      "id": "external:event.preventDefault",
+      "type": "ExternalSymbol",
+      "label": "event.preventDefault"
+    },
+    {
+      "id": "external:event.target.closest",
+      "type": "ExternalSymbol",
+      "label": "event.target.closest"
+    },
+    {
+      "id": "external:expanduser",
+      "type": "ExternalSymbol",
+      "label": "expanduser"
+    },
+    {
+      "id": "external:expect",
+      "type": "ExternalSymbol",
+      "label": "expect"
+    },
+    {
+      "id": "external:fetch",
+      "type": "ExternalSymbol",
+      "label": "fetch"
+    },
+    {
+      "id": "external:fetchMock.mock.calls.filter",
+      "type": "ExternalSymbol",
+      "label": "fetchMock.mock.calls.filter"
+    },
+    {
+      "id": "external:fetchall",
+      "type": "ExternalSymbol",
+      "label": "fetchall"
+    },
+    {
+      "id": "external:fetchone",
+      "type": "ExternalSymbol",
+      "label": "fetchone"
+    },
+    {
+      "id": "external:finishPost",
+      "type": "ExternalSymbol",
+      "label": "finishPost"
+    },
+    {
+      "id": "external:fireEvent.change",
+      "type": "ExternalSymbol",
+      "label": "fireEvent.change"
+    },
+    {
+      "id": "external:fireEvent.click",
+      "type": "ExternalSymbol",
+      "label": "fireEvent.click"
+    },
+    {
+      "id": "external:fireEvent.focus",
+      "type": "ExternalSymbol",
+      "label": "fireEvent.focus"
+    },
+    {
+      "id": "external:fireEvent.keyDown",
+      "type": "ExternalSymbol",
+      "label": "fireEvent.keyDown"
+    },
+    {
+      "id": "external:fireEvent.loadedMetadata",
+      "type": "ExternalSymbol",
+      "label": "fireEvent.loadedMetadata"
+    },
+    {
+      "id": "external:fireEvent.seeked",
+      "type": "ExternalSymbol",
+      "label": "fireEvent.seeked"
+    },
+    {
+      "id": "external:fireEvent.timeUpdate",
+      "type": "ExternalSymbol",
+      "label": "fireEvent.timeUpdate"
+    },
+    {
+      "id": "external:getAttribute",
+      "type": "ExternalSymbol",
+      "label": "getAttribute"
+    },
+    {
+      "id": "external:get_runtime_paths",
+      "type": "ExternalSymbol",
+      "label": "get_runtime_paths"
+    },
+    {
+      "id": "external:hasAttribute",
+      "type": "ExternalSymbol",
+      "label": "hasAttribute"
+    },
+    {
+      "id": "external:initialize_storage",
+      "type": "ExternalSymbol",
+      "label": "initialize_storage"
+    },
+    {
+      "id": "external:input.remove",
+      "type": "ExternalSymbol",
+      "label": "input.remove"
+    },
+    {
+      "id": "external:interval.to_dict",
+      "type": "ExternalSymbol",
+      "label": "interval.to_dict"
+    },
+    {
+      "id": "external:intervals.find",
+      "type": "ExternalSymbol",
+      "label": "intervals.find"
+    },
+    {
+      "id": "external:intervals.json",
+      "type": "ExternalSymbol",
+      "label": "intervals.json"
+    },
+    {
+      "id": "external:intervals.map",
+      "type": "ExternalSymbol",
+      "label": "intervals.map"
+    },
+    {
+      "id": "external:it",
+      "type": "ExternalSymbol",
+      "label": "it"
+    },
+    {
+      "id": "external:it.each",
+      "type": "ExternalSymbol",
+      "label": "it.each"
+    },
+    {
+      "id": "external:json",
+      "type": "ExternalSymbol",
+      "label": "json"
+    },
+    {
+      "id": "external:len",
+      "type": "ExternalSymbol",
+      "label": "len"
+    },
+    {
+      "id": "external:list",
+      "type": "ExternalSymbol",
+      "label": "list"
+    },
+    {
+      "id": "external:list_deleted_intervals",
+      "type": "ExternalSymbol",
+      "label": "list_deleted_intervals"
+    },
+    {
+      "id": "external:list_interval_versions",
+      "type": "ExternalSymbol",
+      "label": "list_interval_versions"
+    },
+    {
+      "id": "external:list_intervals",
+      "type": "ExternalSymbol",
+      "label": "list_intervals"
+    },
+    {
+      "id": "external:list_media",
+      "type": "ExternalSymbol",
+      "label": "list_media"
+    },
+    {
+      "id": "external:map",
+      "type": "ExternalSymbol",
+      "label": "map"
+    },
+    {
+      "id": "external:media.find",
+      "type": "ExternalSymbol",
+      "label": "media.find"
+    },
+    {
+      "id": "external:media.map",
+      "type": "ExternalSymbol",
+      "label": "media.map"
+    },
+    {
+      "id": "external:media.read_bytes",
+      "type": "ExternalSymbol",
+      "label": "media.read_bytes"
+    },
+    {
+      "id": "external:media.some",
+      "type": "ExternalSymbol",
+      "label": "media.some"
+    },
+    {
+      "id": "external:media.write_bytes",
+      "type": "ExternalSymbol",
+      "label": "media.write_bytes"
+    },
+    {
+      "id": "external:mediaPaths.map",
+      "type": "ExternalSymbol",
+      "label": "mediaPaths.map"
+    },
+    {
+      "id": "external:media_dir.is_dir",
+      "type": "ExternalSymbol",
+      "label": "media_dir.is_dir"
+    },
+    {
+      "id": "external:media_dir.iterdir",
+      "type": "ExternalSymbol",
+      "label": "media_dir.iterdir"
+    },
+    {
+      "id": "external:media_dir.mkdir",
+      "type": "ExternalSymbol",
+      "label": "media_dir.mkdir"
+    },
+    {
+      "id": "external:media_dir.resolve",
+      "type": "ExternalSymbol",
+      "label": "media_dir.resolve"
+    },
+    {
+      "id": "external:media_list.json",
+      "type": "ExternalSymbol",
+      "label": "media_list.json"
+    },
+    {
+      "id": "external:mockResolvedValue",
+      "type": "ExternalSymbol",
+      "label": "mockResolvedValue"
+    },
+    {
+      "id": "external:model_validator",
+      "type": "ExternalSymbol",
+      "label": "model_validator"
+    },
+    {
+      "id": "external:monkeypatch.setenv",
+      "type": "ExternalSymbol",
+      "label": "monkeypatch.setenv"
+    },
+    {
+      "id": "external:mutations.delete",
+      "type": "ExternalSymbol",
+      "label": "mutations.delete"
+    },
+    {
+      "id": "external:mutations.patch",
+      "type": "ExternalSymbol",
+      "label": "mutations.patch"
+    },
+    {
+      "id": "external:os.getenv",
+      "type": "ExternalSymbol",
+      "label": "os.getenv"
+    },
+    {
+      "id": "external:padStart",
+      "type": "ExternalSymbol",
+      "label": "padStart"
+    },
+    {
+      "id": "external:path.parent.mkdir",
+      "type": "ExternalSymbol",
+      "label": "path.parent.mkdir"
+    },
+    {
+      "id": "external:path.startsWith",
+      "type": "ExternalSymbol",
+      "label": "path.startsWith"
+    },
+    {
+      "id": "external:pause",
+      "type": "ExternalSymbol",
+      "label": "pause"
+    },
+    {
+      "id": "external:postInterval",
+      "type": "ExternalSymbol",
+      "label": "postInterval"
+    },
+    {
+      "id": "external:previous.filter",
+      "type": "ExternalSymbol",
+      "label": "previous.filter"
+    },
+    {
+      "id": "external:previous.map",
+      "type": "ExternalSymbol",
+      "label": "previous.map"
+    },
+    {
+      "id": "external:pytest.mark.parametrize",
+      "type": "ExternalSymbol",
+      "label": "pytest.mark.parametrize"
+    },
+    {
+      "id": "external:quote",
+      "type": "ExternalSymbol",
+      "label": "quote"
+    },
+    {
+      "id": "external:react",
+      "type": "ExternalSymbol",
+      "label": "react"
+    },
+    {
+      "id": "external:reason.strip",
+      "type": "ExternalSymbol",
+      "label": "reason.strip"
+    },
+    {
+      "id": "external:render",
+      "type": "ExternalSymbol",
+      "label": "render"
+    },
+    {
+      "id": "external:reopened.get",
+      "type": "ExternalSymbol",
+      "label": "reopened.get"
+    },
+    {
+      "id": "external:reopened_client.get",
+      "type": "ExternalSymbol",
+      "label": "reopened_client.get"
+    },
+    {
+      "id": "external:replace",
+      "type": "ExternalSymbol",
+      "label": "replace"
+    },
+    {
+      "id": "external:resolve",
+      "type": "ExternalSymbol",
+      "label": "resolve"
+    },
+    {
+      "id": "external:resolve_media",
+      "type": "ExternalSymbol",
+      "label": "resolve_media"
+    },
+    {
+      "id": "external:resolved.data_dir.is_dir",
+      "type": "ExternalSymbol",
+      "label": "resolved.data_dir.is_dir"
+    },
+    {
+      "id": "external:resolved.data_dir.mkdir",
+      "type": "ExternalSymbol",
+      "label": "resolved.data_dir.mkdir"
+    },
+    {
+      "id": "external:resolved.media_dir.is_dir",
+      "type": "ExternalSymbol",
+      "label": "resolved.media_dir.is_dir"
+    },
+    {
+      "id": "external:resolved.media_dir.mkdir",
+      "type": "ExternalSymbol",
+      "label": "resolved.media_dir.mkdir"
+    },
+    {
+      "id": "external:response.json",
+      "type": "ExternalSymbol",
+      "label": "response.json"
+    },
+    {
+      "id": "external:return",
+      "type": "ExternalSymbol",
+      "label": "return"
+    },
+    {
+      "id": "external:save_interval",
+      "type": "ExternalSymbol",
+      "label": "save_interval"
+    },
+    {
+      "id": "external:screen.findByLabelText",
+      "type": "ExternalSymbol",
+      "label": "screen.findByLabelText"
+    },
+    {
+      "id": "external:screen.findByRole",
+      "type": "ExternalSymbol",
+      "label": "screen.findByRole"
+    },
+    {
+      "id": "external:screen.findByText",
+      "type": "ExternalSymbol",
+      "label": "screen.findByText"
+    },
+    {
+      "id": "external:screen.getAllByRole",
+      "type": "ExternalSymbol",
+      "label": "screen.getAllByRole"
+    },
+    {
+      "id": "external:screen.getByLabelText",
+      "type": "ExternalSymbol",
+      "label": "screen.getByLabelText"
+    },
+    {
+      "id": "external:screen.getByRole",
+      "type": "ExternalSymbol",
+      "label": "screen.getByRole"
+    },
+    {
+      "id": "external:second.json",
+      "type": "ExternalSymbol",
+      "label": "second.json"
+    },
+    {
+      "id": "external:self.media_path.strip",
+      "type": "ExternalSymbol",
+      "label": "self.media_path.strip"
+    },
+    {
+      "id": "external:self.reason.strip",
+      "type": "ExternalSymbol",
+      "label": "self.reason.strip"
+    },
+    {
+      "id": "external:setCurrentTime",
+      "type": "ExternalSymbol",
+      "label": "setCurrentTime"
+    },
+    {
+      "id": "external:setDeletingId",
+      "type": "ExternalSymbol",
+      "label": "setDeletingId"
+    },
+    {
+      "id": "external:setDeletionReason",
+      "type": "ExternalSymbol",
+      "label": "setDeletionReason"
+    },
+    {
+      "id": "external:setDuration",
+      "type": "ExternalSymbol",
+      "label": "setDuration"
+    },
+    {
+      "id": "external:setEditError",
+      "type": "ExternalSymbol",
+      "label": "setEditError"
+    },
+    {
+      "id": "external:setEditing",
+      "type": "ExternalSymbol",
+      "label": "setEditing"
+    },
+    {
+      "id": "external:setIntervals",
+      "type": "ExternalSymbol",
+      "label": "setIntervals"
+    },
+    {
+      "id": "external:setIntervalsError",
+      "type": "ExternalSymbol",
+      "label": "setIntervalsError"
+    },
+    {
+      "id": "external:setIntervalsLoading",
+      "type": "ExternalSymbol",
+      "label": "setIntervalsLoading"
+    },
+    {
+      "id": "external:setLastSavedId",
+      "type": "ExternalSymbol",
+      "label": "setLastSavedId"
+    },
+    {
+      "id": "external:setLoadError",
+      "type": "ExternalSymbol",
+      "label": "setLoadError"
+    },
+    {
+      "id": "external:setLoading",
+      "type": "ExternalSymbol",
+      "label": "setLoading"
+    },
+    {
+      "id": "external:setMarkError",
+      "type": "ExternalSymbol",
+      "label": "setMarkError"
+    },
+    {
+      "id": "external:setMarking",
+      "type": "ExternalSymbol",
+      "label": "setMarking"
+    },
+    {
+      "id": "external:setMedia",
+      "type": "ExternalSymbol",
+      "label": "setMedia"
+    },
+    {
+      "id": "external:setMutationBusy",
+      "type": "ExternalSymbol",
+      "label": "setMutationBusy"
+    },
+    {
+      "id": "external:setMutationStatus",
+      "type": "ExternalSymbol",
+      "label": "setMutationStatus"
+    },
+    {
+      "id": "external:setPlaybackRate",
+      "type": "ExternalSymbol",
+      "label": "setPlaybackRate"
+    },
+    {
+      "id": "external:setPlaying",
+      "type": "ExternalSymbol",
+      "label": "setPlaying"
+    },
+    {
+      "id": "external:setRefreshKey",
+      "type": "ExternalSymbol",
+      "label": "setRefreshKey"
+    },
+    {
+      "id": "external:setReviewStatus",
+      "type": "ExternalSymbol",
+      "label": "setReviewStatus"
+    },
+    {
+      "id": "external:setReviewing",
+      "type": "ExternalSymbol",
+      "label": "setReviewing"
+    },
+    {
+      "id": "external:setSaving",
+      "type": "ExternalSymbol",
+      "label": "setSaving"
+    },
+    {
+      "id": "external:setSelectedIntervalId",
+      "type": "ExternalSymbol",
+      "label": "setSelectedIntervalId"
+    },
+    {
+      "id": "external:setSelectedPath",
+      "type": "ExternalSymbol",
+      "label": "setSelectedPath"
+    },
+    {
+      "id": "external:setVideoError",
+      "type": "ExternalSymbol",
+      "label": "setVideoError"
+    },
+    {
+      "id": "external:some",
+      "type": "ExternalSymbol",
+      "label": "some"
+    },
+    {
+      "id": "external:sorted",
+      "type": "ExternalSymbol",
+      "label": "sorted"
+    },
+    {
+      "id": "external:sqlite3.connect",
+      "type": "ExternalSymbol",
+      "label": "sqlite3.connect"
+    },
+    {
+      "id": "external:str",
+      "type": "ExternalSymbol",
+      "label": "str"
+    },
+    {
+      "id": "external:suffix.lower",
+      "type": "ExternalSymbol",
+      "label": "suffix.lower"
+    },
+    {
+      "id": "external:symlink_to",
+      "type": "ExternalSymbol",
+      "label": "symlink_to"
+    },
+    {
+      "id": "external:then",
+      "type": "ExternalSymbol",
+      "label": "then"
+    },
+    {
+      "id": "external:toBe",
+      "type": "ExternalSymbol",
+      "label": "toBe"
+    },
+    {
+      "id": "external:toBeCloseTo",
+      "type": "ExternalSymbol",
+      "label": "toBeCloseTo"
+    },
+    {
+      "id": "external:toBeTruthy",
+      "type": "ExternalSymbol",
+      "label": "toBeTruthy"
+    },
+    {
+      "id": "external:toContain",
+      "type": "ExternalSymbol",
+      "label": "toContain"
+    },
+    {
+      "id": "external:toEqual",
+      "type": "ExternalSymbol",
+      "label": "toEqual"
+    },
+    {
+      "id": "external:toFixed",
+      "type": "ExternalSymbol",
+      "label": "toFixed"
+    },
+    {
+      "id": "external:toHaveBeenCalledTimes",
+      "type": "ExternalSymbol",
+      "label": "toHaveBeenCalledTimes"
+    },
+    {
+      "id": "external:toHaveLength",
+      "type": "ExternalSymbol",
+      "label": "toHaveLength"
+    },
+    {
+      "id": "external:to_dict",
+      "type": "ExternalSymbol",
+      "label": "to_dict"
+    },
+    {
+      "id": "external:update_interval",
+      "type": "ExternalSymbol",
+      "label": "update_interval"
+    },
+    {
+      "id": "external:updated.to_dict",
+      "type": "ExternalSymbol",
+      "label": "updated.to_dict"
+    },
+    {
+      "id": "external:useEffect",
+      "type": "ExternalSymbol",
+      "label": "useEffect"
+    },
+    {
+      "id": "external:useRef",
+      "type": "ExternalSymbol",
+      "label": "useRef"
+    },
+    {
+      "id": "external:useState",
+      "type": "ExternalSymbol",
+      "label": "useState"
+    },
+    {
+      "id": "external:versions_response.json",
+      "type": "ExternalSymbol",
+      "label": "versions_response.json"
+    },
+    {
+      "id": "external:vi.fn",
+      "type": "ExternalSymbol",
+      "label": "vi.fn"
+    },
+    {
+      "id": "external:vi.stubGlobal",
+      "type": "ExternalSymbol",
+      "label": "vi.stubGlobal"
+    },
+    {
+      "id": "external:vi.unstubAllGlobals",
+      "type": "ExternalSymbol",
+      "label": "vi.unstubAllGlobals"
+    },
+    {
+      "id": "external:video.addEventListener",
+      "type": "ExternalSymbol",
+      "label": "video.addEventListener"
+    },
+    {
+      "id": "external:video.pause",
+      "type": "ExternalSymbol",
+      "label": "video.pause"
+    },
+    {
+      "id": "external:video.play",
+      "type": "ExternalSymbol",
+      "label": "video.play"
+    },
+    {
+      "id": "external:video.removeEventListener",
+      "type": "ExternalSymbol",
+      "label": "video.removeEventListener"
+    },
+    {
+      "id": "external:waitFor",
+      "type": "ExternalSymbol",
+      "label": "waitFor"
+    },
+    {
+      "id": "external:window.addEventListener",
+      "type": "ExternalSymbol",
+      "label": "window.addEventListener"
+    },
+    {
+      "id": "external:window.removeEventListener",
+      "type": "ExternalSymbol",
+      "label": "window.removeEventListener"
+    },
+    {
+      "id": "external:write_bytes",
+      "type": "ExternalSymbol",
+      "label": "write_bytes"
+    },
+    {
+      "id": "external:write_text",
+      "type": "ExternalSymbol",
+      "label": "write_text"
+    },
+    {
+      "id": "file:backend/src/cepraea_video/__init__.py",
+      "type": "File",
+      "label": "backend/src/cepraea_video/__init__.py",
+      "path": "backend/src/cepraea_video/__init__.py",
+      "language": "py"
+    },
+    {
+      "id": "file:backend/src/cepraea_video/config.py",
+      "type": "File",
+      "label": "backend/src/cepraea_video/config.py",
+      "path": "backend/src/cepraea_video/config.py",
+      "language": "py"
+    },
+    {
+      "id": "file:backend/src/cepraea_video/main.py",
+      "type": "File",
+      "label": "backend/src/cepraea_video/main.py",
+      "path": "backend/src/cepraea_video/main.py",
+      "language": "py"
+    },
+    {
+      "id": "file:backend/src/cepraea_video/spike_media.py",
+      "type": "File",
+      "label": "backend/src/cepraea_video/spike_media.py",
+      "path": "backend/src/cepraea_video/spike_media.py",
+      "language": "py"
+    },
+    {
+      "id": "file:backend/src/cepraea_video/spike_storage.py",
+      "type": "File",
+      "label": "backend/src/cepraea_video/spike_storage.py",
+      "path": "backend/src/cepraea_video/spike_storage.py",
+      "language": "py"
+    },
+    {
+      "id": "file:backend/tests/test_bootstrap.py",
+      "type": "File",
+      "label": "backend/tests/test_bootstrap.py",
+      "path": "backend/tests/test_bootstrap.py",
+      "language": "py"
+    },
+    {
+      "id": "file:backend/tests/test_spike_media.py",
+      "type": "File",
+      "label": "backend/tests/test_spike_media.py",
+      "path": "backend/tests/test_spike_media.py",
+      "language": "py"
+    },
+    {
+      "id": "file:backend/tests/test_spike_storage.py",
+      "type": "File",
+      "label": "backend/tests/test_spike_storage.py",
+      "path": "backend/tests/test_spike_storage.py",
+      "language": "py"
+    },
+    {
+      "id": "file:frontend/src/App.test.tsx",
+      "type": "File",
+      "label": "frontend/src/App.test.tsx",
+      "path": "frontend/src/App.test.tsx",
+      "language": "tsx"
+    },
+    {
+      "id": "file:frontend/src/App.tsx",
+      "type": "File",
+      "label": "frontend/src/App.tsx",
+      "path": "frontend/src/App.tsx",
+      "language": "tsx"
+    },
+    {
+      "id": "file:frontend/src/appMeta.test.ts",
+      "type": "File",
+      "label": "frontend/src/appMeta.test.ts",
+      "path": "frontend/src/appMeta.test.ts",
+      "language": "ts"
+    },
+    {
+      "id": "file:frontend/src/appMeta.ts",
+      "type": "File",
+      "label": "frontend/src/appMeta.ts",
+      "path": "frontend/src/appMeta.ts",
+      "language": "ts"
+    },
+    {
+      "id": "file:frontend/src/main.tsx",
+      "type": "File",
+      "label": "frontend/src/main.tsx",
+      "path": "frontend/src/main.tsx",
+      "language": "tsx"
+    },
+    {
+      "id": "file:frontend/vite.config.ts",
+      "type": "File",
+      "label": "frontend/vite.config.ts",
+      "path": "frontend/vite.config.ts",
+      "language": "ts"
+    },
+    {
+      "id": "function:backend/src/cepraea_video/config.py:ensure_runtime_directories",
+      "type": "Function",
+      "label": "ensure_runtime_directories",
+      "file": "backend/src/cepraea_video/config.py",
+      "owner": null
+    },
+    {
+      "id": "function:backend/src/cepraea_video/config.py:get_runtime_paths",
+      "type": "Function",
+      "label": "get_runtime_paths",
+      "file": "backend/src/cepraea_video/config.py",
+      "owner": null
+    },
+    {
+      "id": "function:backend/src/cepraea_video/main.py:create_spike_interval",
+      "type": "Function",
+      "label": "create_spike_interval",
+      "file": "backend/src/cepraea_video/main.py",
+      "owner": null
+    },
+    {
+      "id": "function:backend/src/cepraea_video/main.py:delete_spike_interval",
+      "type": "Function",
+      "label": "delete_spike_interval",
+      "file": "backend/src/cepraea_video/main.py",
+      "owner": null
+    },
+    {
+      "id": "function:backend/src/cepraea_video/main.py:get_deleted_spike_intervals",
+      "type": "Function",
+      "label": "get_deleted_spike_intervals",
+      "file": "backend/src/cepraea_video/main.py",
+      "owner": null
+    },
+    {
+      "id": "function:backend/src/cepraea_video/main.py:get_spike_interval_versions",
+      "type": "Function",
+      "label": "get_spike_interval_versions",
+      "file": "backend/src/cepraea_video/main.py",
+      "owner": null
+    },
+    {
+      "id": "function:backend/src/cepraea_video/main.py:get_spike_intervals",
+      "type": "Function",
+      "label": "get_spike_intervals",
+      "file": "backend/src/cepraea_video/main.py",
+      "owner": null
+    },
+    {
+      "id": "function:backend/src/cepraea_video/main.py:get_spike_media",
+      "type": "Function",
+      "label": "get_spike_media",
+      "file": "backend/src/cepraea_video/main.py",
+      "owner": null
+    },
+    {
+      "id": "function:backend/src/cepraea_video/main.py:get_spike_media_file",
+      "type": "Function",
+      "label": "get_spike_media_file",
+      "file": "backend/src/cepraea_video/main.py",
+      "owner": null
+    },
+    {
+      "id": "function:backend/src/cepraea_video/main.py:health",
+      "type": "Function",
+      "label": "health",
+      "file": "backend/src/cepraea_video/main.py",
+      "owner": null
+    },
+    {
+      "id": "function:backend/src/cepraea_video/main.py:lifespan",
+      "type": "Function",
+      "label": "lifespan",
+      "file": "backend/src/cepraea_video/main.py",
+      "owner": null
+    },
+    {
+      "id": "function:backend/src/cepraea_video/main.py:patch_spike_interval",
+      "type": "Function",
+      "label": "patch_spike_interval",
+      "file": "backend/src/cepraea_video/main.py",
+      "owner": null
+    },
+    {
+      "id": "function:backend/src/cepraea_video/spike_media.py:list_media",
+      "type": "Function",
+      "label": "list_media",
+      "file": "backend/src/cepraea_video/spike_media.py",
+      "owner": null
+    },
+    {
+      "id": "function:backend/src/cepraea_video/spike_media.py:resolve_media",
+      "type": "Function",
+      "label": "resolve_media",
+      "file": "backend/src/cepraea_video/spike_media.py",
+      "owner": null
+    },
+    {
+      "id": "function:backend/src/cepraea_video/spike_storage.py:_connect",
+      "type": "Function",
+      "label": "_connect",
+      "file": "backend/src/cepraea_video/spike_storage.py",
+      "owner": null
+    },
+    {
+      "id": "function:backend/src/cepraea_video/spike_storage.py:database_path",
+      "type": "Function",
+      "label": "database_path",
+      "file": "backend/src/cepraea_video/spike_storage.py",
+      "owner": null
+    },
+    {
+      "id": "function:backend/src/cepraea_video/spike_storage.py:delete_interval",
+      "type": "Function",
+      "label": "delete_interval",
+      "file": "backend/src/cepraea_video/spike_storage.py",
+      "owner": null
+    },
+    {
+      "id": "function:backend/src/cepraea_video/spike_storage.py:initialize_storage",
+      "type": "Function",
+      "label": "initialize_storage",
+      "file": "backend/src/cepraea_video/spike_storage.py",
+      "owner": null
+    },
+    {
+      "id": "function:backend/src/cepraea_video/spike_storage.py:list_deleted_intervals",
+      "type": "Function",
+      "label": "list_deleted_intervals",
+      "file": "backend/src/cepraea_video/spike_storage.py",
+      "owner": null
+    },
+    {
+      "id": "function:backend/src/cepraea_video/spike_storage.py:list_interval_versions",
+      "type": "Function",
+      "label": "list_interval_versions",
+      "file": "backend/src/cepraea_video/spike_storage.py",
+      "owner": null
+    },
+    {
+      "id": "function:backend/src/cepraea_video/spike_storage.py:list_intervals",
+      "type": "Function",
+      "label": "list_intervals",
+      "file": "backend/src/cepraea_video/spike_storage.py",
+      "owner": null
+    },
+    {
+      "id": "function:backend/src/cepraea_video/spike_storage.py:save_interval",
+      "type": "Function",
+      "label": "save_interval",
+      "file": "backend/src/cepraea_video/spike_storage.py",
+      "owner": null
+    },
+    {
+      "id": "function:backend/src/cepraea_video/spike_storage.py:update_interval",
+      "type": "Function",
+      "label": "update_interval",
+      "file": "backend/src/cepraea_video/spike_storage.py",
+      "owner": null
+    },
+    {
+      "id": "function:backend/tests/test_bootstrap.py:test_health_endpoint_starts_application",
+      "type": "Function",
+      "label": "test_health_endpoint_starts_application",
+      "file": "backend/tests/test_bootstrap.py",
+      "owner": null
+    },
+    {
+      "id": "function:backend/tests/test_bootstrap.py:test_runtime_directories_are_created_outside_versioned_content",
+      "type": "Function",
+      "label": "test_runtime_directories_are_created_outside_versioned_content",
+      "file": "backend/tests/test_bootstrap.py",
+      "owner": null
+    },
+    {
+      "id": "function:backend/tests/test_spike_media.py:test_local_mp4_is_listed_and_supports_byte_ranges",
+      "type": "Function",
+      "label": "test_local_mp4_is_listed_and_supports_byte_ranges",
+      "file": "backend/tests/test_spike_media.py",
+      "owner": null
+    },
+    {
+      "id": "function:backend/tests/test_spike_media.py:test_media_outside_local_directory_is_not_exposed",
+      "type": "Function",
+      "label": "test_media_outside_local_directory_is_not_exposed",
+      "file": "backend/tests/test_spike_media.py",
+      "owner": null
+    },
+    {
+      "id": "function:backend/tests/test_spike_storage.py:test_edit_keeps_identity_and_records_prior_versions_after_restart",
+      "type": "Function",
+      "label": "test_edit_keeps_identity_and_records_prior_versions_after_restart",
+      "file": "backend/tests/test_spike_storage.py",
+      "owner": null
+    },
+    {
+      "id": "function:backend/tests/test_spike_storage.py:test_existing_intervals_keep_ids_and_values_after_migration",
+      "type": "Function",
+      "label": "test_existing_intervals_keep_ids_and_values_after_migration",
+      "file": "backend/tests/test_spike_storage.py",
+      "owner": null
+    },
+    {
+      "id": "function:backend/tests/test_spike_storage.py:test_interval_survives_application_restart",
+      "type": "Function",
+      "label": "test_interval_survives_application_restart",
+      "file": "backend/tests/test_spike_storage.py",
+      "owner": null
+    },
+    {
+      "id": "function:backend/tests/test_spike_storage.py:test_invalid_edit_and_missing_interval_do_not_create_versions",
+      "type": "Function",
+      "label": "test_invalid_edit_and_missing_interval_do_not_create_versions",
+      "file": "backend/tests/test_spike_storage.py",
+      "owner": null
+    },
+    {
+      "id": "function:backend/tests/test_spike_storage.py:test_invalid_interval_is_rejected",
+      "type": "Function",
+      "label": "test_invalid_interval_is_rejected",
+      "file": "backend/tests/test_spike_storage.py",
+      "owner": null
+    },
+    {
+      "id": "function:backend/tests/test_spike_storage.py:test_soft_delete_requires_reason_and_remains_auditable",
+      "type": "Function",
+      "label": "test_soft_delete_requires_reason_and_remains_auditable",
+      "file": "backend/tests/test_spike_storage.py",
+      "owner": null
+    },
+    {
+      "id": "function:frontend/src/App.test.tsx:jsonResponse",
+      "type": "Function",
+      "label": "jsonResponse",
+      "file": "frontend/src/App.test.tsx",
+      "owner": null
+    },
+    {
+      "id": "function:frontend/src/App.test.tsx:renderWithLocalMedia",
+      "type": "Function",
+      "label": "renderWithLocalMedia",
+      "file": "frontend/src/App.test.tsx",
+      "owner": null
+    },
+    {
+      "id": "function:frontend/src/App.tsx:App",
+      "type": "Function",
+      "label": "App",
+      "file": "frontend/src/App.tsx",
+      "owner": null
+    },
+    {
+      "id": "function:frontend/src/App.tsx:adjustEditBoundary",
+      "type": "Function",
+      "label": "adjustEditBoundary",
+      "file": "frontend/src/App.tsx",
+      "owner": null
+    },
+    {
+      "id": "function:frontend/src/App.tsx:beginEditing",
+      "type": "Function",
+      "label": "beginEditing",
+      "file": "frontend/src/App.tsx",
+      "owner": null
+    },
+    {
+      "id": "function:frontend/src/App.tsx:captureCurrentMs",
+      "type": "Function",
+      "label": "captureCurrentMs",
+      "file": "frontend/src/App.tsx",
+      "owner": null
+    },
+    {
+      "id": "function:frontend/src/App.tsx:confirmAndSave",
+      "type": "Function",
+      "label": "confirmAndSave",
+      "file": "frontend/src/App.tsx",
+      "owner": null
+    },
+    {
+      "id": "function:frontend/src/App.tsx:confirmDeletion",
+      "type": "Function",
+      "label": "confirmDeletion",
+      "file": "frontend/src/App.tsx",
+      "owner": null
+    },
+    {
+      "id": "function:frontend/src/App.tsx:discardMarking",
+      "type": "Function",
+      "label": "discardMarking",
+      "file": "frontend/src/App.tsx",
+      "owner": null
+    },
+    {
+      "id": "function:frontend/src/App.tsx:endMarking",
+      "type": "Function",
+      "label": "endMarking",
+      "file": "frontend/src/App.tsx",
+      "owner": null
+    },
+    {
+      "id": "function:frontend/src/App.tsx:formatMilliseconds",
+      "type": "Function",
+      "label": "formatMilliseconds",
+      "file": "frontend/src/App.tsx",
+      "owner": null
+    },
+    {
+      "id": "function:frontend/src/App.tsx:formatTime",
+      "type": "Function",
+      "label": "formatTime",
+      "file": "frontend/src/App.tsx",
+      "owner": null
+    },
+    {
+      "id": "function:frontend/src/App.tsx:handleKeyboard",
+      "type": "Function",
+      "label": "handleKeyboard",
+      "file": "frontend/src/App.tsx",
+      "owner": null
+    },
+    {
+      "id": "function:frontend/src/App.tsx:loadIntervals",
+      "type": "Function",
+      "label": "loadIntervals",
+      "file": "frontend/src/App.tsx",
+      "owner": null
+    },
+    {
+      "id": "function:frontend/src/App.tsx:loadMedia",
+      "type": "Function",
+      "label": "loadMedia",
+      "file": "frontend/src/App.tsx",
+      "owner": null
+    },
+    {
+      "id": "function:frontend/src/App.tsx:playFromStart",
+      "type": "Function",
+      "label": "playFromStart",
+      "file": "frontend/src/App.tsx",
+      "owner": null
+    },
+    {
+      "id": "function:frontend/src/App.tsx:reviewDraft",
+      "type": "Function",
+      "label": "reviewDraft",
+      "file": "frontend/src/App.tsx",
+      "owner": null
+    },
+    {
+      "id": "function:frontend/src/App.tsx:reviewInterval",
+      "type": "Function",
+      "label": "reviewInterval",
+      "file": "frontend/src/App.tsx",
+      "owner": null
+    },
+    {
+      "id": "function:frontend/src/App.tsx:saveEdit",
+      "type": "Function",
+      "label": "saveEdit",
+      "file": "frontend/src/App.tsx",
+      "owner": null
+    },
+    {
+      "id": "function:frontend/src/App.tsx:seekByMs",
+      "type": "Function",
+      "label": "seekByMs",
+      "file": "frontend/src/App.tsx",
+      "owner": null
+    },
+    {
+      "id": "function:frontend/src/App.tsx:selectMedia",
+      "type": "Function",
+      "label": "selectMedia",
+      "file": "frontend/src/App.tsx",
+      "owner": null
+    },
+    {
+      "id": "function:frontend/src/App.tsx:startMarking",
+      "type": "Function",
+      "label": "startMarking",
+      "file": "frontend/src/App.tsx",
+      "owner": null
+    },
+    {
+      "id": "function:frontend/src/App.tsx:stopReview",
+      "type": "Function",
+      "label": "stopReview",
+      "file": "frontend/src/App.tsx",
+      "owner": null
+    },
+    {
+      "id": "function:frontend/src/App.tsx:togglePlayback",
+      "type": "Function",
+      "label": "togglePlayback",
+      "file": "frontend/src/App.tsx",
+      "owner": null
+    },
+    {
+      "id": "function:frontend/src/App.tsx:updateVideoTime",
+      "type": "Function",
+      "label": "updateVideoTime",
+      "file": "frontend/src/App.tsx",
+      "owner": null
+    },
+    {
+      "id": "method:backend/src/cepraea_video/main.py:SpikeIntervalDeletion.validate_reason",
+      "type": "Method",
+      "label": "validate_reason",
+      "file": "backend/src/cepraea_video/main.py",
+      "owner": "SpikeIntervalDeletion"
+    },
+    {
+      "id": "method:backend/src/cepraea_video/main.py:SpikeIntervalInput.validate_interval",
+      "type": "Method",
+      "label": "validate_interval",
+      "file": "backend/src/cepraea_video/main.py",
+      "owner": "SpikeIntervalInput"
+    },
+    {
+      "id": "method:backend/src/cepraea_video/main.py:SpikeIntervalUpdate.validate_interval",
+      "type": "Method",
+      "label": "validate_interval",
+      "file": "backend/src/cepraea_video/main.py",
+      "owner": "SpikeIntervalUpdate"
+    },
+    {
+      "id": "method:backend/src/cepraea_video/spike_storage.py:SpikeInterval.to_dict",
+      "type": "Method",
+      "label": "to_dict",
+      "file": "backend/src/cepraea_video/spike_storage.py",
+      "owner": "SpikeInterval"
+    },
+    {
+      "id": "module:./App",
+      "type": "Module",
+      "label": "./App"
+    },
+    {
+      "id": "module:./appMeta",
+      "type": "Module",
+      "label": "./appMeta"
+    },
+    {
+      "id": "module:@testing-library/react",
+      "type": "Module",
+      "label": "@testing-library/react"
+    },
+    {
+      "id": "module:@vitejs/plugin-react",
+      "type": "Module",
+      "label": "@vitejs/plugin-react"
+    },
+    {
+      "id": "module:__future__",
+      "type": "Module",
+      "label": "__future__"
+    },
+    {
+      "id": "module:cepraea_video",
+      "type": "Module",
+      "label": "cepraea_video"
+    },
+    {
+      "id": "module:cepraea_video.config",
+      "type": "Module",
+      "label": "cepraea_video.config"
+    },
+    {
+      "id": "module:cepraea_video.main",
+      "type": "Module",
+      "label": "cepraea_video.main"
+    },
+    {
+      "id": "module:cepraea_video.spike_media",
+      "type": "Module",
+      "label": "cepraea_video.spike_media"
+    },
+    {
+      "id": "module:cepraea_video.spike_storage",
+      "type": "Module",
+      "label": "cepraea_video.spike_storage"
+    },
+    {
+      "id": "module:contextlib",
+      "type": "Module",
+      "label": "contextlib"
+    },
+    {
+      "id": "module:dataclasses",
+      "type": "Module",
+      "label": "dataclasses"
+    },
+    {
+      "id": "module:fastapi",
+      "type": "Module",
+      "label": "fastapi"
+    },
+    {
+      "id": "module:fastapi.testclient",
+      "type": "Module",
+      "label": "fastapi.testclient"
+    },
+    {
+      "id": "module:os",
+      "type": "Module",
+      "label": "os"
+    },
+    {
+      "id": "module:pathlib",
+      "type": "Module",
+      "label": "pathlib"
+    },
+    {
+      "id": "module:pydantic",
+      "type": "Module",
+      "label": "pydantic"
+    },
+    {
+      "id": "module:pytest",
+      "type": "Module",
+      "label": "pytest"
+    },
+    {
+      "id": "module:react",
+      "type": "Module",
+      "label": "react"
+    },
+    {
+      "id": "module:react-dom/client",
+      "type": "Module",
+      "label": "react-dom/client"
+    },
+    {
+      "id": "module:sqlite3",
+      "type": "Module",
+      "label": "sqlite3"
+    },
+    {
+      "id": "module:starlette.responses",
+      "type": "Module",
+      "label": "starlette.responses"
+    },
+    {
+      "id": "module:urllib.parse",
+      "type": "Module",
+      "label": "urllib.parse"
+    },
+    {
+      "id": "module:vite",
+      "type": "Module",
+      "label": "vite"
+    },
+    {
+      "id": "module:vitest",
+      "type": "Module",
+      "label": "vitest"
+    }
+  ],
+  "edges": [
+    {
+      "source": "class:backend/src/cepraea_video/main.py:SpikeIntervalDeletion",
+      "target": "external:BaseModel",
+      "relation": "INHERITS",
+      "occurrences": 1,
+      "first_line": 72
+    },
+    {
+      "source": "class:backend/src/cepraea_video/main.py:SpikeIntervalDeletion",
+      "target": "method:backend/src/cepraea_video/main.py:SpikeIntervalDeletion.validate_reason",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 76
+    },
+    {
+      "source": "class:backend/src/cepraea_video/main.py:SpikeIntervalInput",
+      "target": "external:BaseModel",
+      "relation": "INHERITS",
+      "occurrences": 1,
+      "first_line": 47
+    },
+    {
+      "source": "class:backend/src/cepraea_video/main.py:SpikeIntervalInput",
+      "target": "method:backend/src/cepraea_video/main.py:SpikeIntervalInput.validate_interval",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 53
+    },
+    {
+      "source": "class:backend/src/cepraea_video/main.py:SpikeIntervalUpdate",
+      "target": "external:BaseModel",
+      "relation": "INHERITS",
+      "occurrences": 1,
+      "first_line": 61
+    },
+    {
+      "source": "class:backend/src/cepraea_video/main.py:SpikeIntervalUpdate",
+      "target": "method:backend/src/cepraea_video/main.py:SpikeIntervalUpdate.validate_interval",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 66
+    },
+    {
+      "source": "class:backend/src/cepraea_video/spike_storage.py:SpikeInterval",
+      "target": "method:backend/src/cepraea_video/spike_storage.py:SpikeInterval.to_dict",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 26
+    },
+    {
+      "source": "file:backend/src/cepraea_video/config.py",
+      "target": "class:backend/src/cepraea_video/config.py:RuntimePaths",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 12
+    },
+    {
+      "source": "file:backend/src/cepraea_video/config.py",
+      "target": "external:Path",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 8
+    },
+    {
+      "source": "file:backend/src/cepraea_video/config.py",
+      "target": "external:dataclass",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 11
+    },
+    {
+      "source": "file:backend/src/cepraea_video/config.py",
+      "target": "external:resolve",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 8
+    },
+    {
+      "source": "file:backend/src/cepraea_video/config.py",
+      "target": "function:backend/src/cepraea_video/config.py:ensure_runtime_directories",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 25
+    },
+    {
+      "source": "file:backend/src/cepraea_video/config.py",
+      "target": "function:backend/src/cepraea_video/config.py:get_runtime_paths",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 17
+    },
+    {
+      "source": "file:backend/src/cepraea_video/config.py",
+      "target": "module:__future__",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 1
+    },
+    {
+      "source": "file:backend/src/cepraea_video/config.py",
+      "target": "module:dataclasses",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 4
+    },
+    {
+      "source": "file:backend/src/cepraea_video/config.py",
+      "target": "module:os",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 3
+    },
+    {
+      "source": "file:backend/src/cepraea_video/config.py",
+      "target": "module:pathlib",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 5
+    },
+    {
+      "source": "file:backend/src/cepraea_video/main.py",
+      "target": "class:backend/src/cepraea_video/main.py:SpikeIntervalDeletion",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 72
+    },
+    {
+      "source": "file:backend/src/cepraea_video/main.py",
+      "target": "class:backend/src/cepraea_video/main.py:SpikeIntervalInput",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 47
+    },
+    {
+      "source": "file:backend/src/cepraea_video/main.py",
+      "target": "class:backend/src/cepraea_video/main.py:SpikeIntervalUpdate",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 61
+    },
+    {
+      "source": "file:backend/src/cepraea_video/main.py",
+      "target": "external:FastAPI",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 31
+    },
+    {
+      "source": "file:backend/src/cepraea_video/main.py",
+      "target": "external:Field",
+      "relation": "CALLS",
+      "occurrences": 6,
+      "first_line": 48
+    },
+    {
+      "source": "file:backend/src/cepraea_video/main.py",
+      "target": "function:backend/src/cepraea_video/main.py:create_spike_interval",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 83
+    },
+    {
+      "source": "file:backend/src/cepraea_video/main.py",
+      "target": "function:backend/src/cepraea_video/main.py:delete_spike_interval",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 112
+    },
+    {
+      "source": "file:backend/src/cepraea_video/main.py",
+      "target": "function:backend/src/cepraea_video/main.py:get_deleted_spike_intervals",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 121
+    },
+    {
+      "source": "file:backend/src/cepraea_video/main.py",
+      "target": "function:backend/src/cepraea_video/main.py:get_spike_interval_versions",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 126
+    },
+    {
+      "source": "file:backend/src/cepraea_video/main.py",
+      "target": "function:backend/src/cepraea_video/main.py:get_spike_intervals",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 95
+    },
+    {
+      "source": "file:backend/src/cepraea_video/main.py",
+      "target": "function:backend/src/cepraea_video/main.py:get_spike_media",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 131
+    },
+    {
+      "source": "file:backend/src/cepraea_video/main.py",
+      "target": "function:backend/src/cepraea_video/main.py:get_spike_media_file",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 136
+    },
+    {
+      "source": "file:backend/src/cepraea_video/main.py",
+      "target": "function:backend/src/cepraea_video/main.py:health",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 39
+    },
+    {
+      "source": "file:backend/src/cepraea_video/main.py",
+      "target": "function:backend/src/cepraea_video/main.py:lifespan",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 25
+    },
+    {
+      "source": "file:backend/src/cepraea_video/main.py",
+      "target": "function:backend/src/cepraea_video/main.py:patch_spike_interval",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 100
+    },
+    {
+      "source": "file:backend/src/cepraea_video/main.py",
+      "target": "module:__future__",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 1
+    },
+    {
+      "source": "file:backend/src/cepraea_video/main.py",
+      "target": "module:cepraea_video",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 9
+    },
+    {
+      "source": "file:backend/src/cepraea_video/main.py",
+      "target": "module:cepraea_video.config",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 10
+    },
+    {
+      "source": "file:backend/src/cepraea_video/main.py",
+      "target": "module:cepraea_video.spike_media",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 11
+    },
+    {
+      "source": "file:backend/src/cepraea_video/main.py",
+      "target": "module:cepraea_video.spike_storage",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 12
+    },
+    {
+      "source": "file:backend/src/cepraea_video/main.py",
+      "target": "module:contextlib",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 3
+    },
+    {
+      "source": "file:backend/src/cepraea_video/main.py",
+      "target": "module:fastapi",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 5
+    },
+    {
+      "source": "file:backend/src/cepraea_video/main.py",
+      "target": "module:pydantic",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 6
+    },
+    {
+      "source": "file:backend/src/cepraea_video/main.py",
+      "target": "module:starlette.responses",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 7
+    },
+    {
+      "source": "file:backend/src/cepraea_video/spike_media.py",
+      "target": "function:backend/src/cepraea_video/spike_media.py:list_media",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 23
+    },
+    {
+      "source": "file:backend/src/cepraea_video/spike_media.py",
+      "target": "function:backend/src/cepraea_video/spike_media.py:resolve_media",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 11
+    },
+    {
+      "source": "file:backend/src/cepraea_video/spike_media.py",
+      "target": "module:__future__",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 3
+    },
+    {
+      "source": "file:backend/src/cepraea_video/spike_media.py",
+      "target": "module:cepraea_video.config",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 8
+    },
+    {
+      "source": "file:backend/src/cepraea_video/spike_media.py",
+      "target": "module:pathlib",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 5
+    },
+    {
+      "source": "file:backend/src/cepraea_video/spike_media.py",
+      "target": "module:urllib.parse",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 6
+    },
+    {
+      "source": "file:backend/src/cepraea_video/spike_storage.py",
+      "target": "class:backend/src/cepraea_video/spike_storage.py:SpikeInterval",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 19
+    },
+    {
+      "source": "file:backend/src/cepraea_video/spike_storage.py",
+      "target": "external:dataclass",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 18
+    },
+    {
+      "source": "file:backend/src/cepraea_video/spike_storage.py",
+      "target": "function:backend/src/cepraea_video/spike_storage.py:_connect",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 34
+    },
+    {
+      "source": "file:backend/src/cepraea_video/spike_storage.py",
+      "target": "function:backend/src/cepraea_video/spike_storage.py:database_path",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 30
+    },
+    {
+      "source": "file:backend/src/cepraea_video/spike_storage.py",
+      "target": "function:backend/src/cepraea_video/spike_storage.py:delete_interval",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 160
+    },
+    {
+      "source": "file:backend/src/cepraea_video/spike_storage.py",
+      "target": "function:backend/src/cepraea_video/spike_storage.py:initialize_storage",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 41
+    },
+    {
+      "source": "file:backend/src/cepraea_video/spike_storage.py",
+      "target": "function:backend/src/cepraea_video/spike_storage.py:list_deleted_intervals",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 178
+    },
+    {
+      "source": "file:backend/src/cepraea_video/spike_storage.py",
+      "target": "function:backend/src/cepraea_video/spike_storage.py:list_interval_versions",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 190
+    },
+    {
+      "source": "file:backend/src/cepraea_video/spike_storage.py",
+      "target": "function:backend/src/cepraea_video/spike_storage.py:list_intervals",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 120
+    },
+    {
+      "source": "file:backend/src/cepraea_video/spike_storage.py",
+      "target": "function:backend/src/cepraea_video/spike_storage.py:save_interval",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 100
+    },
+    {
+      "source": "file:backend/src/cepraea_video/spike_storage.py",
+      "target": "function:backend/src/cepraea_video/spike_storage.py:update_interval",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 128
+    },
+    {
+      "source": "file:backend/src/cepraea_video/spike_storage.py",
+      "target": "module:__future__",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 6
+    },
+    {
+      "source": "file:backend/src/cepraea_video/spike_storage.py",
+      "target": "module:cepraea_video.config",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 13
+    },
+    {
+      "source": "file:backend/src/cepraea_video/spike_storage.py",
+      "target": "module:contextlib",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 9
+    },
+    {
+      "source": "file:backend/src/cepraea_video/spike_storage.py",
+      "target": "module:dataclasses",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 10
+    },
+    {
+      "source": "file:backend/src/cepraea_video/spike_storage.py",
+      "target": "module:pathlib",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 11
+    },
+    {
+      "source": "file:backend/src/cepraea_video/spike_storage.py",
+      "target": "module:sqlite3",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 8
+    },
+    {
+      "source": "file:backend/tests/test_bootstrap.py",
+      "target": "function:backend/tests/test_bootstrap.py:test_health_endpoint_starts_application",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 9
+    },
+    {
+      "source": "file:backend/tests/test_bootstrap.py",
+      "target": "function:backend/tests/test_bootstrap.py:test_runtime_directories_are_created_outside_versioned_content",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 18
+    },
+    {
+      "source": "file:backend/tests/test_bootstrap.py",
+      "target": "module:cepraea_video.config",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 5
+    },
+    {
+      "source": "file:backend/tests/test_bootstrap.py",
+      "target": "module:cepraea_video.main",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 6
+    },
+    {
+      "source": "file:backend/tests/test_bootstrap.py",
+      "target": "module:fastapi.testclient",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 3
+    },
+    {
+      "source": "file:backend/tests/test_bootstrap.py",
+      "target": "module:pathlib",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 1
+    },
+    {
+      "source": "file:backend/tests/test_spike_media.py",
+      "target": "function:backend/tests/test_spike_media.py:test_local_mp4_is_listed_and_supports_byte_ranges",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 8
+    },
+    {
+      "source": "file:backend/tests/test_spike_media.py",
+      "target": "function:backend/tests/test_spike_media.py:test_media_outside_local_directory_is_not_exposed",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 32
+    },
+    {
+      "source": "file:backend/tests/test_spike_media.py",
+      "target": "module:cepraea_video.main",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 5
+    },
+    {
+      "source": "file:backend/tests/test_spike_media.py",
+      "target": "module:fastapi.testclient",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 3
+    },
+    {
+      "source": "file:backend/tests/test_spike_media.py",
+      "target": "module:pathlib",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 1
+    },
+    {
+      "source": "file:backend/tests/test_spike_storage.py",
+      "target": "function:backend/tests/test_spike_storage.py:test_edit_keeps_identity_and_records_prior_versions_after_restart",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 127
+    },
+    {
+      "source": "file:backend/tests/test_spike_storage.py",
+      "target": "function:backend/tests/test_spike_storage.py:test_existing_intervals_keep_ids_and_values_after_migration",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 61
+    },
+    {
+      "source": "file:backend/tests/test_spike_storage.py",
+      "target": "function:backend/tests/test_spike_storage.py:test_interval_survives_application_restart",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 11
+    },
+    {
+      "source": "file:backend/tests/test_spike_storage.py",
+      "target": "function:backend/tests/test_spike_storage.py:test_invalid_edit_and_missing_interval_do_not_create_versions",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 170
+    },
+    {
+      "source": "file:backend/tests/test_spike_storage.py",
+      "target": "function:backend/tests/test_spike_storage.py:test_invalid_interval_is_rejected",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 107
+    },
+    {
+      "source": "file:backend/tests/test_spike_storage.py",
+      "target": "function:backend/tests/test_spike_storage.py:test_soft_delete_requires_reason_and_remains_auditable",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 198
+    },
+    {
+      "source": "file:backend/tests/test_spike_storage.py",
+      "target": "module:cepraea_video.main",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 7
+    },
+    {
+      "source": "file:backend/tests/test_spike_storage.py",
+      "target": "module:cepraea_video.spike_storage",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 8
+    },
+    {
+      "source": "file:backend/tests/test_spike_storage.py",
+      "target": "module:fastapi.testclient",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 5
+    },
+    {
+      "source": "file:backend/tests/test_spike_storage.py",
+      "target": "module:pathlib",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 2
+    },
+    {
+      "source": "file:backend/tests/test_spike_storage.py",
+      "target": "module:pytest",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 4
+    },
+    {
+      "source": "file:backend/tests/test_spike_storage.py",
+      "target": "module:sqlite3",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 1
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:Array.from",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 402
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:Error",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 55
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:JSON.parse",
+      "relation": "CALLS",
+      "occurrences": 3,
+      "first_line": 99
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:Object.defineProperty",
+      "relation": "CALLS",
+      "occurrences": 17,
+      "first_line": 61
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:String",
+      "relation": "CALLS",
+      "occurrences": 3,
+      "first_line": 38
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:afterEach",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 71
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:async",
+      "relation": "CALLS",
+      "occurrences": 30,
+      "first_line": 25
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:cleanup",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 72
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:describe",
+      "relation": "CALLS",
+      "occurrences": 5,
+      "first_line": 76
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:document.body.append",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 509
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:document.createElement",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 508
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:expect",
+      "relation": "CALLS",
+      "occurrences": 101,
+      "first_line": 64
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:fetchMock.mock.calls.filter",
+      "relation": "CALLS",
+      "occurrences": 23,
+      "first_line": 96
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:finishPost",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 309
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:fireEvent.change",
+      "relation": "CALLS",
+      "occurrences": 5,
+      "first_line": 126
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:fireEvent.click",
+      "relation": "CALLS",
+      "occurrences": 50,
+      "first_line": 87
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:fireEvent.focus",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 477
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:fireEvent.keyDown",
+      "relation": "CALLS",
+      "occurrences": 38,
+      "first_line": 269
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:fireEvent.loadedMetadata",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 62
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:fireEvent.seeked",
+      "relation": "CALLS",
+      "occurrences": 6,
+      "first_line": 201
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:fireEvent.timeUpdate",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 228
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:getAttribute",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 478
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:hasAttribute",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 291
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:input.remove",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 527
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:it",
+      "relation": "CALLS",
+      "occurrences": 22,
+      "first_line": 77
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:it.each",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 313
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:mediaPaths.map",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 40
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:mockResolvedValue",
+      "relation": "CALLS",
+      "occurrences": 6,
+      "first_line": 184
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:mutations.delete",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 52
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:mutations.patch",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 49
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:path.startsWith",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 48
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:postInterval",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 46
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:render",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 59
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:screen.findByLabelText",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 60
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:screen.findByRole",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 289
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:screen.findByText",
+      "relation": "CALLS",
+      "occurrences": 14,
+      "first_line": 94
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:screen.getAllByRole",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 476
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:screen.getByLabelText",
+      "relation": "CALLS",
+      "occurrences": 6,
+      "first_line": 126
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:screen.getByRole",
+      "relation": "CALLS",
+      "occurrences": 64,
+      "first_line": 84
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:toBe",
+      "relation": "CALLS",
+      "occurrences": 27,
+      "first_line": 98
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:toBeCloseTo",
+      "relation": "CALLS",
+      "occurrences": 6,
+      "first_line": 341
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:toBeTruthy",
+      "relation": "CALLS",
+      "occurrences": 6,
+      "first_line": 84
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:toContain",
+      "relation": "CALLS",
+      "occurrences": 31,
+      "first_line": 64
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:toEqual",
+      "relation": "CALLS",
+      "occurrences": 4,
+      "first_line": 99
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:toHaveBeenCalledTimes",
+      "relation": "CALLS",
+      "occurrences": 4,
+      "first_line": 439
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:toHaveLength",
+      "relation": "CALLS",
+      "occurrences": 23,
+      "first_line": 97
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:vi.fn",
+      "relation": "CALLS",
+      "occurrences": 15,
+      "first_line": 37
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:vi.stubGlobal",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 57
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:vi.unstubAllGlobals",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 73
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "external:waitFor",
+      "relation": "CALLS",
+      "occurrences": 3,
+      "first_line": 63
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "function:frontend/src/App.test.tsx:jsonResponse",
+      "relation": "CALLS",
+      "occurrences": 8,
+      "first_line": 24
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "function:frontend/src/App.test.tsx:jsonResponse",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 24
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "function:frontend/src/App.test.tsx:renderWithLocalMedia",
+      "relation": "CALLS",
+      "occurrences": 24,
+      "first_line": 28
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "function:frontend/src/App.test.tsx:renderWithLocalMedia",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 28
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "module:./App",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 6
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "module:@testing-library/react",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 3
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "module:vitest",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 4
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:AbortController",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 87
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:Boolean",
+      "relation": "CALLS",
+      "occurrences": 14,
+      "first_line": 542
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:EDIT_STEPS.map",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 743
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:Error",
+      "relation": "CALLS",
+      "occurrences": 5,
+      "first_line": 94
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:JSON.stringify",
+      "relation": "CALLS",
+      "occurrences": 3,
+      "first_line": 353
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:Math.abs",
+      "relation": "CALLS",
+      "occurrences": 3,
+      "first_line": 168
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:Math.floor",
+      "relation": "CALLS",
+      "occurrences": 3,
+      "first_line": 42
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:Math.max",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 289
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:Math.min",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 289
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:Math.round",
+      "relation": "CALLS",
+      "occurrences": 4,
+      "first_line": 288
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:Number",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 609
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:Number.isFinite",
+      "relation": "CALLS",
+      "occurrences": 17,
+      "first_line": 41
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:PLAYBACK_RATES.map",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 615
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:PLAYBACK_RATES.some",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 583
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:String",
+      "relation": "CALLS",
+      "occurrences": 13,
+      "first_line": 44
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:available.some",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 98
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:controller.abort",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 112
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:deletionReason.trim",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 485
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:event.composedPath",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 197
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:event.key.toLowerCase",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 239
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:event.preventDefault",
+      "relation": "CALLS",
+      "occurrences": 11,
+      "first_line": 189
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:event.target.closest",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 196
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:fetch",
+      "relation": "CALLS",
+      "occurrences": 5,
+      "first_line": 93
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:intervals.find",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 255
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:intervals.map",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 681
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:map",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 740
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:media.find",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 181
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:media.map",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 545
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:media.some",
+      "relation": "CALLS",
+      "occurrences": 4,
+      "first_line": 403
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:padStart",
+      "relation": "CALLS",
+      "occurrences": 12,
+      "first_line": 43
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:pause",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 393
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:previous.filter",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 501
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:previous.map",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 472
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:replace",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 749
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:response.json",
+      "relation": "CALLS",
+      "occurrences": 4,
+      "first_line": 95
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:return",
+      "relation": "CALLS",
+      "occurrences": 6,
+      "first_line": 112
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:setCurrentTime",
+      "relation": "CALLS",
+      "occurrences": 5,
+      "first_line": 270
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:setDeletingId",
+      "relation": "CALLS",
+      "occurrences": 6,
+      "first_line": 191
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:setDeletionReason",
+      "relation": "CALLS",
+      "occurrences": 3,
+      "first_line": 504
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:setDuration",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 271
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:setEditError",
+      "relation": "CALLS",
+      "occurrences": 15,
+      "first_line": 192
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:setEditing",
+      "relation": "CALLS",
+      "occurrences": 7,
+      "first_line": 190
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:setIntervals",
+      "relation": "CALLS",
+      "occurrences": 4,
+      "first_line": 122
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:setIntervalsError",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 125
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:setIntervalsLoading",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 128
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:setLastSavedId",
+      "relation": "CALLS",
+      "occurrences": 4,
+      "first_line": 276
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:setLoadError",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 89
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:setLoading",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 88
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:setMarkError",
+      "relation": "CALLS",
+      "occurrences": 8,
+      "first_line": 275
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:setMarking",
+      "relation": "CALLS",
+      "occurrences": 5,
+      "first_line": 274
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:setMedia",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 96
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:setMutationBusy",
+      "relation": "CALLS",
+      "occurrences": 4,
+      "first_line": 462
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:setMutationStatus",
+      "relation": "CALLS",
+      "occurrences": 5,
+      "first_line": 419
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:setPlaybackRate",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 583
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:setPlaying",
+      "relation": "CALLS",
+      "occurrences": 3,
+      "first_line": 272
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:setRefreshKey",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 551
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:setReviewStatus",
+      "relation": "CALLS",
+      "occurrences": 12,
+      "first_line": 144
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:setReviewing",
+      "relation": "CALLS",
+      "occurrences": 7,
+      "first_line": 145
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:setSaving",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 347
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:setSelectedIntervalId",
+      "relation": "CALLS",
+      "occurrences": 10,
+      "first_line": 218
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:setSelectedPath",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 97
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:setVideoError",
+      "relation": "CALLS",
+      "occurrences": 5,
+      "first_line": 273
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:some",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 197
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:then",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 152
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:toFixed",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 43
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:useEffect",
+      "relation": "CALLS",
+      "occurrences": 4,
+      "first_line": 86
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:useRef",
+      "relation": "CALLS",
+      "occurrences": 3,
+      "first_line": 56
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:useState",
+      "relation": "CALLS",
+      "occurrences": 18,
+      "first_line": 60
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:video.addEventListener",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 171
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:video.pause",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 299
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:video.play",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 152
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:video.removeEventListener",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 177
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:window.addEventListener",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 263
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "external:window.removeEventListener",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 264
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:App",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 54
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:App",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 54
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:adjustEditBoundary",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 435
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:adjustEditBoundary",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 435
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:beginEditing",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 416
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:beginEditing",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 416
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:captureCurrentMs",
+      "relation": "CALLS",
+      "occurrences": 3,
+      "first_line": 310
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:captureCurrentMs",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 310
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:confirmAndSave",
+      "relation": "CALLS",
+      "occurrences": 3,
+      "first_line": 235
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:confirmAndSave",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 343
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:confirmDeletion",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 483
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:confirmDeletion",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 483
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:discardMarking",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 215
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:discardMarking",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 373
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:endMarking",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 247
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:endMarking",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 331
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:formatMilliseconds",
+      "relation": "CALLS",
+      "occurrences": 12,
+      "first_line": 47
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:formatMilliseconds",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 47
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:formatTime",
+      "relation": "CALLS",
+      "occurrences": 3,
+      "first_line": 40
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:formatTime",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 40
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:handleKeyboard",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 185
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:handleKeyboard",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 185
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:loadIntervals",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 118
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:loadIntervals",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 118
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:loadMedia",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 91
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:loadMedia",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 91
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:playFromStart",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 169
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:playFromStart",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 150
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:reviewDraft",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 253
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:reviewDraft",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 381
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:reviewInterval",
+      "relation": "CALLS",
+      "occurrences": 4,
+      "first_line": 257
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:reviewInterval",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 402
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:saveEdit",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 448
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:saveEdit",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 448
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:seekByMs",
+      "relation": "CALLS",
+      "occurrences": 4,
+      "first_line": 202
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:seekByMs",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 285
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:selectMedia",
+      "relation": "CALLS",
+      "occurrences": 4,
+      "first_line": 267
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:selectMedia",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 267
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:startMarking",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 243
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:startMarking",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 319
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:stopReview",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 212
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:stopReview",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 391
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:togglePlayback",
+      "relation": "CALLS",
+      "occurrences": 3,
+      "first_line": 229
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:togglePlayback",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 295
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:updateVideoTime",
+      "relation": "CALLS",
+      "occurrences": 3,
+      "first_line": 514
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:updateVideoTime",
+      "relation": "DEFINES",
+      "occurrences": 1,
+      "first_line": 514
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "module:./appMeta",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 3
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "module:react",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 1
+    },
+    {
+      "source": "file:frontend/src/appMeta.test.ts",
+      "target": "external:describe",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 5
+    },
+    {
+      "source": "file:frontend/src/appMeta.test.ts",
+      "target": "external:expect",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 7
+    },
+    {
+      "source": "file:frontend/src/appMeta.test.ts",
+      "target": "external:it",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 6
+    },
+    {
+      "source": "file:frontend/src/appMeta.test.ts",
+      "target": "external:toBe",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 7
+    },
+    {
+      "source": "file:frontend/src/appMeta.test.ts",
+      "target": "external:toContain",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 8
+    },
+    {
+      "source": "file:frontend/src/appMeta.test.ts",
+      "target": "module:./appMeta",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 3
+    },
+    {
+      "source": "file:frontend/src/appMeta.test.ts",
+      "target": "module:vitest",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 1
+    },
+    {
+      "source": "file:frontend/src/main.tsx",
+      "target": "external:Error",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 9
+    },
+    {
+      "source": "file:frontend/src/main.tsx",
+      "target": "external:createRoot",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 12
+    },
+    {
+      "source": "file:frontend/src/main.tsx",
+      "target": "external:document.getElementById",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 6
+    },
+    {
+      "source": "file:frontend/src/main.tsx",
+      "target": "external:render",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 12
+    },
+    {
+      "source": "file:frontend/src/main.tsx",
+      "target": "module:./App",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 4
+    },
+    {
+      "source": "file:frontend/src/main.tsx",
+      "target": "module:react",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 1
+    },
+    {
+      "source": "file:frontend/src/main.tsx",
+      "target": "module:react-dom/client",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 2
+    },
+    {
+      "source": "file:frontend/vite.config.ts",
+      "target": "external:defineConfig",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 4
+    },
+    {
+      "source": "file:frontend/vite.config.ts",
+      "target": "external:react",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 5
+    },
+    {
+      "source": "file:frontend/vite.config.ts",
+      "target": "module:@vitejs/plugin-react",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 2
+    },
+    {
+      "source": "file:frontend/vite.config.ts",
+      "target": "module:vite",
+      "relation": "IMPORTS",
+      "occurrences": 1,
+      "first_line": 1
+    },
+    {
+      "source": "function:backend/src/cepraea_video/config.py:ensure_runtime_directories",
+      "target": "external:resolved.data_dir.mkdir",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 27
+    },
+    {
+      "source": "function:backend/src/cepraea_video/config.py:ensure_runtime_directories",
+      "target": "external:resolved.media_dir.mkdir",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 28
+    },
+    {
+      "source": "function:backend/src/cepraea_video/config.py:ensure_runtime_directories",
+      "target": "function:backend/src/cepraea_video/config.py:get_runtime_paths",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 26
+    },
+    {
+      "source": "function:backend/src/cepraea_video/config.py:get_runtime_paths",
+      "target": "external:Path",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 20
+    },
+    {
+      "source": "function:backend/src/cepraea_video/config.py:get_runtime_paths",
+      "target": "external:RuntimePaths",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 22
+    },
+    {
+      "source": "function:backend/src/cepraea_video/config.py:get_runtime_paths",
+      "target": "external:expanduser",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 20
+    },
+    {
+      "source": "function:backend/src/cepraea_video/config.py:get_runtime_paths",
+      "target": "external:os.getenv",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 20
+    },
+    {
+      "source": "function:backend/src/cepraea_video/main.py:create_spike_interval",
+      "target": "external:HTTPException",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 85
+    },
+    {
+      "source": "function:backend/src/cepraea_video/main.py:create_spike_interval",
+      "target": "external:app.post",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 82
+    },
+    {
+      "source": "function:backend/src/cepraea_video/main.py:create_spike_interval",
+      "target": "external:database_path",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 90
+    },
+    {
+      "source": "function:backend/src/cepraea_video/main.py:create_spike_interval",
+      "target": "external:resolve_media",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 84
+    },
+    {
+      "source": "function:backend/src/cepraea_video/main.py:create_spike_interval",
+      "target": "external:save_interval",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 89
+    },
+    {
+      "source": "function:backend/src/cepraea_video/main.py:create_spike_interval",
+      "target": "external:to_dict",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 89
+    },
+    {
+      "source": "function:backend/src/cepraea_video/main.py:delete_spike_interval",
+      "target": "external:HTTPException",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 116
+    },
+    {
+      "source": "function:backend/src/cepraea_video/main.py:delete_spike_interval",
+      "target": "external:app.delete",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 111
+    },
+    {
+      "source": "function:backend/src/cepraea_video/main.py:delete_spike_interval",
+      "target": "external:database_path",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 115
+    },
+    {
+      "source": "function:backend/src/cepraea_video/main.py:delete_spike_interval",
+      "target": "external:delete_interval",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 115
+    },
+    {
+      "source": "function:backend/src/cepraea_video/main.py:get_deleted_spike_intervals",
+      "target": "external:app.get",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 120
+    },
+    {
+      "source": "function:backend/src/cepraea_video/main.py:get_deleted_spike_intervals",
+      "target": "external:database_path",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 122
+    },
+    {
+      "source": "function:backend/src/cepraea_video/main.py:get_deleted_spike_intervals",
+      "target": "external:list_deleted_intervals",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 122
+    },
+    {
+      "source": "function:backend/src/cepraea_video/main.py:get_spike_interval_versions",
+      "target": "external:app.get",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 125
+    },
+    {
+      "source": "function:backend/src/cepraea_video/main.py:get_spike_interval_versions",
+      "target": "external:database_path",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 127
+    },
+    {
+      "source": "function:backend/src/cepraea_video/main.py:get_spike_interval_versions",
+      "target": "external:list_interval_versions",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 127
+    },
+    {
+      "source": "function:backend/src/cepraea_video/main.py:get_spike_intervals",
+      "target": "external:app.get",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 94
+    },
+    {
+      "source": "function:backend/src/cepraea_video/main.py:get_spike_intervals",
+      "target": "external:database_path",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 96
+    },
+    {
+      "source": "function:backend/src/cepraea_video/main.py:get_spike_intervals",
+      "target": "external:interval.to_dict",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 96
+    },
+    {
+      "source": "function:backend/src/cepraea_video/main.py:get_spike_intervals",
+      "target": "external:list_intervals",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 96
+    },
+    {
+      "source": "function:backend/src/cepraea_video/main.py:get_spike_media",
+      "target": "external:app.get",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 130
+    },
+    {
+      "source": "function:backend/src/cepraea_video/main.py:get_spike_media",
+      "target": "external:list_media",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 132
+    },
+    {
+      "source": "function:backend/src/cepraea_video/main.py:get_spike_media_file",
+      "target": "external:FileResponse",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 140
+    },
+    {
+      "source": "function:backend/src/cepraea_video/main.py:get_spike_media_file",
+      "target": "external:HTTPException",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 139
+    },
+    {
+      "source": "function:backend/src/cepraea_video/main.py:get_spike_media_file",
+      "target": "external:app.get",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 135
+    },
+    {
+      "source": "function:backend/src/cepraea_video/main.py:get_spike_media_file",
+      "target": "external:resolve_media",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 137
+    },
+    {
+      "source": "function:backend/src/cepraea_video/main.py:health",
+      "target": "external:app.get",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 38
+    },
+    {
+      "source": "function:backend/src/cepraea_video/main.py:lifespan",
+      "target": "external:database_path",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 27
+    },
+    {
+      "source": "function:backend/src/cepraea_video/main.py:lifespan",
+      "target": "external:ensure_runtime_directories",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 26
+    },
+    {
+      "source": "function:backend/src/cepraea_video/main.py:lifespan",
+      "target": "external:initialize_storage",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 27
+    },
+    {
+      "source": "function:backend/src/cepraea_video/main.py:patch_spike_interval",
+      "target": "external:HTTPException",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 107
+    },
+    {
+      "source": "function:backend/src/cepraea_video/main.py:patch_spike_interval",
+      "target": "external:app.patch",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 99
+    },
+    {
+      "source": "function:backend/src/cepraea_video/main.py:patch_spike_interval",
+      "target": "external:database_path",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 104
+    },
+    {
+      "source": "function:backend/src/cepraea_video/main.py:patch_spike_interval",
+      "target": "external:update_interval",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 103
+    },
+    {
+      "source": "function:backend/src/cepraea_video/main.py:patch_spike_interval",
+      "target": "external:updated.to_dict",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 108
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_media.py:list_media",
+      "target": "external:get_runtime_paths",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 24
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_media.py:list_media",
+      "target": "external:media_dir.is_dir",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 25
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_media.py:list_media",
+      "target": "external:media_dir.iterdir",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 29
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_media.py:list_media",
+      "target": "external:quote",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 28
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_media.py:list_media",
+      "target": "external:sorted",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 29
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_media.py:list_media",
+      "target": "function:backend/src/cepraea_video/spike_media.py:resolve_media",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 30
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_media.py:resolve_media",
+      "target": "external:Path",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 13
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_media.py:resolve_media",
+      "target": "external:candidate.is_file",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 18
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_media.py:resolve_media",
+      "target": "external:get_runtime_paths",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 16
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_media.py:resolve_media",
+      "target": "external:media_dir.resolve",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 16
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_media.py:resolve_media",
+      "target": "external:resolve",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 17
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_media.py:resolve_media",
+      "target": "external:suffix.lower",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 13
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:_connect",
+      "target": "external:connection.execute",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 37
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:_connect",
+      "target": "external:sqlite3.connect",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 35
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:database_path",
+      "target": "external:get_runtime_paths",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 31
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:delete_interval",
+      "target": "external:ValueError",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 163
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:delete_interval",
+      "target": "external:closing",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 164
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:delete_interval",
+      "target": "external:connection.execute",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 166
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:delete_interval",
+      "target": "external:reason.strip",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 161
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:delete_interval",
+      "target": "function:backend/src/cepraea_video/spike_storage.py:_connect",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 164
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:initialize_storage",
+      "target": "external:closing",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 43
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:initialize_storage",
+      "target": "external:connection.execute",
+      "relation": "CALLS",
+      "occurrences": 6,
+      "first_line": 45
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:initialize_storage",
+      "target": "external:path.parent.mkdir",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 42
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:initialize_storage",
+      "target": "function:backend/src/cepraea_video/spike_storage.py:_connect",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 43
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:list_deleted_intervals",
+      "target": "external:closing",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 179
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:list_deleted_intervals",
+      "target": "external:connection.execute",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 180
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:list_deleted_intervals",
+      "target": "external:dict",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 187
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:list_deleted_intervals",
+      "target": "external:fetchall",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 180
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:list_deleted_intervals",
+      "target": "function:backend/src/cepraea_video/spike_storage.py:_connect",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 179
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:list_interval_versions",
+      "target": "external:closing",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 191
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:list_interval_versions",
+      "target": "external:connection.execute",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 192
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:list_interval_versions",
+      "target": "external:dict",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 199
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:list_interval_versions",
+      "target": "external:fetchall",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 192
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:list_interval_versions",
+      "target": "function:backend/src/cepraea_video/spike_storage.py:_connect",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 191
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:list_intervals",
+      "target": "external:SpikeInterval",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 125
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:list_intervals",
+      "target": "external:closing",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 121
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:list_intervals",
+      "target": "external:connection.execute",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 122
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:list_intervals",
+      "target": "external:dict",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 125
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:list_intervals",
+      "target": "external:fetchall",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 122
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:list_intervals",
+      "target": "function:backend/src/cepraea_video/spike_storage.py:_connect",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 121
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:save_interval",
+      "target": "external:SpikeInterval",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 117
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:save_interval",
+      "target": "external:closing",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 103
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:save_interval",
+      "target": "external:connection.execute",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 105
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:save_interval",
+      "target": "external:dict",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 117
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:save_interval",
+      "target": "external:fetchone",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 112
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:save_interval",
+      "target": "function:backend/src/cepraea_video/spike_storage.py:_connect",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 103
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:update_interval",
+      "target": "external:SpikeInterval",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 157
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:update_interval",
+      "target": "external:ValueError",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 130
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:update_interval",
+      "target": "external:closing",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 131
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:update_interval",
+      "target": "external:connection.execute",
+      "relation": "CALLS",
+      "occurrences": 4,
+      "first_line": 133
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:update_interval",
+      "target": "external:dict",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 157
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:update_interval",
+      "target": "external:fetchone",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 133
+    },
+    {
+      "source": "function:backend/src/cepraea_video/spike_storage.py:update_interval",
+      "target": "function:backend/src/cepraea_video/spike_storage.py:_connect",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 131
+    },
+    {
+      "source": "function:backend/tests/test_bootstrap.py:test_health_endpoint_starts_application",
+      "target": "external:TestClient",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 10
+    },
+    {
+      "source": "function:backend/tests/test_bootstrap.py:test_health_endpoint_starts_application",
+      "target": "external:client.get",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 11
+    },
+    {
+      "source": "function:backend/tests/test_bootstrap.py:test_health_endpoint_starts_application",
+      "target": "external:response.json",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 14
+    },
+    {
+      "source": "function:backend/tests/test_bootstrap.py:test_runtime_directories_are_created_outside_versioned_content",
+      "target": "external:RuntimePaths",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 19
+    },
+    {
+      "source": "function:backend/tests/test_bootstrap.py:test_runtime_directories_are_created_outside_versioned_content",
+      "target": "external:ensure_runtime_directories",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 24
+    },
+    {
+      "source": "function:backend/tests/test_bootstrap.py:test_runtime_directories_are_created_outside_versioned_content",
+      "target": "external:resolved.data_dir.is_dir",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 26
+    },
+    {
+      "source": "function:backend/tests/test_bootstrap.py:test_runtime_directories_are_created_outside_versioned_content",
+      "target": "external:resolved.media_dir.is_dir",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 27
+    },
+    {
+      "source": "function:backend/tests/test_spike_media.py:test_local_mp4_is_listed_and_supports_byte_ranges",
+      "target": "external:TestClient",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 18
+    },
+    {
+      "source": "function:backend/tests/test_spike_media.py:test_local_mp4_is_listed_and_supports_byte_ranges",
+      "target": "external:client.get",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 19
+    },
+    {
+      "source": "function:backend/tests/test_spike_media.py:test_local_mp4_is_listed_and_supports_byte_ranges",
+      "target": "external:media.read_bytes",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 29
+    },
+    {
+      "source": "function:backend/tests/test_spike_media.py:test_local_mp4_is_listed_and_supports_byte_ranges",
+      "target": "external:media.write_bytes",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 13
+    },
+    {
+      "source": "function:backend/tests/test_spike_media.py:test_local_mp4_is_listed_and_supports_byte_ranges",
+      "target": "external:media_dir.mkdir",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 10
+    },
+    {
+      "source": "function:backend/tests/test_spike_media.py:test_local_mp4_is_listed_and_supports_byte_ranges",
+      "target": "external:media_list.json",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 22
+    },
+    {
+      "source": "function:backend/tests/test_spike_media.py:test_local_mp4_is_listed_and_supports_byte_ranges",
+      "target": "external:monkeypatch.setenv",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 15
+    },
+    {
+      "source": "function:backend/tests/test_spike_media.py:test_local_mp4_is_listed_and_supports_byte_ranges",
+      "target": "external:str",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 15
+    },
+    {
+      "source": "function:backend/tests/test_spike_media.py:test_local_mp4_is_listed_and_supports_byte_ranges",
+      "target": "external:write_text",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 14
+    },
+    {
+      "source": "function:backend/tests/test_spike_media.py:test_media_outside_local_directory_is_not_exposed",
+      "target": "external:TestClient",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 40
+    },
+    {
+      "source": "function:backend/tests/test_spike_media.py:test_media_outside_local_directory_is_not_exposed",
+      "target": "external:client.get",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 41
+    },
+    {
+      "source": "function:backend/tests/test_spike_media.py:test_media_outside_local_directory_is_not_exposed",
+      "target": "external:client.post",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 43
+    },
+    {
+      "source": "function:backend/tests/test_spike_media.py:test_media_outside_local_directory_is_not_exposed",
+      "target": "external:media_dir.mkdir",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 34
+    },
+    {
+      "source": "function:backend/tests/test_spike_media.py:test_media_outside_local_directory_is_not_exposed",
+      "target": "external:media_list.json",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 48
+    },
+    {
+      "source": "function:backend/tests/test_spike_media.py:test_media_outside_local_directory_is_not_exposed",
+      "target": "external:monkeypatch.setenv",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 37
+    },
+    {
+      "source": "function:backend/tests/test_spike_media.py:test_media_outside_local_directory_is_not_exposed",
+      "target": "external:str",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 37
+    },
+    {
+      "source": "function:backend/tests/test_spike_media.py:test_media_outside_local_directory_is_not_exposed",
+      "target": "external:symlink_to",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 35
+    },
+    {
+      "source": "function:backend/tests/test_spike_media.py:test_media_outside_local_directory_is_not_exposed",
+      "target": "external:write_bytes",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 36
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_edit_keeps_identity_and_records_prior_versions_after_restart",
+      "target": "external:TestClient",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 137
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_edit_keeps_identity_and_records_prior_versions_after_restart",
+      "target": "external:all",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 167
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_edit_keeps_identity_and_records_prior_versions_after_restart",
+      "target": "external:client.patch",
+      "relation": "CALLS",
+      "occurrences": 3,
+      "first_line": 142
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_edit_keeps_identity_and_records_prior_versions_after_restart",
+      "target": "external:client.post",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 138
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_edit_keeps_identity_and_records_prior_versions_after_restart",
+      "target": "external:endswith",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 167
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_edit_keeps_identity_and_records_prior_versions_after_restart",
+      "target": "external:json",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 138
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_edit_keeps_identity_and_records_prior_versions_after_restart",
+      "target": "external:media_dir.mkdir",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 132
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_edit_keeps_identity_and_records_prior_versions_after_restart",
+      "target": "external:monkeypatch.setenv",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 134
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_edit_keeps_identity_and_records_prior_versions_after_restart",
+      "target": "external:reopened.get",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 160
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_edit_keeps_identity_and_records_prior_versions_after_restart",
+      "target": "external:second.json",
+      "relation": "CALLS",
+      "occurrences": 4,
+      "first_line": 156
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_edit_keeps_identity_and_records_prior_versions_after_restart",
+      "target": "external:str",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 134
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_edit_keeps_identity_and_records_prior_versions_after_restart",
+      "target": "external:versions_response.json",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 163
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_edit_keeps_identity_and_records_prior_versions_after_restart",
+      "target": "external:write_bytes",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 133
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_existing_intervals_keep_ids_and_values_after_migration",
+      "target": "external:connection.execute",
+      "relation": "CALLS",
+      "occurrences": 4,
+      "first_line": 68
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_existing_intervals_keep_ids_and_values_after_migration",
+      "target": "external:connection.executemany",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 81
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_existing_intervals_keep_ids_and_values_after_migration",
+      "target": "external:fetchall",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 89
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_existing_intervals_keep_ids_and_values_after_migration",
+      "target": "external:fetchone",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 97
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_existing_intervals_keep_ids_and_values_after_migration",
+      "target": "external:initialize_storage",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 85
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_existing_intervals_keep_ids_and_values_after_migration",
+      "target": "external:list_intervals",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 102
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_existing_intervals_keep_ids_and_values_after_migration",
+      "target": "external:save_interval",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 103
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_existing_intervals_keep_ids_and_values_after_migration",
+      "target": "external:sqlite3.connect",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 67
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_interval_survives_application_restart",
+      "target": "external:TestClient",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 21
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_interval_survives_application_restart",
+      "target": "external:client.post",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 22
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_interval_survives_application_restart",
+      "target": "external:connection.execute",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 40
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_interval_survives_application_restart",
+      "target": "external:db_path.is_file",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 30
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_interval_survives_application_restart",
+      "target": "external:endswith",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 37
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_interval_survives_application_restart",
+      "target": "external:list",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 58
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_interval_survives_application_restart",
+      "target": "external:media.read_bytes",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 19
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_interval_survives_application_restart",
+      "target": "external:media.write_bytes",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 18
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_interval_survives_application_restart",
+      "target": "external:media_dir.iterdir",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 58
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_interval_survives_application_restart",
+      "target": "external:media_dir.mkdir",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 15
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_interval_survives_application_restart",
+      "target": "external:monkeypatch.setenv",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 13
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_interval_survives_application_restart",
+      "target": "external:reopened_client.get",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 53
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_interval_survives_application_restart",
+      "target": "external:response.json",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 27
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_interval_survives_application_restart",
+      "target": "external:sqlite3.connect",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 39
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_interval_survives_application_restart",
+      "target": "external:str",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 13
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_invalid_edit_and_missing_interval_do_not_create_versions",
+      "target": "external:TestClient",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 180
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_invalid_edit_and_missing_interval_do_not_create_versions",
+      "target": "external:client.get",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 194
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_invalid_edit_and_missing_interval_do_not_create_versions",
+      "target": "external:client.patch",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 186
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_invalid_edit_and_missing_interval_do_not_create_versions",
+      "target": "external:client.post",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 181
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_invalid_edit_and_missing_interval_do_not_create_versions",
+      "target": "external:json",
+      "relation": "CALLS",
+      "occurrences": 3,
+      "first_line": 181
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_invalid_edit_and_missing_interval_do_not_create_versions",
+      "target": "external:media_dir.mkdir",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 175
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_invalid_edit_and_missing_interval_do_not_create_versions",
+      "target": "external:monkeypatch.setenv",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 177
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_invalid_edit_and_missing_interval_do_not_create_versions",
+      "target": "external:str",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 177
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_invalid_edit_and_missing_interval_do_not_create_versions",
+      "target": "external:write_bytes",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 176
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_invalid_interval_is_rejected",
+      "target": "external:TestClient",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 116
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_invalid_interval_is_rejected",
+      "target": "external:client.get",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 121
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_invalid_interval_is_rejected",
+      "target": "external:client.post",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 117
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_invalid_interval_is_rejected",
+      "target": "external:intervals.json",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 124
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_invalid_interval_is_rejected",
+      "target": "external:media_dir.mkdir",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 112
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_invalid_interval_is_rejected",
+      "target": "external:monkeypatch.setenv",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 110
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_invalid_interval_is_rejected",
+      "target": "external:pytest.mark.parametrize",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 106
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_invalid_interval_is_rejected",
+      "target": "external:str",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 110
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_invalid_interval_is_rejected",
+      "target": "external:write_bytes",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 113
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_soft_delete_requires_reason_and_remains_auditable",
+      "target": "external:TestClient",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 209
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_soft_delete_requires_reason_and_remains_auditable",
+      "target": "external:client.get",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 215
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_soft_delete_requires_reason_and_remains_auditable",
+      "target": "external:client.patch",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 221
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_soft_delete_requires_reason_and_remains_auditable",
+      "target": "external:client.post",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 210
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_soft_delete_requires_reason_and_remains_auditable",
+      "target": "external:client.request",
+      "relation": "CALLS",
+      "occurrences": 3,
+      "first_line": 214
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_soft_delete_requires_reason_and_remains_auditable",
+      "target": "external:endswith",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 236
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_soft_delete_requires_reason_and_remains_auditable",
+      "target": "external:json",
+      "relation": "CALLS",
+      "occurrences": 5,
+      "first_line": 210
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_soft_delete_requires_reason_and_remains_auditable",
+      "target": "external:len",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 232
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_soft_delete_requires_reason_and_remains_auditable",
+      "target": "external:media.read_bytes",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 237
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_soft_delete_requires_reason_and_remains_auditable",
+      "target": "external:media.write_bytes",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 205
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_soft_delete_requires_reason_and_remains_auditable",
+      "target": "external:media_dir.mkdir",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 203
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_soft_delete_requires_reason_and_remains_auditable",
+      "target": "external:monkeypatch.setenv",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 206
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_soft_delete_requires_reason_and_remains_auditable",
+      "target": "external:reopened.get",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 230
+    },
+    {
+      "source": "function:backend/tests/test_spike_storage.py:test_soft_delete_requires_reason_and_remains_auditable",
+      "target": "external:str",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 206
+    },
+    {
+      "source": "method:backend/src/cepraea_video/main.py:SpikeIntervalDeletion.validate_reason",
+      "target": "external:ValueError",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 78
+    },
+    {
+      "source": "method:backend/src/cepraea_video/main.py:SpikeIntervalDeletion.validate_reason",
+      "target": "external:model_validator",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 75
+    },
+    {
+      "source": "method:backend/src/cepraea_video/main.py:SpikeIntervalDeletion.validate_reason",
+      "target": "external:self.reason.strip",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 77
+    },
+    {
+      "source": "method:backend/src/cepraea_video/main.py:SpikeIntervalUpdate.validate_interval",
+      "target": "external:ValueError",
+      "relation": "CALLS",
+      "occurrences": 3,
+      "first_line": 55
+    },
+    {
+      "source": "method:backend/src/cepraea_video/main.py:SpikeIntervalUpdate.validate_interval",
+      "target": "external:model_validator",
+      "relation": "CALLS",
+      "occurrences": 2,
+      "first_line": 52
+    },
+    {
+      "source": "method:backend/src/cepraea_video/main.py:SpikeIntervalUpdate.validate_interval",
+      "target": "external:self.media_path.strip",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 54
+    },
+    {
+      "source": "method:backend/src/cepraea_video/spike_storage.py:SpikeInterval.to_dict",
+      "target": "external:asdict",
+      "relation": "CALLS",
+      "occurrences": 1,
+      "first_line": 27
+    }
+  ],
+  "parse_errors": []
+}

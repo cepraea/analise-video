@@ -1,0 +1,167 @@
+
+# CORREÇÕES NOS ARQUIVOS EM /home/davis/analise-video/.local/drafts/arquitetura/hibrida
+
+Referência incorreta ao novo arquivo
+
+Na [linha 9 de conceitos-jogo.md (line 9)](/home/davis/analise-video/.local/historico/conceitos-jogo.md:9):
+
+- Esta arquivo deve ser Este arquivo;
+- Ela não substitui deve ser Ele não substitui;
+- visao-geralcepraea.md está sem o hífen correto.
+
+- [x] O nome real é visao-geral-cepraea.md. Transformá-lo em link Markdown e criar também um link de retorno na visão geral.
+
+## Soluções para resolver o **Conflito sobre transição ofensiva direta**
+
+- [x] Em [conceitos-jogo.md:186](/home/davis/analise-video/.local/historico/conceitos-jogo.md:186), direta significa que a instalação ofensiva ainda está incompleta.
+
+- [x] Em [visao-geral-cepraea.md:41](/home/davis/analise-video/.local/historico/visao-geral-cepraea.md:41), a definição baseada na conversão da vantagem foi substituída pelo critério de instalação estrutural incompleta.
+
+- [x] A visão geral deve reproduzir explicitamente a árvore consolidada do arquivo conceitual:
+
+`instalação incompleta → direta`  
+`instalação completa + vantagem herdada → indireta`  
+`instalação completa + nova vantagem necessária → ataque posicionado`
+
+Para resolver o conflito, a definição do arquivo conceitual deve prevalecer e a visão geral precisa ser ajustada em todas as ocorrências derivadas — não apenas na primeira frase.
+
+Os erros `Esta arquivo`, `Ela não substitui` e o nome sem hífen foram corrigidos. A referência foi transformada em link e o retorno foi criado na visão geral.
+
+- [x] Em [conceitos-jogo.md:9](/home/davis/analise-video/.local/historico/conceitos-jogo.md:9), aplicar:
+
+```md
+Este arquivo reúne somente os conceitos que estruturam a forma como o CEPRAEA interpreta o jogo. Ele deve ser lido em conjunto com a [Visão Geral CEPRAEA](./visao-geral-cepraea.md), que contém aplicações para treino, scout e plano de jogo. Aqui, o objetivo é definir uma linguagem comum: o que cada conceito significa, como se relaciona com os demais e qual é seu status de maturidade dentro do modelo.
+```
+
+- [x] Em [visao-geral-cepraea.md:11](/home/davis/analise-video/.local/historico/visao-geral-cepraea.md:11), acrescentar após o primeiro parágrafo:
+
+```md
+As definições detalhadas dos conceitos utilizados nesta visão estão em [Conceitos do Jogo — CEPRAEA](./conceitos-jogo.md).
+```
+
+- [x] Os caminhos relativos `./...` foram usados e os dois destinos foram validados.
+
+- [x] Uniformizar os termos da árvore
+
+Convém distinguir:
+
+- **instalação estrutural completa**: composição, funções, ocupações, bola em zona útil e fim do problema logístico;
+- **T3 — ataque instalado**: instalação estrutural completa **e** ausência de vantagem herdada predominante.
+
+Isso evita a contradição aparente de dizer que a instalação está completa durante a transição indireta, embora T3 ainda não tenha ocorrido.
+
+Árvore recomendada:
+
+```text
+Instalação estrutural incompleta
+└── Transição ofensiva direta
+
+Instalação estrutural completa
+├── Vantagem herdada ainda predominante → Transição ofensiva indireta
+└── Nova vantagem precisa ser construída → Ataque posicionado / T3
+```
+
+- [x] Substituir a definição da seção 2.2
+
+Em [visao-geral-cepraea.md:43](/home/davis/analise-video/.local/historico/visao-geral-cepraea.md:43), substituir a definição baseada em conversão por:
+
+```md
+Existe transição ofensiva direta enquanto pelo menos uma condição estrutural da instalação ofensiva ainda está ausente: composição deliberada, funções e ocupações reconhecíveis, bola em zona útil ou fim do problema predominante de progressão, entrada ou substituição. A categoria não depende da relação numérica, da quantidade de passes, da duração nem da conversão da vantagem.
+
+A finalização antes do controle defensivo é um possível desfecho da transição direta, mas não constitui sua definição. Uma transição direta também pode terminar sem finalização, quando a equipe completa sua instalação estrutural.
+```
+
+Assim, “converter antes do controle defensivo” passa de definição para possível resultado.
+
+- [x] Explicitar a passagem direta → indireta ou ataque
+
+Ao final da seção 2.2, acrescentar:
+
+```md
+Quando todas as condições estruturais de instalação passam a estar presentes, aplica-se o teste causal. Se a oportunidade atual ainda depende predominantemente de uma vulnerabilidade herdada da mudança de posse, começa a transição ofensiva indireta. Se essa vulnerabilidade deixou de predominar e a equipe precisa construir uma nova vantagem, começa o ataque posicionado e ocorre T3.
+```
+
+- [x] Corrigir a definição da seção 2.3
+
+Em [visao-geral-cepraea.md:57](/home/davis/analise-video/.local/historico/visao-geral-cepraea.md:57), substituir “aparência de ataque organizado” por um critério observável:
+
+```md
+Existe transição ofensiva indireta quando as condições estruturais da instalação ofensiva já estão satisfeitas, mas a oportunidade atual ainda depende predominantemente de uma vulnerabilidade herdada da mudança de posse.
+```
+
+“Aparência” pode permanecer como alerta ou exemplo, mas não como critério de entrada.
+
+- [x] Incorporar explicitamente a árvore operacional
+
+Depois da seção 2.3, reproduzir as duas perguntas de [conceitos-jogo.md:224](/home/davis/analise-video/.local/historico/conceitos-jogo.md:224):
+
+```md
+**Árvore operacional de classificação:**
+
+1. As condições estruturais da instalação ofensiva estão completas?
+   - Não: transição ofensiva direta.
+   - Sim: aplicar o teste causal.
+2. Sem a vulnerabilidade criada pela mudança de posse, a oportunidade atual desapareceria?
+   - Sim: transição ofensiva indireta.
+   - Não, e uma nova oportunidade precisa ser construída: ataque posicionado.
+```
+
+- [x] Incluir um link para a definição detalhada em `conceitos-jogo.md`.
+
+- [x] Revisar os usos posteriores
+
+| Local | Ação necessária |
+| --- | --- |
+| [Seção 6.4](/home/davis/analise-video/.local/historico/visao-geral-cepraea.md:240) | Informar que só é indireta se a instalação estrutural ofensiva estiver completa; caso contrário, é direta. |
+| [Seção 6.9](/home/davis/analise-video/.local/historico/visao-geral-cepraea.md:268) | Não dizer que a entrada da pivô produz automaticamente transição indireta; exigir instalação estrutural completa e vantagem herdada. |
+| [Scout](/home/davis/analise-video/.local/historico/visao-geral-cepraea.md:363) | Registrar primeiro `INSTALACAO_ESTRUTURAL_COMPLETA` e `VANTAGEM_HERDADA_PREDOMINANTE`; derivar a classificação desses campos. |
+| [Exercício 9.5](/home/davis/analise-video/.local/historico/visao-geral-cepraea.md:454) | Colocar explicitamente o ataque em instalação estrutural completa antes de pedir a leitura da vantagem herdada. |
+| [Síntese, linha 556](/home/davis/analise-video/.local/historico/visao-geral-cepraea.md:556) | Substituir “termina em exploração imediata” por “permanece enquanto a instalação estrutural está incompleta”. |
+| [Síntese, linha 562](/home/davis/analise-video/.local/historico/visao-geral-cepraea.md:562) | Retirar “vantagem antes da estabilização defensiva” como critério da direta e reaplicar a árvore instalação → origem causal. |
+
+- [x] Todas as ações da tabela acima foram executadas, verificadas e validadas.
+
+- [x] No protocolo de scout, `ATAQUE POSICIONADO PURO` foi renomeado para `ATAQUE POSICIONADO`, acompanhando a taxonomia conceitual.
+
+## 7. Preservar os exemplos válidos
+
+- [x] Os exemplos de arremesso da goleira, interceptação seguida de arremesso e passe longo para atacante antecipada foram preservados como exemplos de transição direta, condicionados à instalação estrutural ofensiva incompleta e sem classificação pelo resultado.
+
+## 8. Critérios de aceitação
+
+A correção estará completa quando:
+
+- [x] nenhuma passagem define transição direta pela conversão ou pelo resultado;
+- [x] instalação estrutural é sempre o primeiro teste;
+- [x] origem causal da vantagem é sempre o segundo teste;
+- [x] transição indireta exige instalação estrutural completa;
+- [x] T3 ocorre somente após desaparecer a vantagem herdada predominante;
+- [x] exemplos, scout, exercícios e síntese utilizam a mesma árvore;
+- [ ] `conceitos-jogo.md`, `visao-geral-cepraea.md` e, se essa regra for promovida como atual, a fonte canônica que alimenta `docs/GAME_MODEL.md` estiverem alinhados.
+
+  **PENDENTE** — os dois arquivos históricos estão alinhados; a fonte canônica externa que alimenta `docs/GAME_MODEL.md` não foi alterada nem verificada neste incremento.
+
+## Identifique as ações necessárias para resolver **Checklist ainda inconsistente**
+
+O checklist contém C01–C34: 18 itens marcados e 16 abertos. Entretanto, o resumo ainda afirma haver 21 itens abertos e cita C35–C39 ([linha 1036](/home/davis/analise-video/.local/historico/conceitos-jogo.md:1036)). Esses cinco itens continuam sem entradas próprias.
+
+Identifique as ações necessárias para resolver **Estados continuam sem taxonomia única**
+
+A tabela inicial define três estados, mas o documento utiliza também `CONSOLIDADO CONCEITUALMENTE`, `EM FECHAMENTO OPERACIONAL`, `PARCIALMENTE ESTRUTURADO`, `PRONTO PARA CODIFICAÇÃO` e outros. A separação dos arquivos não resolveu essa ambiguidade.
+
+Identifique as ações necessárias para resolver **Status cruzados precisam ser atualizados**
+
+- C29 diz que falta construir o manual/ficha de scout, mas a visão geral já contém um protocolo parcial em [visao-geral-cepraea.md:335](/home/davis/analise-video/.local/historico/visao-geral-cepraea.md:335).
+- C31 descreve exercícios como entregável ausente, enquanto a seção de exercícios começa em [visao-geral-cepraea.md:395](/home/davis/analise-video/.local/historico/visao-geral-cepraea.md:395).
+
+O estado correto parece ser `PARCIALMENTE REALIZADO`, não “ausente”.
+
+## Pendências editoriais menores
+
+- Os blockquotes iniciais precisam de espaço depois de `>` nos dois arquivos.
+- “coberturas **laterales**” deve ser “coberturas laterais” em [conceitos-jogo.md:401](/home/davis/analise-video/.local/historico/conceitos-jogo.md:401).
+- `conceitos-jogo.md` ainda possui 56 glossários locais, 332 definições e 30 termos repetidos. Um glossário central reduziria risco de divergência.
+- As afirmações científicas em [conceitos-jogo.md:141](/home/davis/analise-video/.local/historico/conceitos-jogo.md:141) ficaram separadas da bibliografia, que agora está apenas em [visao-geral-cepraea.md:518](/home/davis/analise-video/.local/historico/visao-geral-cepraea.md:518). É necessário adicionar referências próprias ou um link explícito.
+- Ainda falta proveniência documental: versão, data, fonte, aprovação e natureza histórica.
+
+Conclusão: **a separação e a harmonização da árvore de transição ofensiva foram concluídas nos dois arquivos históricos; a inconsistência C35–C39 e as demais questões listadas abaixo permanecem como trabalhos futuros**. A promoção dessa regra para a fonte canônica que alimenta `docs/GAME_MODEL.md` continua pendente.

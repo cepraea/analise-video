@@ -1,0 +1,99 @@
+#!/usr/bin/env node
+
+/** Operational checks for pre-commit and commit-msg hook stages. */
+
+const { execFileSync } = require('child_process');
+const fs = require('fs');
+const path = require('path');
+
+const mode = process.argv[2] || 'pre-commit';
+const RED = '\x1b[31m';
+const GREEN = '\x1b[32m';
+const YELLOW = '\x1b[33m';
+const RESET = '\x1b[0m';
+let errors = 0;
+let warnings = 0;
+
+function git(args) {
+  return execFileSync('git', args, { encoding: 'utf8' }).trim();
+}
+
+function fail(message) {
+  console.error(`${RED}ERROR:${RESET} ${message}`);
+  errors += 1;
+}
+
+function warn(message) {
+  console.warn(`${YELLOW}WARN:${RESET} ${message}`);
+  warnings += 1;
+}
+
+function preCommit() {
+  let staged = [];
+  try {
+    staged = git(['diff', '--cached', '--name-only', '--diff-filter=ACMR'])
+      .split('\n')
+      .filter(Boolean);
+  } catch (_) {
+    fail('unable to read staged files');
+    return;
+  }
+
+  for (const file of staged) {
+    if (/^archive\//.test(file)) {
+      warn(`${file}: archive content is evidence and must not enter operational context routes`);
+    }
+    if (/(^|\/)\.env(?:\.|$)/.test(file)) {
+      fail(`${file}: environment files must not be committed`);
+    }
+    if (file.includes('/migrations/') && !file.endsWith('.md')) {
+      warn(`${file}: verify that the migration has an approved requirement and rollback evidence`);
+    }
+    if (!fs.existsSync(file) || /\.(png|pdf|zip|gz|woff2?)$/i.test(file)) continue;
+    const content = fs.readFileSync(file, 'utf8');
+    if (/\.(ts|tsx|js|jsx)$/.test(file) && /catch\s*(?:\([^)]*\))?\s*\{\s*\}/m.test(content)) {
+      fail(`${file}: empty catch block`);
+    }
+  }
+
+  const graphSources = staged.some((file) => /(?:map_repo_ast|visualize_graph|generate_pdf_report)\.(?:py|js)$/.test(file));
+  if (graphSources) {
+    const names = new Set(staged.map((file) => path.basename(file)));
+    for (const expected of ['repo_knowledge_graph.json', 'repo_architecture_graph-v2.png', 'relatorio-analise-acoplamento.pdf']) {
+      if (!names.has(expected)) warn(`${expected} was not staged with graph tooling changes`);
+    }
+  }
+}
+
+function commitMessage(messagePath) {
+  if (!messagePath) {
+    fail('commit-msg mode requires the message file path as the second argument');
+    return;
+  }
+  if (!fs.existsSync(messagePath)) {
+    fail(`commit message file not found: ${messagePath}`);
+    return;
+  }
+  const message = fs.readFileSync(messagePath, 'utf8');
+  const subject = message.split('\n')[0].trim();
+  const structural = /^(?:feat|refactor|arch)(?:\([^)]*\))?!?:/i.test(subject);
+  if (!structural) return;
+  for (const trailer of ['Constraint:', 'Rejected:', 'Tested:']) {
+    const expression = new RegExp(`^${trailer.replace(':', '\\:')}\\s+\\S`, 'm');
+    if (!expression.test(message)) fail(`structural commit requires trailer ${trailer}`);
+  }
+}
+
+if (mode === 'pre-commit') {
+  preCommit();
+} else if (mode === 'commit-msg') {
+  commitMessage(process.argv[3]);
+} else {
+  fail(`unknown mode '${mode}'; use pre-commit or commit-msg`);
+}
+
+if (errors) {
+  console.error(`${RED}${errors} error(s), ${warnings} warning(s).${RESET}`);
+  process.exit(1);
+}
+console.log(`${GREEN}Checks passed with ${warnings} warning(s).${RESET}`);

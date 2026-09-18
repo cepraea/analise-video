@@ -1,0 +1,1010 @@
+# Plano de Implementação da Arquitetura Híbrida de Documentação e SSOT
+
+> **Status operacional:** `SUPERSEDED_DRAFT`. Este plano monolítico foi preservado como fonte histórica. A execução deve começar em [PLANO-MESTRE.md](../plano/PLANO-MESTRE.md), que distribui o trabalho em subplanos de governança, migração, contexto mínimo, validação e cutover.
+
+## Controle do documento
+
+| Campo | Valor |
+| --- | --- |
+| Status deste plano | `PROPOSTA A VALIDAR` |
+| Autoridade de aprovação | Davi |
+| Natureza | Plano local de execução; ainda não é parte da SSOT |
+| Escopo | Governança documental, migração de fontes, rastreabilidade e contexto para agentes |
+| Fora do escopo | Definição definitiva da arquitetura de runtime, infraestrutura cloud ou stack futura |
+| Gate atual | `G0 — inventário e baseline` |
+| Resultado esperado | SSOT federada, validável, rastreável e suficiente para orientar o desenvolvimento completo |
+
+Este arquivo descreve o procedimento para criar a documentação canônica do sistema a partir dos arquivos existentes e dos rascunhos em `.local/drafts/`. Sua execução depende das decisões de autoridade identificadas neste plano.
+
+O conteúdo em `.local/` é ignorado pelo Git. Portanto, este plano só passa a produzir autoridade documental quando suas decisões e entregáveis aprovados forem registrados nos arquivos canônicos versionados em `docs/`, `AGENTS.md` e `CLAUDE.md`.
+
+## Objetivo
+
+Implantar uma arquitetura híbrida de documentação composta por:
+
+> cânone federado por responsabilidade + registro central de autoridade + grafo de rastreabilidade + pacotes de contexto por incremento.
+
+A implementação deve:
+
+- preservar a proveniência das fontes originais;
+- impedir que rascunhos ou protótipos sejam tratados como requisitos por localização ou aparência;
+- manter uma única definição canônica para cada requisito, conceito e decisão;
+- permitir rastreamento de fonte até evidência de implementação;
+- fornecer a Codex e Claude Code somente o contexto necessário para o incremento ativo;
+- explicitar toda decisão que dependa da autoridade de Davi;
+- permitir validação automática de estrutura, IDs, estados, referências e evidências.
+
+A arquitetura reduz ambiguidades e o risco de alucinação, mas não garante correção semântica absoluta. A correção esportiva depende da validação de Davi; a condição `VERIFIED` depende de evidência reproduzível.
+
+## Princípios obrigatórios
+
+1. Uma responsabilidade documental possui uma fonte canônica claramente identificada.
+2. O status de um documento e o status de cada afirmação contida nele são dimensões independentes.
+3. Estar em `.local/drafts/` torna o artefato não canônico operacionalmente, mas não invalida automaticamente suas afirmações.
+4. Uma afirmação declarada como decidida em um rascunho só pode ser promovida após confirmação de sua fonte ou ratificação de Davi.
+5. Fontes históricas e externas permanecem imutáveis; correções são feitas em derivados versionados.
+6. IDs existentes não podem receber novo significado silenciosamente.
+7. Uma mudança semântica incompatível cria novo ID ou registra explicitamente `supersedes`.
+8. Regras oficiais da IHF e interpretação esportiva CEPRAEA permanecem separadas.
+9. Código existente não comprova funcionamento por si só.
+10. Nenhum item recebe `VERIFIED` sem teste ou evidência correspondente.
+11. Google Drive e NotebookLM não são apagados da linhagem. Seus papéis operacionais são definidos por decisão de governança.
+12. A arquitetura documental não decide, por consequência, a arquitetura de execução do produto.
+
+## Autoridades atuais que devem ser preservadas
+
+Conforme o mapa de contexto vigente do repositório:
+
+| Assunto | Autoridade canônica atual |
+| --- | --- |
+| Requisitos do produto | `docs/SYSTEM_SPEC.md` |
+| Significado esportivo | `docs/GAME_MODEL.md` |
+| Arquitetura | ADRs com status explícito em `docs/architecture/` |
+| Ordem de desenvolvimento | `docs/IMPLEMENTATION_PLAN.md` |
+| Rastreabilidade | `docs/TRACEABILITY.md` |
+| Estado comprovado | `docs/IMPLEMENTATION_STATUS.md`, código, testes e evidências |
+
+A migração deve ampliar e corrigir essas autoridades sem criar uma segunda SSOT paralela.
+
+## Diagnóstico do estado atual
+
+O repositório já possui o esqueleto de uma SSOT, mas ainda não possui conteúdo suficiente para orientar o desenvolvimento completo.
+
+Os principais problemas conhecidos são:
+
+- `SYSTEM_SPEC.md` contém somente um subconjunto da especificação mais extensa;
+- `TRACEABILITY.md` cobre somente parte dos requisitos e critérios de aceitação;
+- há redefinições divergentes de IDs entre versões documentais;
+- conceitos esportivos possuem estados diferentes de completude e de confirmação;
+- decisões declaradas em rascunhos não possuem sempre a fonte verificável anexada;
+- protótipos podem ser confundidos com requisitos ou evidências;
+- o estado da ADR vigente diverge de referências presentes em instruções de agente;
+- não existe registro estruturado de fontes, hashes, sucessões e escopo de autoridade;
+- não existe validador automático da SSOT;
+- não existe pacote de contexto validado para o incremento ativo.
+
+### Baseline quantitativa a confirmar em G0
+
+A fonte de migração mais extensa declara conter:
+
+- 52 requisitos funcionais (`RF`);
+- 15 requisitos não funcionais (`RNF`);
+- 12 critérios de aceitação (`CA`);
+- 18 itens de taxonomia (`TAX`);
+- 14 decisões ou restrições técnicas (`TEC`).
+
+Essas quantidades são metas de paridade de extração, não prova automática de validade ou aprovação de cada item.
+
+## Classificação inicial das fontes em `.local/drafts/`
+
+| Artefato | Classe inicial | Uso permitido antes da promoção |
+| --- | --- | --- |
+| `analise-videos-cepraea-spec-GD.md` | `MIGRATION_SOURCE` | Extração e comparação da especificação mais extensa |
+| `analise-videos-cepraea-spec.md` | `SUPERSEDED_SOURCE` | Histórico e análise de evolução |
+| `analise-videos-v2.md` | `DRAFT_CANDIDATE` | Fonte de afirmações a verificar individualmente |
+| `PRANCHETA_SPEC.md` | `DRAFT_MODULE_SPEC` | Candidata a módulo, condicionada à confirmação das decisões |
+| `conceitos-jogo.md` | `DOMAIN_SOURCE_CANDIDATE` | Consolidação do significado esportivo |
+| `visao-geral-cepraea.md` | `DOMAIN_SOURCE_CANDIDATE` | Contexto esportivo e pedagógico a reconciliar |
+| PDF das regras de handebol de praia de 2026 | `EXTERNAL_NORMATIVE_SOURCE` | Referência oficial externa; nunca classificada como rascunho de regra |
+| `analise-videos-cepraea-historico.json` | `DECISION_LOG_SOURCE` | Reconstrução de decisões e sua cronologia |
+| `visualizar_tatica.py` | `PROTOTYPE` | Descoberta técnica; não comprova requisito nem implementação |
+| `prancheta_viewer.html` | `PROTOTYPE` | Descoberta de interface; não comprova requisito nem implementação |
+| `exemplo_bola_de_quebra.json` | `PROTOTYPE_FIXTURE` | Exemplo de dados; não define sozinho o contrato canônico |
+
+Essa classificação é provisória até o registro de fontes ser aprovado e gerado em G0/G1.
+
+## Modelo de estados
+
+Os estados devem ser separados em dimensões para impedir equivalências incorretas.
+
+### Estado da fonte ou do documento
+
+- `CANONICAL`
+- `DERIVED`
+- `DRAFT`
+- `MIGRATION_SOURCE`
+- `SUPERSEDED`
+- `EXTERNAL_NORMATIVE`
+- `EVIDENCE`
+- `PROTOTYPE`
+
+### Estado da decisão
+
+- `DECIDIDO`
+- `DECIDIDO PARCIALMENTE`
+- `MODELAGEM ATUAL`
+- `PROPOSTA TÉCNICA`
+- `PROPOSTA A VALIDAR`
+- `PENDENTE`
+- `FORA DO ESCOPO INICIAL`
+
+### Estado de verificação da afirmação
+
+- `CONFIRMED`
+- `PENDING_SOURCE_CONFIRMATION`
+- `CONFLICTING`
+- `REJECTED`
+- `SUPERSEDED`
+
+### Estado da implementação
+
+- `NOT_IMPLEMENTED`
+- `IMPLEMENTED_NOT_VERIFIED`
+- `VERIFIED`
+- `BLOCKED`
+
+Uma afirmação pode, por exemplo, estar em um documento `DRAFT`, ter estado declarado `DECIDIDO` e permanecer com verificação `PENDING_SOURCE_CONFIRMATION`. Essas três informações não podem ser condensadas em um único campo.
+
+## Estrutura-alvo da SSOT
+
+A estrutura preserva os caminhos já usados por `AGENTS.md` e acrescenta os controles ausentes, evitando uma migração de diretórios desnecessária.
+
+```text
+AGENTS.md
+CLAUDE.md
+
+docs/
+├── SSOT.md
+├── SYSTEM_SPEC.md
+├── GAME_MODEL.md
+├── OFFICIAL_RULES_MAPPING.md
+├── IMPLEMENTATION_PLAN.md
+├── IMPLEMENTATION_STATUS.md
+├── TRACEABILITY.yaml
+├── TRACEABILITY.md
+├── governance/
+│   ├── AUTHORITY.md
+│   ├── SOURCE_REGISTRY.yaml
+│   ├── STATES.md
+│   ├── ID_POLICY.md
+│   ├── DOCUMENTATION_STANDARD.md
+│   └── DECISION_LOG.md
+├── modules/
+│   ├── PRANCHETA.md
+│   ├── PORTAL.md
+│   ├── AI_ASSISTANCE.md
+│   └── COMPETITION_COCKPIT.md
+├── architecture/
+│   ├── ADR-001.md
+│   ├── ADR-002-ssot-documentation.md
+│   ├── model.yaml
+│   └── views/
+│       └── *.mmd
+├── api/
+│   └── openapi.yaml
+├── contracts/
+│   └── *.schema.json
+├── features/
+│   └── *.feature
+├── context/
+│   └── packs/
+│       └── INC-002.md
+└── evidence/
+    └── SSOT-MIGRATION.md
+
+scripts/
+└── validate_ssot.py
+
+tests/
+└── docs/
+    └── test_ssot.py
+
+.github/
+└── workflows/
+    └── ssot.yml
+```
+
+Os arquivos de `docs/modules/` só devem ser criados quando o respectivo limite de produto for aprovado. Um módulo ainda não aprovado deve permanecer como proposta registrada, sem ganhar aparência de requisito canônico.
+
+## Contrato de cada arquivo
+
+### `docs/SSOT.md`
+
+Índice curto da SSOT. Deve declarar a finalidade de cada documento, a ordem de precedência, o modo de resolver conflitos e os pacotes mínimos de leitura por tipo de tarefa.
+
+Não deve repetir requisitos, conceitos ou decisões.
+
+### `docs/governance/AUTHORITY.md`
+
+Define quem decide cada classe de conteúdo. Deve registrar Davi como autoridade do significado esportivo CEPRAEA e explicitar responsáveis por produto, arquitetura, entrega e verificação.
+
+### `docs/governance/SOURCE_REGISTRY.yaml`
+
+Registra cada fonte com, no mínimo:
+
+```yaml
+source_id: SRC-SPEC-GD
+path_or_uri: .local/drafts/analise-videos-cepraea-spec-GD.md
+source_type: MIGRATION_SOURCE
+scope:
+  - product_requirements
+revision: null
+content_hash: sha256:<hash>
+captured_at: YYYY-MM-DD
+canonical_until: null
+migrated_to:
+  - docs/SYSTEM_SPEC.md
+superseded_by: null
+notes: null
+```
+
+Links ou IDs do Google Drive, revisões originais, datas e hashes devem ser preservados quando disponíveis.
+
+### `docs/governance/STATES.md`
+
+Define os quatro vocabulários de estado, suas transições permitidas e os campos obrigatórios para cada transição.
+
+### `docs/governance/ID_POLICY.md`
+
+Define namespaces, formato, unicidade, renumeração, descontinuação e uso de `supersedes`. Deve proibir a reutilização semântica de IDs.
+
+### `docs/governance/DOCUMENTATION_STANDARD.md`
+
+Define qual linguagem ou formato deve ser usado para cada tipo de informação: Markdown, EARS, MADR, YAML, Mermaid, JSON, OpenAPI e Gherkin. Também estabelece as regras de geração e precedência descritas neste plano.
+
+### `docs/governance/DECISION_LOG.md`
+
+Registra cada decisão com ID, pergunta, opções, escolha, autoridade, data, fontes, impacto e artefatos afetados.
+
+### `docs/SYSTEM_SPEC.md`
+
+É a definição canônica dos requisitos do produto. Deve conter requisitos, requisitos não funcionais, critérios de aceitação, restrições e referências aos conceitos esportivos sem duplicar suas definições.
+
+### `docs/GAME_MODEL.md`
+
+É o contrato esportivo consumível pelo software. Deve conter conceitos, taxonomias, invariantes, regras de classificação e pendências esportivas com estado explícito.
+
+### `docs/OFFICIAL_RULES_MAPPING.md`
+
+Relaciona regra e página da fonte oficial a conceitos ou requisitos do sistema. Deve usar relações tipadas, como `supports`, `constrains` ou `conflicts_with`, sem equiparar automaticamente regra IHF e interpretação CEPRAEA.
+
+### `docs/modules/*.md`
+
+Contêm especificações de módulos aprovados que sejam grandes o suficiente para prejudicar a recuperação no documento principal. Cada módulo referencia os requisitos do `SYSTEM_SPEC.md`; não cria um namespace concorrente sem decisão registrada.
+
+### `docs/architecture/ADR-*.md`
+
+Registra decisões arquiteturais com contexto, opções, decisão, consequências, riscos, status e substituições.
+
+Enquanto não houver nova decisão, a ADR-001 permanece a autoridade de arquitetura para o incremento corrente. Qualquer proposta de PWA, cloud, serviço gerenciado, processamento remoto ou visão computacional deve ficar em uma ADR candidata separada.
+
+### `docs/architecture/model.yaml`
+
+É a representação estruturada e validável da arquitetura como código. Deve conter os elementos e relações do modelo C4 segundo um schema ou ferramenta aprovados. O YAML representa dados arquiteturais; as vistas visuais são geradas em Mermaid.
+
+### `docs/architecture/views/*.mmd`
+
+São vistas textuais e versionáveis de contexto, contêineres, componentes, classes, entidades, estados, sequências ou atividades. Quando uma vista representar o C4, ela deve ser derivada de `model.yaml`; não pode introduzir componentes ou relações ausentes no modelo canônico.
+
+### `docs/api/openapi.yaml`
+
+É o contrato canônico da API HTTP. Define operações, parâmetros, payloads, respostas e erros. Não substitui requisitos de produto, regras de domínio ou decisões arquiteturais.
+
+### `docs/contracts/*.schema.json`
+
+São contratos estruturados para documentos, eventos, fixtures e payloads que não pertençam ao contrato HTTP. JSON deve ser usado para dados destinados a processamento por máquinas, não como substituto da documentação explicativa.
+
+### `docs/features/*.feature`
+
+Contêm exemplos concretos de comportamento e critérios de aceitação em Gherkin. Cada cenário deve referenciar requisitos e critérios existentes; um cenário não cria silenciosamente uma nova regra de negócio.
+
+### `docs/TRACEABILITY.yaml`
+
+É o grafo canônico legível por máquina. Deve permitir rastrear:
+
+```text
+fonte e revisão
+  → decisão ou conceito
+  → requisito
+  → critério de aceitação
+  → incremento
+  → código
+  → teste
+  → evidência
+  → estado comprovado
+```
+
+### `docs/TRACEABILITY.md`
+
+É uma visualização gerada a partir de `TRACEABILITY.yaml`. Não deve ser editada manualmente após a automação estar ativa.
+
+### `docs/IMPLEMENTATION_PLAN.md`
+
+Define a ordem de desenvolvimento e o escopo de cada incremento. Requisitos novos ou promovidos não entram automaticamente no incremento corrente.
+
+### `docs/IMPLEMENTATION_STATUS.md`
+
+Registra somente estado comprovado, distinguindo `NOT_IMPLEMENTED`, `IMPLEMENTED_NOT_VERIFIED`, `VERIFIED` e `BLOCKED`.
+
+### `docs/context/packs/INC-002.md`
+
+É o pacote mínimo e gerado para o incremento atual. Deve apontar para as autoridades canônicas e nunca copiar longos blocos que possam divergir.
+
+### `docs/evidence/SSOT-MIGRATION.md`
+
+Registra comandos, resultados, hashes, contagens, decisões e aprovações usados para comprovar a migração.
+
+## Padrão de escrita e utilização dos formatos
+
+O projeto aproveita práticas úteis associadas ao ANMS sem adotar ANMS, ANPS ou ANGS como framework de governança ou automação. A autoridade continua sendo definida pela SSOT deste repositório.
+
+### Mapa de utilização
+
+| Recurso | Uso normativo | Uso proibido ou limitado |
+| --- | --- | --- |
+| Markdown | Hub documental, explicações, glossário, requisitos e ligações entre artefatos | Não duplicar contratos estruturados completos em vários arquivos |
+| ADR/MADR | Decisões arquiteturais, alternativas, consequências, riscos, estado e sucessão | Não usar para requisito de produto ou regra esportiva |
+| EARS | Redação controlada do comportamento obrigatório do sistema | Não usar antes de corrigir o significado do domínio; não tratar boa sintaxe como prova de verdade |
+| Mermaid | Representação visual versionável de componentes, classes, ER, estados, sequências, atividades e relações | Não usar como fonte normativa de requisitos; vistas C4 não podem divergir do modelo arquitetural canônico |
+| YAML | Grafos, registros, configuração e arquitetura como código sujeita a schema | Não usar como “diagrama visual” nem como prosa geral |
+| JSON | Dados estruturados, schemas, fixtures, eventos e intercâmbio entre máquinas | Não usar para decisões narrativas ou justificativas arquiteturais |
+| OpenAPI | Contrato canônico da API HTTP | Não substituir comportamento de negócio, modelo de jogo ou arquitetura |
+| Gherkin | Exemplos concretos e verificáveis de aceitação | Não substituir EARS, requisito ou teste automatizado |
+| Three Amigos | Técnica opcional de esclarecimento entre negócio/domínio, desenvolvimento e testes | Não impor reunião, cerimônia ou papel inexistente para toda alteração |
+
+### Regra de precedência semântica
+
+```text
+intenção do sistema
+  → linguagem natural controlada
+  → conceitos e regras corretos do domínio em Markdown + glossário
+  → requisitos obrigatórios em EARS + IDs
+  → decisões e arquitetura em MADR + C4/YAML + vistas Mermaid
+  → contratos técnicos em OpenAPI, SQL e formatos nativos
+  → exemplos de comportamento em Gherkin
+  → implementação em código
+  → testes e evidências rastreados aos requisitos
+```
+
+Em caso de conflito, o formato mais estruturado não vence automaticamente. A autoridade é determinada pelo tipo de conhecimento e pelo registro de autoridade. Por exemplo, OpenAPI prevalece sobre outra descrição do formato de uma resposta HTTP, mas não pode redefinir o significado esportivo de um campo.
+
+### Processo de escrita de requisitos
+
+A função de escrita de requisitos, executada por uma pessoa ou por um agente autorizado, deve:
+
+1. receber a necessidade em linguagem natural;
+2. identificar termos, atores, estados, eventos, erros e resultados ainda ambíguos;
+3. entrevistar Davi ou a autoridade aplicável somente sobre lacunas que alterem o comportamento;
+4. registrar as respostas como decisões ou definições de domínio;
+5. transformar a necessidade em requisitos identificados;
+6. redigir o comportamento obrigatório usando o padrão EARS adequado;
+7. criar ou vincular critérios de aceitação e exemplos Gherkin;
+8. atualizar a rastreabilidade;
+9. submeter qualquer mudança semântica à autoridade correspondente.
+
+O projeto deve preservar os namespaces existentes `RF-xxx` e `RNF-xxx`. As siglas `FR-xxx` e `NFR-xxx`, usadas em exemplos externos, não devem ser introduzidas sem uma decisão explícita de migração de IDs.
+
+### Padrões EARS adotados
+
+A publicação original de EARS apresenta cinco padrões fundamentais. O projeto adota esses cinco padrões; combinações de condições são permitidas, mas não constituem, para esta governança, um sexto padrão fundamental.
+
+| Padrão | Forma controlada em português | Uso |
+| --- | --- | --- |
+| Ubíquo | O sistema deverá `<resposta obrigatória>`. | Comportamento sempre aplicável |
+| Orientado a evento | Quando `<evento>`, o sistema deverá `<resposta obrigatória>`. | Resposta a um gatilho |
+| Orientado a estado | Enquanto `<estado>`, o sistema deverá `<resposta obrigatória>`. | Obrigação válida durante um estado |
+| Comportamento indesejado | Se `<condição indesejada>`, então o sistema deverá `<resposta obrigatória>`. | Falha, erro, exceção ou risco |
+| Funcionalidade opcional | Onde `<funcionalidade estiver presente>`, o sistema deverá `<resposta obrigatória>`. | Variante ou capacidade opcional |
+
+Referência metodológica: Alistair Mavin et al., [“Easy Approach to Requirements Syntax (EARS)”](https://research.manchester.ac.uk/en/publications/easy-approach-to-requirements-syntax-ears/), IEEE RE 2009. O artigo descreve cinco tipos de requisito. A SSOT deve registrar a referência bibliográfica completa em `DOCUMENTATION_STANDARD.md`.
+
+Precondições, estados e eventos podem ser combinados quando necessários, mantendo uma única obrigação testável por statement. A combinação deve continuar rastreável a um único ID ou ser decomposta quando contiver obrigações independentes.
+
+Exemplo hipotético:
+
+```text
+Quando uma atleta enviar sua disponibilidade para uma atividade,
+o sistema deverá registrar a versão da declaração associada à atleta e à atividade.
+```
+
+Esta formulação é mais verificável que “O sistema deve gerenciar corretamente a disponibilidade”, mas não corrige um conceito de disponibilidade mal definido.
+
+Regra obrigatória:
+
+```text
+primeiro domínio correto → depois EARS
+```
+
+### Regras de qualidade para statements EARS
+
+Cada requisito EARS deve:
+
+- conter uma única obrigação principal;
+- identificar explicitamente o sistema como sujeito;
+- usar “deverá” para obrigação normativa;
+- declarar evento, estado, condição indesejada ou variante quando aplicável;
+- evitar termos subjetivos como “corretamente”, “adequadamente”, “rápido” ou “intuitivo” sem métrica;
+- referenciar definições canônicas do domínio em vez de redefini-las;
+- possuir critério de aceitação verificável ou adiamento explícito;
+- preservar a afirmação de origem durante a migração;
+- ser revisado semanticamente quando a normalização alterar escopo, ator, condição ou resultado.
+
+### Relação entre EARS e Gherkin
+
+EARS declara a obrigação; Gherkin fornece exemplos concretos dessa obrigação.
+
+```gherkin
+@RF-XXX @CA-XXX
+Funcionalidade: Versionamento da disponibilidade
+
+  Cenário: Nova declaração para a mesma atividade
+    Dado que existe uma declaração anterior da atleta para a atividade
+    Quando a atleta enviar uma nova disponibilidade
+    Então o sistema registra uma nova versão da declaração
+    E preserva a versão anterior sem alteração
+```
+
+Um cenário deve cobrir caminhos relevantes, inclusive erros e limites, mas não substitui o requisito geral. O teste automatizado pode implementar o cenário; o arquivo `.feature` isolado não comprova `VERIFIED`.
+
+### Arquitetura como código e Mermaid
+
+O modelo C4 em YAML deve ser a fonte estruturada dos elementos arquiteturais e relações. As vistas Mermaid devem ser geradas ou validadas contra esse modelo e podem utilizar cores para distinguir tipos de componentes, desde que:
+
+- o significado das cores esteja em uma legenda textual;
+- nenhuma informação dependa apenas de cor;
+- identificadores permaneçam estáveis entre o YAML e as vistas;
+- a geração seja determinística;
+- divergências entre modelo e vista façam a validação falhar.
+
+Diagramas de classes, ER, estados, sequências e atividades que não sejam projeções do C4 podem ter Mermaid como fonte textual própria. Cada diagrama deve declarar sua autoridade, finalidade e artefatos relacionados.
+
+### Three Amigos sob demanda
+
+Three Amigos deve ser acionado quando uma regra relevante continuar ambígua entre as perspectivas de domínio/produto, implementação e verificação. A colaboração pode ocorrer de forma assíncrona por comentários e decisões registradas; uma reunião formal não é obrigatória.
+
+O resultado necessário é:
+
+- exemplos concordados;
+- casos de erro e de borda;
+- termos definidos;
+- requisito ou critério atualizado;
+- decisão e responsável registrados quando restar uma pendência.
+
+## Plano de execução e gates
+
+Nenhum gate posterior autoriza pular um gate anterior. Cada gate deve produzir evidência antes de ser marcado como concluído.
+
+### G0 — Congelar o baseline e inventariar fontes
+
+**Ações:**
+
+- [ ] Registrar branch, commit-base, data e responsável pela migração.
+- [ ] Inventariar todos os artefatos de `.local/drafts/` sem modificar seus conteúdos.
+- [ ] Calcular SHA-256 de cada artefato.
+- [ ] Registrar tipo, origem, escopo, revisão conhecida e caminho de cada fonte.
+- [ ] Confirmar que os 11 artefatos listados neste plano correspondem ao diretório real.
+- [ ] Identificar arquivos equivalentes ou adicionais em `.local/historico/` sem confundi-los com a origem do baseline.
+- [ ] Criar a evidência inicial em `docs/evidence/SSOT-MIGRATION.md`.
+
+**Critério de saída:**
+
+- inventário 100% reconciliado com o diretório;
+- hash presente para cada fonte;
+- nenhuma fonte original alterada;
+- divergências entre `drafts` e `historico` registradas.
+
+### G1 — Formalizar governança, autoridade e estados
+
+**Ações:**
+
+- [ ] Criar `docs/SSOT.md`.
+- [ ] Criar `docs/governance/AUTHORITY.md`.
+- [ ] Criar `docs/governance/SOURCE_REGISTRY.yaml` a partir do inventário.
+- [ ] Criar `docs/governance/STATES.md`.
+- [ ] Criar `docs/governance/ID_POLICY.md`.
+- [ ] Criar `docs/governance/DOCUMENTATION_STANDARD.md` com a política de formatos deste plano.
+- [ ] Criar `docs/governance/DECISION_LOG.md`.
+- [ ] Criar `docs/architecture/ADR-002-ssot-documentation.md`.
+- [ ] Registrar as decisões de governança GOV-001 a GOV-007 e ID-001 a ID-002, incluindo GOV-005 como decisão já indicada por Davi.
+- [ ] Registrar as decisões documentais DOC-001 a DOC-005.
+- [ ] Corrigir a referência ao status da ADR-001 em `CLAUDE.md` sem alterar a decisão da ADR.
+
+**Critério de saída:**
+
+- cada domínio possui uma autoridade explícita;
+- estados possuem definição e transições válidas;
+- política de IDs está aprovada;
+- padrão de escrita e autoridade de cada formato está aprovado;
+- ADR-002 está aprovada por Davi ou permanece explicitamente bloqueando a promoção.
+
+### G2 — Extrair afirmações normativas sem consolidá-las prematuramente
+
+**Ações:**
+
+- [ ] Extrair requisitos, critérios, regras, conceitos, entidades, fluxos, invariantes, decisões, propostas e pendências de todas as fontes.
+- [ ] Registrar cada afirmação em uma tabela temporária de migração.
+- [ ] Preservar texto, ID, estado declarado, fonte e localização de origem.
+- [ ] Separar o texto original da futura redação normativa em EARS.
+- [ ] Atribuir estado de verificação sem inferir confirmação pela localização do arquivo.
+- [ ] Identificar o destino canônico candidato de cada afirmação.
+- [ ] Vincular afirmações repetidas sem apagar as variantes.
+
+#### Esquema mínimo da afirmação
+
+```yaml
+claim_id: CLM-0001
+source_id: SRC-SPEC-GD
+source_locator: "linha ou seção"
+original_id: RF-001
+claim_type: product_requirement
+original_text: "texto preservado da fonte"
+normative_statement: null
+ears_pattern: null
+declared_decision_status: DECIDIDO
+verification_status: PENDING_SOURCE_CONFIRMATION
+candidate_target: docs/SYSTEM_SPEC.md
+duplicate_of: null
+conflicts_with: []
+notes: null
+```
+
+**Critério de saída:**
+
+- toda afirmação normativa possui fonte e localização;
+- nenhuma divergência foi resolvida silenciosamente;
+- protótipos estão separados de requisitos e evidências.
+
+### G3 — Detectar duplicações, lacunas e conflitos
+
+**Ações:**
+
+- [ ] Comparar `RF-012`, `RF-021`, `RF-037` e `CA-012` entre todas as versões.
+- [ ] Comparar as definições de transição direta, indireta e ataque posicionado.
+- [ ] Verificar as condições de T3 e o papel da vantagem herdada.
+- [ ] Verificar o estado e a extensibilidade de C23.
+- [ ] Reconciliar os namespaces `RFP` e `CAP` com `RF` e `CA`.
+- [ ] Verificar a proveniência das decisões declaradas em `PRANCHETA_SPEC.md`.
+- [ ] Separar arquitetura local vigente de propostas futuras de cloud, PWA ou processamento remoto.
+- [ ] Identificar o limite do produto: análise de vídeo, prancheta, portal, cockpit, IA e visão computacional.
+- [ ] Produzir matriz de conflitos com opções e impacto.
+
+**Critério de saída:**
+
+- toda colisão de ID está registrada;
+- toda definição concorrente aponta para uma decisão pendente ou resolução comprovada;
+- lacunas de fonte e de conteúdo estão enumeradas;
+- não há promoção automática por preferência editorial.
+
+### G4 — Obter e registrar decisões de autoridade
+
+**Ações:**
+
+- [ ] Apresentar a Davi somente as decisões que exigem sua autoridade.
+- [ ] Registrar escolha, data, justificativa e impacto no `DECISION_LOG.md`.
+- [ ] Atualizar a verificação das afirmações afetadas.
+- [ ] Criar relação `supersedes` quando uma decisão substituir definição anterior.
+- [ ] Registrar explicitamente decisões adiadas e seu efeito de bloqueio.
+
+**Critério de saída:**
+
+- nenhuma decisão esportiva foi inferida por agente;
+- nenhuma redefinição de requisito foi resolvida sem registro;
+- cada pendência possui responsável e artefatos bloqueados.
+
+### G5 — Migrar integralmente a especificação do produto
+
+**Ações:**
+
+- [ ] Migrar primeiro a baseline de 52 RF, 15 RNF, 12 CA, 18 TAX e 14 TEC com fidelidade de IDs, texto, estado e origem.
+- [ ] Comparar as contagens de origem e destino.
+- [ ] Aplicar correções aprovadas somente depois da cópia fiel.
+- [ ] Registrar mudanças semânticas e sucessões de IDs.
+- [ ] Remover duplicações textuais do destino sem perder a linhagem.
+- [ ] Separar requisitos de produto, decisões técnicas e conceitos esportivos em seus destinos próprios.
+- [ ] Atualizar `SYSTEM_SPEC.md` como única definição canônica dos requisitos.
+- [ ] Redigir em EARS somente os requisitos cujos termos de domínio já estejam confirmados.
+- [ ] Marcar como pendente de normalização qualquer requisito cujo domínio ainda esteja ambíguo.
+
+**Critério de saída:**
+
+- paridade documentada da baseline;
+- zero ID duplicado com definições diferentes;
+- todo requisito possui estado, fonte e destino de rastreabilidade;
+- toda exclusão ou correção está justificada.
+
+### G6 — Consolidar o modelo de jogo e o mapeamento de regras
+
+**Ações:**
+
+- [ ] Consolidar conceitos e visão geral em `GAME_MODEL.md` sem duplicar regras de produto.
+- [ ] Registrar a árvore ofensiva aprovada de forma inequívoca.
+- [ ] Preservar estados parciais e taxonomias extensíveis.
+- [ ] Criar `OFFICIAL_RULES_MAPPING.md` com regra, página, conceito e tipo de relação.
+- [ ] Diferenciar texto normativo oficial, interpretação CEPRAEA e aplicação no software.
+- [ ] Registrar lacunas de evidência, incluindo mapas ainda incompletos.
+- [ ] Depois da ratificação semântica, completar a redação EARS dos requisitos dependentes do modelo de jogo.
+- [ ] Confirmar que a normalização em EARS não alterou silenciosamente ator, condição, escopo ou resultado.
+
+#### Árvore candidata já identificada para ratificação
+
+```text
+instalação incompleta
+  → transição ofensiva direta
+
+instalação completa + vantagem herdada predominante
+  → transição ofensiva indireta
+
+instalação completa + necessidade de criar nova vantagem
+  → ataque posicionado
+```
+
+**Critério de saída:**
+
+- `GAME_MODEL.md` contém uma definição por conceito;
+- divergências foram decididas por Davi;
+- nenhuma regra IHF foi reescrita como se fosse conceito CEPRAEA, ou vice-versa;
+- conceitos incompletos permanecem explicitamente incompletos.
+
+### G7 — Promover módulos aprovados
+
+**Ações:**
+
+- [ ] Decidir se prancheta, portal, assistência por IA e cockpit pertencem ao produto atual, a produto futuro ou ficam fora do escopo.
+- [ ] Criar apenas os arquivos de módulo aprovados.
+- [ ] Confirmar a proveniência das decisões de funções, cores, posições, entidades e fluxos da prancheta.
+- [ ] Reconciliar `RFP`/`CAP` e marcos como `M3` com a política global de IDs e incrementos.
+- [ ] Vincular cada requisito modular ao `SYSTEM_SPEC.md` e à rastreabilidade.
+- [ ] Classificar protótipos como descoberta, implementação não verificada ou evidência, conforme testes reais.
+
+**Critério de saída:**
+
+- o limite de produto está explícito;
+- nenhum protótipo é tratado como contrato normativo;
+- módulos aprovados possuem requisitos, aceitação, incremento e estado.
+
+### G8 — Construir o grafo completo de rastreabilidade
+
+**Ações:**
+
+- [ ] Criar `docs/TRACEABILITY.yaml`.
+- [ ] Modelar fontes, decisões, conceitos, requisitos, critérios, incrementos, código, testes e evidências.
+- [ ] Definir relações tipadas: `defines`, `supports`, `constrains`, `implements`, `verifies`, `conflicts_with` e `supersedes`.
+- [ ] Mapear todos os requisitos promovidos.
+- [ ] Gerar `docs/TRACEABILITY.md` a partir do YAML.
+- [ ] Impedir edição manual do derivado após a ativação do gerador.
+- [ ] Vincular operações OpenAPI aos requisitos e critérios que implementam.
+- [ ] Vincular cenários Gherkin aos respectivos `RF`/`RNF` e `CA`.
+- [ ] Vincular schemas JSON e o modelo arquitetural YAML às decisões que os autorizam.
+
+#### Esquema mínimo de nó e relação
+
+```yaml
+nodes:
+  - id: RF-001
+    type: product_requirement
+    authority: docs/SYSTEM_SPEC.md
+    decision_status: DECIDIDO
+    implementation_status: NOT_IMPLEMENTED
+    source_claims:
+      - CLM-0001
+
+edges:
+  - from: SRC-SPEC-GD
+    to: RF-001
+    type: defines
+  - from: TEST-RF-001
+    to: RF-001
+    type: verifies
+```
+
+**Critério de saída:**
+
+- 100% dos requisitos canônicos possuem fonte;
+- todo requisito ativo possui critério de aceitação ou adiamento explícito;
+- todo `VERIFIED` aponta para teste e evidência reproduzível;
+- todos os destinos referenciados existem.
+
+### G9 — Configurar o contexto de Codex e Claude Code
+
+**Ações:**
+
+- [ ] Manter `AGENTS.md` curto, comum e alinhado às autoridades reais.
+- [ ] Fazer `CLAUDE.md` importar `@AGENTS.md` e conter somente diferenças específicas do Claude Code.
+- [ ] Remover estados e instruções obsoletas ou concorrentes.
+- [ ] Criar o pacote `docs/context/packs/INC-002.md` a partir das fontes canônicas.
+- [ ] Definir o comando de geração e a verificação de frescor do pacote.
+- [ ] Documentar condições de parada para IDs conflitantes, decisão ausente e alteração arquitetural sem ADR.
+- [ ] Testar uma tarefa controlada com cada agente e registrar quais fontes foram usadas.
+
+#### Contrato mínimo do pacote de incremento
+
+```text
+INCREMENTO
+OBJETIVO
+REQUISITOS E CRITÉRIOS
+AUTORIDADES CONSULTADAS
+INVARIANTES
+DECISÕES ARQUITETURAIS APLICÁVEIS
+FORA DO ESCOPO
+CONDIÇÕES DE PARADA
+TESTES EXIGIDOS
+EVIDÊNCIAS A PRODUZIR
+HASH DAS FONTES
+```
+
+**Critério de saída:**
+
+- Codex e Claude Code recebem o mesmo mapa de autoridade;
+- o pacote contém somente o contexto do incremento;
+- o pacote falha na validação quando uma fonte muda;
+- uma tarefa de ensaio não consulta rascunhos como autoridade.
+
+### G10 — Automatizar a validação da SSOT
+
+**Ações:**
+
+- [ ] Implementar `scripts/validate_ssot.py`.
+- [ ] Implementar testes em `tests/docs/test_ssot.py`.
+- [ ] Adicionar o workflow `.github/workflows/ssot.yml`.
+- [ ] Validar unicidade de IDs e namespaces.
+- [ ] Validar estados contra vocabulários controlados.
+- [ ] Validar links e alvos internos.
+- [ ] Validar hashes e revisões do registro de fontes.
+- [ ] Validar relações sem nós órfãos.
+- [ ] Exigir evidência para `VERIFIED`.
+- [ ] Detectar afirmações canônicas cuja única autoridade seja `.local/`.
+- [ ] Validar relações `supersedes` e impedir ciclos.
+- [ ] Validar frescor dos pacotes de contexto.
+- [ ] Gerar `TRACEABILITY.md` de forma determinística.
+- [ ] Validar a estrutura mínima dos statements EARS sem alegar validação semântica automática.
+- [ ] Validar `openapi.yaml` com ferramenta compatível com a versão aprovada.
+- [ ] Validar JSON Schema e fixtures positivas e negativas.
+- [ ] Validar `architecture/model.yaml` contra o schema arquitetural aprovado.
+- [ ] Verificar que as vistas Mermaid não divergem do modelo C4 canônico.
+- [ ] Validar sintaxe e tags de rastreabilidade dos arquivos Gherkin.
+
+**Critério de saída:**
+
+- validação local e CI retornam sucesso;
+- cada regra possui teste positivo e negativo;
+- uma fixture propositalmente inválida demonstra que o gate falha corretamente;
+- resultado é registrado em `docs/evidence/SSOT-MIGRATION.md`.
+
+### G11 — Aprovar o corte de autoridade
+
+**Ações:**
+
+- [ ] Apresentar a Davi o relatório de paridade, conflitos resolvidos, pendências e cobertura.
+- [ ] Obter aprovação explícita da migração.
+- [ ] Registrar a data em que o Git passa a ser autoridade operacional completa do software, se essa for a decisão.
+- [ ] Reclassificar fontes do Google Drive sem remover sua proveniência.
+- [ ] Registrar o papel contínuo do Google Drive para conhecimento esportivo amplo, se aprovado.
+- [ ] Registrar o NotebookLM como ferramenta opcional e não normativa, se aprovado.
+- [ ] Atualizar `AGENTS.md`, `CLAUDE.md`, `SSOT.md` e o registro de fontes no mesmo corte.
+- [ ] Gerar novamente o pacote do incremento ativo.
+
+**Critério de saída:**
+
+- corte aprovado e datado;
+- nenhuma autoridade concorrente permanece sem classificação;
+- fontes originais continuam recuperáveis;
+- agentes operam exclusivamente sobre a SSOT aprovada para tarefas de software.
+
+### G12 — Encerrar a migração e preparar rollback
+
+**Ações:**
+
+- [ ] Registrar commit ou commits da migração e hashes finais.
+- [ ] Criar tag ou referência recuperável do baseline anterior.
+- [ ] Documentar procedimento de rollback sem alterar fontes originais.
+- [ ] Registrar pendências aceitas e seus responsáveis.
+- [ ] Marcar este plano como executado, substituído ou cancelado.
+
+**Critério de saída:**
+
+- rollback testável e documentado;
+- evidência final completa;
+- nenhuma tarefa obrigatória permanece sem estado;
+- o incremento ativo possui contexto regenerado e válido.
+
+## Decisões que exigem autoridade de Davi
+
+As decisões abaixo devem ser respondidas e registradas antes do gate indicado. Recomendações são propostas técnicas, não decisões presumidas.
+
+| ID | Decisão | Recomendação técnica | Bloqueia |
+| --- | --- | --- | --- |
+| GOV-001 | Adotar formalmente a arquitetura híbrida descrita neste plano? | Aprovar | G1 |
+| GOV-002 | O Git se torna a autoridade operacional completa do software após a migração validada? | Sim, somente após G11 | G11 |
+| GOV-003 | O Google Drive continua como ambiente de conhecimento esportivo amplo? | Sim, com promoção controlada para `GAME_MODEL.md` | G11 |
+| GOV-004 | O NotebookLM permanece disponível para pesquisa e auditoria não normativa? | Sim, opcional e sem autoridade | G11 |
+| GOV-005 | Registrar a decisão já indicada de preservar rascunhos e históricos como fontes imutáveis e não canônicas | Registrar sem reabrir a decisão, salvo correção de Davi | Não bloqueia G0 |
+| GOV-006 | A migração completa bloqueia o INC-002? | Bloquear apenas mudanças de esquema dependentes de requisitos ainda conflitantes | Planejamento |
+| GOV-007 | Aprovar os quatro vocabulários de estado deste plano? | Aprovar com ajustes explícitos, se necessários | G1 |
+| ID-001 | Preservar os IDs `RF-001` a `RF-052` da baseline mais completa? | Sim; corrigir por sucessão, nunca por reutilização silenciosa | G5 |
+| ID-002 | Como tratar `RFP`/`CAP` da prancheta? | Manter namespace modular até decisão de incorporação; mapear, não renumerar automaticamente | G7 |
+| PROD-001 | O produto é somente análise de vídeo ou inclui o cockpit completo de competição? | Definir um limite explícito antes de promover módulos | G7 |
+| PROD-002 | A prancheta pertence ao produto atual, futuro ou a produto separado? | Tratar como módulo candidato até ratificação | G7 |
+| PROD-003 | O portal completo pertence ao produto atual? | Manter fora do escopo do incremento vigente até aprovação | G7 |
+| PROD-004 | PWA/cockpit é o mesmo produto ou uma aplicação separada? | Decidir antes de criar arquitetura de runtime correspondente | ADR futura |
+| PROD-005 | Sincronização e infraestrutura cloud são requisitos atuais ou futuros? | Futuro, salvo decisão contrária registrada | ADR futura |
+| PROD-006 | Qual é o escopo permitido da assistência por IA? | Separar sugestão, classificação, explicação e decisão humana | G7 |
+| DOM-001 | Ratificar a árvore de transição ofensiva descrita em G6? | Ratificar ou corrigir com definição inequívoca | G6 |
+| DOM-002 | Ratificar funções, cores, posições e relações declaradas para a prancheta? | Exigir confirmação direta ou fonte comprovada | G7 |
+| DOM-003 | Fases na prancheta usam texto livre, taxonomia fechada ou ambas? | Taxonomia extensível com opção controlada, após decisão | G7 |
+| DOM-004 | Confirmar que regra IHF apoia, mas não equivale ao conceito CEPRAEA? | Confirmar | G6 |
+| DEL-001 | Qual incremento implementará a prancheta, se aprovada? | Criar incremento próprio após o catálogo e o modelo de dados | Plano |
+| DEL-002 | Marcos como `M3` continuam válidos ou serão mapeados para `INC-*`? | Mapear sem apagar a nomenclatura histórica | G7 |
+| TECH-001 | A ADR-001 continua regendo o INC-002? | Sim, até ser substituída por ADR aprovada | Imediato |
+| TECH-002 | A proposta C4/cloud deve virar ADR candidata independente? | Sim; não incorporar neste plano documental | ADR futura |
+| DOC-001 | Registrar a adoção seletiva das práticas documentais sem adotar ANMS/ANPS/ANGS como framework | Registrar como decisão já indicada por Davi | G1 |
+| DOC-002 | Preservar `RF`/`RNF` ou migrar para `FR`/`NFR`? | Preservar `RF`/`RNF` e evitar quebra de rastreabilidade | G2 |
+| DOC-003 | O modelo C4 em YAML será canônico e as vistas Mermaid serão derivadas? | Registrar como decisão indicada; selecionar schema e gerador por decisão técnica | G1/G10 |
+| DOC-004 | OpenAPI será autoridade do contrato HTTP e Gherkin será exemplo de aceitação rastreado? | Registrar como decisão já indicada por Davi | G1 |
+| DOC-005 | Three Amigos será aplicado somente quando a ambiguidade justificar a colaboração? | Registrar como prática sob demanda, sem cerimônia obrigatória | G1 |
+
+## Decisões já indicadas que precisam de registro e proveniência
+
+Estas afirmações não devem ser reapresentadas como escolhas em aberto quando já estiverem comprovadas. Devem ser confirmadas pela fonte ou ratificadas por Davi e então registradas:
+
+- Davi é a autoridade sobre o significado esportivo do modelo CEPRAEA.
+- `LANCE` é a unidade canônica e o vídeo é a fonte.
+- arquivos originais são imutáveis e derivados permanecem separados.
+- fatos e timestamps permanecem separados de interpretação e feedback.
+- um lance pode possuir várias atletas, ações, coleções e fontes.
+- fases das equipes são independentes.
+- taxonomias em aberto permanecem extensíveis.
+- código existente, sozinho, não comprova funcionalidade.
+- `VERIFIED` depende de evidência correspondente.
+- NotebookLM não possui autoridade normativa.
+- rascunhos não são SSOT, embora possam conter afirmações decididas; esta é a decisão GOV-005 já indicada por Davi.
+- proveniência do Google Drive e de outras fontes deve ser preservada.
+- práticas úteis de ANMS podem ser aproveitadas sem adoção do framework completo.
+- o domínio deve estar semanticamente correto antes da normalização em EARS.
+- Mermaid deve representar visualmente componentes, relações e comportamentos de forma textual e versionável.
+- YAML, JSON e OpenAPI devem ser reservados a estruturas, contratos e configuração legíveis por máquinas.
+- Gherkin deve fornecer exemplos concretos e critérios de aceitação rastreados.
+- Three Amigos deve ser usado sob demanda, sem obrigação cerimonial.
+
+## Matriz obrigatória de conflitos
+
+Antes da consolidação, deve existir uma tabela com este formato:
+
+| Conflict ID | Assunto | Variante A | Fonte A | Variante B | Fonte B | Autoridade | Decisão | `supersedes` |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| CONFLICT-001 | Exemplo | Texto | `SRC-A:seção` | Texto | `SRC-B:seção` | Davi/produto/arquitetura | `PENDENTE` | — |
+
+Nenhum conflito pode desaparecer apenas porque uma das variantes foi omitida no documento final.
+
+## Modelo mínimo de rastreabilidade
+
+Cada item canônico deve conter ou apontar para:
+
+| Campo | Obrigatório | Finalidade |
+| --- | --- | --- |
+| `id` | Sim | Identificação unívoca |
+| `type` | Sim | Requisito, conceito, decisão, teste etc. |
+| `authority` | Sim | Arquivo canônico responsável |
+| `source_claims` | Sim | Afirmações e localizações de origem |
+| `decision_status` | Quando aplicável | Grau de decisão do conteúdo |
+| `verification_status` | Sim durante migração | Confirmação da proveniência |
+| `implementation_status` | Para itens implementáveis | Estado comprovado |
+| `acceptance` | Para requisito ativo | Critério verificável ou adiamento |
+| `increment` | Para requisito planejado | Ordem de entrega |
+| `tests` | Para implementado | Testes associados |
+| `evidence` | Para `VERIFIED` | Prova reproduzível |
+| `supersedes` | Quando aplicável | Linhagem de substituição |
+
+## Política para Google Drive e NotebookLM
+
+### Google Drive
+
+O Google Drive não deve ser removido da proveniência. O uso proposto é:
+
+- fonte original de migração do software até o corte aprovado;
+- ambiente de conhecimento esportivo amplo, caso GOV-003 seja aprovado;
+- fonte não consultada rotineiramente pelos agentes após a SSOT local ter paridade comprovada;
+- origem identificada por link ou ID, revisão, data de captura e hash quando disponíveis.
+
+A transição de autoridade do software só ocorre no G11. Até lá, divergências entre o Drive e o Git devem ser tratadas como conflito de migração, não resolvidas por preferência automática.
+
+### NotebookLM
+
+O NotebookLM pode permanecer como ferramenta opcional de pesquisa, comparação e auditoria. Seus resultados são hipóteses ou sínteses e precisam ser verificados na fonte antes de entrar na SSOT.
+
+Codex e Claude Code não devem depender do NotebookLM para executar o incremento. Menções de uso obrigatório devem ser removidas; registros úteis de proveniência não devem ser apagados.
+
+## Política para rascunhos, históricos e protótipos
+
+- `.local/drafts/` contém insumos de migração, não documentação canônica.
+- `.local/historico/` contém restauração e evolução histórica, não autoridade operacional automática.
+- rascunhos devem ser lidos afirmação por afirmação.
+- uma afirmação confirmada pode ser promovida sem promover o documento inteiro.
+- protótipos podem demonstrar intenção, formato ou viabilidade, mas não constituem requisito.
+- protótipo executável sem teste permanece `IMPLEMENTED_NOT_VERIFIED` somente se estiver no código do produto; caso contrário continua `PROTOTYPE`.
+- nenhuma fonte original deve ser editada para parecer consistente com a SSOT final.
+
+## Relação com a arquitetura de runtime
+
+Diagramas C4, escolhas de frontend/backend, bancos gerenciados, serviços cloud, GPU, visão computacional e autenticação pertencem à arquitetura de execução do produto. Essas decisões não decorrem automaticamente da escolha da arquitetura híbrida de documentação.
+
+A arquitetura vigente para o incremento atual continua sendo a definida pela ADR-001. Uma arquitetura cloud ou ampliada deve:
+
+- ser registrada em ADR candidata própria;
+- declarar quais requisitos a motivam;
+- comparar alternativas e custos;
+- indicar impacto sobre a abordagem local vigente;
+- receber aprovação antes de orientar código ou infraestrutura.
+
+Por essa razão, os diagramas C4 de runtime anteriormente incluídos neste arquivo foram retirados do plano normativo. Seu conteúdo, se ainda relevante, deve ser recuperado da versão histórica e convertido em proposta separada no gate apropriado.
+
+## Estratégia de implantação sem interromper o INC-002
+
+A documentação e o incremento podem avançar em paralelo somente sob estas restrições:
+
+- o INC-002 usa exclusivamente requisitos já confirmados e a ADR-001;
+- qualquer alteração de esquema dependente de requisito conflitante deve parar;
+- novos módulos não entram no INC-002 por conveniência;
+- descobertas do incremento retornam como evidência ou proposta, nunca como mudança silenciosa da SSOT;
+- após cada gate que altere autoridade aplicável, o pacote `INC-002.md` deve ser regenerado.
+
+Se GOV-006 decidir bloquear totalmente o incremento, essa interrupção deve ser registrada no plano e no estado da implementação.
+
+## Ordem de commits recomendada
+
+Cada etapa deve ser revisável e reversível:
+
+1. baseline, inventário e evidência;
+2. governança, estados, política de IDs e ADR-002;
+3. extração e matriz de conflitos;
+4. decisões de autoridade;
+5. especificação integral do produto;
+6. modelo de jogo e regras oficiais;
+7. módulos aprovados;
+8. rastreabilidade estruturada e derivada;
+9. instruções e pacotes dos agentes;
+10. validador, testes e CI;
+11. corte de autoridade e fechamento.
+
+Não misturar a migração documental com mudança de arquitetura de runtime ou implementação de funcionalidades.
+
+## Definition of Done da nova SSOT
+
+A arquitetura só está implementada quando todas as condições abaixo forem verdadeiras:
+
+- [ ] G0 a G12 concluídos ou formalmente dispensados por decisão registrada.
+- [ ] Davi aprovou a arquitetura documental e as decisões esportivas necessárias.
+- [ ] Todas as fontes possuem classe, escopo, hash e proveniência.
+- [ ] A baseline foi migrada com relatório de paridade.
+- [ ] Cada ID possui uma única definição canônica.
+- [ ] Toda mudança semântica possui decisão e linhagem.
+- [ ] Requisitos, modelo esportivo, arquitetura, plano, estado e evidência estão separados.
+- [ ] O padrão de utilização de Markdown, MADR, EARS, YAML, Mermaid, JSON, OpenAPI e Gherkin está aprovado e versionado.
+- [ ] Requisitos com domínio confirmado possuem statement EARS sem perda semântica.
+- [ ] Regras IHF e interpretações CEPRAEA possuem relações tipadas.
+- [ ] Todos os requisitos canônicos aparecem no grafo de rastreabilidade.
+- [ ] Todo requisito ativo possui critério de aceitação ou adiamento explícito.
+- [ ] Operações OpenAPI, schemas e cenários Gherkin possuem rastreabilidade válida.
+- [ ] Vistas C4 em Mermaid correspondem ao modelo arquitetural em YAML.
+- [ ] Todo `VERIFIED` aponta para teste e evidência reproduzível.
+- [ ] `TRACEABILITY.md` é gerado de forma determinística.
+- [ ] Codex e Claude Code compartilham o mesmo mapa de autoridade.
+- [ ] O pacote do incremento ativo está atualizado e validado.
+- [ ] A validação local e a CI detectam fixtures inválidas.
+- [ ] O corte de autoridade foi aprovado, datado e registrado.
+- [ ] O rollback está documentado e testável.
+
+## Próxima ação autorizável
+
+O primeiro passo de implementação é executar somente o G0: inventariar e calcular hashes das fontes sem alterar rascunhos, históricos, definições canônicas ou arquitetura do produto. A única criação documental prevista nesse gate é o registro de evidência do baseline.
+
+Após G0, Davi deve decidir GOV-001, GOV-007 e DOC-002; registrar formalmente GOV-005 e as diretrizes DOC-001, DOC-003, DOC-004 e DOC-005; e então autorizar a criação dos demais artefatos de governança do G1. Nenhuma decisão esportiva ou de limite de produto deve ser inferida nessa etapa.

@@ -14,6 +14,26 @@
 - `INC-007`: NOT_IMPLEMENTED
 - `FIRST_FUNCTIONAL_FLOW`: NOT_IMPLEMENTED
 
+## Arquitetura de contexto — piloto local
+
+- Geração e conferência estrutural do pacote INC-002: `VERIFIED` localmente.
+- Carregamento da entrada e conferência do pacote em sessões novas de Codex e Claude via CLI: `VERIFIED` localmente.
+- Correção técnica do seletor Markdown em sessões novas e checkouts da mesma revisão, com três procedimentos, testes e revisão: `VERIFIED` para a tarefa delimitada. Conformidade geral de leitura e eficiência de todo o fluxo permanecem não verificadas.
+- Repetição de Claude com consulta a PACKS antes de editar e ao manifesto antes dos testes: `VERIFIED` na segunda tentativa de esclarecimento das skills, para a mesma correção técnica.
+- Redução de entrada de 59,79% em três pares Claude com contexto fornecido e cache zero: `VERIFIED` para o controle amplo reconstruído versus recorte técnico, com sucesso em 3/3 técnicas e 2/3 amplas nos mesmos checks. [Medição e limites](./evidence/context-economy.md). Fluxo autônomo e outras tarefas não medidos.
+- Redução de entrada total de 53,72% em três pares Codex com os mesmos prompts/revisão da medição Claude: `VERIFIED` para o controle reconstruído desta tarefa. Sucesso 3/3 técnicas e 3/3 amplas nos mesmos checks; zero tokens lidos de cache em todas as execuções, criação não exposta. [Medição Codex e limites](./evidence/context-economy-codex.md).
+- Implementação de um incremento completo pelos dois agentes: `IMPLEMENTED_NOT_VERIFIED`.
+- Segunda tarefa pela rota `implementation_increment`, com correção do backend INC-001 em cópias isoladas: contrato funcional `VERIFIED`; protocolo completo `VERIFIED` somente no Codex inicial. No Claude, esclarecimentos sucessivos fecharam skills/manifesto, required e confirmação curta em ensaios delimitados. Após explicitar o gatilho ADR, uma sessão nova consultou ADR-001 e confirmou `acesso à mídia INC-001` antes da reprodução/edição, além dos quatro required, e passou em 8 métodos independentes/12 testes backend/83 documentais. Gatilho ADR `VERIFIED` nessa sessão; code-review e conferência do pacote foram omitidos, mantendo o fluxo conjunto `IMPLEMENTED_NOT_VERIFIED`. [Protocolo, tentativas e resultados](./evidence/context-second-route.md). As propostas não foram integradas ao backend operacional.
+- Checkpoint de disposição dos opcionais antes da edição: `VERIFIED` na sessão Claude `3cbe8c56-5f91-4783-a834-b4fa043daca2`, que conferiu a ausência do pacote INC-001 no filesystem e a registrou antes de editar. Checkpoint de code-review: `IMPLEMENTED_NOT_VERIFIED`; a skill foi lida antes do diff, mas o registro “consultado” precedeu o resultado da leitura. Plano e rastreabilidade também foram omitidos nessa execução, mantendo o protocolo integral não verificado. O gatilho ADR permaneceu inalterado.
+- Regras delimitadas de nomes e tamanho de código: `VERIFIED` localmente para workspace/índice, com alertas de 301–500 linhas, falha acima de 500 sem exceção completa e contratos explícitos de prefixo. O diagnóstico mantém quatro alertas conhecidos; não infere semântica por regex.
+- Modelo C4/YAML e vistas Mermaid: `VERIFIED` estruturalmente para geração/validação determinística, referências e integridade de relações. O modelo arquitetural canônico permanece separado do grafo do código observado.
+- Grafo local de código A10 e vistas A11: `VERIFIED` localmente para AST Python e TypeScript 7 em Python/TS/TSX/JS/JSX, hashes do corpus/configuração/extratores, consulta limitada, duas vistas Mermaid ligadas ao mesmo hash e freshness seletivo contra os bytes do índice. Seis testes descartáveis cobrem aliases, IDs, endpoints, rename/remoção, índice/workspace, adulteração, dependência ausente e gatilho do pre-commit. PDF continua adiado e as vistas ficam sob demanda.
+- Revisão do índice e Lore: `VERIFIED` localmente para scripts, seis testes, hooks reversíveis e alias `git lore-commit`. Nenhum arquivo foi preparado e nenhum commit foi criado por esta implantação.
+- Evidência e limites: [context-architecture.md](./evidence/context-architecture.md).
+- Ensaio com código e consumo disponível: [context-session-evaluation.md](./evidence/context-session-evaluation.md).
+
+A automação não promove o INC-002 nem comprova a migração documental completa. Os estados do produto acima permanecem sustentados por suas evidências próprias.
+
 ## Evidência do bootstrap documental
 
 O repositório foi inicializado e os arquivos de documentação do bootstrap foram gravados e relidos no branch `main`: `AGENTS.md`, `CLAUDE.md`, `README.md`, `docs/SYSTEM_SPEC.md`, `docs/GAME_MODEL.md`, `docs/architecture/ADR-001.md`, `docs/IMPLEMENTATION_PLAN.md`, `docs/TRACEABILITY.md` e este arquivo.
@@ -73,7 +93,7 @@ Após 30 marcações, o operador relatou ter exercitado seeks, velocidades, flux
 
 `ADR-001`: **APROVADA COM RISCOS** para implementação incremental. Resultado do gate com vídeo real: **PASS WITH RISKS** em 2026-09-14; stack definitiva ainda pendente.
 
-O sucesso da CI, por si só, não satisfaz o gate. O INC-001 foi mantido `VERIFIED` porque também abriu e reviu um MP4 local real após reinício, persistiu os limites e preservou o hash do original. Nenhuma falha significativa foi observada nesse cenário; os riscos remanescentes e as verificações futuras estão registrados em `docs/architecture/ADR-001.md`. React, FastAPI, SQLite e os demais componentes ainda não representam stack canônica definitiva.
+O sucesso da CI, por si só, não satisfaz o gate. O INC-001 foi mantido `VERIFIED` porque também abriu e reviu um MP4 local real após reinício, persistiu os limites e preservou o hash do original. Nenhuma falha significativa foi observada nesse cenário; os riscos remanescentes e as verificações futuras estão registrados em `docs/architecture/ADR-001-primeira-implementacao.md`. React, FastAPI, SQLite e os demais componentes ainda não representam stack canônica definitiva.
 
 ## Próximo gate de código
 

@@ -1,0 +1,27 @@
+schema_version: 1
+baseline_id: G0
+published_at: '2026-09-16T02:27:39-03:00'
+decision_ids:
+- GOV-SRC-001
+- GOV-SRC-002
+completeness: HASH_ONLY_PARTIAL
+declared_items: 44
+recovered_objects: 36
+missing_historical_objects:
+- path: contexto/AGENTS-v2.md
+  sha256: dd8f7f235160aafd86a394c041a01a8b711e00af6c215cbd4be77f1db17b513c
+- path: contexto/Makefile
+  sha256: 15570fbdd846141b2df625160fdab832e8678a3efe357eee636b75e021a41bd1
+- path: contexto/map_repo_ast.py
+  sha256: 9c65abc04237cf87188d0d3f4b181ccc964acebf31df2f3af46c4af08b0144d6
+- path: contexto/pre-commit-review-v2.js
+  sha256: 840730023326f43ac63833efbf7421d69402aeeb37c2f10834de9558d3c8e7d1
+- path: contexto/relatorio-analise-acoplamento.pdf
+  sha256: 86c6814d940f55f709c82f8b170fef1628fd00ae70e446299f0342577f2bb5d0
+- path: contexto/repo_architecture_graph-v2.png
+  sha256: cadeab6a3962ae4d180fd05108850ec64e3e44348537882c0b894ef53935d2d1
+- path: contexto/repo_architecture_graph.png
+  sha256: 8b43ec06775c1d1359a4899afb5be41cadddbf6d589df8ed47b8ff6ea44be29f
+- path: contexto/visualize_graph.py
+  sha256: aee0b24baf4e86bc581a97021ccc22368270a1cf343bf29afff4064a16559ff5
+note: Original G0 files are byte-preserved; unavailable historical bytes are not reconstructed.

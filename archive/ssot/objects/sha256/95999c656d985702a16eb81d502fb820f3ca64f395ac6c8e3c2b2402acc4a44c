@@ -1,0 +1,1141 @@
+# CONCEITOS DO JOGO — CEPRAEA
+
+>Este documento estabelece o modelo conceitual do CEPRAEA para o beach handball, funcionando como um dicionário tático que visa unificar a linguagem entre atletas e comissão técnica. A obra estrutura a arquitetura do jogo em quatro fases fundamentais — transições ofensiva e defensiva, e ataques e defesas posicionados — definindo gates operacionais (T3 e T4) para marcar com precisão a passagem entre esses estados. A tese central defende que a organização funcional, baseada na resolução de problemas e no controle de ameaças, prevalece sobre a mera disposição espacial ou superioridade numérica das jogadoras. O texto detalha a Vantagem CEPRAEA como um estado coletivo temporário, diferenciando oportunidades herdadas da transição daquelas construídas taticamente, enquanto enfatiza a tomada de decisão como um processo influenciado pelo "jogo oculto". Por fim, o arquivo apresenta uma matriz científica e operacional para nortear o ensino, o scout e o treinamento, garantindo que cada ação em quadra seja interpretada pela sua intenção e contexto, e não apenas pelo resultado final.
+
+***
+
+## 0. FUNÇÃO DESTE ARQUIVO
+
+Este arquivo reúne somente os conceitos que estruturam a forma como o CEPRAEA interpreta o jogo. Ele deve ser lido em conjunto com a [Visão Geral CEPRAEA](./visao-geral-cepraea.md), que contém aplicações para treino, scout e plano de jogo. Aqui, o objetivo é definir uma linguagem comum: o que cada conceito significa, como se relaciona com os demais e qual é seu status de maturidade dentro do modelo.
+
+### STATUS DOS CONCEITOS
+
+| Status | Definição |
+| --- | --- |
+| **CONSOLIDADO** | Definição suficientemente clara para uso imediato no ensino e na análise. |
+| **EM FECHAMENTO** | Conceito coerente e útil, mas ainda precisa de critérios operacionais mais objetivos. |
+| **DEPENDENTE DE ADVERSÁRIO** | Princípio válido dentro do modelo, mas cuja aplicação concreta precisa ser definida pelo scout. |
+
+***
+
+## 1. ARQUITETURA DO JOGO
+
+### 1.1. Fases do jogo
+
+O jogo é interpretado em quatro grandes estados: ataque posicionado, transição defensiva, defesa posicionada e transição ofensiva. As fronteiras entre eles não são determinadas apenas pela formação visível, pela localização das atletas ou pela relação numérica. A pergunta central é: qual problema a equipe está resolvendo neste instante e de onde nasce a vantagem atual?
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **FASE DO JOGO** — No CEPRAEA: estado definido pelo problema dominante que a equipe resolve e pela origem da vantagem naquele instante. Em linguagem simples: é o tipo de problema que a equipe está tentando resolver agora.
+- **TRANSIÇÃO OFENSIVA** — No CEPRAEA: fase após conquistar a posse ou o reinício, destinada a explorar vantagem herdada e instalar o ataque. Em linguagem simples: momento de aproveitar a desorganização adversária e organizar o próprio ataque.
+- **ATAQUE POSICIONADO** — No CEPRAEA: fase em que a organização ofensiva está instalada e a equipe precisa construir nova vantagem. Em linguagem simples: quando a equipe já está organizada e precisa criar a oportunidade.
+- **TRANSIÇÃO DEFENSIVA** — No CEPRAEA: fase após perder a posse, destinada a neutralizar vantagens herdadas e instalar controle defensivo. Em linguagem simples: momento de retirar o perigo criado pela troca de posse.
+- **DEFESA POSICIONADA** — No CEPRAEA: fase em que a defesa já funciona coletivamente contra a vantagem que o ataque tenta construir. Em linguagem simples: quando a defesa está organizada para responder ao ataque.
+- **VANTAGEM** — No CEPRAEA: possibilidade tática acessível que o adversário não consegue neutralizar no tempo da ação. Em linguagem simples: uma oportunidade real que o adversário não consegue fechar a tempo.
+
+### 1.2. Fases independentes
+
+As duas equipes não precisam estar na mesma fase de forma espelhada. Uma defesa pode já estar funcionalmente organizada enquanto o adversário ainda está em transição ofensiva. Também pode ocorrer o inverso: o ataque já assume aparência posicional enquanto a defesa ainda carrega vulnerabilidades herdadas da troca de posse.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **FASES INDEPENDENTES** — No CEPRAEA: princípio segundo o qual ataque e defesa atravessam seus gates em instantes diferentes. Em linguagem simples: uma equipe pode já estar organizada enquanto a outra ainda está em transição.
+- **ORGANIZAÇÃO FUNCIONAL** — No CEPRAEA: presença efetiva de referências, funções, ameaças controladas, trocas e coberturas. Em linguagem simples: não basta estar no lugar; é preciso saber quem resolve cada perigo.
+- **APARÊNCIA POSICIONAL** — No CEPRAEA: forma visual semelhante a um sistema instalado, sem prova de funcionamento ou mudança de fase. Em linguagem simples: parecer organizada não significa estar organizada.
+- **VULNERABILIDADE HERDADA** — No CEPRAEA: fragilidade ainda causada pela mudança de posse, como atraso, referência perdida ou composição inadequada. Em linguagem simples: um problema que sobrou da troca de posse.
+
+### 1.3. Organização espacial e organização funcional
+
+Organização espacial descreve a fotografia: 3:0, 1:2, 2:1, individual, 3:1 ofensivo etc. Organização funcional descreve se as relações necessárias estão realmente estabelecidas: referências, ameaças controladas, funções, coberturas, matchups, ocupações e respostas coletivas. Forma e função não são sinônimos.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **ORGANIZAÇÃO ESPACIAL** — No CEPRAEA: fotografia das posições e da formação visível, como 3:0, 1:2 ou 2:1. Em linguagem simples: mostra onde cada atleta está.
+- **ORGANIZAÇÃO FUNCIONAL** — No CEPRAEA: qualidade das relações que permitem ao sistema responder ao problema presente. Em linguagem simples: mostra se as atletas sabem o que fazer juntas.
+- **REFERÊNCIA** — No CEPRAEA: atacante ou espaço cuja ameaça está atribuída a uma defensora ou regra coletiva. Em linguagem simples: quem ou o que cada defensora deve controlar.
+- **AMEAÇA CONTROLADA** — No CEPRAEA: atacante cuja ação perigosa pode ser neutralizada antes da execução. Em linguagem simples: perigo que a defesa consegue fechar a tempo.
+- **FUNÇÃO** — No CEPRAEA: responsabilidade tática assumida naquele instante, independentemente da posição nominal. Em linguagem simples: a tarefa que a atleta precisa cumprir agora.
+- **COBERTURA** — No CEPRAEA: ajuda preparada para proteger a linha aberta se a primeira defensora for superada. Em linguagem simples: a segunda resposta atrás ou ao lado de quem aborda.
+- **MATCHUP** — No CEPRAEA: pareamento específico entre atacante e defensora, com vantagens e limitações próprias. Em linguagem simples: o confronto individual que favorece mais uma das duas.
+- **OCUPAÇÃO** — No CEPRAEA: uso intencional de um espaço para cumprir função e criar relações. Em linguagem simples: estar em um lugar com propósito tático.
+- **RESPOSTA COLETIVA** — No CEPRAEA: combinação coordenada das ações de duas ou mais defensoras. Em linguagem simples: resolver o perigo juntas, sem deixar outro vazio.
+
+### 1.4. MATRIZ CANÔNICA DE FASES — VERSÃO 0.2
+
+Atualização sustentada pela leitura dos três estudos sobre ataque posicionado, decisão de finalização e localização dos passes que antecedem o arremesso. A matriz distingue a origem da vantagem, o problema dominante e os critérios de passagem entre fases.
+
+*Regra lexical: neste documento, “ataque” significa ataque posicionado. Explorar uma vantagem herdada da troca de posse pertence à transição ofensiva; no ataque posicionado, a equipe constrói uma nova vantagem por suas relações técnico-táticas.*
+
+A superioridade nominal 4x3 é uma condição estrutural, não prova automática de vantagem funcional. A entrada da especialista organiza a estrutura ofensiva, mas não encerra, isoladamente, a transição.
+
+| Fase | Problema central | Início | Produção/controle da vantagem | Fim |
+| --- | --- | --- | --- | --- |
+| **Transição ofensiva** | Explorar uma vulnerabilidade herdada e instalar a organização ofensiva. | Conquista da posse ou direito ao reinício. | A vantagem nasce da troca de posse: velocidade, espaço, composição, matchup ou referência perdida. A equipe tenta preservá-la ou ampliá-la. | Finalização/perda da posse ou T3: a vantagem herdada deixa de predominar e a próxima precisa ser construída pelo ataque. |
+| **Ataque posicionado** | Construir uma nova vantagem funcional contra uma defesa já capaz de responder coletivamente. | T3: organização ofensiva instalada e progressão/substituição deixam de ser o problema dominante. | Relações técnico-táticas do próprio ataque: sistema ofensivo, especialista, circulação, fixações, cruzamentos, bloqueios, jogo aéreo e escolha do passe. O 4x3, sozinho, não é vantagem funcional. | Finalização, perda da posse ou evento que encerre o ataque. |
+| **Transição defensiva** | Neutralizar vantagens herdadas do adversário e instalar controle defensivo funcional. | Perda efetiva da posse ou do direito de continuar atacando. | A defesa compra tempo, atribui ameaças, protege urgências e reorganiza referências, coberturas e trocas. | Recuperação da posse, finalização adversária ou T4: urgências herdadas neutralizadas e defesa funcionalmente estável. |
+| **Defesa posicionada** | Conter ou reduzir as vantagens que o ataque tenta construir. | T4: ameaças atribuídas, referências e coberturas comunicadas e sistema deliberado. | Controle funcional por sistema, matchups, linhas de passe, coberturas, critérios de concessão e indução de decisões menos valiosas. | Recuperação, gol/saída ou outro evento que encerre a posse ofensiva adversária. |
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **MATRIZ CANÔNICA** — No CEPRAEA: quadro oficial que relaciona fase, problema, início, origem ou controle da vantagem e fim. Em linguagem simples: a tabela de referência para classificar o jogo.
+- **PROBLEMA DOMINANTE** — No CEPRAEA: questão que mais condiciona as decisões da equipe naquele instante. Em linguagem simples: o principal problema que precisa ser resolvido agora.
+- **ORIGEM DA VANTAGEM** — No CEPRAEA: causa que produz a oportunidade, classificada como herdada ou construída. Em linguagem simples: de onde veio a oportunidade.
+- **VANTAGEM HERDADA** — No CEPRAEA: oportunidade cuja causa principal ainda pertence à troca de posse. Em linguagem simples: vantagem criada pela desorganização da transição.
+- **VANTAGEM CONSTRUÍDA** — No CEPRAEA: oportunidade produzida pelas relações do ataque ou pelo controle deliberado da defesa posicionada. Em linguagem simples: vantagem criada pela ação organizada da equipe.
+- **SUPERIORIDADE NOMINAL** — No CEPRAEA: diferença quantitativa entre atacantes e defensoras, como 4x3. Em linguagem simples: ter mais atacantes do que defensoras.
+- **SUPERIORIDADE FUNCIONAL** — No CEPRAEA: relação favorável entre ameaças disponíveis e respostas adversárias no tempo da ação. Em linguagem simples: ter uma oportunidade que a defesa não consegue resolver.
+- **ESPECIALISTA** — No CEPRAEA: atleta ofensiva cuja entrada altera a composição e amplia as possibilidades de pontuação, sem definir sozinha a fase. Em linguagem simples: jogadora que entra para organizar e potencializar o ataque.
+- **CONTINUIDADE** — No CEPRAEA: movimento intencional da bola para deslocar respostas e preparar outra ação. Em linguagem simples: fazer a bola andar para criar um problema defensivo.
+- **FIXAÇÃO** — No CEPRAEA: conceito geral de comprometimento defensivo provocado por uma ameaça ofensiva. Para a FIXAÇÃO COM BOLA já definida, a resposta da defensora nega a infiltração da portadora e compromete sua capacidade de cobrir outra atacante. A aplicação à fixação sem bola permanece em fechamento. Em linguagem simples: obrigar a defensora a assumir uma ameaça e reduzir sua capacidade de responder a outra.
+- **CRUZAMENTO** — No CEPRAEA: no jogo 4x3 pouco se usa a troca coordenada de trajetórias entre atacantes para alterar referências e espaços. Essas escolhas são adotadas em casos especiais de desqualificações que geram jogo 3x3 posicionado. Em linguagem simples: duas atacantes cruzam caminhos para confundir ou deslocar a defesa.
+- **BLOQUEIO** — No CEPRAEA: ocupação corporal legal que dificulta o deslocamento defensivo e favorece uma companheira. Em linguagem simples: usar o corpo e o espaço para atrasar a defensora.
+- **AÉREA** — No CEPRAEA: finalização de dois pontos realizada com recepção e arremesso antes de tocar novamente a areia. Em linguagem simples: receber no ar e finalizar sem cair antes.
+- **PASSE TERMINAL** — No CEPRAEA: passe que deixa a recebedora em condição imediata de finalizar, romper ou executar aérea. Em linguagem simples: passe que entrega a decisão final do lance.
+- **T3/T4** — No CEPRAEA: gates que marcam, respectivamente, ataque instalado e defesa funcionalmente estabilizada. Em linguagem simples: os pontos em que cada equipe termina sua transição.
+
+### 1.5. TESTE DE CLASSIFICAÇÃO — EXEMPLOS E CONTRAEXEMPLOS
+
+O contraexemplo impede que aparência espacial, relação numérica ou presença da especialista sejam usadas como critério isolado de fase.
+
+| Fase | Exemplo | Contraexemplo |
+| --- | --- | --- |
+| **Transição ofensiva** | Após recuperação, a equipe ataca uma referência perdida ou uma substituição atrasada antes de a defesa estabilizar. | A equipe já está organizada e precisa criar espaço por circulação, fixação ou cruzamento: isso é ataque posicionado. |
+| **Ataque posicionado** | Com defesa funcionalmente estável, a especialista participa do sistema e uma interação técnico-tática cria a linha de passe ou o arremesso. | A especialista já entrou, mas a oportunidade ainda decorre de defensora atrasada ou matchup herdado: continua sendo transição ofensiva. |
+| **Transição defensiva** | Depois da perda, as defensoras protegem a ameaça imediata, atribuem referências e reorganizam coberturas. | A defesa apenas troca marcações para responder a um cruzamento durante a mesma posse: é ajuste da defesa posicionada. |
+| **Defesa posicionada** | Referências, coberturas e concessões estão deliberadas enquanto o ataque tenta construir vantagem. | Há três defensoras alinhadas, mas uma ainda resolve referência perdida ou emergência da troca de posse: a forma 3:0 não encerra a transição. |
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **TESTE DE CLASSIFICAÇÃO** — No CEPRAEA: aplicação dos critérios canônicos para atribuir uma fase a um lance. Em linguagem simples: usar as regras para dizer em que fase a equipe está.
+- **EXEMPLO** — No CEPRAEA: lance que satisfaz os critérios de uma categoria. Em linguagem simples: caso que mostra quando a definição vale.
+- **CONTRAEXEMPLO** — No CEPRAEA: lance parecido visualmente, mas que não satisfaz a definição. Em linguagem simples: caso que parece caber, mas prova por que não cabe.
+- **CRITÉRIO ISOLADO** — No CEPRAEA: sinal usado sozinho, como formação, número de passes ou presença da especialista. Em linguagem simples: uma pista que, sem as outras, pode enganar.
+- **REFERÊNCIA PERDIDA** — No CEPRAEA: ameaça relevante sem defensora ou regra coletiva capaz de controlá-la. Em linguagem simples: ninguém assumiu aquela atacante ou linha perigosa.
+- **AJUSTE DA DEFESA POSICIONADA** — No CEPRAEA: mudança interna de referência, cobertura ou sistema durante a mesma fase defensiva. Em linguagem simples: a defesa se adapta sem voltar à transição.
+
+### 1.6. GATES OPERACIONAIS — VERSÃO APROVADA
+
+**T3 — ATAQUE INSTALADO:** ocorre no primeiro instante em que estão simultaneamente presentes a composição ofensiva deliberadamente escolhida, funções e ocupações reconhecíveis, bola em zona útil, fim do problema predominante de progressão/entrada/substituição e ausência de vantagem herdada predominante; a próxima vantagem precisa ser construída pelas relações técnico-táticas do ataque.
+
+- **REGRA SEM ESPECIALISTA:** a especialista é exigida somente quando integra a composição escolhida para a posse. Se sua entrada estiver planejada e ainda for necessária, T3 não ocorreu. Se a equipe decidir atuar sem especialista, ou abandonar deliberadamente a entrada e instalar outra composição, T3 pode ocorrer quando essa composição satisfizer todos os demais critérios.
+
+**T4 — DEFESA FUNCIONALMENTE ESTABILIZADA:** ocorre no primeiro instante em que as ameaças imediatas estão controladas, as emergentes são preveníveis, as concedíveis estão monitoradas, a portadora está contida ou fora da zona de risco, referências, trocas e coberturas estão estabelecidas, o sistema é deliberado, a concessão possui critério e nenhuma defensora ainda resolve emergência diretamente herdada da mudança de posse.
+
+- **REGRA DE MARCAÇÃO:** T3 e T4 são gates independentes. Cada equipe atravessa seu gate quando todas as suas condições obrigatórias se tornam verdadeiras; aparência espacial, relação numérica e presença da especialista não bastam.
+- **TESTE CAUSAL DE FRONTEIRA:** se a oportunidade desapareceria sem a vulnerabilidade criada pela troca de posse, a vantagem continua herdada e a equipe permanece em transição. Se a organização já está instalada e a próxima oportunidade precisa ser criada pelo próprio ataque, começa o ataque posicionado.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **GATE OPERACIONAL** — No CEPRAEA: conjunto de condições obrigatórias que marca a passagem funcional entre fases. Em linguagem simples: a porta que só se abre quando todos os requisitos estão presentes.
+- **T3 — ATAQUE INSTALADO** — No CEPRAEA: primeiro instante em que composição, funções, ocupações e bola útil estão resolvidas e a vantagem herdada deixou de predominar. Em linguagem simples: momento em que o ataque está pronto para construir uma nova oportunidade.
+- **T4 — DEFESA ESTABILIZADA** — No CEPRAEA: primeiro instante em que ameaças, portadora, referências, trocas e coberturas estão funcionalmente controladas. Em linguagem simples: momento em que a defesa deixou de apagar incêndios e passou a funcionar junta.
+- **COMPOSIÇÃO DELIBERADA** — No CEPRAEA: grupo e distribuição de atletas escolhidos para executar aquela posse. Em linguagem simples: quem a equipe decidiu usar no ataque.
+- **ZONA ÚTIL** — No CEPRAEA: estado da bola que permite iniciar imediatamente o sistema ofensivo escolhido. Em linguagem simples: bola controlada, de frente e conectada ao jogo.
+- **AMEAÇA IMEDIATA** — No CEPRAEA: atacante capaz de decidir na ação atual antes da resposta defensiva. Em linguagem simples: perigo de agora.
+- **AMEAÇA EMERGENTE** — No CEPRAEA: atacante que pode tornar-se imediata na ação seguinte se não houver ajuste. Em linguagem simples: perigo de depois.
+- **AMEAÇA CONCEDÍVEL** — No CEPRAEA: atacante que pode ficar temporariamente livre porque a defesa ainda responde a tempo. Em linguagem simples: perigo que ainda dá tempo de controlar.
+- **ZONA DE RISCO** — No CEPRAEA: limiar funcional da portadora a partir do qual sua ação perigosa ocorre antes da contenção. Em linguagem simples: ponto em que a bola não pode mais ser concedida.
+- **SISTEMA DELIBERADO** — No CEPRAEA: resposta coletiva escolhida e executada com responsabilidades reconhecíveis. Em linguagem simples: organização que as atletas estão usando de propósito.
+- **TESTE CAUSAL** — No CEPRAEA: pergunta contrafactual que verifica se a oportunidade desapareceria sem a vulnerabilidade da troca de posse. Em linguagem simples: imaginar o lance sem o erro da transição para descobrir de onde veio a vantagem.
+
+### 1.7. BASE CIENTÍFICA INCORPORADA E LIMITES
+
+Silva e Menezes sustentam que o ataque posicionado possui estrutura própria: superioridade nominal, especialista, sistema ofensivo e interações técnico-táticas organizam a construção da finalização.
+
+Vázquez-Diz e colaboradores mostram que placar, tempo, equilíbrio numérico, sistema defensivo e duração do ataque modulam a decisão de finalizar; o resultado da ação não deve ser usado isoladamente como medida da qualidade da decisão.
+
+Caporal identifica associações entre a posição do passe anterior e o tipo/resultado do arremesso no contexto observado. Essas associações geram hipóteses para treino e scout, mas não autorizam transformar uma zona específica de passe em regra universal.
+
+Limites de inferência: 4x3 é superioridade estrutural, não vantagem funcional automática; presença da especialista não define sozinha o fim da transição; duração do ataque é variável contextual, não prescrição; associações observacionais não demonstram causalidade.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **BASE CIENTÍFICA** — No CEPRAEA: conjunto de estudos usado para sustentar, limitar ou gerar hipóteses sobre o modelo. Em linguagem simples: o conhecimento pesquisado que ajuda a não decidir apenas por opinião.
+- **ASSOCIAÇÃO** — No CEPRAEA: relação observada entre variáveis, sem prova de que uma causou a outra. Em linguagem simples: duas coisas aparecem juntas, mas uma pode não produzir a outra.
+- **CAUSALIDADE** — No CEPRAEA: relação em que uma condição produz efetivamente determinado efeito. Em linguagem simples: uma coisa realmente provoca a outra.
+- **VARIÁVEL CONTEXTUAL** — No CEPRAEA: fator como placar, tempo ou sistema defensivo que modifica a decisão adequada. Em linguagem simples: uma circunstância do jogo que muda o valor da escolha.
+- **PRESCRIÇÃO** — No CEPRAEA: regra que determina o que deve ser feito em determinada condição. Em linguagem simples: orientação que manda executar uma resposta específica.
+- **SCOUT** — No CEPRAEA: observação e registro sistemático de comportamentos e acontecimentos do jogo. Em linguagem simples: anotar os lances com critérios iguais para aprender com eles.
+- **LIMITE DE INFERÊNCIA** — No CEPRAEA: fronteira do que os dados permitem concluir sem extrapolação. Em linguagem simples: até onde a evidência autoriza afirmar.
+
+***
+
+## 2. TRANSIÇÃO COMO DISPUTA PELA ORGANIZAÇÃO
+
+A transição não é apenas deslocamento rápido entre duas fases. É a disputa para que uma equipe consiga instalar antes da outra as relações que lhe interessam. Vencer a transição pode significar finalizar antes da reorganização adversária, preservar uma vantagem até a chegada da especialista ou, defensivamente, retirar a vantagem do ataque e obrigá-lo a construir novamente.
+
+**Princípio central: TRANSIÇÃO NÃO É APENAS CORRER RÁPIDO. É PERCEBER RÁPIDO, DECIDIR RÁPIDO E EXECUTAR NO TEMPO DA VANTAGEM.**
+
+***
+
+## 3. TRANSIÇÃO OFENSIVA
+
+### 3.1. Transição ofensiva
+
+Período em que a equipe, após conquistar o direito à posse ou ao reinício, resolve simultaneamente dois problemas: explorar uma vulnerabilidade criada pela mudança de posse e instalar a organização ofensiva pretendida.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **TRANSIÇÃO OFENSIVA** — No CEPRAEA: fase que começa com a posse ou reinício e combina exploração da vantagem herdada com instalação ofensiva. Em linguagem simples: aproveitar a desorganização e organizar o próprio ataque ao mesmo tempo.
+- **DIREITO À POSSE OU AO REINÍCIO** — No CEPRAEA: condição formal que autoriza a equipe a jogar a bola após recuperação, gol ou saída. Em linguagem simples: momento em que a equipe pode iniciar sua nova ação ofensiva.
+- **VULNERABILIDADE DA MUDANÇA DE POSSE** — No CEPRAEA: fragilidade criada porque o adversário ainda troca funções, retorna ou substitui. Em linguagem simples: problema defensivo que nasce na troca de quem ataca e quem defende.
+- **INSTALAÇÃO OFENSIVA** — No CEPRAEA: processo de resolver composição, ocupações, funções e acesso da bola ao sistema. Em linguagem simples: montar o ataque para começar a construir.
+
+### 3.2. Transição ofensiva direta
+
+**CONSOLIDADO CONCEITUALMENTE.** Transição ofensiva direta é o estado posterior à mudança de posse no qual a equipe ainda resolve progressão, composição, substituição, ocupações ou acesso da bola à zona útil. A organização ofensiva escolhida ainda não está funcionalmente instalada. Pode ocorrer em qualquer relação numérica; quantidade de atletas, passes ou segundos não define a categoria.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **TRANSIÇÃO OFENSIVA DIRETA** — No CEPRAEA: estado em que pelo menos uma condição estrutural de instalação ofensiva ainda está ausente. Em linguagem simples: a equipe ainda está avançando, entrando, substituindo ou ocupando os lugares.
+- **PROGRESSÃO** — No CEPRAEA: deslocamento da bola e das atletas para alcançar condição de iniciar ou finalizar. Em linguagem simples: levar o jogo para a frente.
+- **COMPOSIÇÃO** — No CEPRAEA: conjunto de atletas e funções utilizado na posse. Em linguagem simples: quem está participando e em qual responsabilidade.
+- **SUBSTITUIÇÃO** — No CEPRAEA: troca de atleta que altera a composição ofensiva ou defensiva. Em linguagem simples: entrada e saída necessárias para montar a equipe.
+- **OCUPAÇÃO** — No CEPRAEA: posicionamento com função reconhecível dentro da organização escolhida. Em linguagem simples: chegar ao espaço certo com uma tarefa clara.
+- **RELAÇÃO NUMÉRICA** — No CEPRAEA: quantidade de atacantes e defensoras envolvidas, sem definir sozinha a fase. Em linguagem simples: quantas jogadoras participam do confronto.
+
+### 3.3. Transição ofensiva indireta
+
+**CONSOLIDADO CONCEITUALMENTE.** Transição ofensiva indireta é o estado no qual a equipe já satisfaz as condições estruturais de instalação ofensiva, mas a oportunidade funcional ainda depende predominantemente de uma vulnerabilidade herdada da mudança de posse, como substituição atrasada, referência perdida, composição inadequada, matchup, especialista sem controle ou espaço residual.
+
+Termina quando a oportunidade herdada é convertida, desperdiçada ou neutralizada, ou quando deixa de estar acessível e a equipe precisa construir uma nova vantagem pelo ataque posicionado.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **TRANSIÇÃO OFENSIVA INDIRETA** — No CEPRAEA: estado em que a instalação ofensiva está satisfeita, mas a oportunidade ainda depende da troca de posse. Em linguagem simples: a equipe já parece organizada, porém ainda aproveita um problema que veio da transição.
+- **OPORTUNIDADE FUNCIONAL** — No CEPRAEA: ação acessível que pode ser executada antes da neutralização adversária. Em linguagem simples: chance real de decidir o lance.
+- **REFERÊNCIA PERDIDA** — No CEPRAEA: ameaça que ainda não foi atribuída ou coberta pela defesa. Em linguagem simples: atacante perigosa que ninguém assumiu.
+- **MATCHUP HERDADO** — No CEPRAEA: pareamento desfavorável criado durante retorno, troca ou substituição. Em linguagem simples: confronto vantajoso que surgiu na transição.
+- **ESPAÇO RESIDUAL** — No CEPRAEA: espaço ainda aberto porque a defesa não concluiu sua reorganização. Em linguagem simples: buraco que sobrou da troca de posse.
+- **NEUTRALIZAÇÃO** — No CEPRAEA: retirada da possibilidade de executar a ação antes da resposta defensiva. Em linguagem simples: fechar a oportunidade a tempo.
+
+### 3.4. Ataque posicionado
+
+Começa quando a organização ofensiva está instalada e a próxima vantagem precisa ser construída predominantemente pelas relações técnico-táticas do próprio ataque, e não por uma vulnerabilidade herdada da mudança de posse.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **ATAQUE POSICIONADO** — No CEPRAEA: fase na qual a organização ofensiva está instalada e a próxima vantagem precisa ser construída. Em linguagem simples: momento de criar uma nova oportunidade contra a defesa organizada.
+- **RELAÇÃO TÉCNICO-TÁTICA** — No CEPRAEA: combinação entre execução técnica, leitura e cooperação entre atletas. Em linguagem simples: ação feita com habilidade e intenção coletiva.
+- **VANTAGEM CONSTRUÍDA** — No CEPRAEA: possibilidade produzida pelo próprio ataque depois que a vantagem herdada deixou de explicar o lance. Em linguagem simples: oportunidade criada pela circulação e pelas combinações da equipe.
+
+### 3.5. Árvore operacional e casos limítrofes
+
+1. **PASSO 1 — INSTALAÇÃO:** composição deliberada, funções e ocupações reconhecíveis, bola em zona útil e fim do problema dominante de progressão/entrada/substituição estão simultaneamente presentes? Se **NÃO**, classificar como transição ofensiva direta. Se **SIM**, seguir ao passo 2.
+2. **PASSO 2 — ORIGEM CAUSAL:** ao retirar mentalmente a vulnerabilidade produzida pela mudança de posse, a oportunidade atual desaparece?
+   - Se **SIM**, classificar como transição ofensiva indireta.
+   - Se **NÃO** e a equipe precisa produzir uma nova oportunidade por seu sistema, classificar como ataque posicionado.
+
+- Especialista entrou, mas a bola ainda precisa progredir ou as ocupações não se instalaram: transição ofensiva direta.
+- Estrutura ofensiva montada, mas uma defensora continua atrasada na substituição: transição ofensiva indireta.
+- Estrutura montada e especialista ainda sem referência por causa da troca de posse: transição ofensiva indireta.
+- Defesa aparenta 3:0, mas a oportunidade decorre de referência perdida; se o ataque já está instalado, transição ofensiva indireta.
+- Equipe deliberadamente sem especialista, ocupações instaladas, bola útil e nenhuma oportunidade herdada: ataque posicionado.
+- Dois ou três passes, aceleração ou desaceleração não classificam o lance; aplicar instalação e origem causal.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **ÁRVORE OPERACIONAL** — No CEPRAEA: sequência ordenada de perguntas que leva a uma única classificação. Em linguagem simples: caminho de decisão para não classificar por impressão.
+- **INSTALAÇÃO OFENSIVA** — No CEPRAEA: presença simultânea das condições estruturais necessárias para iniciar o sistema. Em linguagem simples: ataque montado e pronto.
+- **ORIGEM CAUSAL** — No CEPRAEA: evento ou relação que explica por que a oportunidade existe. Em linguagem simples: a causa real da vantagem.
+- **TESTE CONTRAFACTUAL** — No CEPRAEA: retirada mental da vulnerabilidade herdada para verificar se a oportunidade continuaria existindo. Em linguagem simples: imaginar o lance sem o problema da transição.
+- **CASO LIMÍTROFE** — No CEPRAEA: lance próximo da fronteira entre duas categorias e que exige todos os critérios. Em linguagem simples: situação em que a aparência não basta para decidir.
+- **ACELERAÇÃO/DESACELERAÇÃO** — No CEPRAEA: mudança de velocidade que pode ocorrer em qualquer fase e não classifica o lance sozinha. Em linguagem simples: jogar rápido ou devagar não define a fase.
+
+### 3.6. Construção e exploração da atacante livre no ataque posicionado
+
+Esta subseção incorpora definições técnico-táticas confirmadas no histórico de análise do CEPRAEA. Elas refinam como o ataque posicionado constrói vantagem por fixação, circulação, liberdade e preparação. O status abaixo respeita a governança deste arquivo: definição confirmada não equivale automaticamente a conceito consolidado; os itens ainda sujeitos a generalização, casos limítrofes ou validação permanecem EM FECHAMENTO.
+
+#### 3.6.1. Fixação com bola
+
+**DEFINIÇÃO CONFIRMADA — EM FECHAMENTO.**
+
+Na fixação com bola, a atacante representa uma ameaça e provoca uma resposta defensiva. No caso definido pelo CEPRAEA, a defensora responde à ameaça da portadora, nega seu espaço de infiltração e, por essa resposta, deixa de conseguir cobrir adequadamente outra atacante.
+
+Relação causal: AMEAÇA DA PORTADORA → RESPOSTA DEFENSIVA → INFILTRAÇÃO NEGADA + CAPACIDADE DE COBERTURA COMPROMETIDA → NOVO ESTADO OFENSIVO.
+
+A ameaça isolada não basta para esta definição de fixação com bola; é necessária uma resposta defensiva funcionalmente relevante. Permanece pendente definir se e como a mesma regra se aplica à fixação sem bola.
+
+#### 3.6.2. Livre
+
+**DEFINIÇÃO CONFIRMADA — EM FECHAMENTO.**
+
+Estar livre descreve a disponibilidade da atacante para determinada ação, mas não determina automaticamente vantagem, melhor opção ou preparação suficiente. Duas atacantes podem estar igualmente livres e, ainda assim, possuir condições diferentes para a ação seguinte.
+
+O modelo distingue, conforme a ação analisada: livre para receber; livre para finalizar; livre para aérea; livre, mas com vantagem temporal insuficiente.
+
+**Regra central: LIVRE ≠ PREPARADA ≠ VANTAGEM.**
+
+Uma vantagem temporal insuficiente pode limitar a execução seguinte sem apagar automaticamente a condição de liberdade para receber. Permanece pendente generalizar o critério de LIVRE para todos os casos de recuperação defensiva antes ou durante a ação seguinte.
+
+#### 3.6.3. Preparação para a ação seguinte
+
+**DEFINIÇÃO CONFIRMADA — EM FECHAMENTO.**
+
+Preparação é a condição em que a atleta organiza espaço, apoios, orientação e tempo para executar a ação pretendida. Na bola de quebra analisada, a preparação da atacante começa antes ou no exato instante em que ela solta a bola para a companheira: passe e reposicionamento fazem parte do mesmo processo funcional.
+
+Quatro dimensões observáveis compõem a preparação:
+
+- **PROFUNDIDADE / ESPAÇO DE ACELERAÇÃO** — recriar espaço suficiente para realizar passadas progressivas e atacar a área. A referência prática observada de aproximadamente 2–3 m não é limiar matemático obrigatório; o sinal principal é existir espaço funcional para pelo menos duas passadas progressivas antes do salto.
+- **APOIOS / INVERSÃO DE INÉRCIA** — frear o recuo, ajustar os apoios e transferir o peso para a frente para receber atacando a trajetória da bola, em vez de ainda recuar ou iniciar a ação de uma posição estática.
+- **ORIENTAÇÃO / CAMPO VISUAL** — recuperar posição sem dar as costas ao jogo, preservando simultaneamente a leitura da bola/passadora, da resposta defensiva e da baliza.
+- **SINCRONIA DA VANTAGEM TEMPORAL** — a devolução chega quando a atacante já alcançou condição dinâmica para atacar a bola e executar a ação; tanto antecipar demais e precisar esperar quanto atrasar e receber antes de estar ajustada reduzem a preparação.
+
+**Regra global DECIDIDA:** avaliar cada dimensão separadamente. Uma falha só torna a preparação insuficiente quando compromete a execução da ação pretendida. Se a falha não comprometer a execução, registrar preparação suficiente com limitação.
+
+Consequência conceitual: “tempo suficiente” não é apenas quantidade de segundos; depende da sincronização entre espaço, apoios, orientação e chegada da bola para a ação pretendida.
+
+O resultado posterior não redefine a preparação: uma atleta pode estar bem preparada e a goleira defender, ou estar mal preparada e ainda marcar.
+
+#### 3.6.4. Bola de quebra
+
+**DEFINIÇÃO CONFIRMADA — EM FECHAMENTO OPERACIONAL.**
+
+Ocorre quando a atacante fixa a defensora, passa a bola, recupera seu posicionamento e recebe novamente a bola depois que a defensora que anteriormente negava seu espaço passou a responder a outra atacante. A atacante volta a receber livre e pode finalizar em giro, aérea ou arremesso simples.
+
+Sequência de referência: FIXA → PASSA → RECUPERA POSICIONAMENTO → DEFESA REDISTRIBUI REFERÊNCIAS → RECEBE NOVAMENTE LIVRE → FINALIZA.
+
+A simples sequência de passes ida e volta não basta, sozinha, para classificar bola de quebra; é necessário observar recuperação do posicionamento e redistribuição defensiva coerentes com a definição.
+
+A relação entre BOLA DE QUEBRA e o conceito já existente de JOGO DE DEVOLUÇÃO ainda não deve ser tratada como sinonímia automática; essa relação permanece para fechamento conceitual.
+
+#### 3.6.5. Bola de continuidade
+
+**DEFINIÇÃO CONFIRMADA — EM FECHAMENTO OPERACIONAL.**
+
+Ocorre quando uma atacante fixa sua defensora e passa para a atacante seguinte; a nova portadora também fixa sua defensora e dá continuidade à circulação, repetindo o processo até que uma atacante seguinte receba livre para finalizar.
+
+A finalizadora da bola de continuidade não precisa fixar uma defensora antes do arremesso: ela já recebe a bola sem uma defensora negando seu espaço. A finalização pode ser em giro, aérea ou arremesso simples.
+
+Sequência de referência: FIXAÇÃO → PASSE → NOVA FIXAÇÃO → NOVO PASSE → ... → ATACANTE SEGUINTE RECEBE LIVRE → FINALIZA.
+
+A bola de continuidade deve permanecer distinta do conceito geral CONTINUIDADE: continuidade é o princípio amplo de circulação intencional; bola de continuidade é este padrão ofensivo específico de fixações sucessivas até liberar a finalizadora.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **FIXAÇÃO COM BOLA** — No CEPRAEA: relação em que a ameaça da portadora provoca resposta defensiva que nega sua infiltração e compromete a capacidade da defensora de cobrir outra atacante. Em linguagem simples: obrigar a defensora a assumir a bola e deixar outra solução mais disponível.
+- **LIVRE** — No CEPRAEA: condição de disponibilidade para determinada ação, separada da preparação e da vantagem. Em linguagem simples: poder receber ou executar uma ação sem que isso signifique, sozinho, que é a melhor solução.
+- **PREPARAÇÃO** — No CEPRAEA: organização funcional de espaço, apoios, orientação e sincronia para executar a ação pretendida. Em linguagem simples: chegar pronta para fazer a próxima ação nas condições necessárias.
+- **BOLA DE QUEBRA** — No CEPRAEA: padrão em que quem fixou passa, recupera posicionamento e volta a receber livre após redistribuição defensiva. Em linguagem simples: fixa, solta, se prepara e recebe de volta com o espaço liberado.
+- **BOLA DE CONTINUIDADE** — No CEPRAEA: padrão de fixações e passes sucessivos até que uma atacante seguinte receba livre para finalizar. Em linguagem simples: a vantagem vai passando de jogadora em jogadora até chegar à finalizadora livre.
+- **VANTAGEM TEMPORAL INSUFICIENTE** — No CEPRAEA: condição em que a atleta pode estar livre, mas o tempo disponível não permite preparação suficiente para a ação pretendida. Em linguagem simples: está livre, mas a bola volta cedo ou tarde demais para ela executar bem.
+
+***
+
+## 4. TRANSIÇÃO DEFENSIVA
+
+### 4.1. Transição defensiva
+
+Período que começa com a perda efetiva da posse ou do direito de continuar atacando e no qual a equipe procura neutralizar as vantagens temporárias adversárias até estabelecer relações defensivas funcionalmente estáveis.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **TRANSIÇÃO DEFENSIVA** — No CEPRAEA: fase iniciada pela perda da posse, destinada a retirar vantagens herdadas e instalar controle coletivo. Em linguagem simples: momento de voltar defendendo e eliminar o perigo da troca.
+- **PERDA EFETIVA DA POSSE** — No CEPRAEA: instante em que a equipe deixa de ter direito real de continuar atacando. Em linguagem simples: momento em que o adversário passa a poder atacar.
+- **VANTAGEM TEMPORÁRIA** — No CEPRAEA: oportunidade que existe apenas enquanto a defesa ainda não respondeu. Em linguagem simples: perigo que pode desaparecer se a defesa ganhar tempo.
+- **ESTABILIDADE FUNCIONAL** — No CEPRAEA: estado em que ameaças, referências, trocas e coberturas podem ser controladas pelo sistema. Em linguagem simples: defesa organizada de verdade, não apenas alinhada.
+
+### 4.2. Posição de transição
+
+A função de uma defensora durante a transição não precisa coincidir com sua posição final na defesa posicionada. Primeiro ela resolve a ameaça existente; depois adapta sua função e, quando possível, chega ao lugar desejado.
+
+**Regra operacional: ENTRAR → DEFENDER → ADAPTAR → REORGANIZAR.**
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **POSIÇÃO DE TRANSIÇÃO** — No CEPRAEA: função temporária assumida para resolver a ameaça presente antes da posição final. Em linguagem simples: o papel que a defensora precisa cumprir enquanto volta.
+- **POSIÇÃO FINAL** — No CEPRAEA: ocupação pretendida no sistema defensivo estabilizado. Em linguagem simples: lugar e função depois que a defesa se organiza.
+- **ADAPTAR** — No CEPRAEA: ajustar referência ou função depois de controlar o perigo imediato. Em linguagem simples: mudar de responsabilidade sem deixar a ameaça livre.
+- **REORGANIZAR** — No CEPRAEA: instalar relações estáveis de sistema, cobertura e concessão. Em linguagem simples: voltar a defender coletivamente.
+- **ENTRAR → DEFENDER → ADAPTAR → REORGANIZAR** — No CEPRAEA: ordem que prioriza o perigo antes da posição ideal. Em linguagem simples: primeiro resolve o lance; depois procura o lugar.
+
+### 4.3. Sistemas momentâneos da transição
+
+Individual, 1:2, 2:1 e 3:0 podem aparecer dentro da mesma transição defensiva. O sistema momentâneo responde ao problema presente e não define sozinho a fase.
+
+As mudanças de ameaça passam a constituir a base geral dos gatilhos: portadora concedível ou emergente tornando-se imediata; atacante sem bola tornando-se ameaça imediata; surgimento de ameaças simultâneas; entrada ou saída da portadora da zona de risco; neutralização da ameaça que justificava o sistema anterior; e recuperação de tempo defensivo.
+
+Esses gatilhos informam a transformação do sistema, mas ainda não determinam automaticamente qual resposta — individual, 1:2, 2:1 ou 3:0 — deve ser escolhida. C20 permanece em estruturação para relacionar cada mudança de estado à bola, às coberturas, ao risco aceito e ao comportamento específico do adversário.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **SISTEMA MOMENTÂNEO** — No CEPRAEA: organização defensiva temporária escolhida para responder às ameaças presentes. Em linguagem simples: formação usada agora, mesmo que mude no lance seguinte.
+- **INDIVIDUAL** — No CEPRAEA: sistema baseado principalmente em referências diretas entre defensoras e atacantes. Em linguagem simples: cada defensora assume uma referência principal.
+- **1:2** — No CEPRAEA: sistema com uma defensora avançada e duas posteriores, ajustado à bola e às ameaças. Em linguagem simples: uma pressiona ou orienta; duas protegem atrás.
+- **2:1** — No CEPRAEA: sistema com duas defensoras avançadas e uma posterior protegendo profundidade e linhas terminais. Em linguagem simples: duas atuam à frente; uma protege o fundo.
+- **3:0** — No CEPRAEA: sistema com três defensoras em linha mais próxima da área, com subidas e coberturas coordenadas. Em linguagem simples: três defendem alinhadas, mas precisam sair e cobrir juntas.
+- **GATILHO** — No CEPRAEA: mudança observável que exige manter, abandonar ou transformar a resposta defensiva. Em linguagem simples: sinal que manda a defesa mudar o que está fazendo.
+- **AMEAÇAS SIMULTÂNEAS** — No CEPRAEA: duas ou mais atacantes capazes de exigir respostas incompatíveis no mesmo tempo. Em linguagem simples: mais de um perigo que não pode ser resolvido pela mesma defensora.
+- **RISCO ACEITO** — No CEPRAEA: perigo que a equipe decide tolerar para proteger opções mais valiosas. Em linguagem simples: o que a defesa escolhe conceder porque é menos perigoso.
+- **TRANSFORMAÇÃO DO SISTEMA** — No CEPRAEA: mudança coordenada de uma organização defensiva para outra. Em linguagem simples: trocar a forma de defender sem criar vazio.
+
+### 4.4. Defesa posicionada
+
+Começa quando as urgências diretamente herdadas da mudança de posse foram suficientemente neutralizadas e a defesa opera com referências, funções, coberturas e critérios de concessão estáveis contra a construção ofensiva presente.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **DEFESA POSICIONADA** — No CEPRAEA: fase em que a defesa está funcionalmente estabilizada contra a construção ofensiva. Em linguagem simples: defesa pronta para responder ao ataque organizado.
+- **URGÊNCIA HERDADA** — No CEPRAEA: ameaça cuja necessidade de resposta ainda decorre da troca de posse. Em linguagem simples: perigo que sobrou da transição.
+- **CRITÉRIO DE CONCESSÃO** — No CEPRAEA: regra que define qual opção pode permanecer livre e até quando. Em linguagem simples: o que a defesa aceita deixar disponível porque ainda dá tempo.
+- **CONSTRUÇÃO OFENSIVA** — No CEPRAEA: processo pelo qual o ataque produz uma nova vantagem por suas relações. Em linguagem simples: ações usadas para criar a oportunidade.
+
+### 4.5. Indicadores observáveis e validação do T4
+
+**CONSOLIDADO CONCEITUALMENTE.** Todas as condições abaixo são obrigatórias. O observador marca T4 no primeiro instante em que elas coexistem; a ação ofensiva seguinte pode confirmar retrospectivamente que a resposta defensiva já estava disponível.
+
+- **AMEAÇAS IMEDIATAS CONTROLADAS:** cada ação terminal disponível possui contenção, negação ou cobertura capaz de chegar antes da execução.
+- **AMEAÇAS EMERGENTES PREVENÍVEIS:** existe defensora com tempo, trajetória e responsabilidade para impedir que se tornem imediatas.
+- **AMEAÇAS CONCEDÍVEIS MONITORADAS:** a liberdade é deliberada e a defesa ainda consegue responder antes da mudança de nível.
+- **PORTADORA CONTROLADA:** permanece contida ou fora da zona de risco; se atravessa o limiar, alguém a assume antes da ação perigosa.
+- **REFERÊNCIAS ESTABELECIDAS:** cada ameaça relevante possui responsável primária ou regra coletiva identificável.
+- **TROCAS E COBERTURAS DISPONÍVEIS:** a próxima movimentação ofensiva possui resposta coletiva executável sem abrir ameaça imediata.
+- **SISTEMA DELIBERADO:** as respostas são coerentes com o sistema momentâneo e não apenas alinhamento espacial.
+- **EMERGÊNCIA HERDADA ENCERRADA:** nenhuma defensora ainda retorna, recompõe ou abandona função exclusivamente por causa da mudança de posse.
+
+**ÂNCORAS POR SISTEMA:**
+
+- **INDIVIDUAL:** referências diretas atribuídas, portadora contida e coberturas terminais disponíveis.
+- **1:2:** defensora avançada contém ou orienta a bola; defensoras posteriores protegem profundidade, passe terminal, pivô e aérea.
+- **2:1:** dupla avançada coordena bola e linhas próximas; defensora posterior protege profundidade e relações terminais, sem receber ameaças imediatas incompatíveis.
+- **3:0:** linha compacta, subida e retorno coordenados, coberturas laterales definidas e portadora externa concedida somente enquanto estiver fora da zona de risco.
+
+**PROTOCOLO DE VALIDAÇÃO:** mínimo de 20 sequências por sistema — 5 claramente anteriores a T4, 5 claramente posteriores e 10 limítrofes ou com transformação. Dois observadores independentes registram cada condição, T4/não T4, primeiro instante de T4 e sistema vigente. Meta: concordância bruta de pelo menos 80% e Cohen’s kappa de pelo menos 0,70; a marcação temporal concorda quando ambos situam T4 antes da mesma ação ofensiva subsequente. Resultado abaixo da meta devolve primeiro o indicador divergente para revisão.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **INDICADOR OBSERVÁVEL** — No CEPRAEA: comportamento ou condição que pode ser identificado no vídeo sem tentar adivinhar o pensamento da atleta. Em linguagem simples: algo visível que duas pessoas conseguem marcar.
+- **CONTENÇÃO** — No CEPRAEA: ação que impede a portadora de avançar ou decidir antes da resposta. Em linguagem simples: parar ou orientar a jogadora com bola.
+- **NEGAÇÃO** — No CEPRAEA: retirada direta de uma linha de passe, arremesso ou deslocamento. Em linguagem simples: fechar uma opção antes que ela seja usada.
+- **COBERTURA** — No CEPRAEA: resposta de ajuda preparada caso a primeira defensora seja superada. Em linguagem simples: proteção atrás ou ao lado da abordagem.
+- **RESPONSÁVEL PRIMÁRIA** — No CEPRAEA: primeira defensora encarregada de controlar determinada ameaça. Em linguagem simples: quem resolve aquele perigo primeiro.
+- **ÂNCORA POR SISTEMA** — No CEPRAEA: exemplo observável específico que mostra como uma condição aparece em cada organização defensiva. Em linguagem simples: o sinal concreto de T4 em cada sistema.
+- **SEQUÊNCIA LIMÍTROFE** — No CEPRAEA: trecho de jogo próximo da passagem entre transição e defesa posicionada. Em linguagem simples: lance difícil usado para testar a regra.
+- **CONCORDÂNCIA BRUTA** — No CEPRAEA: percentual de classificações iguais entre observadores. Em linguagem simples: quantas vezes os dois marcaram a mesma coisa.
+- **COHEN’S KAPPA** — No CEPRAEA: medida de concordância que desconta os acertos esperados por acaso. Em linguagem simples: teste para saber se a igualdade não aconteceu apenas por sorte.
+- **CONFIRMAÇÃO RETROSPECTIVA** — No CEPRAEA: uso da ação seguinte para verificar que a resposta já estava disponível no instante marcado. Em linguagem simples: olhar o que aconteceu depois para confirmar, sem atrasar artificialmente o momento de T4.
+
+***
+
+## 5. VANTAGEM E SUPERIORIDADE
+
+### 5.1. Superioridade nominal
+
+Descreve apenas a relação quantitativa entre atacantes e defensoras, como 4x3. Não informa, sozinha, quem possui vantagem real.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **SUPERIORIDADE NOMINAL** — No CEPRAEA: vantagem apenas de quantidade, como quatro atacantes contra três defensoras. Em linguagem simples: ter uma jogadora a mais no ataque.
+- **RELAÇÃO 4x3** — No CEPRAEA: estrutura típica com quatro atacantes contra três defensoras de quadra. Em linguagem simples: quatro atacam e três defendem.
+- **RELAÇÃO QUANTITATIVA** — No CEPRAEA: comparação do número de atletas envolvidas. Em linguagem simples: contagem de jogadoras.
+- **VANTAGEM FUNCIONAL** — No CEPRAEA: possibilidade real que não pode ser neutralizada no tempo da ação. Em linguagem simples: oportunidade que a defesa não consegue fechar.
+
+### 5.2. Superioridade funcional
+
+Descreve a relação entre as ameaças que o ataque consegue produzir e a capacidade da defesa de controlá-las naquele instante. Uma equipe pode estar 4x3 e sem vantagem funcional; uma defesa 3x4 pode controlar as três ameaças mais perigosas e conceder temporariamente uma opção de baixo risco.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **SUPERIORIDADE FUNCIONAL** — No CEPRAEA: estado favorável produzido pela relação entre ameaças e capacidade de resposta, independentemente da contagem. Em linguagem simples: ter mais soluções perigosas do que a defesa consegue controlar.
+- **RELAÇÃO 3x4** — No CEPRAEA: inferioridade numérica defensiva estrutural, que não impede controle funcional. Em linguagem simples: três defendendo contra quatro atacantes.
+- **CONTROLE DE AMEAÇAS** — No CEPRAEA: capacidade de neutralizar as ações mais perigosas no tempo disponível. Em linguagem simples: fechar primeiro aquilo que pode decidir o lance.
+- **OPÇÃO DE BAIXO RISCO** — No CEPRAEA: ação concedível cujo perigo ainda pode ser contido antes da execução. Em linguagem simples: opção que a defesa aceita porque ainda consegue chegar.
+
+### 5.3. Vantagem CEPRAEA
+
+**CONSOLIDADO CONCEITUALMENTE.**
+
+Vantagem CEPRAEA é o estado coletivo, funcional e temporário no qual uma equipe possui uma possibilidade tática acessível que o adversário não consegue neutralizar no tempo da ação.
+
+No ataque, manifesta-se quando existe finalização, rompimento ou passe terminal disponível; quando duas ameaças exigem respostas incompatíveis da mesma defensora; ou quando espaço, composição, matchup ou desorganização impedem a neutralização antes da execução.
+
+Na defesa, manifesta-se quando as ameaças imediatas estão controladas, a posse pode ser direcionada para uma opção concedível, as linhas terminais são retiradas ou o ataque é obrigado a atrasar, reiniciar ou executar uma ação menos perigosa.
+
+**Inclui:** estados ofensivos e defensivos; vantagens herdadas ou construídas; mecanismos temporais, espaciais, composicionais, de matchup, informacionais e organizacionais; possibilidades acessíveis mesmo que não sejam convertidas.
+
+**Exclui:** superioridade nominal 4x3 isolada; formação espacial isolada; presença da especialista; jogadora livre sem linha útil; possibilidade hipotética que ainda depende de várias ações contestáveis; e o resultado final considerado sem a análise da decisão e da execução.
+
+**Classificação operacional:** ORIGEM — herdada ou construída; DIREÇÃO — ofensiva ou defensiva; MECANISMO — temporal, espacial, composicional, matchup, informacional ou organizacional. Os mecanismos podem coexistir.
+
+Começa quando surge uma possibilidade funcional que o adversário não consegue neutralizar no tempo disponível. Termina quando é convertida, desperdiçada, neutralizada ou deixa de estar acessível.
+
+- **Regra curta ofensiva:** “SE A DEFESA NÃO CONSEGUE RESPONDER A TEMPO, ATACA A VANTAGEM. SE CONSEGUE, CONSTRÓI OUTRA.”
+- **Regra curta defensiva:** “TIRA O PERIGO DE AGORA, PREVINE O PRÓXIMO E CONCEDE O QUE DÁ TEMPO.”
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **VANTAGEM CEPRAEA** — No CEPRAEA: estado coletivo, funcional e temporário em que existe possibilidade acessível sem neutralização a tempo. Em linguagem simples: uma chance real que o adversário não consegue resolver agora.
+- **POSSIBILIDADE TÁTICA ACESSÍVEL** — No CEPRAEA: ação que a equipe consegue executar a partir das condições atuais, sem depender de várias hipóteses. Em linguagem simples: solução realmente disponível no lance.
+- **MECANISMO TEMPORAL** — No CEPRAEA: vantagem produzida pela diferença entre tempo de ação e tempo de resposta. Em linguagem simples: agir antes que o adversário consiga chegar.
+- **MECANISMO ESPACIAL** — No CEPRAEA: vantagem produzida por espaço útil ou distância defensiva. Em linguagem simples: usar um espaço que a defesa não fecha a tempo.
+- **MECANISMO COMPOSICIONAL** — No CEPRAEA: vantagem produzida pela combinação de atletas e funções presentes. Em linguagem simples: usar a composição que cria o melhor problema.
+- **MECANISMO DE MATCHUP** — No CEPRAEA: vantagem produzida por pareamento individual favorável. Em linguagem simples: atacar o confronto que favorece a equipe.
+- **MECANISMO INFORMACIONAL** — No CEPRAEA: vantagem produzida por perceber, comunicar ou decidir antes. Em linguagem simples: saber e agir antes da adversária.
+- **MECANISMO ORGANIZACIONAL** — No CEPRAEA: vantagem produzida por relações coletivas mais instaladas que as adversárias. Em linguagem simples: estar organizada antes da outra equipe.
+- **DIREÇÃO OFENSIVA/DEFENSIVA** — No CEPRAEA: lado para o qual a vantagem funciona: criar ação ofensiva ou controlar o ataque. Em linguagem simples: vantagem para atacar ou para defender.
+- **CONVERSÃO** — No CEPRAEA: uso efetivo da possibilidade, sem exigir necessariamente gol para reconhecer que ela existiu. Em linguagem simples: transformar a chance em ação.
+
+### 5.4. Vantagem herdada
+
+É a vantagem cuja causa principal ainda está ligada à troca de posse: velocidade de progressão, substituição atrasada, composição inadequada, referência perdida, espaço criado no retorno ou antecipação anterior. Quando essa causa deixa de explicar a oportunidade, a vantagem passa a ser construída pela fase posicionada.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **VANTAGEM HERDADA** — No CEPRAEA: possibilidade cuja causa principal continua ligada à troca de posse. Em linguagem simples: oportunidade que nasceu da desorganização da transição.
+- **SUBSTITUIÇÃO ATRASADA** — No CEPRAEA: entrada ou saída defensiva não concluída no tempo necessário. Em linguagem simples: defensora que ainda não chegou ou não trocou.
+- **COMPOSIÇÃO INADEQUADA** — No CEPRAEA: conjunto de atletas ou funções desfavorável produzido pela transição. Em linguagem simples: defesa formada com pareamentos ou papéis ruins.
+- **ESPAÇO DE RETORNO** — No CEPRAEA: abertura criada enquanto as defensoras voltam e reorganizam referências. Em linguagem simples: espaço deixado na recomposição.
+- **ANTECIPAÇÃO ANTERIOR** — No CEPRAEA: ação iniciada antes da troca formal que gera ganho para a fase seguinte. Em linguagem simples: começar antes e chegar com vantagem.
+
+### 5.5. Vantagem funcional defensiva
+
+**CONSOLIDADO CONCEITUALMENTE.**
+
+Vantagem funcional defensiva é o estado coletivo e temporário no qual a defesa, mesmo em inferioridade nominal, controla as ameaças imediatas, consegue prevenir as emergentes, monitora ou concede as opções de menor risco e mantém a portadora contida ou fora da zona de risco.
+
+Manifesta-se quando a defesa retira linhas terminais, direciona a posse para uma ameaça concedível, força atraso ou reinício, compra tempo para reorganização ou induz uma ação ofensiva menos perigosa antes que o ataque consiga construir nova vantagem.
+
+Inclui controle funcional em 3x4, concessão deliberada, ganho de tempo, indução de quebra de velocidade e orientação da posse para opção menos valiosa. Exclui a simples formação 3:0/1:2/2:1, o erro ofensivo não provocado e a inferioridade nominal considerada isoladamente.
+
+**Regra curta:** “TIRA O PERIGO DE AGORA, PREVINE O PRÓXIMO E CONCEDE O QUE DÁ TEMPO.” A codificação e a confiabilidade permanecem vinculadas a C29/C30.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **VANTAGEM FUNCIONAL DEFENSIVA** — No CEPRAEA: estado coletivo em que a defesa controla perigos prioritários e conduz o ataque a opções menos valiosas. Em linguagem simples: defesa que decide o que o ataque pode fazer.
+- **INFERIORIDADE NOMINAL** — No CEPRAEA: situação com menos defensoras do que atacantes, sem determinar sozinha quem controla o lance. Em linguagem simples: defender com menos jogadoras.
+- **LINHA TERMINAL** — No CEPRAEA: trajetória de passe, rompimento ou arremesso que conduz diretamente à decisão do lance. Em linguagem simples: caminho que leva à finalização.
+- **REINÍCIO OFENSIVO** — No CEPRAEA: ação em que o ataque precisa devolver, recircular ou reconstruir em vez de finalizar. Em linguagem simples: fazer o ataque começar de novo.
+- **COMPRAR TEMPO** — No CEPRAEA: aumentar o tempo ofensivo necessário até que a defesa consiga reorganizar-se. Em linguagem simples: atrasar o ataque para a defesa chegar.
+- **QUEBRA DE VELOCIDADE INDUZIDA** — No CEPRAEA: redução ofensiva provocada pela retirada defensiva de opções. Em linguagem simples: obrigar o ataque a desacelerar.
+- **C29/C30** — No CEPRAEA: itens responsáveis, respectivamente, pela codificação no scout e pelo teste entre observadores. Em linguagem simples: transformar a regra em ficha e verificar se todos enxergam igual.
+
+***
+
+## 6. AMEAÇA, RISCO E CONCESSÃO
+
+### 6.1. Ameaça
+
+**CONSOLIDADO CONCEITUALMENTE.**
+
+Ameaça é o estado momentâneo de uma atacante, com ou sem bola, determinado pelas ações perigosas que ela pode realizar na ação atual ou na ação imediatamente seguinte e pelo tempo que a defesa possui para responder. Não é uma característica permanente da atleta: o nível muda com passe, deslocamento, orientação corporal, controle da bola e ajuste defensivo.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **AMEAÇA** — No CEPRAEA: estado momentâneo de uma atacante definido pela ação perigosa disponível e pelo tempo de resposta defensiva. Em linguagem simples: quanto perigo aquela atacante representa agora.
+- **ESTADO MOMENTÂNEO** — No CEPRAEA: classificação que pode mudar a cada passe, deslocamento ou ajuste. Em linguagem simples: o nível não pertence para sempre à atleta.
+- **AÇÃO ATUAL** — No CEPRAEA: ação que pode ser executada antes de outra mudança relevante do lance. Em linguagem simples: o que ela consegue fazer agora.
+- **AÇÃO SEGUINTE** — No CEPRAEA: próxima oportunidade provável após passe, deslocamento ou ajuste. Em linguagem simples: o que ela poderá fazer logo depois.
+- **TEMPO DEFENSIVO DE RESPOSTA** — No CEPRAEA: intervalo necessário para conter, negar ou cobrir a ação. Em linguagem simples: quanto tempo a defesa precisa para chegar.
+
+### 6.2. Níveis de ameaça
+
+- **AMEAÇA IMEDIATA:** pode finalizar, romper ou realizar passe terminal na ação atual antes da resposta defensiva. Exige controle agora.
+- **AMEAÇA EMERGENTE:** ainda não decide o lance, mas pode tornar-se imediata na ação seguinte se a defesa não ajustar. Exige prevenção, preparação de troca ou cobertura.
+- **AMEAÇA CONCEDÍVEL:** pode permanecer temporariamente livre porque a defesa ainda consegue responder antes que se torne imediata. Exige monitoramento, sem retirar recursos das ameaças superiores.
+
+A classificação considera relação com a bola, distância e ângulo do gol, orientação corporal, domínio e velocidade da bola, linhas de arremesso/rompimento/passe terminal, possibilidade de aérea ou giro, espaço, defensora responsável, cobertura e comparação entre o tempo ofensivo de ação e o tempo defensivo de resposta.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **AMEAÇA IMEDIATA** — No CEPRAEA: atacante que pode finalizar, romper ou passar terminalmente antes da resposta. Em linguagem simples: perigo de agora.
+- **AMEAÇA EMERGENTE** — No CEPRAEA: atacante que pode tornar-se imediata na próxima ação se não houver prevenção. Em linguagem simples: perigo de depois.
+- **AMEAÇA CONCEDÍVEL** — No CEPRAEA: atacante que pode ficar temporariamente livre porque ainda será controlada a tempo. Em linguagem simples: perigo que ainda dá tempo.
+- **ROMPIMENTO** — No CEPRAEA: ação que supera a contenção e acessa espaço de decisão próximo ao gol. Em linguagem simples: quebrar a linha defensiva e entrar.
+- **PASSE TERMINAL** — No CEPRAEA: passe que entrega condição imediata de decidir o lance. Em linguagem simples: passe que deixa a companheira pronta para finalizar.
+- **GIRO** — No CEPRAEA: finalização de dois pontos realizada com rotação corporal prevista pela modalidade. Em linguagem simples: arremesso com giro válido para dois pontos.
+- **TEMPO OFENSIVO × TEMPO DEFENSIVO** — No CEPRAEA: comparação entre o tempo para executar o perigo e o tempo para neutralizá-lo. Em linguagem simples: quem chega primeiro: a ação ou a defesa.
+
+### 6.3. Inclusão e exclusão da ameaça
+
+**Inclui** portadora ou atacante sem bola; finalização, rompimento, passe terminal, aérea, giro e recepção perigosa; orientação, distância, linha disponível e tempos ofensivo e defensivo.
+
+**Exclui** reputação da atleta, posição nominal, estar simplesmente livre, proximidade do gol sem ação funcional, superioridade numérica isolada e o resultado posterior da jogada. Uma atacante sem bola pode ser ameaça imediata; uma portadora livre não é automaticamente ameaça imediata.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **INCLUSÃO** — No CEPRAEA: condições que autorizam classificar uma atleta como ameaça dentro do conceito. Em linguagem simples: o que conta para a regra.
+- **EXCLUSÃO** — No CEPRAEA: condições que não bastam ou não pertencem ao conceito. Em linguagem simples: o que não conta sozinho.
+- **PORTADORA** — No CEPRAEA: atacante que controla a bola naquele instante. Em linguagem simples: jogadora com a bola.
+- **ATACANTE SEM BOLA** — No CEPRAEA: jogadora ofensiva cuja ameaça depende de recepção, deslocamento ou combinação. Em linguagem simples: jogadora perigosa mesmo sem estar com a bola.
+- **RECEPÇÃO PERIGOSA** — No CEPRAEA: recepção que já permite ação terminal antes da resposta. Em linguagem simples: receber pronta para decidir.
+- **POSIÇÃO NOMINAL** — No CEPRAEA: rótulo habitual da atleta, como especialista, pivô ou lateral, sem definir seu perigo atual. Em linguagem simples: o nome da posição não decide o nível de ameaça.
+- **RESULTADO POSTERIOR** — No CEPRAEA: desfecho ocorrido depois da decisão, que não redefine retroativamente a ameaça disponível. Em linguagem simples: gol ou erro não muda o que era possível antes.
+
+### 6.4. Portadora concedida
+
+A portadora é concedível enquanto o tempo necessário para criar perigo for maior que o tempo necessário para a defesa abordá-la ou reorganizar-se. Sua liberdade não significa automaticamente vantagem ofensiva. A concessão termina quando a defesa deixa de possuir tempo suficiente para conter a próxima ação perigosa.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **PORTADORA CONCEDIDA** — No CEPRAEA: jogadora com bola que pode permanecer temporariamente sem abordagem direta porque a defesa chega antes do perigo. Em linguagem simples: deixar a bola livre enquanto ainda dá tempo de assumir.
+- **CONCESSÃO** — No CEPRAEA: decisão defensiva de não gastar recurso imediato em uma opção controlável. Em linguagem simples: permitir de propósito uma opção menos perigosa.
+- **ABORDAGEM** — No CEPRAEA: ação defensiva de aproximar, conter e orientar a portadora. Em linguagem simples: sair para assumir a bola.
+- **AÇÃO PERIGOSA** — No CEPRAEA: arremesso, rompimento ou passe terminal capaz de decidir o lance. Em linguagem simples: ação que cria finalização ou quebra a defesa.
+
+### 6.5. Zona de risco
+
+**CONSOLIDADO CONCEITUALMENTE.**
+
+Zona de risco é o limiar espacial-funcional no qual a portadora deixa de ser concedível porque passa a dispor de arremesso, rompimento ou passe terminal antes que a defesa consiga restabelecer contenção adequada.
+
+Aplica-se somente à portadora. Não é uma faixa fixa da quadra nem um quarto nível de ameaça. É o limiar que modifica o estado da portadora de concedível ou emergente para ameaça imediata.
+
+A portadora entra em zona de risco quando possui controle e orientação suficientes, uma ação perigosa está funcionalmente disponível e a defesa não consegue neutralizá-la antes da execução.
+
+Sai da zona de risco quando perde domínio ou orientação, é obrigada a desacelerar ou colocar a bola no solo, afasta-se do gol, perde a linha terminal, realiza passe de reinício ou a defesa restabelece contenção e cobertura.
+
+Exclui atacante sem bola, proximidade espacial isolada, portadora livre ainda controlável e qualquer definição baseada apenas em metros ou linhas fixas.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **ZONA DE RISCO** — No CEPRAEA: limiar espacial-funcional exclusivo da portadora em que a ação perigosa ocorre antes da contenção. Em linguagem simples: ponto em que já não dá tempo de conceder a bola.
+- **LIMIAR ESPACIAL-FUNCIONAL** — No CEPRAEA: fronteira variável determinada por espaço, ação disponível e tempo, não por linha fixa. Em linguagem simples: limite que muda conforme o lance.
+- **CONTROLE DA BOLA** — No CEPRAEA: domínio que permite executar sem ação prévia de recuperação. Em linguagem simples: bola pronta para ser usada.
+- **ORIENTAÇÃO** — No CEPRAEA: posição corporal que permite ver e executar a ação perigosa. Em linguagem simples: corpo preparado para atacar ou passar.
+- **CONTENÇÃO ADEQUADA** — No CEPRAEA: resposta que chega antes da ação e retira sua execução limpa. Em linguagem simples: defensora consegue assumir e fechar a tempo.
+- **PASSE DE REINÍCIO** — No CEPRAEA: passe que afasta a decisão terminal e reinicia a construção ofensiva. Em linguagem simples: devolver a bola para reorganizar o ataque.
+
+### 6.6. Relação canônica: ameaça → zona de risco → vantagem
+
+A ameaça é uma classificação local e momentânea de cada atacante conforme aquilo que ela pode produzir antes da resposta defensiva.
+
+A zona de risco é o limiar funcional que modifica o nível da portadora: enquanto a defesa chega antes da ação perigosa, ela pode ser concedida; quando a ação pode ocorrer antes da contenção, torna-se ameaça imediata.
+
+A vantagem é o resultado coletivo da relação entre todas as ameaças produzidas e a capacidade adversária de controlá-las no tempo disponível.
+
+Existe vantagem ofensiva quando pelo menos uma ameaça imediata permanece sem neutralização ou quando ameaças simultâneas exigem respostas incompatíveis. Existe vantagem defensiva quando as ameaças imediatas estão controladas, as emergentes podem ser prevenidas e a posse pode ser conduzida para uma ameaça concedível.
+
+**Síntese:** a ameaça é individual; a zona de risco altera o estado da portadora; a vantagem é o estado coletivo resultante.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **RELAÇÃO CANÔNICA** — No CEPRAEA: encadeamento oficial que define como os conceitos se influenciam. Em linguagem simples: ordem usada pelo CEPRAEA para interpretar o lance.
+- **CLASSIFICAÇÃO LOCAL** — No CEPRAEA: avaliação feita para cada atacante individualmente. Em linguagem simples: medir o perigo de cada jogadora.
+- **ALTERAÇÃO DE NÍVEL** — No CEPRAEA: mudança da ameaça da portadora quando ação e resposta trocam de prioridade temporal. Em linguagem simples: quando o perigo passa de controlável para imediato ou volta a ser controlável.
+- **ESTADO COLETIVO** — No CEPRAEA: resultado da relação entre todas as ameaças e todas as respostas disponíveis. Em linguagem simples: situação da equipe inteira, não de uma jogadora isolada.
+- **RESPOSTAS INCOMPATÍVEIS** — No CEPRAEA: duas exigências que a mesma defensora não consegue cumprir no tempo necessário. Em linguagem simples: uma defensora teria de resolver dois perigos ao mesmo tempo.
+
+### 6.7. Casos limítrofes resolvidos
+
+- 4x3 com todas as linhas perigosas controladas: superioridade nominal, sem vantagem ofensiva funcional.
+- Especialista em quadra com defensora ainda atrasada na substituição: transição ofensiva indireta e vantagem herdada.
+- Defesa estabilizada e espaço criado por circulação ou cruzamento: ataque posicionado e vantagem construída.
+- Portadora livre longe do gol, mas abordável antes da ação perigosa: ameaça concedível, fora da zona de risco.
+- A mesma portadora passa a poder arremessar ou passar terminalmente antes da abordagem: entra em zona de risco e torna-se ameaça imediata.
+- Portadora próxima do gol, porém de costas, desequilibrada ou sem domínio: proximidade não basta; pode permanecer fora da zona de risco.
+- Atacante sem bola disponível para aérea na ação atual: ameaça imediata, mas não se aplica a ela o conceito de zona de risco.
+- Atacante livre sem linha de passe e dependente de várias ações para receber: ameaça emergente ou concedível; não produz vantagem atual por si só.
+- Duas atacantes exigem respostas incompatíveis de uma defensora: vantagem ofensiva coletiva.
+- Defesa deixa a portadora livre, fecha aérea, pivô e passe terminal e ainda consegue abordá-la: portadora concedida e possível vantagem defensiva.
+- Finalização inadequada que resulta em gol: resultado positivo não comprova vantagem nem decisão adequada.
+- Finalização adequada defendida pela goleira: a vantagem pode ter existido apesar do resultado negativo.
+- Aparência posicional com oportunidade ainda causada por referência perdida na troca de posse: transição ofensiva indireta; vantagem herdada.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **CASO LIMÍTROFE** — No CEPRAEA: situação próxima da fronteira entre conceitos, usada para esclarecer inclusão e exclusão. Em linguagem simples: lance difícil que testa se a definição é clara.
+- **VANTAGEM CONSTRUÍDA** — No CEPRAEA: oportunidade criada depois da estabilização por relações do ataque. Em linguagem simples: chance produzida pelo próprio sistema.
+- **DECISÃO ADEQUADA** — No CEPRAEA: escolha coerente com informações, risco e possibilidade disponíveis antes do resultado. Em linguagem simples: boa escolha, mesmo quando não termina em gol.
+- **DECISÃO INADEQUADA** — No CEPRAEA: escolha incoerente com alternativas e riscos disponíveis, ainda que o resultado seja positivo. Em linguagem simples: má escolha que pode dar certo por acaso.
+- **APARÊNCIA POSICIONAL** — No CEPRAEA: forma organizada que não elimina, sozinha, a causa herdada da oportunidade. Em linguagem simples: parecer ataque montado sem ter terminado a transição.
+- **LINHA DE PASSE** — No CEPRAEA: trajetória viável entre passadora e recebedora antes da intervenção defensiva. Em linguagem simples: caminho por onde a bola consegue chegar.
+
+### 6.8. Regras curtas para as atletas
+
+- **Ameaça:** “PERIGO AGORA, PERIGO DEPOIS OU DÁ TEMPO?”
+- **Zona de risco:** “CONCEDE ENQUANTO DÁ TEMPO. NÃO DEU MAIS TEMPO, ASSUME A BOLA.”
+- **Vantagem ofensiva:** “SE A DEFESA NÃO CONSEGUE RESPONDER A TEMPO, ATACA A VANTAGEM. SE CONSEGUE, CONSTRÓI OUTRA.”
+- **Vantagem defensiva:** “TIRA O PERIGO DE AGORA, PREVINE O PRÓXIMO E CONCEDE O QUE DÁ TEMPO.”
+- **Regra integrada:** “PERCEBE QUEM DECIDE AGORA, QUEM PODE DECIDIR DEPOIS E O QUE AINDA DÁ TEMPO DE CONTROLAR.”
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **REGRA CURTA** — No CEPRAEA: frase de quadra que preserva o núcleo da definição técnica e orienta ação rápida. Em linguagem simples: comando simples para decidir sem lembrar um texto longo.
+- **REGRA INTEGRADA** — No CEPRAEA: chamada que combina ameaça, tempo de resposta e prioridade defensiva. Em linguagem simples: frase que organiza vários conceitos de uma vez.
+- **ASSUMIR A BOLA** — No CEPRAEA: encerrar a concessão e iniciar contenção direta da portadora. Em linguagem simples: alguém precisa sair e controlar a jogadora com bola.
+- **ATACAR A VANTAGEM** — No CEPRAEA: executar a possibilidade antes que a defesa a neutralize. Em linguagem simples: usar a oportunidade enquanto ela está aberta.
+- **CONSTRUIR OUTRA** — No CEPRAEA: abandonar a oportunidade encerrada e produzir nova vantagem no ataque posicionado. Em linguagem simples: parar de forçar o que fechou e criar outra solução.
+
+***
+
+## 7. TEMPO COMO RECURSO TÁTICO
+
+### 7.1. Janela temporal
+
+Toda vantagem de transição possui duração limitada. Uma jogadora livre, uma substituição impedida ou uma linha de passe pode existir por poucos instantes. Reconhecer a janela e agir antes que ela desapareça é parte central do modelo.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **JANELA TEMPORAL** — No CEPRAEA: intervalo durante o qual uma vantagem permanece acessível antes da neutralização. Em linguagem simples: tempo disponível para aproveitar a oportunidade.
+- **VANTAGEM PERECÍVEL** — No CEPRAEA: vantagem que perde valor ou desaparece conforme o adversário se reorganiza. Em linguagem simples: chance que vence rápido.
+- **LINHA DE PASSE** — No CEPRAEA: caminho disponível para a bola chegar antes da intervenção defensiva. Em linguagem simples: espaço por onde o passe ainda entra.
+
+### 7.2. Comprar tempo defensivo
+
+A defesa procura produzir situações em que o tempo necessário para o ataque executar a próxima ação seja maior que o tempo necessário para a defensora reorganizar-se. Passe longo, portadora parada e progressão reduzida podem ser resultados defensivamente favoráveis quando aumentam esse tempo.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **COMPRAR TEMPO DEFENSIVO** — No CEPRAEA: criar atraso ofensivo suficiente para que a defesa restabeleça relações e controle. Em linguagem simples: fazer o ataque demorar para a defesa conseguir chegar.
+- **TEMPO DE EXECUÇÃO OFENSIVA** — No CEPRAEA: intervalo necessário para controlar e realizar a próxima ação. Em linguagem simples: quanto o ataque demora para agir.
+- **TEMPO DE REORGANIZAÇÃO DEFENSIVA** — No CEPRAEA: intervalo necessário para atribuir referências, retornar e estabelecer coberturas. Em linguagem simples: quanto a defesa precisa para se organizar.
+- **PASSE LONGO** — No CEPRAEA: passe que aumenta percurso, controle ou tempo até a próxima ação, conforme o contexto. Em linguagem simples: bola que demora mais para chegar e pode dar tempo à defesa.
+- **PROGRESSÃO REDUZIDA** — No CEPRAEA: diminuição da velocidade ou distância avançada pelo ataque. Em linguagem simples: ataque que deixa de avançar rapidamente.
+
+### 7.3. Quebra de velocidade induzida
+
+**CONCEITO CEPRAEA — EM FECHAMENTO OPERACIONAL.**
+
+Ocorre quando a defesa retira opções de passe e induz a portadora a utilizar a bola na areia de maneira que a transição ofensiva perca velocidade e a defesa ganhe tempo de reorganização. O simples fato de a bola tocar a areia não será suficiente para caracterizar o conceito.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **QUEBRA DE VELOCIDADE INDUZIDA** — No CEPRAEA: redução da velocidade ofensiva causada pela retirada defensiva de passes e continuidades. Em linguagem simples: defesa obriga o ataque a desacelerar.
+- **INDUÇÃO** — No CEPRAEA: relação causal em que a defesa provoca determinada escolha ofensiva. Em linguagem simples: o ataque fez aquilo porque a defesa retirou as outras opções.
+- **BOLA NA AREIA** — No CEPRAEA: uso do drible ou quique, relevante apenas quando foi provocado e produziu ganho de tempo. Em linguagem simples: a bola tocar a areia não basta; precisa ter sido forçado e útil à defesa.
+- **FECHAMENTO OPERACIONAL** — No CEPRAEA: etapa de definir critérios observáveis de inclusão, exclusão e casos limítrofes. Em linguagem simples: transformar a ideia em regra que pode ser marcada no vídeo.
+
+***
+
+## 8. TOMADA DE DECISÃO E JOGO OCULTO
+
+### 8.1. Jogo oculto
+
+Camada perceptiva, antecipatória, decisória, corporal-emocional e coletiva-comunicacional que atravessa todas as fases. No jogo visível observamos a ação; no jogo oculto estão as informações, interpretações e estados que influenciam por que e quando a atleta escolhe agir.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **JOGO OCULTO** — No CEPRAEA: camada de informações, interpretações e estados que explicam por que e quando a ação acontece. Em linguagem simples: o que influencia a decisão antes de vermos o movimento.
+- **CAMADA PERCEPTIVA** — No CEPRAEA: informações do ambiente que a atleta identifica. Em linguagem simples: o que ela consegue notar no lance.
+- **CAMADA ANTECIPATÓRIA** — No CEPRAEA: sinais usados para preparar ação antes do evento formal. Em linguagem simples: o que permite começar antes.
+- **CAMADA DECISÓRIA** — No CEPRAEA: seleção de uma resposta entre possibilidades acessíveis. Em linguagem simples: a escolha feita.
+- **CAMADA CORPORAL-EMOCIONAL** — No CEPRAEA: influência de equilíbrio, fadiga, confiança, medo e ativação sobre a ação. Em linguagem simples: como corpo e emoção mudam a decisão.
+- **CAMADA COLETIVA-COMUNICACIONAL** — No CEPRAEA: efeito da leitura compartilhada e das chamadas entre atletas. Em linguagem simples: como a equipe entende e responde junta.
+- **JOGO VISÍVEL** — No CEPRAEA: ações e resultados que podem ser diretamente observados. Em linguagem simples: o movimento que aparece no vídeo.
+
+### 8.2. Decisão incorporada
+
+A decisão não é tratada como pensamento isolado seguido de execução. Percepção, corpo, emoção, ambiente, memória, capacidade técnica e ação interagem continuamente. Uma mesma situação pode produzir respostas diferentes em atletas diferentes sem que isso signifique automaticamente decisão errada.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **DECISÃO INCORPORADA** — No CEPRAEA: decisão produzida pela interação contínua entre percepção, corpo, emoção, memória, ambiente e capacidade técnica. Em linguagem simples: a atleta decide enquanto percebe e age, não em etapas separadas.
+- **PERCEPÇÃO-AÇÃO** — No CEPRAEA: acoplamento entre informação reconhecida e movimento executado. Em linguagem simples: ver e agir fazem parte do mesmo processo.
+- **CAPACIDADE TÉCNICA** — No CEPRAEA: repertório de ações que a atleta consegue executar sob as condições do lance. Em linguagem simples: o que ela realmente consegue fazer naquele momento.
+- **RESPOSTA INDIVIDUAL** — No CEPRAEA: solução compatível com as possibilidades daquela atleta, sem exigir comportamento idêntico entre todas. Em linguagem simples: duas atletas podem resolver de formas diferentes e ambas estarem corretas.
+
+### 8.3. Boa decisão e bom resultado
+
+Boa decisão não é sinônimo de resultado positivo. A qualidade decisória deve ser julgada pelas informações disponíveis, pelo risco assumido e pela coerência da escolha antes de conhecermos o desfecho.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **QUALIDADE DECISÓRIA** — No CEPRAEA: coerência da escolha com informações, alternativas e riscos disponíveis antes do desfecho. Em linguagem simples: avaliar se a escolha fazia sentido quando foi tomada.
+- **RESULTADO POSITIVO** — No CEPRAEA: desfecho favorável, como gol, que não prova sozinho boa decisão. Em linguagem simples: dar certo não significa automaticamente decidir bem.
+- **RISCO ASSUMIDO** — No CEPRAEA: possível prejuízo aceito em troca de determinado benefício. Em linguagem simples: o que a atleta podia perder ao escolher.
+- **COERÊNCIA DA ESCOLHA** — No CEPRAEA: compatibilidade entre a decisão, o contexto e a capacidade de execução. Em linguagem simples: escolher uma ação que faz sentido para aquele lance.
+
+#### 8.3.1. Estado das alternativas no ponto de decisão
+
+A qualidade de uma decisão ofensiva não depende apenas de identificar quais companheiras estão disponíveis. Também depende da condição em que cada alternativa se encontra para executar a ação seguinte. No momento da decisão, devem ser considerados, quando observáveis: liberdade para a ação, preparação, vantagem temporal e ação efetivamente disponível.
+
+Regra: uma atacante pode estar livre e ainda não estar suficientemente preparada para a finalização pretendida. Por isso, LIVRE e PREPARADA permanecem dimensões diferentes.
+
+#### 8.3.2. Estrutura criada × decisão tomada
+
+O CEPRAEA distingue a qualidade da estrutura ofensiva criada antes da decisão da qualidade da escolha realizada dentro dessa estrutura. Uma atleta pode escolher corretamente entre as opções disponíveis e, ainda assim, a organização anterior pode não ter criado as melhores condições para a finalizadora pretendida.
+
+Na análise, perguntar separadamente: “A estrutura criou as condições desejadas?” e “Dadas as condições existentes, a decisão escolhida foi coerente?”
+
+#### 8.3.3. Contexto recente do jogo
+
+A avaliação da escolha pode considerar, além do estado atual do lance, o histórico recente de eficácia das soluções: quais atletas e ações vêm convertendo, sendo neutralizadas ou falhando. Esse contexto não autoriza uma regra estatística automática; ele funciona como informação contextual para a decisão do treinador e das atletas.
+
+O modelo preserva três escalas: contexto local do instante; contexto sequencial do próprio lance; e contexto histórico recente da partida.
+
+### 8.4. Corrida física
+
+Disputa visível pela velocidade e pelo espaço: acelerar, percorrer distância e chegar primeiro.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **CORRIDA FÍSICA** — No CEPRAEA: disputa por espaço e chegada baseada em aceleração, velocidade e distância. Em linguagem simples: correr mais rápido ou percorrer o caminho primeiro.
+- **ACELERAÇÃO** — No CEPRAEA: capacidade de aumentar rapidamente a velocidade. Em linguagem simples: ganhar velocidade em pouco tempo.
+- **DISPUTA ESPACIAL** — No CEPRAEA: competição para ocupar primeiro um local relevante. Em linguagem simples: chegar antes ao espaço.
+
+### 8.5. Corrida tática
+
+Disputa pelo momento de início da ação: perceber antes, decidir antes e iniciar uma resposta coerente antes da adversária. Uma atleta fisicamente mais lenta pode ganhar a transição se começar sua ação antes.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **CORRIDA TÁTICA** — No CEPRAEA: disputa pelo momento correto de iniciar uma ação coerente com o lance. Em linguagem simples: começar antes porque leu antes.
+- **MOMENTO DE INÍCIO** — No CEPRAEA: instante em que a atleta começa sua resposta, antes de comparar apenas velocidade final. Em linguagem simples: quando ela decide sair.
+- **RESPOSTA COERENTE** — No CEPRAEA: ação compatível com ameaça, responsabilidade e provável evolução do lance. Em linguagem simples: começar cedo na direção e função corretas.
+- **GANHAR A TRANSIÇÃO** — No CEPRAEA: instalar relações favoráveis antes da adversária, mesmo sem maior velocidade física. Em linguagem simples: organizar-se ou atacar primeiro.
+
+### 8.6. Antecipação
+
+Comportamento iniciado antes da mudança formal da fase a partir de sinais que tornam determinada evolução do lance suficientemente provável.
+
+- **ANTECIPOU CORRETAMENTE** quando a responsabilidade atual está controlada por ela ou por cobertura comunicada, o deslocamento não cria ameaça imediata sem neutralização nem permite que a portadora entre livremente em zona de risco, e a ação conquista tempo ou vantagem para a fase seguinte.
+- **ABANDONOU PREMATURAMENTE** quando ainda existia ameaça imediata sob sua responsabilidade, não havia cobertura, o deslocamento abriu linha terminal ou zona de risco, ou a decisão dependia de uma mudança de posse ainda incerta cujo erro produz prejuízo maior que o possível ganho.
+
+C22 permanece parcialmente estruturado: faltam organizar os sinais de mudança de posse, o risco aceitável por contexto e os casos limítrofes.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **ANTECIPAÇÃO** — No CEPRAEA: ação iniciada antes da mudança formal da fase com base em sinais suficientemente fortes. Em linguagem simples: começar antes porque o lance indica com boa segurança o que virá.
+- **MUDANÇA FORMAL DA FASE** — No CEPRAEA: evento de posse ou direito de jogo que inicia oficialmente outra fase. Em linguagem simples: momento em que muda quem ataca e quem defende.
+- **COBERTURA COMUNICADA** — No CEPRAEA: ajuda cuja responsabilidade foi reconhecida e transmitida entre as defensoras. Em linguagem simples: uma companheira sabe e confirma que assumirá o perigo.
+- **ABANDONO PREMATURO** — No CEPRAEA: saída antecipada que deixa responsabilidade atual sem controle ou cria risco maior. Em linguagem simples: correr antes da hora e abrir um perigo.
+- **LINHA TERMINAL** — No CEPRAEA: trajetória que leva diretamente à finalização, rompimento ou passe decisivo. Em linguagem simples: caminho aberto para decidir o lance.
+- **RISCO CONTEXTUAL** — No CEPRAEA: valor do possível ganho e prejuízo conforme placar, tempo, capacidade e probabilidade do evento. Em linguagem simples: quanto vale arriscar naquele momento do jogo.
+- **SINAL DE MUDANÇA DE POSSE** — No CEPRAEA: informação que aumenta a probabilidade de a posse realmente mudar. Em linguagem simples: pista de que a equipe provavelmente recuperará ou perderá a bola.
+
+### 8.7. Dimensões da velocidade
+
+No modelo CEPRAEA, velocidade inclui cinco dimensões: física, perceptiva, decisória, de execução e coletiva. Uma equipe pode possuir atletas rápidas e ainda ser coletivamente lenta se perceber e coordenar tarde.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **VELOCIDADE FÍSICA** — No CEPRAEA: capacidade de deslocar-se rapidamente. Em linguagem simples: correr rápido.
+- **VELOCIDADE PERCEPTIVA** — No CEPRAEA: capacidade de reconhecer rapidamente informações relevantes. Em linguagem simples: ver o problema cedo.
+- **VELOCIDADE DECISÓRIA** — No CEPRAEA: capacidade de selecionar resposta adequada sem atraso desnecessário. Em linguagem simples: escolher cedo.
+- **VELOCIDADE DE EXECUÇÃO** — No CEPRAEA: capacidade de realizar tecnicamente a resposta dentro da janela. Em linguagem simples: fazer a ação a tempo.
+- **VELOCIDADE COLETIVA** — No CEPRAEA: capacidade da equipe de perceber e coordenar respostas compatíveis rapidamente. Em linguagem simples: todas entenderem e agirem juntas.
+
+***
+
+## 9. COMUNICAÇÃO E COORDENAÇÃO
+
+### 9.1. Comunicação defensiva
+
+É parte estrutural da transição. Permite transferir referências, assumir coberturas, identificar especialista, conceder determinada atacante e transformar a organização sem produzir vazio de responsabilidade.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **COMUNICAÇÃO DEFENSIVA** — No CEPRAEA: troca de informação que atribui responsabilidades e coordena mudanças sem criar ameaça livre. Em linguagem simples: falar e sinalizar para que ninguém fique sem saber o que defender.
+- **TRANSFERÊNCIA DE REFERÊNCIA** — No CEPRAEA: passagem comunicada da responsabilidade por uma ameaça entre defensoras. Em linguagem simples: uma entrega a atacante para a outra.
+- **ASSUMIR COBERTURA** — No CEPRAEA: aceitar explicitamente a responsabilidade de ajuda. Em linguagem simples: confirmar que protegerá atrás da companheira.
+- **CONCESSÃO COMUNICADA** — No CEPRAEA: decisão compartilhada sobre quem pode ficar livre e até quando. Em linguagem simples: todas sabem qual opção será deixada e quando assumir.
+- **VAZIO DE RESPONSABILIDADE** — No CEPRAEA: intervalo em que nenhuma defensora controla determinada ameaça. Em linguagem simples: momento em que todas pensam que outra pessoa vai resolver.
+
+### 9.2. Velocidade coletiva
+
+Capacidade de várias atletas perceberem o mesmo problema e coordenarem respostas compatíveis dentro da janela temporal. A qualidade coletiva depende de leitura compartilhada e comunicação suficientemente rápida.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **VELOCIDADE COLETIVA** — No CEPRAEA: capacidade de várias atletas reconhecerem o mesmo problema e coordenarem respostas dentro da janela. Em linguagem simples: a equipe inteira entende e reage a tempo.
+- **LEITURA COMPARTILHADA** — No CEPRAEA: interpretação compatível das ameaças, prioridades e provável evolução. Em linguagem simples: todas enxergam o mesmo problema.
+- **RESPOSTAS COMPATÍVEIS** — No CEPRAEA: ações individuais que se completam sem duplicar responsabilidades ou abrir ameaças. Em linguagem simples: cada uma faz uma parte que combina com a outra.
+- **JANELA TEMPORAL** — No CEPRAEA: tempo disponível antes de a vantagem ou ameaça mudar. Em linguagem simples: prazo curto para agir.
+
+### 9.3. Dicionário de chamadas
+
+**EM ESTRUTURAÇÃO — CHAMADAS DE C12–C14 REGISTRADAS.**
+
+- **AGORA!** — identifica ameaça imediata; a responsável controla no mesmo tempo da ação e a cobertura protege a linha terminal.
+- **DEPOIS!** — identifica ameaça emergente; a defesa prepara prevenção, troca ou cobertura antes da próxima ação.
+- **DÁ TEMPO!** — identifica ameaça concedível; a defesa monitora sem retirar recursos das ameaças superiores.
+- **ASSUME A BOLA!** — informa que a portadora cruzou a zona de risco; a defensora mais apta contém e as demais reajustam coberturas.
+- **ATACA A VANTAGEM!** — orienta explorar a possibilidade que a defesa não consegue neutralizar a tempo.
+- **CONSTRÓI!** — informa que a vantagem herdada terminou e o ataque precisa produzir uma nova vantagem no posicionado.
+
+C23 permanece parcialmente realizado. Ainda faltam as chamadas para pivô, especialista, troca, entrega de referência, subida, recuo, 1:2, 2:1, reorganização, baliza vazia e, para cada chamada, emissora, resposta e comportamento obrigatório.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **DICIONÁRIO DE CHAMADAS** — No CEPRAEA: conjunto padronizado de palavras que representam conceitos e acionam comportamentos. Em linguagem simples: vocabulário comum para decidir rápido em quadra.
+- **EMISSORA** — No CEPRAEA: atleta autorizada ou mais bem posicionada para realizar a chamada. Em linguagem simples: quem deve falar.
+- **RESPOSTA** — No CEPRAEA: ação da atleta que recebe ou reconhece a chamada. Em linguagem simples: o que a companheira precisa fazer.
+- **COMPORTAMENTO OBRIGATÓRIO** — No CEPRAEA: ação mínima que deve ocorrer após a chamada para preservar seu significado. Em linguagem simples: resposta que não pode faltar.
+- **AGORA!/DEPOIS!/DÁ TEMPO!** — No CEPRAEA: chamadas correspondentes às ameaças imediata, emergente e concedível. Em linguagem simples: perigo atual, próximo perigo e perigo ainda controlável.
+- **ASSUME A BOLA!** — No CEPRAEA: chamada que encerra a concessão quando a portadora entra na zona de risco. Em linguagem simples: alguém sai para conter a jogadora com bola.
+- **ATACA A VANTAGEM!** — No CEPRAEA: chamada para executar uma possibilidade antes da neutralização. Em linguagem simples: usar a chance aberta.
+- **CONSTRÓI!** — No CEPRAEA: chamada que informa o fim da vantagem herdada e o início da construção posicional. Em linguagem simples: parar de forçar a transição e criar outra oportunidade.
+
+***
+
+## 10. ESPAÇO, SUBSTITUIÇÃO E TRAJETÓRIA
+
+### 10.1. Economia de tempo e espaço
+
+As trajetórias de entrada e saída são escolhidas para reduzir o tempo de organização própria e aumentar o tempo necessário para a reorganização adversária.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **ECONOMIA DE TEMPO E ESPAÇO** — No CEPRAEA: escolha de trajetórias que reduz o custo de organização própria e aumenta o custo adversário. Em linguagem simples: chegar gastando menos tempo e obrigar a adversária a percorrer mais.
+- **TRAJETÓRIA DE ENTRADA/SAÍDA** — No CEPRAEA: caminho utilizado na substituição ou ocupação para cumprir função sem atraso. Em linguagem simples: por onde a atleta entra ou sai.
+- **TEMPO DE ORGANIZAÇÃO PRÓPRIA** — No CEPRAEA: intervalo necessário para instalar composição, funções e ocupações. Em linguagem simples: quanto a equipe demora para ficar pronta.
+- **TEMPO DE REORGANIZAÇÃO ADVERSÁRIA** — No CEPRAEA: intervalo necessário para o adversário recuperar referências e coberturas. Em linguagem simples: quanto a outra equipe demora para se ajustar.
+
+### 10.2. Princípio de largura
+
+A atleta não deve encurtar gratuitamente a distância que a defensora precisa percorrer. Preserva largura enquanto isso prolongar a vantagem e muda de espaço quando o novo deslocamento cria um problema defensivo maior.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **PRINCÍPIO DE LARGURA** — No CEPRAEA: ocupação que mantém distância defensiva útil enquanto ela amplia tempo, espaço ou linha de passe. Em linguagem simples: não aproximar a defensora de graça.
+- **DISTÂNCIA DEFENSIVA** — No CEPRAEA: percurso que a defensora precisa vencer para abordar, negar ou cobrir. Em linguagem simples: quanto a defensora precisa andar ou correr.
+- **PRESERVAR LARGURA** — No CEPRAEA: manter ocupação aberta enquanto isso prolonga a vantagem. Em linguagem simples: continuar afastada para obrigar a defesa a cobrir mais espaço.
+- **MUDANÇA DE ESPAÇO** — No CEPRAEA: deslocamento realizado quando uma nova posição cria problema maior que a largura atual. Em linguagem simples: sair do lugar somente para aumentar a dificuldade da defesa.
+
+### 10.3. Ordem de entrada
+
+É variável tática. Timing, lado, profundidade e sequência podem ser alterados para reduzir previsibilidade, sem perder os princípios compartilhados pela equipe.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **ORDEM DE ENTRADA** — No CEPRAEA: sequência em que atletas e funções chegam à organização ofensiva. Em linguagem simples: quem entra ou ocupa primeiro.
+- **TIMING** — No CEPRAEA: momento escolhido para iniciar uma entrada ou ação. Em linguagem simples: a hora certa de começar.
+- **PROFUNDIDADE** — No CEPRAEA: distância ofensiva em direção ao gol ou atrás da linha defensiva. Em linguagem simples: quanto a atleta avança no espaço vertical.
+- **SEQUÊNCIA** — No CEPRAEA: encadeamento das entradas e ações, sem necessidade de ordem fixa universal. Em linguagem simples: qual ação acontece antes e qual vem depois.
+- **PREVISIBILIDADE** — No CEPRAEA: facilidade com que a defesa antecipa o padrão ofensivo. Em linguagem simples: quando o adversário sabe de antemão o que acontecerá.
+
+### 10.4. Entrada da especialista
+
+A entrada da especialista é um marco estrutural, mas não encerra automaticamente a transição. Enquanto a instalação estrutural ofensiva estiver incompleta, a equipe permanece em transição direta. Depois de satisfeitas essas condições estruturais, a persistência de uma vantagem herdada caracteriza transição ofensiva indireta.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **ENTRADA DA ESPECIALISTA** — No CEPRAEA: substituição que incorpora a especialista à composição ofensiva. Em linguagem simples: momento em que a jogadora especialista entra para atacar.
+- **MARCO ESTRUTURAL** — No CEPRAEA: evento que altera a composição, mas não prova sozinho mudança funcional de fase. Em linguagem simples: mudança importante na forma, sem garantir que o ataque esteja instalado.
+- **TRANSIÇÃO OFENSIVA INDIRETA** — No CEPRAEA: estado com estrutura instalada e oportunidade ainda causada pela troca de posse. Em linguagem simples: especialista já entrou, mas a equipe ainda aproveita um problema herdado.
+- **INSTALAÇÃO OFENSIVA** — No CEPRAEA: conclusão de composição, funções, ocupações e acesso da bola ao sistema. Em linguagem simples: ataque realmente pronto para construir.
+
+### 10.5. Especialista central ou lateral
+
+**EM FECHAMENTO E DEPENDENTE DO CONTEXTO.**
+
+A posição de chegada deve responder à vulnerabilidade que se pretende explorar, e não a uma regra fixa. Os gatilhos específicos ainda precisam ser organizados.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **ESPECIALISTA CENTRAL** — No CEPRAEA: entrada ou ocupação da especialista em relação predominantemente central ao sistema. Em linguagem simples: especialista chegando ou atuando pelo centro.
+- **ESPECIALISTA LATERAL** — No CEPRAEA: entrada ou ocupação da especialista em relação predominantemente lateral ao sistema. Em linguagem simples: especialista chegando ou atuando por um lado.
+- **POSIÇÃO DE CHEGADA** — No CEPRAEA: espaço e função assumidos ao concluir a entrada. Em linguagem simples: onde e para que ela entra.
+- **VULNERABILIDADE A EXPLORAR** — No CEPRAEA: fragilidade defensiva que justifica centralizar ou lateralizar a entrada. Em linguagem simples: problema adversário que a equipe quer atacar.
+- **GATILHO ESPECÍFICO** — No CEPRAEA: sinal de bola, referência, matchup ou espaço que determina a escolha. Em linguagem simples: pista concreta que manda entrar por determinado lugar.
+- **DEPENDÊNCIA DO CONTEXTO** — No CEPRAEA: princípio de que a escolha varia conforme adversário, composição e situação. Em linguagem simples: não existe uma entrada sempre correta.
+
+### 10.6. Zona útil
+
+**CONSOLIDADO CONCEITUALMENTE.** Zona útil é o estado espacial-funcional da bola no qual a equipe pode iniciar imediatamente o sistema ofensivo escolhido, sem precisar primeiro recuperar o controle, realizar progressão meramente logística ou aguardar entrada ou substituição.
+
+Todas as quatro condições são obrigatórias:
+
+- **CONTROLE DA BOLA:** a portadora domina a posse sem ação emergencial de recuperação ou correção.
+- **ORIENTAÇÃO OPERACIONAL:** equilíbrio, apoios, tronco e visão permitem passar, circular ou atacar na ação atual.
+- **ACESSO AO SISTEMA:** pelo menos uma relação prevista no sistema pode começar a partir da posição atual da bola.
+- **INDEPENDÊNCIA LOGÍSTICA:** não é necessário avançar somente para alcançar a organização nem esperar uma entrada, substituição ou reposicionamento indispensável.
+
+Zona útil não é faixa fixa e não se confunde com zona de risco. A primeira avalia se a bola permite iniciar o ataque escolhido; a segunda avalia se a portadora consegue produzir ação perigosa antes da contenção defensiva. Regra curta: “BOLA ÚTIL: CONTROLADA, DE FRENTE E CONECTADA AO NOSSO JOGO.”
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **ZONA ÚTIL** — No CEPRAEA: estado da bola que permite iniciar imediatamente o sistema escolhido. Em linguagem simples: bola controlada, de frente e conectada ao jogo.
+- **CONTROLE DA BOLA** — No CEPRAEA: domínio suficiente para executar sem recuperação prévia. Em linguagem simples: bola pronta para ser usada.
+- **ORIENTAÇÃO OPERACIONAL** — No CEPRAEA: equilíbrio, apoios, tronco e visão compatíveis com a próxima ação. Em linguagem simples: corpo preparado para passar, circular ou atacar.
+- **ACESSO AO SISTEMA** — No CEPRAEA: existência de pelo menos uma relação ofensiva prevista que pode começar da posição atual. Em linguagem simples: a bola consegue entrar no nosso jogo.
+- **INDEPENDÊNCIA LOGÍSTICA** — No CEPRAEA: ausência de avanço, entrada, substituição ou reposicionamento indispensável antes do sistema. Em linguagem simples: não é preciso esperar ou apenas levar a bola para começar.
+- **ZONA ÚTIL × ZONA DE RISCO** — No CEPRAEA: distinção entre capacidade de iniciar o ataque e capacidade da portadora de decidir antes da contenção. Em linguagem simples: uma fala do nosso ataque; a outra, do perigo imediato da bola.
+
+### 10.7. Composição ofensiva sem especialista
+
+A ausência da especialista não impede T3 quando a equipe escolhe deliberadamente outra composição. Se a entrada estiver planejada e ainda for indispensável, a composição não está instalada. Se a equipe abandonar deliberadamente a entrada e organizar outro ataque, T3 pode ocorrer quando os demais critérios forem satisfeitos.
+
+Indicadores observáveis da decisão sem especialista:
+
+- nenhuma entrada ou substituição indispensável permanece em andamento;
+- as atletas presentes assumem ocupações ofensivas reconhecíveis;
+- a circulação começa a construir nova vantagem, em vez de apenas aguardar outra atleta;
+- a bola já está em zona útil;
+- nenhuma oportunidade herdada da troca de posse permanece predominante.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **COMPOSIÇÃO SEM ESPECIALISTA** — No CEPRAEA: organização ofensiva deliberada que utiliza as atletas presentes sem exigir entrada da especialista. Em linguagem simples: ataque escolhido para funcionar sem esperar a especialista.
+- **COMPOSIÇÃO DELIBERADA** — No CEPRAEA: configuração assumida como decisão tática, não como atraso involuntário. Em linguagem simples: a equipe escolheu jogar dessa forma.
+- **SUBSTITUIÇÃO INDISPENSÁVEL** — No CEPRAEA: troca sem a qual a composição escolhida ainda não pode funcionar. Em linguagem simples: entrada que ainda precisa acontecer.
+- **OCUPAÇÕES RECONHECÍVEIS** — No CEPRAEA: posições e funções que permitem identificar o sistema em funcionamento. Em linguagem simples: cada atleta ocupa espaço com tarefa clara.
+- **VANTAGEM CONSTRUÍDA** — No CEPRAEA: oportunidade produzida pela circulação e pelas relações da composição atual. Em linguagem simples: criar a chance com quem já está em quadra.
+- **OPORTUNIDADE HERDADA PREDOMINANTE** — No CEPRAEA: vantagem da troca de posse que ainda explica principalmente o lance. Em linguagem simples: problema da transição que ainda é a causa da oportunidade.
+
+***
+
+## 11. PRINCÍPIOS-SÍNTESE
+
+- FORMA NÃO É FUNÇÃO.
+- 4x3 NÃO É SINÔNIMO DE VANTAGEM.
+- SISTEMA É RESPOSTA AO PROBLEMA, NÃO DEFINIÇÃO DA FASE.
+- PRIMEIRO RESOLVE O PERIGO; DEPOIS CHEGA AO LUGAR.
+- A DEFENSORA ENTRA NA QUADRA JÁ DEFENDENDO.
+- A VANTAGEM DE TRANSIÇÃO É PERECÍVEL.
+- COM VANTAGEM HERDADA, CONTINUA E EXPLORA; SEM VANTAGEM HERDADA, INSTALA E ORGANIZA.
+- A MELHOR ANTECIPAÇÃO CONQUISTA TEMPO PARA A PRÓXIMA FASE SEM ABANDONAR A RESPONSABILIDADE DA FASE ATUAL.
+- TRANSIÇÃO NÃO É APENAS CORRER RÁPIDO: É PERCEBER RÁPIDO, DECIDIR RÁPIDO E EXECUTAR NO TEMPO DA VANTAGEM.
+
+### Checklist fechamento conceitual CEPRAEA
+
+Esta é a checklist de fechamento conceitual da Visão CEPRAEA — Beach Handball.
+
+**Regras:**
+marcar [x] somente quando o conceito estiver suficientemente definido para ensino às atletas + construção de exercícios + plano de jogo + scout/análise.
+
+**Critério de conclusão:**
+“Um item só será considerado fechado, quando houver definição canônica, critérios observáveis, exemplos e contraexemplos, relação com os demais conceitos e, quando necessário, sustentação por regra, literatura ou evidência interna CEPRAEA.”
+
+### Checklist executável — Fechamento da Visão CEPRAEA
+
+- **[x] C01 — Superioridade nominal × vantagem funcional.** Já está estabelecido que 4x3 descreve quantidade, mas não garante vantagem. A defesa 3x4 pode controlar todas as ameaças relevantes e possuir vantagem funcional.
+- **[x] C02 — Organização espacial × organização funcional.** Já está definido que parecer 3:0, 1:2, individual etc. não significa necessariamente estar funcionalmente organizada. Referências, funções e controle são mais importantes que a fotografia espacial.
+- **[x] C03 — Independência das fases das duas equipes.** Já está definido que uma equipe pode estar em transição ofensiva enquanto a adversária já utiliza uma defesa funcionalmente organizada, e vice-versa.
+- **[x] C04 — Posições e sistemas próprios da transição.** Fechado conceitualmente: posição de transição não precisa coincidir com posição no ataque/defesa posicionados; individual, 1:2, 2:1 e 3:0 podem coexistir sucessivamente dentro da mesma transição.
+- **[x] C05 — Gatilho forte × prontidão/antecipação.** Está estabelecido que mudança formal da fase decorre da posse/direito de jogo, enquanto sinais anteriores podem preparar comportamentos sem obrigatoriamente alterar a fase.
+- **[x] C06 — Transição como disputa pela organização.** Consolidado como princípio: não basta correr primeiro; importa instalar primeiro relações favoráveis de jogo.
+- **[x] C07 — Corrida física × corrida tática.** Conceito estabelecido: corrida física disputa espaço; corrida tática disputa o momento de início da ação. Antecipação pode gerar vantagem antes da recuperação formal da bola.
+- **[x] C08 — Sistemas defensivos como respostas, não coreografias.** Fechado conceitualmente: o sistema momentâneo responde à localização da bola, ameaça, comportamento do adversário e necessidade de reorganização.
+- **[x] C09 — Princípio defensivo ENTRAR → DEFENDER → ADAPTAR → REORGANIZAR.** Já constitui regra operacional do modelo.
+- **[x] C10 — Jogo oculto da tomada de decisão.** Está definido como camada transversal de percepção, antecipação, decisão, estado corporal/emocional, comunicação e execução. Ainda haverá operacionalização específica em C21.
+- **[x] C11 — Quebra de velocidade induzida — conceito geral.** Já está estabelecida a intenção: retirar linhas de passe e induzir uma ação que reduza a velocidade ofensiva para comprar tempo defensivo. Os critérios de classificação ainda serão fechados em C18.
+- **[x] C12 — VANTAGEM CEPRAEA.** CONSOLIDADO CONCEITUALMENTE. Estado coletivo, funcional e temporário no qual uma equipe possui uma possibilidade tática acessível que o adversário não consegue neutralizar no tempo da ação. Classifica-se por origem (herdada/construída), direção (ofensiva/defensiva) e mecanismos coexistentes. Superioridade nominal e resultado isolado não bastam. Validação de scout: C29/C30.
+- **[x] C13 — NÍVEIS DE AMEAÇA.** CONSOLIDADO CONCEITUALMENTE. Ameaça imediata exige controle agora; ameaça emergente pode tornar-se imediata na ação seguinte; ameaça concedível pode permanecer livre porque a defesa ainda responde a tempo. A classificação é momentânea, vale para atacantes com ou sem bola e considera ação disponível e tempo defensivo. Validação de scout: C29/C30.
+- **[x] C14 — ZONA DE RISCO.** CONSOLIDADO CONCEITUALMENTE. Limiar espacial-funcional exclusivo da portadora: começa quando ela passa a dispor de arremesso, rompimento ou passe terminal antes da contenção defensiva e termina quando a defesa recupera tempo e controle. Não é faixa fixa nem se aplica às atacantes sem bola. Validação de scout: C29/C30.
+- **[x] C15 — ÁRVORE TRANSIÇÃO DIRETA × INDIRETA × ATAQUE POSICIONADO.** CONSOLIDADO CONCEITUALMENTE E PRONTO PARA CODIFICAÇÃO. Direta: instalação ofensiva incompleta. Indireta: instalação estrutural satisfeita, mas oportunidade ainda herdada. Ataque posicionado: instalação completa e necessidade de construir nova vantagem. Árvore, teste causal e casos limítrofes aprovados. Validação empírica: C29/C30.
+- **[x] C16 — GATE T3: “ATAQUE INSTALADO”.** CONSOLIDADO CONCEITUALMENTE E PRONTO PARA CODIFICAÇÃO. T3 exige composição deliberada, funções e ocupações reconhecíveis, bola em zona útil, fim do problema predominante de progressão/entrada/substituição e ausência de vantagem herdada. A especialista só é obrigatória quando integra a composição escolhida. Validação empírica: C29/C30.
+- **[x] C17 — GATE T4: “DEFESA FUNCIONALMENTE ESTABILIZADA”.** CONSOLIDADO CONCEITUALMENTE E PRONTO PARA CODIFICAÇÃO. Oito indicadores obrigatórios, âncoras para individual, 1:2, 2:1 e 3:0 e protocolo de teste foram aprovados. Validação empírica: C29/C30.
+- **[ ] C18 — Fechar os critérios de QUEBRA DE VELOCIDADE INDUZIDA.** Diferenciar “atacante decidiu driblar porque era vantajoso” de “defesa retirou passes e obrigou a bola ao solo”. Sugestão de requisito triplo: passes retirados + uso da areia provocado + ganho efetivo de tempo/redução da velocidade ofensiva.
+- **[x] C19 — VANTAGEM FUNCIONAL DEFENSIVA.** CONSOLIDADO CONCEITUALMENTE. Existe quando a defesa controla ameaças imediatas, previne emergentes, monitora/concede opções de menor risco e mantém a portadora contida ou fora da zona de risco, direcionando o ataque para atraso, reinício ou ação menos perigosa. Inferioridade nominal não impede vantagem defensiva. Codificação e confiabilidade: C29/C30.
+- **[ ] C20 — TRANSFORMAÇÕES INDIVIDUAL → 1:2 → 2:1 → 3:0.** PARCIALMENTE ESTRUTURADO. Gatilhos gerais passam a ser mudanças de estado: ameaça concedível/emergente tornando-se imediata; ameaça sem bola tornando-se imediata; ameaças simultâneas; entrada/saída da portadora da zona de risco; neutralização da ameaça anterior; recuperação de tempo defensivo. Pendente: relacionar cada gatilho ao sistema adequado, funções, risco aceito, condição de saída e scout do adversário.
+- **[ ] C21 — Estruturar operacionalmente o JOGO OCULTO.** Separar cinco dimensões: perceptiva, antecipatória, decisória, corporal-emocional e coletiva-comunicacional. Depois relacionar cada uma com erros observáveis e intervenções de treino. Não tentar medir pensamento diretamente; medir comportamentos e informações disponíveis.
+- **[ ] C22 — LIMITE DA ANTECIPAÇÃO / CORRIDA TÁTICA.** PARCIALMENTE ESTRUTURADO. Antecipação correta exige responsabilidade atual controlada ou coberta, ausência de ameaça imediata aberta e ausência de entrada livre da portadora na zona de risco, além de ganho de tempo para a fase seguinte. Abandono prematuro ocorre quando o deslocamento deixa ameaça imediata sem controle, abre linha terminal/zona de risco ou aposta em mudança de posse incerta sem cobertura. Pendente: sinais, risco contextual e casos limítrofes.
+- **[ ] C23 — DICIONÁRIO DE COMUNICAÇÃO CEPRAEA.** PARCIALMENTE REALIZADO. Chamadas iniciais registradas: AGORA! — ameaça imediata; DEPOIS! — ameaça emergente; DÁ TEMPO! — ameaça concedível; ASSUME A BOLA! — entrada da portadora na zona de risco; ATACA A VANTAGEM! — explorar; CONSTRÓI! — produzir nova vantagem no posicionado. Pendente: completar chamadas, emissora, resposta e comportamento obrigatório.
+- **[ ] C24 — Definir especialista CENTRAL × LATERAL na transição indireta.** Determinar quais vulnerabilidades defensivas justificam cada entrada e como ela se relaciona com composição, matchup, posição da bola e jogadora adversária que queremos fixar.
+- **[ ] C25 — Fechar os gatilhos do JOGO DE DEVOLUÇÃO.** Já sabemos por que devolver; falta saber quando. Identificar situações como defensora ultrapassando linha da bola, transferência de marcação para especialista, goleira mudando referência, passadora ficando novamente livre ou abertura da baliza.
+- **[ ] C26 — Construir famílias de TRAJETÓRIAS DE ENTRADA OFENSIVA.** Separar princípios invariáveis — largura, não encurtar gratuitamente distância defensiva, ameaça ao gol — das soluções variáveis: profundidade, diagonal, centralização, cruzamento, lado e ordem das entradas.
+- **[ ] C27 — Criar árvore decisória do ARREMESSO DIRETO após recuperação.** Especialmente para defensoras que atualmente hesitam. Definir leitura de baliza vazia, distância, equilíbrio corporal, capacidade individual, risco de erro, opção de passe e contexto do placar. Separar claramente erro de decisão de erro de execução.
+- **[ ] C28 — Criar matriz RITMO × TEMPO × PLACAR.** O princípio “mais posses quando precisamos reagir” está claro, mas precisa considerar diferença do set, tempo restante, risco aceitável e valor de 1/2 pontos. Concluído quando: o aumento de ritmo deixar de ser uma orientação genérica.
+- **[ ] C29 — MANUAL DE SCOUT CEPRAEA.** PARCIALMENTE REALIZADO. C12–C17 já possuem base conceitual e operacional aprovada e estão prontos para codificação: vantagem, níveis de ameaça, zona de risco, árvore direta/indireta/ataque, T3, zona útil e T4. Pendente: transformar os registros em ficha de observação e completar as demais variáveis do modelo.
+- **[ ] C30 — CONFIABILIDADE ENTRE OBSERVADORES.** PARCIALMENTE ESTRUTURADO. Para C17, o protocolo exige 20 sequências por sistema, casos claros e limítrofes, dois observadores independentes, concordância bruta mínima de 80% e Cohen’s kappa mínimo de 0,70. Pendente: selecionar os lances, executar a codificação e revisar indicadores que não atinjam a meta; os demais conceitos ainda precisam de protocolo específico.
+- **[ ] C31 — Transformar cada conceito fechado em EXERCÍCIO REPRESENTATIVO.** Para cada item C12–C28 concluído, criar pelo menos uma tarefa contendo: condição inicial, informação/gatilho real, liberdade de decisão, número de atletas, espaço, regras, scoring, erro esperado, intervenção do treinador e progressão/regressão. Evitar exercícios em que o treinador “entrega” a decisão com um apito.
+- **[ ] C32 — MAPA DE RELACIONAMENTO DOS CONCEITOS.** BASE RELACIONAL AMPLIADA: ameaça individual → zona de risco da portadora → vantagem coletiva; instalação incompleta → transição direta; instalação completa com vantagem herdada → transição indireta; instalação completa sem vantagem herdada → ataque posicionado; T3/T4 como gates independentes. Pendente: integrar jogo oculto, antecipação, transformações defensivas e demais conceitos no mapa completo.
+- **[ ] C33 — Criar MAPA DE EVIDÊNCIA.** Identificar em cada conceito se sua origem é REGRA IHF | LITERATURA | PRINCÍPIO CEPRAEA | SCOUT DO ADVERSÁRIO | DADO INTERNO CEPRAEA. Isso evitará apresentar uma regra específica do CEPRAEA como se fosse uma verdade universal da modalidade.
+- **[ ] C34 — LINGUAGEM DAS ATLETAS.** PARCIALMENTE REALIZADO. C12–C14 possuem versão técnica e regras curtas. A regra de zona útil foi acrescentada: “BOLA ÚTIL: CONTROLADA, DE FRENTE E CONECTADA AO NOSSO JOGO.” Pendente: produzir e aprovar regras curtas completas para C15–C17 e para os demais conceitos.
+
+### Ordem recomendada de execução
+
+O caminho crítico é:
+**C20/C22 → C23 → C29/C30 → C31 → ampliação de C32/C34.**
+
+C15–C17 saem da trilha de definição e entram na trilha de codificação e validação. C19 permanece na base conceitual fechada. Os demais podem ser desenvolvidos paralelamente.
+
+Isso é importante porque vantagem, ameaça e organização funcional são conceitos-mãe. Ao fechar esses três primeiro, boa parte das demais definições passa a ser consequência lógica deles, em vez de precisarmos criar regras independentes para cada situação.
+
+*Status atual:* 18 fundamentos, definições e gates consolidados conceitualmente, incluindo C15–C17; 21 itens de trabalho ainda não encerrados — 13 parcialmente realizados ou estruturados (C20, C22, C23, C27, C29, C30, C32, C34 e C35–C39), 7 com base conceitual pronta mas entregável ausente (C18, C21, C24, C25, C26, C28 e C31) e 1 não iniciado (C33). C15–C17 aguardam codificação e confiabilidade em C29/C30; aprovação conceitual não equivale a validação empírica.
+
+***
+
+## 12. AUDITORIA DE CLAREZA CONCEITUAL — APÓS MATRIZ 0.2
+
+A auditoria separa fechamento conceitual, aplicação pedagógica e validação metodológica. Um conceito passa a CONSOLIDADO CONCEITUALMENTE quando possui definição, inclusão, exclusão, relações, casos limítrofes e regra curta aprovados. Manual de scout e concordância entre observadores validam a mensuração posteriormente; não condicionam a existência da definição.
+
+### 12.1. Conceitos-mãe e gates aprovados
+
+- **C12 — Vantagem CEPRAEA:** CONSOLIDADO CONCEITUALMENTE como estado coletivo, funcional e temporário. C13 e C14 também foram fechados; a validação metodológica permanece em C29/C30.
+- **C15 — Árvore direta × indireta × ataque posicionado:** CONSOLIDADO CONCEITUALMENTE. Instalação ofensiva e origem causal formam a sequência decisória. Árvore e casos limítrofes aprovados; codificação e confiabilidade permanecem em C29/C30.
+- **C16 — T3 ataque instalado:** CONSOLIDADO CONCEITUALMENTE. Zona útil, condições obrigatórias e regra para composição sem especialista aprovadas; codificação e confiabilidade permanecem em C29/C30.
+- **C17 — T4 defesa estabilizada:** CONSOLIDADO CONCEITUALMENTE. Indicadores obrigatórios, âncoras por sistema e protocolo de validação aprovados; execução e confiabilidade permanecem em C29/C30.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **CONCEITO-MÃE** — No CEPRAEA: conceito que organiza e dá significado a vários outros componentes do modelo. Em linguagem simples: ideia principal da qual outras regras dependem.
+- **C12 — VANTAGEM** — No CEPRAEA: estado coletivo de possibilidade acessível sem neutralização a tempo. Em linguagem simples: chance real da equipe.
+- **C13 — NÍVEIS DE AMEAÇA** — No CEPRAEA: classificação individual em imediata, emergente ou concedível. Em linguagem simples: perigo de agora, de depois ou que ainda dá tempo.
+- **C14 — ZONA DE RISCO** — No CEPRAEA: limiar funcional exclusivo da portadora. Em linguagem simples: momento em que é obrigatório assumir a bola.
+- **C15 — ÁRVORE DE FASES OFENSIVAS** — No CEPRAEA: sequência instalação + origem causal para classificar direta, indireta ou ataque. Em linguagem simples: regra para saber se ainda é transição ou já é ataque.
+- **C16 — T3** — No CEPRAEA: gate de ataque instalado. Em linguagem simples: momento em que o ataque está pronto para construir.
+- **C17 — T4** — No CEPRAEA: gate de defesa funcionalmente estabilizada. Em linguagem simples: momento em que a defesa está pronta e sem emergência herdada.
+- **CONSOLIDADO CONCEITUALMENTE** — No CEPRAEA: status de definição aprovada, ainda distinto de validação empírica. Em linguagem simples: a ideia está fechada, mas ainda precisa ser testada nos lances.
+- **CONFIABILIDADE** — No CEPRAEA: grau em que observadores independentes aplicam a mesma definição do mesmo modo. Em linguagem simples: ver se pessoas diferentes enxergam a mesma coisa.
+
+### 12.2. Situação dos conceitos operacionais
+
+- **C13 — Níveis de ameaça:** CONSOLIDADO CONCEITUALMENTE em ameaça imediata, emergente e concedível, com critérios de mudança pelo tempo de ação e resposta. A validação de scout permanece em C29/C30.
+- **C14 — Zona de risco:** CONSOLIDADO CONCEITUALMENTE como limiar funcional exclusivo da portadora. A validação de scout permanece em C29/C30.
+- **C18 — Quebra de velocidade induzida:** separar decisão ofensiva autônoma de ação realmente provocada pela defesa.
+- **C19 — Vantagem funcional defensiva:** CONSOLIDADO CONCEITUALMENTE. Codificação e confiabilidade permanecem em C29/C30.
+- **C20 — Transformações individual → 1:2 → 2:1 → 3:0:** PARCIALMENTE ESTRUTURADAS pelas mudanças de ameaça e zona de risco; falta mapear cada resposta.
+- **C21 — Jogo oculto:** converter dimensões perceptiva, antecipatória, decisória, corporal-emocional e comunicacional em comportamentos observáveis.
+- **C22 — Limite da antecipação:** PARCIALMENTE ESTRUTURADO com ameaça, cobertura e zona de risco; faltam sinais, risco contextual e casos limítrofes.
+- **C23 — Dicionário de comunicação:** PARCIALMENTE REALIZADO. Chamadas de ameaça, zona de risco e vantagem registradas; falta completar o repertório e as responsabilidades.
+- **C24 — Especialista central × lateral:** definir vulnerabilidades e matchups que justificam cada entrada.
+- **C25 — Jogo de devolução:** transformar motivos já descritos em gatilhos de decisão.
+- **C26 — Trajetórias de entrada:** separar princípios invariáveis das soluções dependentes da defesa.
+- **C27 — Arremesso direto após recuperação:** separar qualidade da decisão, qualidade da execução e resultado.
+- **C28 — Ritmo × tempo × placar:** converter orientação geral em critérios por diferença, tempo restante, risco e valor de 1/2 pontos.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **CONCEITO OPERACIONAL** — No CEPRAEA: definição expressa por condições que podem orientar treino e ser observadas no scout. Em linguagem simples: ideia transformada em sinais práticos.
+- **PARCIALMENTE ESTRUTURADO** — No CEPRAEA: status de conceito com base útil, mas ainda sem todos os critérios ou entregáveis. Em linguagem simples: já avançou, mas ainda não está completo.
+- **C18 — QUEBRA DE VELOCIDADE INDUZIDA** — No CEPRAEA: redução ofensiva causalmente produzida pela retirada defensiva de opções. Em linguagem simples: defesa obriga o ataque a desacelerar.
+- **C20 — TRANSFORMAÇÕES DEFENSIVAS** — No CEPRAEA: mudanças entre individual, 1:2, 2:1 e 3:0 acionadas pelas ameaças. Em linguagem simples: defesa troca de sistema conforme o perigo muda.
+- **C21 — JOGO OCULTO** — No CEPRAEA: dimensões perceptivas, decisórias, corporais e comunicacionais que explicam a ação. Em linguagem simples: o que acontece antes e por trás do movimento visível.
+- **C22 — LIMITE DA ANTECIPAÇÃO** — No CEPRAEA: fronteira entre ganhar tempo e abandonar cedo demais a responsabilidade atual. Em linguagem simples: saber quando sair antes sem abrir perigo.
+- **C23 — DICIONÁRIO DE COMUNICAÇÃO** — No CEPRAEA: chamadas, emissoras, respostas e comportamentos obrigatórios. Em linguagem simples: palavras comuns e o que cada uma manda fazer.
+- **C24 — ESPECIALISTA CENTRAL × LATERAL** — No CEPRAEA: critérios para escolher posição de chegada da especialista. Em linguagem simples: decidir se ela entra pelo centro ou pelo lado.
+- **C25 — JOGO DE DEVOLUÇÃO** — No CEPRAEA: continuidade em que a bola retorna à passadora ou a uma relação anterior quando a defesa transfere sua resposta. Em linguagem simples: devolver a bola porque a defesa abandonou a primeira jogadora.
+- **C26 — TRAJETÓRIAS DE ENTRADA** — No CEPRAEA: famílias de caminhos que preservam largura, timing e ameaça. Em linguagem simples: formas de entrar sem facilitar a defesa.
+- **C27 — ARREMESSO DIRETO APÓS RECUPERAÇÃO** — No CEPRAEA: decisão de finalizar imediatamente diante de baliza, distância, equilíbrio e risco favoráveis. Em linguagem simples: tentar o gol direto quando a recuperação abre essa chance.
+- **C28 — RITMO × TEMPO × PLACAR** — No CEPRAEA: relação contextual que define velocidade e risco adequados. Em linguagem simples: jogar mais rápido ou controlar conforme o relógio e o resultado.
+
+### 12.3. Validação e produtos — situação atual
+
+- **C29 — Manual de scout:** PARCIALMENTE REALIZADO. C12–C17 estão prontos para codificação; falta construir a ficha de observação e completar as demais variáveis.
+- **C30 — Confiabilidade entre observadores:** PARCIALMENTE ESTRUTURADA. O protocolo de C17 está definido; faltam seleção dos lances, execução, análise da concordância e protocolos dos demais conceitos.
+- **C31 — Exercícios representativos:** transformar cada conceito fechado em tarefa com informação real e liberdade de decisão.
+- **C32 — Mapa de relacionamento:** BASE AMPLIADA para ameaça → zona de risco → vantagem e para transição direta/indireta → T3/T4 → fases posicionadas. O mapa completo permanece aberto.
+- **C33 — Mapa de evidência:** marcar origem como regra IHF, literatura, princípio CEPRAEA, scout ou dado interno.
+- **C34 — Linguagem das atletas:** PARCIALMENTE REALIZADA. C12–C14 e a regra de zona útil possuem linguagem curta; faltam regras completas de C15–C17 e dos demais conceitos.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **C29 — MANUAL DE SCOUT** — No CEPRAEA: documento com variáveis, definições, inclusão, exclusão e casos para codificação. Em linguagem simples: ficha e instruções para registrar os lances.
+- **C30 — CONFIABILIDADE ENTRE OBSERVADORES** — No CEPRAEA: teste da consistência das classificações feitas independentemente. Em linguagem simples: ver se duas pessoas aplicam a regra do mesmo jeito.
+- **C31 — EXERCÍCIO REPRESENTATIVO** — No CEPRAEA: tarefa que preserva informações, decisões e incertezas relevantes do jogo. Em linguagem simples: treino em que a atleta realmente precisa ler e escolher.
+- **C32 — MAPA DE RELACIONAMENTO** — No CEPRAEA: representação das dependências e influências entre conceitos. Em linguagem simples: desenho de como as ideias se conectam.
+- **C33 — MAPA DE EVIDÊNCIA** — No CEPRAEA: registro da origem de cada regra ou conceito: IHF, literatura, CEPRAEA, scout ou dado interno. Em linguagem simples: mostrar de onde veio cada afirmação.
+- **C34 — LINGUAGEM DAS ATLETAS** — No CEPRAEA: versões curtas e acionáveis das definições técnicas. Em linguagem simples: como falar o conceito durante o jogo.
+- **CODIFICAÇÃO** — No CEPRAEA: transformação de conceitos em campos e categorias observáveis. Em linguagem simples: converter a ideia em marcações de scout.
+
+### 12.4. Limites que não podem virar regra universal
+
+- A relação 4x3 descreve superioridade nominal; não comprova vantagem funcional.
+- A presença ou o controle da especialista não determina, isoladamente, a passagem de fase.
+- A duração do ataque e os fatores de placar/tempo modulam decisões, mas não prescrevem uma única conduta correta.
+- A frequência de passes oriundos de uma posição específica, como Centro Direita, é evidência contextual e hipótese de treino/scout, não causalidade universal.
+- Gol, defesa ou erro não bastam para julgar a qualidade da decisão; decisão e execução precisam ser codificadas separadamente.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **REGRA UNIVERSAL** — No CEPRAEA: afirmação apresentada como válida para todo contexto, adversário ou equipe. Em linguagem simples: regra que seria sempre verdadeira.
+- **EVIDÊNCIA CONTEXTUAL** — No CEPRAEA: achado válido nas condições específicas em que foi observado. Em linguagem simples: informação útil naquele cenário, mas não necessariamente em todos.
+- **HIPÓTESE DE TREINO/SCOUT** — No CEPRAEA: possibilidade a testar por observação ou exercício, sem tratá-la como verdade confirmada. Em linguagem simples: ideia que precisa ser conferida.
+- **MODULAÇÃO CONTEXTUAL** — No CEPRAEA: alteração da melhor decisão por placar, tempo, sistema ou duração. Em linguagem simples: o contexto muda o que vale a pena fazer.
+- **DECISÃO × EXECUÇÃO** — No CEPRAEA: separação entre qualidade da escolha e qualidade técnica do gesto. Em linguagem simples: escolher certo é diferente de executar bem.
+- **CAUSALIDADE UNIVERSAL** — No CEPRAEA: pretensão de que uma variável sempre produza o mesmo resultado. Em linguagem simples: afirmar que uma coisa causa outra em qualquer situação.
+
+### 12.5. Ordem de fechamento recomendada
+
+**C20/C22 → C23 → C29/C30 → C31 → ampliação de C32/C34.**
+
+C15–C17 estão consolidados conceitualmente e entram na etapa de codificação e validação. C18, C21 e C24–C28 avançam em paralelo. C35–C39 entram como nova trilha ofensiva de fechamento e validação, sem bloquear a codificação dos gates já aprovados. C33 ainda precisa ser iniciado.
+
+**GLOSSÁRIO DA SUBSEÇÃO:**
+
+- **ORDEM DE FECHAMENTO** — No CEPRAEA: sequência baseada nas dependências entre conceitos e entregáveis. Em linguagem simples: define o que precisa ficar pronto antes do passo seguinte.
+- **CODIFICAÇÃO** — No CEPRAEA: transformação de uma definição em categorias e campos que podem ser marcados no scout. Em linguagem simples: converter a ideia em algo que duas pessoas consigam registrar.
+- **VALIDAÇÃO** — No CEPRAEA: teste que verifica se o conceito e seus indicadores funcionam de maneira consistente nos lances reais. Em linguagem simples: conferir na prática se a regra realmente serve.
+- **TRABALHO EM PARALELO** — No CEPRAEA: desenvolvimento simultâneo de itens que não dependem diretamente uns dos outros. Em linguagem simples: avançar em mais de uma frente sem desrespeitar a ordem obrigatória.

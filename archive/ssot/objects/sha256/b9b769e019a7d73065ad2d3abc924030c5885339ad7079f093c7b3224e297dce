@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+# git-lore-commit
+# Comando customizado do Git para acionar automaticamente a geração de commits
+# estruturados no padrão Lore Protocol via Claude Code / Codex CLI.
+
+set -e
+
+# Cores para saída no terminal
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
+echo -e "${GREEN}==> Iniciando Lore Protocol Commit Assistant <==${NC}"
+
+# 1. Verificar se existem alterações no staging
+if git diff --cached --quiet; then
+    echo -e "${YELLOW}⚠️  Nenhuma alteração encontrada na área de staging (staged).${NC}"
+    echo -e "💡 Execute ${GREEN}git add <arquivos>${NC} antes de rodar ${GREEN}git lore-commit${NC}."
+    exit 1
+fi
+
+# 2. Exibir resumo dos arquivos alterados
+echo -e "\n📋 ${YELLOW}Arquivos preparados para commit:${NC}"
+git diff --cached --stat
+
+echo -e "\n🔍 Gerando mensagem de commit estruturada..."
+
+# 3. Detectar qual CLI de IA está instalado e acionar com o prompt da skill
+PROMPT="Leia o 'git diff --cached' deste repositório e aplique estritamente as regras descritas no arquivo 'skills/lore-commit/SKILL.md'. Crie a mensagem de commit completa no formato Lore Protocol (com título Conventional Commit, corpo narrativo e Git Trailers: Constraint, Rejected, Tested, Directive, Confidence) e solicite autorização para efetuar o commit."
+
+if command -v claude &> /dev/null; then
+    echo -e "🤖 Disparando ${GREEN}Claude Code CLI${NC}..."
+    claude -p "$PROMPT"
+elif command -v codex &> /dev/null; then
+    echo -e "🤖 Disparando ${GREEN}Codex CLI${NC}..."
+    codex exec "$PROMPT"
+else
+    echo -e "${YELLOW}⚠️  Nenhum CLI automatizado (claude/codex) foi detectado no seu PATH.${NC}"
+    echo -e "💡 Você pode copiar o diff e usar o prompt abaixo na sua ferramenta de IA de preferência:\n"
+    echo "----------------------------------------------------------------------"
+    echo -e "$PROMPT\n"
+    echo "--- GIT DIFF ---"
+    git diff --cached
+    echo "----------------------------------------------------------------------"
+fi

@@ -1,0 +1,387 @@
+#!/usr/bin/env python3
+"""Build and validate a deterministic Python/JS/TS repository symbol graph.
+
+This is an operational analysis artifact. It does not define product or domain
+semantics and deliberately excludes historical/draft material from normal scans.
+"""
+
+from __future__ import annotations
+
+import argparse
+import ast
+import hashlib
+import json
+import re
+import subprocess
+from collections import Counter
+from dataclasses import dataclass, field
+from pathlib import Path
+from typing import Any, Iterable
+
+
+SOURCE_SUFFIXES = {".py", ".js", ".jsx", ".ts", ".tsx"}
+IGNORED_DIRS = {
+    ".git",
+    ".local",
+    ".venv",
+    "__pycache__",
+    "archive",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+}
+HIGH_LEVEL_TYPES = {"File", "Class", "Module", "Function"}
+JS_RESERVED_CALLS = {
+    "catch",
+    "class",
+    "for",
+    "function",
+    "if",
+    "import",
+    "require",
+    "switch",
+    "while",
+}
+
+
+def sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def git_commit(root: Path) -> str | None:
+    try:
+        return subprocess.check_output(
+            ["git", "rev-parse", "HEAD"], cwd=root, text=True, stderr=subprocess.DEVNULL
+        ).strip()
+    except (OSError, subprocess.CalledProcessError):
+        return None
+
+
+def dotted_name(node: ast.AST) -> str | None:
+    if isinstance(node, ast.Name):
+        return node.id
+    if isinstance(node, ast.Attribute):
+        owner = dotted_name(node.value)
+        return f"{owner}.{node.attr}" if owner else node.attr
+    return None
+
+
+@dataclass
+class PythonFacts(ast.NodeVisitor):
+    imports: list[tuple[str, int]] = field(default_factory=list)
+    classes: list[dict[str, Any]] = field(default_factory=list)
+    functions: list[dict[str, Any]] = field(default_factory=list)
+    calls: list[dict[str, Any]] = field(default_factory=list)
+    class_stack: list[str] = field(default_factory=list)
+    function_stack: list[str] = field(default_factory=list)
+
+    def visit_Import(self, node: ast.Import) -> None:
+        for alias in node.names:
+            self.imports.append((alias.name, node.lineno))
+        self.generic_visit(node)
+
+    def visit_ImportFrom(self, node: ast.ImportFrom) -> None:
+        self.imports.append((node.module or "." * node.level, node.lineno))
+        self.generic_visit(node)
+
+    def visit_ClassDef(self, node: ast.ClassDef) -> None:
+        self.classes.append(
+            {
+                "name": node.name,
+                "line": node.lineno,
+                "bases": [name for base in node.bases if (name := dotted_name(base))],
+            }
+        )
+        self.class_stack.append(node.name)
+        self.generic_visit(node)
+        self.class_stack.pop()
+
+    def visit_FunctionDef(self, node: ast.FunctionDef) -> None:
+        self._visit_function(node, False)
+
+    def visit_AsyncFunctionDef(self, node: ast.AsyncFunctionDef) -> None:
+        self._visit_function(node, True)
+
+    def _visit_function(self, node: ast.FunctionDef | ast.AsyncFunctionDef, is_async: bool) -> None:
+        self.functions.append(
+            {
+                "name": node.name,
+                "line": node.lineno,
+                "class": self.class_stack[-1] if self.class_stack else None,
+                "is_async": is_async,
+            }
+        )
+        self.function_stack.append(node.name)
+        self.generic_visit(node)
+        self.function_stack.pop()
+
+    def visit_Call(self, node: ast.Call) -> None:
+        name = dotted_name(node.func)
+        if name:
+            self.calls.append(
+                {
+                    "name": name,
+                    "line": node.lineno,
+                    "function": self.function_stack[-1] if self.function_stack else None,
+                }
+            )
+        self.generic_visit(node)
+
+
+def line_at(text: str, position: int) -> int:
+    return text.count("\n", 0, position) + 1
+
+
+def parse_javascript(text: str) -> dict[str, list[dict[str, Any]]]:
+    imports: list[dict[str, Any]] = []
+    classes: list[dict[str, Any]] = []
+    functions: list[dict[str, Any]] = []
+    calls: list[dict[str, Any]] = []
+
+    for pattern in (
+        re.compile(r"\bimport(?:[\s\S]*?\bfrom\s*)?['\"]([^'\"]+)['\"]"),
+        re.compile(r"\brequire\s*\(\s*['\"]([^'\"]+)['\"]\s*\)"),
+    ):
+        for match in pattern.finditer(text):
+            imports.append({"name": match.group(1), "line": line_at(text, match.start())})
+
+    for match in re.finditer(
+        r"\bclass\s+([A-Za-z_$][\w$]*)(?:\s+extends\s+([A-Za-z_$][\w$]*))?", text
+    ):
+        classes.append(
+            {
+                "name": match.group(1),
+                "line": line_at(text, match.start()),
+                "bases": [match.group(2)] if match.group(2) else [],
+            }
+        )
+
+    seen_functions: set[tuple[str, int]] = set()
+    for pattern in (
+        re.compile(r"\b(?:async\s+)?function\s+([A-Za-z_$][\w$]*)\s*\("),
+        re.compile(
+            r"\b(?:const|let|var)\s+([A-Za-z_$][\w$]*)\s*=\s*(?:async\s*)?(?:\([^)]*\)|[A-Za-z_$][\w$]*)\s*=>"
+        ),
+    ):
+        for match in pattern.finditer(text):
+            item = (match.group(1), line_at(text, match.start()))
+            if item not in seen_functions:
+                seen_functions.add(item)
+                functions.append({"name": item[0], "line": item[1], "class": None})
+
+    for match in re.finditer(r"\b([A-Za-z_$][\w$]*(?:\.[A-Za-z_$][\w$]*)*)\s*\(", text):
+        name = match.group(1)
+        if name.split(".")[-1] not in JS_RESERVED_CALLS:
+            calls.append({"name": name, "line": line_at(text, match.start())})
+
+    return {"imports": imports, "classes": classes, "functions": functions, "calls": calls}
+
+
+class GraphBuilder:
+    def __init__(self, root: Path) -> None:
+        self.root = root.resolve()
+        self.nodes: dict[str, dict[str, Any]] = {}
+        self.edges: dict[tuple[str, str, str], dict[str, Any]] = {}
+        self.parse_errors: list[dict[str, str]] = []
+        self.counts: Counter[str] = Counter()
+
+    def add_node(self, node_id: str, node_type: str, label: str, **attributes: Any) -> None:
+        candidate = {"id": node_id, "type": node_type, "label": label, **attributes}
+        current = self.nodes.get(node_id)
+        if current is None:
+            self.nodes[node_id] = candidate
+        elif current != candidate:
+            raise ValueError(f"Conflicting materialization for node {node_id}")
+
+    def add_edge(self, source: str, target: str, relation: str, line: int | None = None) -> None:
+        key = (source, target, relation)
+        if key not in self.edges:
+            self.edges[key] = {
+                "source": source,
+                "target": target,
+                "relation": relation,
+                "occurrences": 1,
+                **({"first_line": line} if line is not None else {}),
+            }
+        else:
+            self.edges[key]["occurrences"] += 1
+            if line is not None:
+                first = self.edges[key].get("first_line", line)
+                self.edges[key]["first_line"] = min(first, line)
+
+    def files(self) -> Iterable[Path]:
+        for path in sorted(self.root.rglob("*")):
+            if not path.is_file() or path.suffix.lower() not in SOURCE_SUFFIXES:
+                continue
+            parts = path.relative_to(self.root).parts
+            if any(part in IGNORED_DIRS or part.startswith(".") for part in parts[:-1]):
+                continue
+            yield path
+
+    def scan(self) -> dict[str, Any]:
+        for path in self.files():
+            relative = path.relative_to(self.root).as_posix()
+            suffix = path.suffix.lower()
+            self.counts[suffix] += 1
+            try:
+                text = path.read_text(encoding="utf-8")
+                facts = self._python_facts(text, relative) if suffix == ".py" else parse_javascript(text)
+                self._materialize(relative, suffix, facts)
+            except (OSError, UnicodeError, SyntaxError) as exc:
+                self.parse_errors.append({"path": relative, "error": f"{type(exc).__name__}: {exc}"})
+
+        nodes = sorted(self.nodes.values(), key=lambda item: item["id"])
+        edges = sorted(self.edges.values(), key=lambda item: (item["source"], item["target"], item["relation"]))
+        node_ids = set(self.nodes)
+        missing = sorted(
+            {endpoint for edge in edges for endpoint in (edge["source"], edge["target"]) if endpoint not in node_ids}
+        )
+        high_ids = {node["id"] for node in nodes if node["type"] in HIGH_LEVEL_TYPES}
+        high_edges = [edge for edge in edges if edge["source"] in high_ids and edge["target"] in high_ids]
+        metadata = {
+            "schema_version": 2,
+            "repository": self.root.name,
+            "root_path": ".",
+            "git_commit": git_commit(self.root),
+            "source_extensions": dict(sorted(self.counts.items())),
+            "total_files": sum(self.counts.values()),
+            "nodes_count": len(nodes),
+            "edges_count": len(edges),
+            "high_level_nodes_count": len(high_ids),
+            "high_level_edges_count": len(high_edges),
+            "missing_endpoints_count": len(missing),
+            "endpoint_materialization_percent": 100.0 if not missing else 0.0,
+            "parse_errors_count": len(self.parse_errors),
+            "generator_sha256": sha256_file(Path(__file__).resolve()),
+        }
+        return {
+            "metadata": metadata,
+            "nodes": nodes,
+            "edges": edges,
+            "parse_errors": sorted(self.parse_errors, key=lambda item: item["path"]),
+        }
+
+    @staticmethod
+    def _python_facts(text: str, relative: str) -> dict[str, Any]:
+        visitor = PythonFacts()
+        visitor.visit(ast.parse(text, filename=relative))
+        return {
+            "imports": [{"name": name, "line": line} for name, line in visitor.imports],
+            "classes": visitor.classes,
+            "functions": visitor.functions,
+            "calls": visitor.calls,
+        }
+
+    def _materialize(self, relative: str, suffix: str, facts: dict[str, Any]) -> None:
+        file_id = f"file:{relative}"
+        self.add_node(file_id, "File", relative, path=relative, language=suffix.lstrip("."))
+
+        function_ids: dict[str, str] = {}
+        class_ids: dict[str, str] = {}
+        for item in facts["classes"]:
+            node_id = f"class:{relative}:{item['name']}"
+            class_ids[item["name"]] = node_id
+            self.add_node(node_id, "Class", item["name"], file=relative)
+            self.add_edge(file_id, node_id, "DEFINES", item.get("line"))
+            for base in item.get("bases", []):
+                target = f"external:{base}"
+                self.add_node(target, "ExternalSymbol", base)
+                self.add_edge(node_id, target, "INHERITS", item.get("line"))
+
+        for item in facts["functions"]:
+            owner = item.get("class")
+            node_type = "Method" if owner else "Function"
+            node_id = f"{node_type.lower()}:{relative}:{owner + '.' if owner else ''}{item['name']}"
+            function_ids[item["name"]] = node_id
+            self.add_node(node_id, node_type, item["name"], file=relative, owner=owner)
+            source = class_ids.get(owner, file_id) if owner else file_id
+            self.add_edge(source, node_id, "DEFINES", item.get("line"))
+
+        for item in facts["imports"]:
+            name = item["name"] or "."
+            target = f"module:{name}"
+            self.add_node(target, "Module", name)
+            self.add_edge(file_id, target, "IMPORTS", item.get("line"))
+
+        for item in facts["calls"]:
+            called = item["name"]
+            simple = called.split(".")[-1]
+            target = function_ids.get(simple)
+            if target is None:
+                target = f"external:{called}"
+                self.add_node(target, "ExternalSymbol", called)
+            caller = function_ids.get(item.get("function") or "", file_id)
+            self.add_edge(caller, target, "CALLS", item.get("line"))
+
+
+def validate_graph(data: dict[str, Any]) -> list[str]:
+    errors: list[str] = []
+    nodes = data.get("nodes")
+    edges = data.get("edges")
+    metadata = data.get("metadata")
+    if not isinstance(nodes, list) or not isinstance(edges, list) or not isinstance(metadata, dict):
+        return ["graph must contain metadata, nodes and edges"]
+    node_ids = [node.get("id") for node in nodes]
+    if len(node_ids) != len(set(node_ids)):
+        errors.append("duplicate node ids")
+    node_id_set = set(node_ids)
+    missing = sorted(
+        {endpoint for edge in edges for endpoint in (edge.get("source"), edge.get("target")) if endpoint not in node_id_set}
+    )
+    if missing:
+        errors.append(f"missing endpoints: {', '.join(str(item) for item in missing[:5])}")
+    if metadata.get("nodes_count") != len(nodes):
+        errors.append("metadata.nodes_count does not match nodes")
+    if metadata.get("edges_count") != len(edges):
+        errors.append("metadata.edges_count does not match edges")
+    allowed = {node["id"] for node in nodes if node.get("type") in HIGH_LEVEL_TYPES}
+    high_edges = [edge for edge in edges if edge["source"] in allowed and edge["target"] in allowed]
+    if metadata.get("high_level_nodes_count") != len(allowed):
+        errors.append("metadata.high_level_nodes_count does not match filter")
+    if metadata.get("high_level_edges_count") != len(high_edges):
+        errors.append("metadata.high_level_edges_count does not match filter")
+    return errors
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("repo_root", nargs="?", default=".")
+    parser.add_argument("output", nargs="?", default="repo_knowledge_graph.json")
+    parser.add_argument("--validate", metavar="JSON_PATH")
+    args = parser.parse_args()
+
+    if args.validate:
+        path = Path(args.validate)
+        data = json.loads(path.read_text(encoding="utf-8"))
+        errors = validate_graph(data)
+        if errors:
+            for error in errors:
+                print(f"ERROR: {error}")
+            return 1
+        print(f"Graph valid: {path}")
+        return 0
+
+    output = Path(args.output).resolve()
+    data = GraphBuilder(Path(args.repo_root)).scan()
+    output.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    errors = validate_graph(data)
+    if errors:
+        for error in errors:
+            print(f"ERROR: {error}")
+        return 1
+    meta = data["metadata"]
+    print(
+        f"Graph written to {output}: {meta['total_files']} files, "
+        f"{meta['nodes_count']} nodes, {meta['edges_count']} edges, "
+        f"{meta['missing_endpoints_count']} missing endpoints"
+    )
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

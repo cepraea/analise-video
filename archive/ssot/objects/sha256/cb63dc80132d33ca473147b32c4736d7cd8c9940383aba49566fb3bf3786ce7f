@@ -1,0 +1,31 @@
+# REVIEW.md — Diretrizes de Revisão de Código para IAs
+
+## Visão Geral e Objetivo
+Este arquivo instrui os agentes e ferramentas de revisão automatizada (como Claude Code Review e Copilot Code Review) sobre quais aspectos focar ao inspecionar Pull Requests. O objetivo é priorizar o raciocínio lógico em nível de repositório e riscos de execução em produção, evitando ruído sobre estilo.
+
+---
+
+## 🎯 Prioridade Alta (Focar e Alertar)
+
+- **Regressões de Autorização e Segurança**: Alterações em caminhos de rotas, permissões de usuários ou validação de escopo de API.
+- **Mutações de Dados e Transações**: Modificações no banco de dados que ocorram fora de blocos de transação ou sem logs de auditoria.
+- **Idempotência e Processamento Assíncrono**: Handlers de webhooks, filas de eventos ou tarefas de segundo plano que possam duplicar cobranças, e-mails ou eventos em falhas/retentativas.
+- **Inconsistências Lógicas Entre Arquivos**: Alterações em assinaturas de funções, tipos ou parâmetros em um módulo que quebrem contratos assumidos em arquivos adjacentes não modificados no diff.
+- **Tratamento de Erros e Resiliência**: Exceções silenciadas, ausência de tratamento de falha em chamadas a serviços externos ou mensagens de erro expostas inadequadamente.
+
+---
+
+## 🚫 Despriorizar (Não Gerar Comentários)
+
+- **Formatação e Estilo de Código**: Espaçamento, aspas, quebras de linha ou ordenação de imports (devem ser cobertos por linters e formatadores automáticos).
+- **Sugestões Exclusivas de Nomenclatura**: Alterações puramente cosméticas de nomes de variáveis que não causem risco de execução.
+- **Alertas Estáticos Já Cobertos por CI**: Nits e avisos já capturados por ESLint, Prettier, Ruff ou compiladores.
+- **Reescritas Cosméticas**: Alterações que apenas troquem uma sintaxe válida por outra sem ganho claro de segurança, desempenho ou clareza.
+
+---
+
+## 📝 Formato das Observações
+
+1. **Objetividade**: Explique o risco prático em produção (ex: "Pode gerar cobrança duplicada se o servidor reiniciar durante a execução").
+2. **Severidade**: Classifique cada apontamento como `[Crítico]`, `[Aviso]` ou `[Sugestão]`.
+3. **Sugestão Acionável**: Sempre que possível, inclua um trecho de código corrigido.

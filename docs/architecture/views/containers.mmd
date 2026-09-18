@@ -1,0 +1,11 @@
+flowchart LR
+  %% Generated from docs/architecture/C4_MODEL.yaml; do not edit.
+  n1["Treinador<br/>person"]
+  n2["Interface local<br/>React + TypeScript + Vite"]
+  n3["API local<br/>Python + FastAPI"]
+  n4["Persistência experimental<br/>SQLite"]
+  n5["Mídia local<br/>MP4 no filesystem"]
+  n1 -->|"Marca e revê intervalos"| n2
+  n2 -->|"Consulta mídia e intervalos"| n3
+  n3 -->|"Persiste e recupera intervalos e versões"| n4
+  n3 -->|"Lista e serve originais sem modificá-los"| n5

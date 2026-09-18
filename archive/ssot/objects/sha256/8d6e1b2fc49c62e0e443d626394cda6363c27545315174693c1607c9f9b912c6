@@ -1,0 +1,247 @@
+# INC-001
+
+O `INC-001` deve ser executado como um **experimento arquitetural controlado**, não como começo da implementação completa do domínio. O repositório atual já fornece a fundação: Python 3.12/FastAPI, React/Vite, comandos `make`, `.local/data` e `.local/media`; o próprio plano define o INC-001 como **“vídeo local → intervalo persistido → revisão”**.
+
+O único insumo externo que você precisa fornecer é **um MP4 real de jogo**. Ele não deve ir para o GitHub; o runtime já foi preparado para usar `.local/media`, que fica fora do versionamento. O backend também já resolve por padrão `.local/data` e `.local/media`.
+
+## Passo a passo do INC-001
+
+1. **Criar uma branch exclusiva para o experimento.** No VS Code, partindo do `main` atualizado, crie algo como `inc-001-architecture-spike`. O objetivo é poder descartar ou revisar essa solução se o teste arquitetural falhar, sem misturá-la ao `main`.
+
+2. **Colocar um MP4 real em `.local/media`.** Por exemplo:
+
+   ```text
+   .local/media/
+   └── jogo-teste.mp4
+   ```
+
+   O vídeo deve ser suficientemente longo para testar navegação real, não um arquivo artificial de poucos segundos. Antes do teste, registre também um hash do arquivo, por exemplo SHA-256. Esse valor será usado depois para provar que o original permaneceu inalterado.
+
+3. **Não criar ainda Competition, Game, Athlete, Phase etc.** Isso pertence aos incrementos seguintes. O `INC-001` deve ter apenas o mínimo para testar arquitetura. O plano reserva `Competition`, `Game`, `VideoSource` e o catálogo propriamente dito para o `INC-002`.
+
+4. **Criar persistência mínima e descartável para o spike.** Como o ADR propõe SQLite, o experimento deve testar SQLite de verdade.  Recomendo um banco como:
+
+   ```text
+   .local/data/inc001.sqlite3
+   ```
+
+   e apenas os dados necessários ao teste, conceitualmente:
+
+   ```text
+   id
+   media_path
+   start_ms
+   end_ms
+   created_at
+   ```
+
+   Isso **não é ainda o schema canônico de LANCE**. É infraestrutura experimental para verificar se `arquivo + início + fim` sobrevive ao fechamento da aplicação.
+
+5. **Fazer o backend conhecer o arquivo local.** O FastAPI já existe e hoje possui apenas `/health`.  No spike, acrescente somente o necessário para disponibilizar o MP4 ao frontend e para salvar/recuperar intervalos. O fluxo deve ser local:
+
+   ```text
+   arquivo em .local/media
+          ↓
+       FastAPI
+          ↓
+        React
+   ```
+
+   Não deve haver upload para cloud, Supabase ou YouTube.
+
+6. **Garantir reprodução com navegação temporal.** O frontend precisa abrir o MP4 e comprovar manualmente:
+
+   ```text
+   play
+   pause
+   seek para frente
+   seek para trás
+   leitura do tempo corrente
+   ```
+
+   Não implemente ainda timeline esportiva sofisticada, atalhos extensos, desenho tático ou edição de vídeo.
+
+7. **Criar apenas dois comandos funcionais de marcação.** Na interface:
+
+   ```text
+   INICIAR LANCE
+   ENCERRAR LANCE
+   ```
+
+   `INICIAR LANCE` captura o tempo corrente. `ENCERRAR LANCE` captura o novo tempo e valida:
+
+   ```text
+   start < end
+   ```
+
+   Eu recomendo armazenar internamente em **milissegundos inteiros**, por exemplo:
+
+   ```text
+   start_ms = 75320
+   end_ms   = 84210
+   ```
+
+   Isso é uma **recomendação técnica**, não uma regra canônica já decidida.
+
+8. **Salvar o intervalo no SQLite sem criar MP4.** Ao marcar:
+
+   ```text
+   jogo-teste.mp4
+   75.320 s → 84.210 s
+   ```
+
+   o sistema salva somente a referência temporal. Nenhum `lance-001.mp4` deve ser criado. Isso testa exatamente o princípio de **clip virtual** definido no ADR: `fonte + início + fim`.
+
+9. **Criar uma tela mínima de revisão.** Depois de salvar, mostre algo como:
+
+   ```text
+   Intervalo 001
+   01:15.320 → 01:24.210
+   [REVER]
+   ```
+
+   Ao clicar em `REVER`, o player deve buscar `start_ms` e reproduzir aquele trecho. Não precisamos ainda chamar isso de coleção, histórico de atleta ou análise tática.
+
+10. **Executar o teste crítico de persistência.** Este passo não pode ser substituído por teste automatizado:
+
+    ```text
+    marcar intervalo
+    → salvar
+    → encerrar backend
+    → encerrar frontend
+    → iniciar novamente
+    → abrir registro salvo
+    → rever o trecho
+    ```
+
+    Se o intervalo desaparecer após o reinício, o gate falhou.
+
+11. **Verificar a imutabilidade do original.** Calcule novamente o SHA-256 do MP4 depois de todos os testes. Deve ser:
+
+    ```text
+    hash antes = hash depois
+    ```
+
+    Isso produz evidência concreta para RF-030/RNF-005, em vez de apenas afirmar que “o sistema não modifica originais”.
+
+12. **Criar testes automatizados somente para o que é determinístico.** Backend: criação do intervalo, rejeição de `start >= end`, persistência após reabrir o banco e recuperação do registro. Frontend: comandos de marcação e comportamento básico da interface podem ser testados onde isso for confiável. O comportamento perceptivo do vídeo real — seek, revisão adequada e experiência de navegação — continua exigindo o teste manual com o MP4.
+
+13. **Rodar a suíte completa já existente.** O repositório possui:
+
+    ```bash
+    make test
+    make build
+    ```
+
+    Esses comandos executam pytest no backend, Vitest no frontend e o build Vite.  Nada do INC-000 pode quebrar.
+
+14. **Submeter a branch à CI.** A mesma verificação que aprovou o INC-000 deve continuar passando. O frontend atual exige Node `>=22.12`, e o backend Python `>=3.12,<3.13`, conforme os próprios manifests.
+
+15. **Registrar uma evidência específica `docs/evidence/INC-001.md`.** Ela deve conter o commit testado, nome/tipo/duração do vídeo sem necessariamente versionar o vídeo, hash antes/depois, comandos executados, testes automatizados, resultado da CI e resultado de cada teste manual.
+
+16. **Aplicar o gate arquitetural.** Só existem três resultados legítimos:
+
+    ```text
+    PASS
+    FAIL
+    PASS WITH RISKS
+    ```
+
+    Eu não promoveria `ADR-001` automaticamente só porque a CI passou. O teste com **vídeo real** é parte obrigatória do gate já definido no ADR.
+
+17. **Atualizar os estados somente depois da evidência.** Se tudo passar:
+
+    ```text
+    INC-001 = VERIFIED
+    ```
+
+    e então avaliar o `ADR-001` para aprovação ou aprovação com riscos. Se houver problema significativo de reprodução, seek, acesso local, persistência ou experiência operacional:
+
+    ```text
+    INC-001 = BLOCKED ou IMPLEMENTED_NOT_VERIFIED
+    ADR-001 continua PROPOSTA A VALIDAR
+    ```
+
+    e corrigimos a arquitetura **antes** do INC-002.
+
+### Critério objetivo de PASS
+
+| Prova                          | Precisa passar |
+| ------------------------------ | -------------- |
+| MP4 real abre localmente       | Sim            |
+| Play/pause funcionam           | Sim            |
+| Seek para frente/trás funciona | Sim            |
+| Tempo de início é capturado    | Sim            |
+| Tempo de fim é capturado       | Sim            |
+| `start < end` é validado       | Sim            |
+| Intervalo é salvo              | Sim            |
+| Aplicação pode ser encerrada   | Sim            |
+| Intervalo existe após reinício | Sim            |
+| `REVER` retorna ao lance       | Sim            |
+| Original mantém o mesmo hash   | Sim            |
+| `make test` passa              | Sim            |
+| `make build` passa             | Sim            |
+| CI passa                       | Sim            |
+
+Um ponto importante: **não devemos exigir precisão frame a frame neste gate**. O próprio ADR registra que a exigência inicial é precisão temporal funcional para rever corretamente o lance; frame accuracy ainda não foi estabelecida como requisito.
+
+## Extensão do Player e do SQLite
+
+Esta checklist acompanha **uma extensão experimental do player e do SQLite atuais**. A tabela continua identificada como infraestrutura do spike; sua transformação em `LANCE` canônico permanece uma decisão do INC-002. Todos os itens foram implementados e verificados: o ensaio manual completo com MP4 real, os testes automatizados, o build e a CI desta branch foram concluídos. O resultado arquitetural permanece **PASS WITH RISKS**, conforme a evidência consolidada e a reavaliação do ADR-001.
+
+## Preparação
+
+- [x] Criar uma branch para estes ajustes a partir do `main` atualizado. Preservar a evidência e o commit já verificados do INC-001.
+  Ações realizadas:
+  - *main* está atualizado com origin/main (206e575), mas ainda não contém o INC-001
+  - Criei e selecionei a branch local inc-001-player-adjustments a partir de main e avancei-a até o commit 137b0de do INC-001.
+- [x] Registrar o comportamento esperado e os estados da interface: sem marcação → início marcado → prévia válida → revisão → salvo ou descartado. Definir que uma revisão interrompida por `Esc` retorna à prévia; outro `Esc` descarta a prévia.
+  Ações:
+  - Registrei os estados e transições em [PLAYER_MARKING_FLOW.md (line 1)](/home/davis/analise-video/docs/PLAYER_MARKING_FLOW.md:1) e adicionei o vínculo no [plano de implementação (line 31)](/home/davis/analise-video/docs/IMPLEMENTATION_PLAN.md:31).
+  - O documento define que Esc durante a revisão volta à prévia com os tempos preservados; um segundo Esc descarta a marcação. Também explicita que salvar exige confirmação e que uma falha de gravação preserva a prévia. A implementação e os testes continuam pendentes. git diff --check passou, e a alteração preexistente em AGENTS.md permaneceu intacta.
+- [x] Verificar os IDs e registros existentes em `.local/data/inc001.sqlite3` antes da migração. Acrescentar colunas e tabelas sem recriar os registros nem trocar seus IDs.
+  Ações:
+  - Migração verificada. Antes da alteração, o SQLite tinha seis registros, IDs 1–6. Criei uma [cópia local](/home/davis/analise-video/.local/data/backups/inc001-pre-migration-20260914T140637Z.sqlite3) e acrescentei colunas de exclusão e uma tabela de versões em [spike_storage.py (line 39)](/home/davis/analise-video/backend/src/cepraea_video/spike_storage.py:39), sem recriar os registros.
+  - Depois da migração, os IDs e todos os cinco campos originais permaneceram idênticos. A API continua retornando os seis intervalos no formato anterior. Os 8 testes de backend passaram; a comparação e a integridade do banco estão registradas na [evidência da migração (line 1)](/home/davis/analise-video/docs/evidence/INC-001-player-storage-migration.md:1). Edição e exclusão lógica ainda não foram implementadas.
+
+## Interface e operações
+
+- [x] Alterar [App.tsx](/home/davis/analise-video/frontend/src/App.tsx:212): `ENCERRAR LANCE` captura e valida o fim, mas **não faz POST**. Mostrar os dois tempos e os comandos **REVER**, **DESCARTAR** e **CONFIRMAR E SALVAR**. Somente a confirmação grava uma vez no SQLite.
+  **Resultado:**
+  - ENCERRAR LANCE agora captura e valida o fim sem fazer POST. A prévia mostra os dois tempos e oferece REVER, DESCARTAR e CONFIRMAR E SALVAR em [App.tsx (line 221)](/home/davis/analise-video/frontend/src/App.tsx:221). Só a confirmação envia a criação; confirmações simultâneas são bloqueadas.
+  - A prévia permanece disponível após revisão ou falha ao salvar. Os testes cobrem ausência de POST ao encerrar, descarte, revisão e salvamento único: 10 testes do frontend passaram, assim como o build Vite. O fluxo com MP4 real e os atalhos de teclado ainda precisam de verificação e implementação, respectivamente.
+- [x] Permitir **REVER** também para uma prévia não salva. Ao terminar ou sair da revisão, manter a prévia disponível até que o usuário confirme ou descarte.
+  **Resultado**:
+  - REVER reproduz a prévia ainda não salva. Ao chegar ao fim, clicar em SAIR DA REVISÃO ou pressionar Esc, os tempos permanecem disponíveis para confirmar ou descartar. Um segundo Esc descarta a prévia.
+  - Atualizei o tratamento de Esc em [App.tsx (line 165)](/home/davis/analise-video/frontend/src/App.tsx:165) e o teste correspondente. 11 testes do frontend e o build Vite passaram. A precisão da revisão com MP4 real ainda requer verificação manual.
+- [x] Implementar seek com limites entre zero e a duração do MP4: `Ctrl` + `←/→` move ±10 s; `←/→` move ±1 s; `Shift` + `←/→` move ±0,1 s. Ignorar combinações de modificadores não especificadas. Manter os tempos de marcação como milissegundos inteiros.
+  **Resultado:**
+  - Implementei o seek em [App.tsx (line 165)](/home/davis/analise-video/frontend/src/App.tsx:165): Ctrl + setas move ±10 s, setas ±1 s e Shift + setas ±0,1 s. O cálculo limita o tempo a 0–duração do MP4 e ignora combinações não especificadas. Início e fim continuam capturados em milissegundos inteiros.
+  - Os 14 testes do frontend e o build Vite passaram. A precisão perceptível do seek com MP4 real ainda precisa de verificação manual.
+- [x] Adicionar seletor de velocidade **0,25x, 0,5x, 1x, 1,5x e 2x**, com 1x inicial. Não implementar navegação quadro a quadro.
+  **Resultado:**
+  - Adicionei em [App.tsx (line 433)](/home/davis/analise-video/frontend/src/App.tsx:433) o seletor 0,25x, 0,5x, 1x, 1,5x e 2x. Ele inicia em 1x e mantém a escolha ao trocar de MP4. Não foi adicionada navegação quadro a quadro.
+  - Os 16 testes do frontend e o build Vite passaram. A reprodução nas cinco velocidades com MP4 real ainda precisa de verificação manual.
+- [x] Centralizar os atalhos: `Espaço` play/pause; `I` início; `O` fim; `R` revisão; `Enter` confirmação/salvamento; `Esc` saída/cancelamento conforme o estado. Definir seleção por teclado de um lance salvo para que `R` nunca escolha um registro ambíguo. Evitar disparos duplicados em botões e conflitos ao digitar em campos ou usar controles nativos do vídeo.
+  **Resultado:**
+  - Centralizei os atalhos em [App.tsx (line 175)](/home/davis/analise-video/frontend/src/App.tsx:175). R revê a prévia ou apenas o lance salvo selecionado por Tab; sem seleção, não escolhe um registro. Campos editáveis e controles nativos do vídeo mantêm suas teclas, e Espaço/Enter em botões não disparam também o atalho global.
+  - 21 testes do frontend e o build passaram. No [ensaio local com MP4 (line 1)](/home/davis/analise-video/docs/evidence/INC-001-player-shortcuts-smoke.md:1), Tab selecionou o intervalo 004, R buscou 216,069 s e Esc interrompeu a revisão. O teste de Enter usou POST simulado; os IDs 1–6 do SQLite permaneceram intactos. O gate manual completo e a CI ainda estão pendentes.
+- [x] Substituir **REVER** isolado por **REVER**, **EDITAR** e **EXCLUIR** em cada lance ativo. Na edição, mostrar início e fim atuais, controles independentes de ±10 s, ±1 s e ±0,1 s para cada borda e **SALVAR ALTERAÇÕES**. Recusar `início >= fim` e limites fora do vídeo conhecido; não deslocar automaticamente a outra borda.
+  **Resultado:**
+  - A lista de ativos oferece os três comandos. EDITAR mostra os tempos originais e os ajustados, controles independentes por borda, validação com a duração carregada do MP4 e salvamento pelo mesmo ID. EXCLUIR pede motivo e oculta o registro após a confirmação. Esc cancela a operação aberta.
+  - A API PATCH salva a versão anterior e a correção na mesma transação; DELETE marca EXCLUÍDO sem apagar o registro. O comportamento está coberto por testes automatizados, mas a revisão perceptiva com MP4 real permanece pendente.
+
+## SQLite e API experimentais
+
+- [x] Migrar [spike_storage.py](/home/davis/analise-video/backend/src/cepraea_video/spike_storage.py:44): acrescentar status `ATIVO`/`EXCLUÍDO`, motivo e data da exclusão; criar tabela de versões com ID do intervalo, limites anteriores, número da versão e data da correção. Migração anterior preservou IDs e registros; as operações de edição e exclusão agora usam essa estrutura.
+- [x] Adicionar à [API](/home/davis/analise-video/backend/src/cepraea_video/main.py:57) atualização dos tempos por ID, exclusão lógica com motivo obrigatório e consulta do histórico para auditoria. Registrar a versão anterior e atualizar os tempos **na mesma transação**; manter `id`, `media_path` e `created_at` do registro. A lista operacional deve retornar apenas ativos, com acesso separado aos excluídos. Implementado com PATCH/DELETE, GET de versões e GET de excluídos; testes confirmam a recuperação após reinício.
+- [x] Na interface, pedir o motivo antes de excluir, ocultar o lance excluído da lista de trabalho e mostrar somente a versão atual dos demais. Confirmar que edição e exclusão não criam MP4. Fluxos cobertos por testes determinísticos; confirmação manual da ausência de derivados ainda integra o gate abaixo.
+
+## Verificação e evidência
+
+- [x] Atualizar testes de backend para migração de registros antigos, validação, ID preservado, versões após reabrir o banco, exclusão com motivo obrigatório e consulta de auditoria. `make test`: 11 testes de backend passaram.
+- [x] Atualizar testes de frontend para ausência de POST em `O`, um único POST em `Enter`, revisão/descarte da prévia, atalhos, velocidades, controles independentes de edição, ocultação de excluídos e bloqueio da troca/atualização do MP4 durante marcação ou revisão. Na verificação final, `make test` passou com 25 testes de frontend; `make build` passou.
+- [x] Testar manualmente com MP4 real: todos os seeks e velocidades; fluxo integral sem mouse; revisão da prévia; edição e revisão do mesmo ID após reiniciar backend e frontend; exclusão oculta na lista e recuperável na auditoria. Medir se a parada da revisão é adequada ao ajuste de 0,1 s.
+  - Concluído em 2026-09-14: o operador exercitou seeks, velocidades, fluxo sem mouse, revisão da prévia e parada do trecho durante 30 marcações. Sete exclusões com motivos e datas foram confirmadas no SQLite e pela API de auditoria. O intervalo 030 foi editado mantendo ID, arquivo, início e data de criação; o fim mudou de `560923` para `561923` ms e a versão anterior foi preservada. Depois de reiniciar backend e frontend, o operador reviu o intervalo 030 e confirmou que a correção permaneceu. A API e o SQLite recuperaram os limites corrigidos, e `PRAGMA quick_check` retornou `ok`. Ver [evidência do ensaio manual](/home/davis/analise-video/docs/evidence/INC-001-player-restart-30.md).
+- [x] Comparar o SHA-256 do MP4 antes e depois, verificar ausência de derivados, executar `make test` e `make build`, submeter a branch à CI e registrar commit, resultados e riscos em uma **nova evidência**. Reavaliar o ADR-001 para este fluxo modificado; não usar apenas a CI para declarar a experiência verificada.
+  - Concluído em 2026-09-14: o hash permaneceu `ea6607f4d6a0095c1b413722fefa41aa50be57f2e1b6b9bed1fef7ed908c23c9`, `.local/media` contém somente o original, `make test` passou com 11 testes de backend e 24 de frontend, e `make build` passou. O commit `ab82eef` foi enviado à branch `inc-001-player-adjustments`; o PR #2 disparou a CI run `34873172548`, concluída com sucesso. Na revisão final, a correção `7f8d91c` adicionou a proteção da prévia e elevou a suíte para 25 testes de frontend. O PR #2 foi mesclado em `main` pelo merge commit `3f7d38b`, e a CI final `34916869160` concluiu com sucesso. A [evidência consolidada](/home/davis/analise-video/docs/evidence/INC-001-player-adjustments.md) e o ADR-001 registram **PASS WITH RISKS**.

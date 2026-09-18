@@ -1,0 +1,199 @@
+#!/usr/bin/env python3
+"""Generate a two-page operational report from one graph execution."""
+
+from __future__ import annotations
+
+import argparse
+import json
+from pathlib import Path
+
+from reportlab.lib.colors import HexColor
+from reportlab.lib.pagesizes import LETTER
+from reportlab.lib.styles import ParagraphStyle
+from reportlab.lib.utils import ImageReader
+from reportlab.lib.enums import TA_JUSTIFY
+from reportlab.pdfgen import canvas
+from reportlab.platypus import Paragraph, Table, TableStyle
+
+
+BLUE = HexColor("#118AB2")
+PINK = HexColor("#EF476F")
+DARK = HexColor("#2B2D42")
+LIGHT = HexColor("#F4F7F9")
+MUTED = HexColor("#65707A")
+PAGE_W, PAGE_H = LETTER
+MARGIN = 36
+CONTENT_W = PAGE_W - 2 * MARGIN
+
+BODY = ParagraphStyle("body", fontName="Helvetica", fontSize=8.5, leading=11, textColor=DARK, alignment=TA_JUSTIFY)
+SMALL = ParagraphStyle("small", fontName="Helvetica", fontSize=7.2, leading=9, textColor=DARK)
+HEAD = ParagraphStyle("head", fontName="Helvetica-Bold", fontSize=7.2, leading=9, textColor=HexColor("#FFFFFF"))
+
+
+def draw_header(pdf: canvas.Canvas, page: int) -> None:
+    pdf.setFillColor(BLUE)
+    pdf.rect(0, PAGE_H - 27, PAGE_W, 27, fill=1, stroke=0)
+    pdf.setFillColor(HexColor("#FFFFFF"))
+    pdf.setFont("Helvetica-Bold", 8)
+    pdf.drawString(MARGIN, PAGE_H - 18, "CEPRAEA — RELATÓRIO OPERACIONAL DE ARQUITETURA")
+    pdf.drawRightString(PAGE_W - MARGIN, PAGE_H - 18, f"Página {page} de 2")
+    pdf.setFillColor(MUTED)
+    pdf.setFont("Helvetica", 7)
+    pdf.drawString(MARGIN, 20, "Derivado analítico; não é fonte de autoridade do produto.")
+
+
+def draw_paragraph(pdf: canvas.Canvas, html: str, y: float, width: float = CONTENT_W, style=BODY) -> float:
+    paragraph = Paragraph(html, style)
+    _, height = paragraph.wrap(width, PAGE_H)
+    paragraph.drawOn(pdf, MARGIN, y - height)
+    return y - height
+
+
+def metadata_table(meta: dict) -> Table:
+    extensions = ", ".join(f"{key}: {value}" for key, value in meta.get("source_extensions", {}).items()) or "—"
+    rows = [
+        [Paragraph("Métrica", HEAD), Paragraph("Valor da execução", HEAD)],
+        ["Raiz lógica", str(meta.get("root_path", "—"))],
+        ["Commit", str(meta.get("git_commit") or "fora do Git")],
+        ["Arquivos", f"{meta.get('total_files', '—')} ({extensions})"],
+        ["Grafo completo", f"{meta.get('nodes_count', '—')} nós / {meta.get('edges_count', '—')} arestas"],
+        ["Alto nível", f"{meta.get('high_level_nodes_count', '—')} nós / {meta.get('high_level_edges_count', '—')} arestas"],
+        ["Endpoints", f"{meta.get('endpoint_materialization_percent', '—')}% materializados; {meta.get('missing_endpoints_count', '—')} ausentes"],
+        ["Erros de parsing", str(meta.get("parse_errors_count", "—"))],
+    ]
+    table = Table(rows, colWidths=[115, CONTENT_W - 115])
+    table.setStyle(
+        TableStyle(
+            [
+                ("BACKGROUND", (0, 0), (-1, 0), BLUE),
+                ("BACKGROUND", (0, 1), (-1, -1), LIGHT),
+                ("GRID", (0, 0), (-1, -1), 0.4, MUTED),
+                ("FONTNAME", (0, 1), (-1, -1), "Helvetica"),
+                ("FONTSIZE", (0, 1), (-1, -1), 7.5),
+                ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                ("TOPPADDING", (0, 0), (-1, -1), 3),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 3),
+            ]
+        )
+    )
+    return table
+
+
+def build_report(graph_path: Path, output_path: Path, image_path: Path) -> None:
+    graph = json.loads(graph_path.read_text(encoding="utf-8"))
+    meta = graph.get("metadata", {})
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    pdf = canvas.Canvas(str(output_path), pagesize=LETTER, invariant=1, pageCompression=1)
+    pdf.setTitle("Relatório operacional CEPRAEA")
+
+    draw_header(pdf, 1)
+    y = PAGE_H - 50
+    pdf.setFillColor(BLUE)
+    pdf.setFont("Helvetica-Bold", 16)
+    pdf.drawString(MARGIN, y, "Arquitetura, grafo e gates esportivos")
+    y -= 23
+    y = draw_paragraph(
+        pdf,
+        "Este relatório combina métricas produzidas pela <b>mesma execução sobre a raiz Git</b> com uma projeção resumida do modelo esportivo. O JSON é a fonte das métricas; nenhum total é codificado no relatório.",
+        y,
+    ) - 8
+    pdf.setFillColor(PINK)
+    pdf.setFont("Helvetica-Bold", 10)
+    pdf.drawString(MARGIN, y, "1. Escopo e integridade do grafo")
+    y -= 8
+    table = metadata_table(meta)
+    _, height = table.wrap(CONTENT_W, y)
+    table.drawOn(pdf, MARGIN, y - height)
+    y -= height + 12
+
+    pdf.setFillColor(PINK)
+    pdf.setFont("Helvetica-Bold", 10)
+    pdf.drawString(MARGIN, y, "2. Conceitos C12 e C14")
+    y -= 8
+    y = draw_paragraph(
+        pdf,
+        "<b>C12 — Vantagem CEPRAEA:</b> estado coletivo e temporário em que existe possibilidade tática acessível que o adversário não consegue neutralizar em tempo útil. Não é atributo permanente de uma atleta.",
+        y,
+    ) - 4
+    y = draw_paragraph(
+        pdf,
+        "<b>C14 — Zona de risco:</b> limiar espacial-funcional exclusivo da portadora da bola. Inicia quando arremesso, ruptura ou passe terminal pode ocorrer antes da contenção e termina quando a defesa recupera tempo e controle.",
+        y,
+    ) - 9
+
+    pdf.setFillColor(PINK)
+    pdf.setFont("Helvetica-Bold", 10)
+    pdf.drawString(MARGIN, y, "3. Árvore ofensiva e gates T3/T4")
+    y -= 8
+    gate_rows = [
+        [Paragraph("Condição", HEAD), Paragraph("Classificação", HEAD)],
+        [Paragraph("Instalação ofensiva incompleta", SMALL), Paragraph("transição ofensiva direta", SMALL)],
+        [Paragraph("Instalação completa + vantagem herdada predominante", SMALL), Paragraph("transição ofensiva indireta", SMALL)],
+        [Paragraph("Instalação completa + nova vantagem necessária", SMALL), Paragraph("ataque posicionado", SMALL)],
+    ]
+    gate_table = Table(gate_rows, colWidths=[305, CONTENT_W - 305])
+    gate_table.setStyle(TableStyle([("BACKGROUND", (0, 0), (-1, 0), BLUE), ("GRID", (0, 0), (-1, -1), 0.4, MUTED), ("VALIGN", (0, 0), (-1, -1), "TOP"), ("TOPPADDING", (0, 0), (-1, -1), 4), ("BOTTOMPADDING", (0, 0), (-1, -1), 4)]))
+    _, height = gate_table.wrap(CONTENT_W, y)
+    gate_table.drawOn(pdf, MARGIN, y - height)
+    y -= height + 7
+    draw_paragraph(
+        pdf,
+        "<b>T3:</b> exige ataque instalado e ausência de vantagem herdada predominante. <b>T4:</b> exige ameaças imediatas controladas, emergentes preveníveis, concessões monitoradas, portadora contida ou fora da zona de risco, referências atribuídas, trocas e coberturas prontas, sistema deliberado e encerramento da emergência herdada.",
+        y,
+    )
+    pdf.showPage()
+
+    draw_header(pdf, 2)
+    y = PAGE_H - 50
+    pdf.setFillColor(PINK)
+    pdf.setFont("Helvetica-Bold", 10)
+    pdf.drawString(MARGIN, y, "4. Grafo de alto nível da execução")
+    y -= 12
+    if image_path.exists():
+        image = ImageReader(str(image_path))
+        image_w, image_h = image.getSize()
+        max_h = 410
+        scale = min(CONTENT_W / image_w, max_h / image_h)
+        draw_w, draw_h = image_w * scale, image_h * scale
+        pdf.drawImage(image, MARGIN + (CONTENT_W - draw_w) / 2, y - draw_h, draw_w, draw_h, preserveAspectRatio=True, mask="auto")
+        y -= draw_h + 12
+    else:
+        y = draw_paragraph(pdf, f"Imagem não encontrada: <code>{image_path}</code>", y) - 8
+
+    pdf.setFillColor(PINK)
+    pdf.setFont("Helvetica-Bold", 10)
+    pdf.drawString(MARGIN, y, "5. Leitura correta e limitações")
+    y -= 9
+    y = draw_paragraph(
+        pdf,
+        "O grafo representa relações sintáticas detectáveis, não arquitetura aprovada. Chamadas não resolvidas são materializadas como <i>ExternalSymbol</i>; por isso não inflam o recorte de alto nível. Contagens são deduplicadas por origem, destino e relação, preservando o número de ocorrências como atributo.",
+        y,
+    ) - 5
+    y = draw_paragraph(
+        pdf,
+        "Prancheta, portal, IA, cloud e outros módulos mencionados em drafts continuam propostas até decisão própria. O relatório não promove esses módulos e não altera ADR-001 ou ADR-002.",
+        y,
+    ) - 5
+    y = draw_paragraph(
+        pdf,
+        "<b>Proveniência esportiva:</b> <code>docs/GAME_MODEL.md</code> e o rascunho preservado <code>.local/drafts/arquitetura/hibrida/conceitos-jogo.md</code>. <b>Proveniência técnica:</b> JSON, scripts e imagem localizados no mesmo diretório desta saída.",
+        y,
+    )
+    pdf.save()
+    print(f"PDF written to {output_path} (exactly 2 pages)")
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("graph", nargs="?", default="repo_knowledge_graph.json")
+    parser.add_argument("output", nargs="?", default="relatorio-analise-acoplamento.pdf")
+    parser.add_argument("--image")
+    args = parser.parse_args()
+    graph_path = Path(args.graph).resolve()
+    image_path = Path(args.image).resolve() if args.image else graph_path.with_name("repo_architecture_graph-v2.png")
+    build_report(graph_path, Path(args.output).resolve(), image_path)
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

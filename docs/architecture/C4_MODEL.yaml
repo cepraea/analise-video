@@ -1,0 +1,94 @@
+schema_version: 1
+model_id: cepraea-local-first
+title: CEPRAEA — arquitetura local da primeira implementação
+status: IMPLEMENTED_NOT_VERIFIED
+decisions: [DOC-003]
+
+elements:
+  - id: person.trainer
+    type: person
+    name: Treinador
+    description: Opera a análise, marca e revê intervalos do vídeo.
+    state: implemented
+    source: docs/evidence/INC-001.md
+  - id: system.cepraea
+    type: software_system
+    name: CEPRAEA
+    description: Sistema local de análise de vídeo; o schema esportivo canônico permanece pendente.
+    state: implemented
+    source: docs/architecture/ADR-001-primeira-implementacao.md
+  - id: container.frontend
+    type: container
+    parent: system.cepraea
+    name: Interface local
+    technology: React + TypeScript + Vite
+    description: Reproduz mídia, captura intervalos e oferece revisão.
+    state: implemented
+    source: frontend/package.json
+  - id: container.backend
+    type: container
+    parent: system.cepraea
+    name: API local
+    technology: Python + FastAPI
+    description: Serve mídia local e operações experimentais de intervalos.
+    state: implemented
+    source: backend/pyproject.toml
+  - id: container.sqlite
+    type: container
+    parent: system.cepraea
+    name: Persistência experimental
+    technology: SQLite
+    description: Guarda intervalos e versões do spike INC-001; não é o schema canônico de LANCE.
+    state: implemented
+    source: backend/src/cepraea_video/spike_storage.py
+  - id: container.local-media
+    type: container
+    parent: system.cepraea
+    name: Mídia local
+    technology: MP4 no filesystem
+    description: Originais imutáveis acessados por nome dentro do diretório autorizado.
+    state: implemented
+    source: backend/src/cepraea_video/spike_media.py
+
+relationships:
+  - id: rel.trainer-frontend
+    source: person.trainer
+    target: container.frontend
+    description: Marca e revê intervalos
+    technology: navegador local
+  - id: rel.frontend-backend
+    source: container.frontend
+    target: container.backend
+    description: Consulta mídia e intervalos
+    technology: HTTP/JSON local
+  - id: rel.backend-sqlite
+    source: container.backend
+    target: container.sqlite
+    description: Persiste e recupera intervalos e versões
+    technology: sqlite3
+  - id: rel.backend-media
+    source: container.backend
+    target: container.local-media
+    description: Lista e serve originais sem modificá-los
+    technology: filesystem + HTTP Range
+
+views:
+  - id: context
+    title: Contexto do sistema
+    output: docs/architecture/views/context.mmd
+    elements: [person.trainer, system.cepraea]
+    relationships: []
+  - id: containers
+    title: Contêineres da implementação local
+    output: docs/architecture/views/containers.mmd
+    elements:
+      - person.trainer
+      - container.frontend
+      - container.backend
+      - container.sqlite
+      - container.local-media
+    relationships:
+      - rel.trainer-frontend
+      - rel.frontend-backend
+      - rel.backend-sqlite
+      - rel.backend-media

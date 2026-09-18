@@ -1,0 +1,189 @@
+# Especificação Técnica Canônica do Sistema de Análise de Vídeo CEPRAEA — v0.2
+
+> Este documento estabelece a versão 0.2 da especificação técnica para o sistema de análise de vídeo do CEPRAEA, consolidando decisões táticas e operacionais fundamentais para a arquitetura de dados e análise esportiva de alto rendimento.
+
+## 1. Status do Documento e Regra de Autoridade
+
+Esta versão representa a transição de estado dos itens TAX-001 a TAX-003 e dos Gates T3 e T4, que passam de **PENDENTE** para **DECIDIDO** e **CONSOLIDADO**.
+
+### Regra de Autoridade de Davi
+
+Davi é a autoridade única e final sobre as regras esportivas, taxonomias de handebol de praia e critérios de análise. Nenhuma inteligência artificial ou agente de software possui autonomia para inventar regras, modificar taxonomias ou interpretar eventos fora dos limites estabelecidos por Davi.
+
+O papel da tecnologia é capturar, organizar, reutilizar e automatizar a estrutura lógica definida pela autoridade técnica, sendo proibida a modificação de taxonomias ou a interpretação de eventos fora dos âmbitos canônicos descritos neste documento.
+
+## 2. Princípios de Modelagem (Os Três Pilares)
+
+O sistema baseia-se em três pilares fundamentais para garantir a integridade dos dados e a flexibilidade da análise:
+
+- **Original Imutável** — O vídeo original nunca é alterado. Recortes, versões anotadas e exportações são derivados gerados sem modificar a fonte primária.
+- **Lance Canônico** — Cada evento esportivo possui um Identificador (ID) estável e único. Metadados podem ser refinados, mas a identidade do lance permanece a mesma, evitando duplicação física.
+- **Classificação por Metadados** — A estrutura de dados prioriza relações muitos-para-muitos. Atletas, fases e ações são metadados vinculados ao lance, e não codificados na localização física do arquivo.
+
+## 3. Matriz Canônica de Fases v0.2 (TAX-001 a TAX-003)
+
+As fases são determinadas pelo problema central que a equipe resolve e pela origem da vantagem (herdada ou construída).
+
+### Definição de Posse (TAX-001)
+
+A posse é definida como a condição formal que confere à equipe o direito ao reinício ou controle efetivo da bola após uma conquista, gol ou saída.
+
+### Matriz de Fases (TAX-002 e TAX-003)
+
+| Fase | Problema Central | Início | Produção/Controle da Vantagem | Fim |
+| --- | --- | --- | --- | --- |
+| Transição Ofensiva | Explorar vulnerabilidade herdada e instalar organização. | Conquista da posse ou direito ao reinício. | Vantagem herdada da troca de posse (velocidade, substituição atrasada). | Finalização, perda da posse ou Gate T3. |
+| Ataque Posicionado | Construir nova vantagem funcional contra defesa estável. | Gate T3. | Relações técnico-táticas (sistema, especialista, fixações, circulação). | Finalização, perda da posse ou evento que encerre o ataque. |
+| Transição Defensiva | Neutralizar vantagens herdadas e instalar controle. | Perda efetiva da posse ou do direito de atacar. | Compra de tempo, atribuição de ameaças e proteção de urgências. | Finalização, recuperação ou Gate T4. |
+| Defesa Posicionada | Conter ou reduzir vantagens construídas pelo ataque. | Gate T4. | Controle funcional por sistema, matchups e critérios de concessão. | Recuperação da posse, gol ou saída. |
+
+## 4. Gates Operacionais e Árvore de Decisão
+
+Os gates definem o instante preciso da mudança de estado funcional entre as fases.
+
+### Gate T3 — Ataque Instalado
+
+Ocorre quando as seguintes condições são satisfeitas simultaneamente:
+
+- **Composição** — Grupo de atletas e funções deliberadamente escolhidos em quadra.
+- **Funções e Ocupações** — Atletas em posições reconhecíveis dentro da organização.
+- **Zona Útil** — Bola controlada, de frente e conectada ao jogo (independência logística).
+- **Fim da Progressão** — O problema dominante deixa de ser a entrada ou substituição.
+- **Regra sem Especialista** — Se a equipe decidir atuar sem especialista, o T3 ocorre assim que a composição alternativa estiver instalada e funcional.
+
+### Gate T4 — Defesa Estabilizada
+
+Ocorre no primeiro instante em que os 8 indicadores obrigatórios estão presentes:
+
+- Ameaças imediatas controladas (contenção ou cobertura).
+- Ameaças emergentes preveníveis.
+- Ameaças concedíveis monitoradas.
+- Portadora contida ou fora da zona de risco.
+- Referências (quem marca quem) estabelecidas.
+- Trocas e coberturas disponíveis.
+- Sistema defensivo deliberado (não apenas alinhamento espacial).
+- Emergências herdadas da troca de posse encerradas.
+
+**Âncoras por Sistema para Validação do T4:**
+
+| Sistema | Critério de Validação |
+| --- | --- |
+| Individual | Referências diretas atribuídas e portadora contida. |
+| 1:2 | Defensora avançada orienta a bola; posteriores protegem pivô e passe terminal. |
+| 2:1 | Dupla avançada coordena bola; posterior protege profundidade e linhas terminais. |
+| 3:0 | Linha compacta com subidas coordenadas; portadora externa concedida fora da zona de risco. |
+
+### Árvore Operacional Ofensiva
+
+**Passo 1 — Instalação**: As condições de Gate T3 estão presentes?
+
+- Se **NÃO**: Transição Ofensiva Direta.
+- Se **SIM**: seguir para o Passo 2.
+
+**Passo 2 — Origem Causal**: Teste Contrafactual — Ao retirar mentalmente a vulnerabilidade produzida pela mudança de posse, a oportunidade atual desaparece?
+
+- Se **SIM**: Transição Ofensiva Indireta.
+- Se **NÃO**: Ataque Posicionado.
+
+## 5. Arquitetura da Vantagem e Níveis de Ameaça
+
+### Vantagem CEPRAEA (C12)
+
+Estado coletivo e temporário onde a equipe possui uma possibilidade tática acessível sem neutralização a tempo.
+
+- **Mecanismos**: Temporal, Espacial, Composicional, Matchup, Informacional e Organizacional.
+- **Exclusões Críticas**: Superioridade nominal 4x3 isolada e presença da especialista isolada não comprovam vantagem funcional.
+
+### Níveis de Ameaça (C13)
+
+| Nível | Definição | Exigência Defensiva |
+| --- | --- | --- |
+| Ameaça Imediata | Pode finalizar ou realizar passe terminal na ação atual. | Controle agora. |
+| Ameaça Emergente | Pode tornar-se imediata na próxima ação se não houver ajuste. | Prevenção ou troca. |
+| Ameaça Concedível | Pode permanecer livre porque a defesa ainda responde a tempo. | Monitoramento. |
+
+### Zona de Risco (C14)
+
+Limiar funcional exclusivo da portadora da bola. É o ponto onde ela se torna ameaça imediata por dispor de ação terminal antes da contenção.
+
+- **Condições de Saída**: Perda de domínio/orientação, desaceleração forçada ou contenção restabelecida.
+
+## 6. Módulo de Visualização: Prancheta Tática
+
+### Papéis e Siglas
+
+| Categoria | Chave JSON | Sigla | Papel |
+| --- | --- | --- | --- |
+| Defensivos | `DefensoraBase` | DB | Base |
+| Defensivos | `Cobertura` | DC | Cobertura |
+| Defensivos | `Solta` | DS | Solta |
+| Defensivos | `Goleira` | G | Goleira |
+| Ofensivos | `Pivo` | P | Pivô |
+| Ofensivos | `LatEsquerda` | LE | L. Esquerda |
+| Ofensivos | `LatDireita` | LD | Especialista |
+| Ofensivos | `Central` | C | Central |
+
+### Posições Iniciais (Coordenadas Matplotlib)
+
+| Jogadora | X | Y | Jogadora | X | Y |
+| --- | --- | --- | --- | --- | --- |
+| Pivô | 7.0 | 6.0 | Def. Cobertura | 7.5 | 2.0 |
+| L. Esquerda | 11.0 | 1.0 | Def. Base | 8.5 | 6.0 |
+| Especialista | 11.0 | 11.0 | Def. Solta | 7.5 | 10.0 |
+| Central | 15.0 | 6.0 | Goleira | 2.0 | 6.0 |
+
+### Cores e Identidade Visual
+
+| Elemento | Cor | Código Hex |
+| --- | --- | --- |
+| Ataque | Rosa IDEC | `#EF476F` |
+| Especialista | Amarelo | `#FFB703` |
+| Defesa | Azul CEPRAEA | `#118AB2` |
+| Bola | Laranja | `#F5A623` |
+
+### Especificação de Dados (JSON)
+
+- `lance_id` — Identificador para rastreabilidade.
+- `orientacao` — `"esquerda"` (padrão) ou `"direita"` (espelhamento `x = 27 - x`).
+- `jogadoras` — Dicionário de trajetórias. Chaves não reconhecidas são ignoradas.
+- `bola` — Trajetória `[x, y]`.
+- `fases` — Legendas por frame (persistentes até a próxima chave).
+
+## 7. Dicionário de Comunicação CEPRAEA (C23)
+
+| Termo | Emissora | Significado | Comportamento Obrigatório |
+| --- | --- | --- | --- |
+| **AGORA!** | Defesa | Ameaça imediata identificada. | Responsável controla no tempo da ação; cobertura protege linha terminal. |
+| **DEPOIS!** | Defesa | Ameaça emergente identificada. | Preparar prevenção, troca ou cobertura para a próxima ação. |
+| **DÁ TEMPO!** | Defesa | Ameaça concedível identificada. | Monitorar sem retirar recursos das ameaças superiores. |
+| **ASSUME A BOLA!** | Defesa | Portadora entrou na zona de risco. | Defensora mais apta inicia contenção direta imediata. |
+| **ATACA A VANTAGEM!** | Ataque | Explorar a oportunidade aberta. | Executar a finalização/passe antes da neutralização. |
+| **CONSTRÓI!** | Ataque | Vantagem herdada encerrada. | Iniciar sistema de ataque posicionado e circulação. |
+
+## 8. Requisitos Funcionais (RF) e Critérios de Aceite
+
+### Módulo Prancheta
+
+- **RF-P001** — Aceite de JSON externo para trajetórias e fases.
+- **RF-P003** — Representação da bola como elemento independente.
+- **RF-P008** — Manutenção rigorosa das cores e siglas canônicas.
+
+### Refinamentos de Análise
+
+- **RF-012** — Registrar fase baseada no conflito entre Vantagem Herdada e Construída via Árvore Operacional.
+- **RF-021** — Aplicar taxonomia específica de goleiras (leitura, deslocamento, ação, resultado).
+- **RF-037** — Diferenciar estruturalmente Ataque Posicionado de Transição Indireta via teste causal.
+
+### Critérios de Aceitação
+
+- **CA-012** — Rastreabilidade Total: todo clipe ou material renderizado deve conter o `lance_id`, permitindo o retorno ao vídeo original e à perspectiva de câmera primária.
+- **Protocolo de Validação de Gates** — A marcação de T3 e T4 exige concordância bruta de 80% entre observadores independentes e um índice Cohen's Kappa mínimo de 0,70.
+
+## 9. Questões Pendentes e Taxonomias Futuras
+
+As seguintes taxonomias permanecem em estado **PENDENTE**:
+
+- **TAX-004** — Ações específicas de atletas de linha (fundamentos individuais).
+- **TAX-005** — Resultados possíveis das ações.
+- **TAX-006 a TAX-014** — Categorias de erro, assistências, tipos de finalização e recuperação defensiva.
+- **TEC** — Infraestrutura de banco remoto e protocolos de autenticação.

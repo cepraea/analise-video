@@ -1,0 +1,1173 @@
+[
+  {
+    "id": "e3bbb4d1-e8de-4646-850e-207635d64c94_summary",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "assistant",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "These documents outline technical frameworks and research findings for optimizing **AI-driven software development** through efficient **context management** and **code retrieval**. The central theme focuses on how **coding agents**—such as Claude, Cursor, and Aider—navigate large repositories by balancing **lexical search**, **semantic indexing**, and **structural graph analysis**. Specific guidelines like **AGENTS.md** and **.claudeignore** establish \"Context Minimum Viable\" protocols to prevent **token waste** and ensure agents prioritize essential files over irrelevant artifacts. Comparative studies highlight that while **RAG-based systems** offer conceptual awareness, **graph-based AST ranking** and **agentic exploration** often achieve superior efficiency and precision in autonomous tasks. Ultimately, the sources provide a roadmap for engineering **AI-native codebases** where readable naming conventions and **multi-agent architectures** enhance the accuracy and reliability of automated programming."
+      }
+    ],
+    "created_at": "2026-09-16T00:35:15.251Z",
+    "updated_at": 1789518915251
+  },
+  {
+    "id": "5efe0870-1750-4de0-8758-ea04842706f3_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Como as regras de nomenclatura ajudam a IA no código?"
+      }
+    ],
+    "created_at": "2026-09-15T20:21:18.276Z",
+    "updated_at": 1789503678276
+  },
+  {
+    "id": "c465ad0b-37bb-4bff-be3b-467e83888e0b",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "assistant",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "As regras e convenções de nomenclatura ajudam as ferramentas e agentes de IA a entender, navegar e gerar código de forma mais precisa e coerente das seguintes maneiras:\n\n* **Aumento da precisão nas sugestões**: Os modelos de linguagem que alimentam ferramentas de IA (como o GitHub Copilot e o Codex) são projetados para compreender a linguagem natural [1]. Ao utilizar nomes de variáveis e funções alinhados à linguagem natural, a IA consegue interpretar o contexto do programa com mais facilidade e oferecer sugestões de código muito mais assertivas [1-3].\n* **Transmissão direta de contexto semântico**: Fornecer contexto apenas por meio de comentários em excesso pode poluir a base de código e dificultar a leitura [1]. Nomes claros e descritivos transmitem a intenção e a função de um componente diretamente nos próprios identificadores do código [1, 2].\n* **Padrões de nomenclatura amigáveis à IA**:\n  * **Nomes descritivos e similares à linguagem natural**: Facilitam a inferência semântica do modelo [2, 3].\n  * **Estilo uniforme**: O uso consistente de convenções como *camelCase*, *lowercase* ou nomes curtos e diretos simplifica a análise da IA [3].\n  * **Prefixos funcionais claros**: Definir convenções de prefixos padronizados (como o uso de `async_` para funções assíncronas ou `query_` para consultas ao banco de dados) deixa o papel de cada estrutura explícito [4, 5].\n* **Manutenção da coerência arquitetônica**: Quando as regras de nomenclatura do projeto são formalizadas em arquivos de instrução do repositório (como um `CLAUDE.md`), os agentes de IA deixam de gerar código que viole os padrões do time ou duplique lógica já existente, reduzindo em até **60% o atrito durante a revisão de código** [4, 6].\n\n💡 **Quer que eu ajude a estruturar um modelo de arquivo `CLAUDE.md` com diretrizes e convenções de nomenclatura adaptadas para o seu projeto?**"
+      }
+    ],
+    "created_at": "2026-09-15T20:21:18.276Z",
+    "updated_at": 1789503678276
+  },
+  {
+    "id": "d50790fa-a576-4c1c-9500-a497b7ac7413_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "No meu repositório utilizo Codex e Claude. Sendo assim, as instruções devem ser colocadas no Agents.md e Claude.md fica só com @AGENTS.md"
+      }
+    ],
+    "created_at": "2026-09-15T20:23:18.137Z",
+    "updated_at": 1789503798137
+  },
+  {
+    "id": "7ee47bb0-bdbe-4d46-b15e-f9dafc6a20bd",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "assistant",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Essa é uma excelente escolha de arquitetura para repositórios que utilizam múltiplos agentes e ferramentas de IA (como Codex e Claude) [1]. \n\nManter o **`AGENTS.md` como a fonte única de verdade (Single Source of Truth)** e o `CLAUDE.md` como um importador enxuto via `@AGENTS.md` traz vantagens claras:\n\n* **Eliminação de duplicidade**: Centraliza diretrizes de arquitetura, estilos e convenções de nomenclatura em um único lugar, garantindo que Codex e Claude sigam as mesmas orientações [1, 2].\n* **Arquitetura de Revelação Progressiva (*Progressive Disclosure*)**: Mantém o `CLAUDE.md` extremamente enxuto, funcionando apenas como um ponteiro de orientação inicial, o que preserva o orçamento da janela de contexto e reduz o desperdício de tokens [3, 4].\n* **Padronização multi-agente**: O arquivo `AGENTS.md` é amplamente adotado como convenção de instruções de sistema em ecossistemas de agentes de codificação [1, 2].\n\n### Exemplo de Estruturação no Repositório\n\n**1. `CLAUDE.md` (na raiz do projeto)**\n```markdown\n# CLAUDE.md\n@AGENTS.md\n```\n\n**2. `AGENTS.md` (na raiz do projeto)**\n```markdown\n# AGENTS.md — Diretrizes Gerais do Repositório\n\n## Tech Stack\n- Linguagem / Framework: [Ex: Node.js 20 LTS, TypeScript 5.4]\n- Testes: [Ex: Vitest / Jest]\n\n## Convenções de Nomenclatura\n- Funções assíncronas devem utilizar o prefixo `async_`.\n- Consultas ao banco de dados devem utilizar o prefixo `query_`.\n- Variáveis e funções devem utilizar nomes descritivos em linguagem natural.\n\n## Regras Invioláveis\n1. Nunca altere diretamente arquivos na pasta `migrations/`.\n2. Não utilize tipos `any` genéricos.\n3. Certifique-se de que todos os testes passem antes de solicitar revisão de PR.\n```\n\n💡 **Quer que eu ajude a personalizar as regras do arquivo `AGENTS.md` com base nas linguagens ou bibliotecas específicas que você utiliza nesse repositório?**"
+      }
+    ],
+    "created_at": "2026-09-15T20:23:18.137Z",
+    "updated_at": 1789503798137
+  },
+  {
+    "id": "6b50ce3e-5bff-4949-834d-c53bf8c7f636_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Como evitar o consumo de tokens?"
+      }
+    ],
+    "created_at": "2026-09-15T20:24:31.004Z",
+    "updated_at": 1789503871004
+  },
+  {
+    "id": "c790c9a8-01d7-454f-9ae2-f9827e557165_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Gere um manifesto técnico listando as regras exatas de nomenclatura de pastas e arquivos, limites de tamanho de arquivo e padrões de modularização para garantir o 'contexto mínimo suficiente' para agentes de código."
+      }
+    ],
+    "created_at": "2026-09-15T20:36:35.666Z",
+    "updated_at": 1789504595666
+  },
+  {
+    "id": "12ca9991-4266-44d5-b134-1f4767d44bb5",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "assistant",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Criei o documento **`manifesto-contexto-minimo.md`** no seu painel Studio com o conjunto completo de diretrizes técnicas para garantir o contexto mínimo suficiente (*Minimum Sufficient Context*) para agentes de código.\n\nO manifesto consolida **convenções de nomenclatura claras e prefixos funcionais** para melhorar a precisão preditiva da IA [1-3], define **limites rigorosos de tamanho de arquivos** (como manter o `CLAUDE.md` abaixo de 150–200 linhas e módulos em até 500 linhas) para evitar o fenômeno *lost-in-the-middle* e a degradação de atenção (*context rot*) [4-7], e estabelece **padrões de modularização** baseados em revelação progressiva, alinhamento de KV-cache e gestão dinâmica de contexto (curar, distilar, externalizar e delegar) [5, 8-10].\n\n💡 **Deseja que eu adicione convenções de nomenclatura específicas para as linguagens ou frameworks que você utiliza no seu repositório?**"
+      }
+    ],
+    "created_at": "2026-09-15T20:36:35.666Z",
+    "updated_at": 1789504595666
+  },
+  {
+    "id": "8b6443df-5268-4ec6-96c1-cf3e33c8ccee_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Faça uma auditoria completa nas fontes, aplicando a leitura crítica e leitura analítica, para capturar a intenção e os objetivos de cada fonte individualmente. Em seguida forneça a matriz com a classificação das fontes individualmente, respondendo: \no que a fonte em questão garante, o que ela não garante, qual o conteúdo deve ser extraído, qual é o escopo válido, qual é o escopo inválido, qual é o contexto correto, qual é o contexto incorreto, exemplos de uso da fonte em casos reais, o que foi pesquisado na fonte, qual a pergunta a fonte procurou responder, qual foi a conclusão da fonte e qual o método foi utilizado pela fonte para validar sua própria conclusão,"
+      }
+    ],
+    "created_at": "2026-09-15T21:06:55.395Z",
+    "updated_at": 1789506415395
+  },
+  {
+    "id": "2b9e8389-9f48-41c4-b14e-e71811d96eca_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Atue como um Engenheiro de IA Especialista em produtividade com Claude Code e Codex. Analise todas as 10 fontes deste caderno e consolide o conhecimento prático para implementar a arquitetura de 'Contexto Mínimo Eficiente' no meu repositório.\nEscreva um arquivo Markdown final (pronto para ser lido por máquinas) contendo:\n1. As regras exatas de nomenclatura de arquivos e pastas (baseado no 'AI-Readable Naming Rules').\n2. A estrutura de diretórios ideal (baseado no 'Claude Code Folder Structure').\n3. As regras de compactação de contexto: o que ignorar, o que bloquear e como limitar o tamanho (baseado em 'Context Compaction' e 'Hyper-Optimise Claude').\n4. Uma estrutura base para eu criar o meu arquivo llms.txt ou contexto global do repositório.\n\nAja de forma direta. Sem introduções longas. Traga apenas diretrizes acionáveis e regras rígidas que a IA no meu VS Code deverá obedecer."
+      }
+    ],
+    "created_at": "2026-09-15T21:18:02.397Z",
+    "updated_at": 1789507082397
+  },
+  {
+    "id": "d9a913bb-9fae-4199-8090-0c0f5dab25dd",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "assistant",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Abaixo está a **auditoria analítica completa das fontes do caderno** e, em seguida, o **Manifesto de Contexto Mínimo Eficiente**, pronto em formato Markdown para instruir e restringir diretamente as ferramentas de IA no seu repositório.\n\n---\n\n# Matriz de Auditoria Crítica e Analítica das Fontes\n\n| Dimensão | 1. AI-Readable Naming Rules [1-4] | 2. Claude Code Folder Structure [5-9] | 3. Context Compaction Techniques [10-14] | 4. How to Hyper-Optimise Claude Code [15-18] | 5. What is an llms.txt File? [19-23] |\n| :--- | :--- | :--- | :--- | :--- | :--- |\n| **Garante** | Nomes alinhados à linguagem natural aumentam a precisão preditiva do modelo [2-4]. | A estrutura de pastas funciona como um prompt permanente lido no início da sessão [5, 24]. | A gestão ativa da janela previne o *context rot* e mantém a precisão do agente [10, 25]. | Redução de 60–90% do consumo de tokens com regras rígidas de contexto [15, 16]. | Um mapa de descoberta determinístico e eficiente em tokens para agentes e LLMs [19, 22, 26]. |\n| **Não Garante** | Não substitui testes de regressão nem garante ausência de falhas lógicas. | Não evita erros se as instruções dos arquivos de execução (*skills*) forem ambíguas. | Não impede perdas se a compressão utilizar reescrita opaca descontrolada [13]. | Não garante a qualidade do código se as especificações das tarefas forem vagas [27]. | Não substitui o `robots.txt` para permissões nem impulsiona SEO tradicional [28, 29]. |\n| **Conteúdo a Extrair** | Nomenclatura descritiva, padrão em linguagem natural, nomes curtos e diretos [4]. | Arquivos de memória (`memory/`), diretório de habilidades (`skills/`) e `CLAUDE.md` enxuto [6, 7, 9]. | O framework de 4 alavancas: Curar, Distilar, Externalizar e Delegar [12, 30]. | `.claudeignore`, `CLAUDE.md` <200 linhas, busca dinâmica de ferramentas e *snapshots* [17, 18, 31, 32]. | Anatomia rígida do arquivo (`# Title`, `> Summary`, `## Section`, `- [Link]: desc`) [23]. |\n| **Escopo Válido** | Nomenclatura de variáveis, funções, arquivos e classes no código [1, 4]. | Arquitetura e organização da memória e das instruções do projeto [5, 7]. | Gerenciamento do orçamento de atenção do modelo em tarefas longas [10, 11]. | Otimização de custos, latência e consumo de tokens em agentes CLI [15, 16]. | Camada de descoberta e roteamento determinístico Business-to-Agent (B2A) [19, 20]. |\n| **Escopo Inválido** | Configurações de infraestrutura ou controle de acesso de segurança. | Substituição de controle de versão (Git) ou automação de compilação. | Otimização de tempo de execução de banco de dados ou código compilado. | Decisões de modelagem de dados ou segurança em nuvem. | Ingestão de todo o banco de dados ou substituição do `sitemap.xml` [28, 33]. |\n| **Contexto Correto** | Usar intenção semântica nos nomes em vez de confiar apenas em comentários [2, 3]. | Dividir em 2 camadas: Instruções de execução (*Skills*) e Contexto de Identidade (*Memory*) [6, 7]. | Manter utilização entre 40–60% e externalizar estado para arquivos duradouros [14, 34]. | Filtrar arquivos irrelevantes (`node_modules`, `dist/`) logo na inicialização [17, 35]. | Servir como índice enxuto de 10 a 50 páginas essenciais em Markdown puro [26, 33]. |\n| **Contexto Incorreto** | Substituir documentação técnica apenas por nomes de variáveis. | Amontoar mais de 500 linhas em um único `CLAUDE.md` gigante [9]. | Esperar o limite estourar para tentar resumir todo o histórico de uma vez. | Enviar `@entire_repo` em prompts genéricos [36]. | Incluir HTML pesado, scripts ou listar todas as URLs do repositório [19, 22]. |\n| **Exemplo de Uso** | Prefixos padronizados (`async_`, `query_`) e nomes intencionais [4]. | `CLAUDE.md` enxuto na raiz atuando como índice para `memory/` e `skills/` [9, 37]. | Executar eliminação *verbatim* de logs redundantes mantendo erros e caminhos exatos [13]. | `.claudeignore` reduzindo o custo de inicialização de sessão de $1.04 para $0.06 [38]. | Disponibilizar `/llms.txt` na raiz da documentação para navegação direta da IA [26, 39]. |\n| **O que foi Pesquisado** | Interpretação de símbolos pelo Codex/Copilot versus comentários [2]. | Impacto da organização de arquivos na atenção do modelo (*lost-in-the-middle*) [40, 41]. | Métodos de compressão de histórico em mais de 36.000 mensagens de agentes [12, 13]. | 16 estratégias de otimização medidas em 100 sessões de codificação [16, 42]. | Sintaxe de Markdown puro e consumo de tokens por parsers de agentes [19, 22]. |\n| **Pergunta-Chave** | Como a nomenclatura influencia a assertividade das sugestões da IA? [2] | Como a estrutura de pastas serve como prompt inicial antes do envio da mensagem? [5, 40] | Como evitar que o contexto se degrade em tarefas de longa duração? [10] | Como otimizar custos e latência sem rebaixar a qualidade do modelo? [15] | Como formatar a documentação para que IAs leiam sem alucinar nem gastar tokens? [20] |\n| **Conclusão** | Nomes legíveis por humanos e IAs alinham a lógica e aumentam a precisão do modelo [3, 4]. | Estruturas em camadas evitam o envenenamento do contexto (*context poisoning*) [9, 43]. | A janela de contexto deve ser gerida como um orçamento escasso de atenção [11, 25]. | Tratar o contexto como linguagem de programação reduz consumo em até 90% [16, 44]. | O `llms.txt` atua como guia de descoberta limpo, evitando parse de DOM e tokens extras [21, 22]. |\n| **Método de Validação** | Testes práticos de sugestões no GitHub Copilot / Codex [2]. | Estudo com 85 implementações reais de *Second Brains* em Claude Code [7]. | Benchmark empírico comparativo de técnicas de compactação (Factory, Cursor, Morph) [13, 45]. | Testes quantitativos de contagem de tokens, custo e tempo de resposta [31, 38, 42]. | Análise de especificação B2A e validação programática em 780+ sites reais [20, 29, 39]. |\n\n---\n\n| Dimensão | 6. AI Agent Engineering Guide [46-50] | 7. Exploratory Study of Code Retrieval [51-55] | 8. Agent Retrieval Bench [56-60] | 9. Context Engineering in Open-Source [61-65] | 10. Lore: Git Commit Protocol [66-70] |\n| :--- | :--- | :--- | :--- | :--- | :--- |\n| **Garante** | Padrões de arquitetura de sistema para agentes de IA confiáveis em produção [46, 71]. | Análise comparativa do consumo de tokens em diferentes técnicas de busca [55, 72, 73]. | Avaliação padronizada e isolada para aquisição de contexto ao nível de arquivo [56, 74]. | Mapeamento da adoção e evolução de arquivos de contexto no ecossistema open-source [61, 75]. | Preservação imutável das razões da decisão (*Decision Shadow*) atreladas ao commit [66, 68]. |\n| **Não Garante** | Não garante que frameworks prontos sirvam para qualquer problema sem ajustes [76]. | Não garante que a busca semântica por vetores seja sempre superior à busca por texto [55, 73]. | Não mede a correção sintática nem a funcionalidade do patch final gerado [74]. | Não garante execução perfeita da IA apenas pela presença do arquivo sem regras claras. | Não garante qualidade das descrições se desenvolvedores fizerem commits descuidados [77]. |\n| **Conteúdo a Extrair** | Padrão `AGENTS.md` (operação), `SOUL.md` (tom), `TOOLS.md` (ambiente) e busca JIT de ferramentas [47, 50, 78]. | Estruturas de grafos de AST (*RepoMap*) e delegação para sub-agentes otimizam tokens [54, 73, 79]. | Métodos híbridos (RRF unindo embeddings e grafos) são essenciais para repositórios [60, 80, 81]. | Categorias de instrução (`Conventions`, `Build/Test`, `PR Workflow`) e sua manutenção [62, 64]. | Trailers nativos de Git (`Constraint:`, `Rejected:`, `Directive:`, `Tested:`) [69, 70]. |\n| **Escopo Válido** | Engenharia do ciclo de vida de agentes, gerenciamento de estado e prompts de sistema [71, 82]. | Mecanismos de recuperação de código em repositórios complexos [72, 83, 84]. | Testes de recuperação de contexto para tarefas de código, revisão, trace e ripple [56, 85]. | Estudo da prática real de engenharia de contexto no versionamento do código [61, 86]. | Preservação de decisões de implementação e contexto histórico no versionamento [66, 67]. |\n| **Escopo Inválido** | Código de regra de negócio da aplicação final. | Usabilidade da interface gráfica do usuário final. | Avaliação da geração de código em uma única tentativa sem contexto prévio. | Repositórios fechados ou sem governança de código declarada. | Decisões de arquitetura corporativa de altíssimo nível (onde ADRs se aplicam melhor) [67, 87]. |\n| **Contexto Correto** | Isolar pesquisas em sub-agentes para evitar poluição da janela de contexto principal [48, 49]. | Usar ferramentas léxicas transparentes (`grep`/`ripgrep`) e mapas de símbolos [52-54]. | Tratar a busca do contexto como uma etapa separada e crítica antes da edição [74, 88]. | Versionar arquivos de contexto no Git para garantir comportamento consistente de toda a equipe [61, 89]. | Inserir restrições e alternativas rejeitadas diretamente na mensagem do commit [68, 69]. |\n| **Contexto Incorreto** | Carregar mais de 50 definições de ferramentas no contexto inicial de uma vez [90]. | Ingerir arquivos inteiros sem filtragem prévia de relevância [52, 73]. | Depender de um único tipo de recuperador (apenas vetores ou apenas texto) para tudo [60, 91]. | Criar o arquivo de contexto uma vez e deixá-lo desatualizado frente às mudanças do código [92]. | Escrever mensagens de commit rasas que apenas resumem o diff óbvio [93, 94]. |\n| **Exemplo de Uso** | Sub-agente especialista em busca executando varreduras pesadas e retornando resumos limpos [48]. | *RepoMap* do Aider usando PageRank para dar visibilidade de símbolos usando poucos tokens [53, 54]. | Fusão RRF combinando busca semântica e estrutural para alcançar Recall@20 de 73% [80, 95]. | Inclusão de instruções no `AGENTS.md` indicando como executar os scripts de teste [62, 96]. | Leitura de restrições via `lore context <path>` antes de alterar uma função complexa [97, 98]. |\n| **O que foi Pesquisado** | Análise de mais de 30 frameworks de agentes de código aberto (Claude Agent SDK, LangGraph) [99]. | Avaliação de 7 agentes de código (Claude Code, Cursor, Aider, Codex CLI, Amp) [100-102]. | 427 amostras em 25 repositórios testando 5 baselines de recuperação e trajetórias [56, 103]. | Mineração e codificação qualitativa de 10.000 repositórios no GitHub [75, 104]. | A perda do contexto de raciocínio (*Decision Shadow*) no ciclo de desenvolvimento com IA [66, 105]. |\n| **Pergunta-Chave** | Quais são os padrões de engenharia essenciais para agentes de produção? | Quais técnicas de recuperação maximizam a precisão e minimizam o consumo de tokens? [72] | Como avaliar isoladamente a capacidade do agente de encontrar os arquivos corretos antes de editar? [88] | Como os desenvolvedores praticam a engenharia de contexto e mantêm os arquivos ao longo do tempo? [75] | Como registrar decisões de código de forma legível por máquina sem criar infraestrutura extra? [66] |\n| **Conclusão** | Isolamento de contexto por sub-agentes e revelação progressiva reduzem falhas em 90% [49, 106]. | Estruturas em grafo de AST e delegação por sub-agentes gastam menos tokens que busca por vetores [54, 55, 73]. | A relevância de contexto para agentes é indireta e exige sistemas híbridos de busca [57, 60, 81]. | Arquivos de contexto tornaram-se documentação viva para máquinas no ciclo de software [62, 65]. | Repensar mensagens de commit como registros estruturados em git trailers resolve o problema de contexto [68, 69]. |\n| **Método de Validação** | Engenharia reversa, análise arquitetural e benchmarks em ecossistemas de produção [46, 99]. | Estudo empírico exploratório com tarefas de refatoração controladas e medição de tokens [102, 107, 108]. | Benchmark quantitativo com métricas de Recall@k, MRR e Yield de Contexto (BCY@8k) [56, 59, 109]. | Mineração de repositórios do GitHub com codificação qualitativa de commits e PRs [104, 110, 111]. | Análise comparativa formal contra 5 abordagens e teste de estresse teórico [66, 77, 112]. |\n\n---\n\n# MANIFESTO DE CONTEXTO MÍNIMO EFICIENTE\n\n> **DOCUMENTO DE CONFIGURAÇÃO DE ENGENHARIA DE CONTEXTO**  \n> **APLICÁVEL A:** Agentes de Código no VS Code (Claude Code CLI, Codex CLI, Cursor, Copilot) [62, 101, 102, 113]  \n> **OBJETIVO:** Eliminar o consumo desnecessário de tokens, prevenir a degradação de atenção (*context rot*) e impor regras rígidas de execução para agentes de IA [10, 16, 43].\n\n---\n\n## 1. Regras Rígidas de Nomenclatura de Arquivos e Pastas\n\nPara maximizar a precisão preditiva dos modelos de linguagem e garantir a interpretação imediata sem necessidade de comentários poluentes [2-4]:\n\n* **Diretórios e Arquivos em Linguagem Natural**: Todos os nomes de pastas e arquivos devem expressar sua intenção clara em termos descritivos em inglês ou português coerente [3, 4]. Evite abreviações opacas (ex.: use `user-authentication/` em vez de `usr-auth/`).\n* **Nomenclatura Baseada em Convenção Simples**:\n  * Utilize `lowercase-kebab-case` para diretórios e arquivos de código ou documentação Markdown [4].\n  * Utilize `camelCase` ou `snake_case` para variáveis e funções de modo estritamente uniforme em todo o módulo [4].\n* **Prefixos Funcionais Obrigatórios**:\n  * Operações assíncronas devem conter o prefixo `async_` ou sufixo `Async` [114].\n  * Consultas a bancos de dados devem utilizar o prefixo `query_` ou `find_` [114].\n  * Handlers de eventos e mutações devem utilizar os prefixos `handle_` e `mutate_`.\n* **Proibição de Nomes Genéricos**: É estritamente proibido criar arquivos chamados `utils.ts`, `helpers.py`, `common.js` ou `stuff.go`. Arquivos devem ter responsabilidade única refletida no nome (ex.: `string-sanitizer.ts`, `jwt-token-verifier.py`).\n\n---\n\n## 2. Arquitetura de Diretórios do Repositório (Revelação Progressiva)\n\nOrganize o repositório em duas camadas fundamentais de contexto — **Execução (*Skills*)** e **Identidade (*Memory*)** — para evitar o envenenamento de contexto (*context poisoning*) [6, 7, 43]:\n\n```text\n/\n├── AGENTS.md                  # Fonte Única de Verdade do Repositório (< 200 linhas) [18, 62]\n├── CLAUDE.md                  # Ponteiro enxuto contendo unicamente `@AGENTS.md` [37, 115]\n├── llms.txt                   # Índice B2A de descoberta determinística do repositório [19, 26]\n├── .claudeignore              # Filtro de contexto mínimo viável [16, 17]\n├── memory/                    # Camada de Identidade e Decisões Históricas [7, 116, 117]\n│   ├── architecture-rules.md  # Invariantes do sistema e regras invioláveis [18, 118]\n│   ├── tech-stack.md          # Especificação técnica e dependências afixadas [114, 119]\n│   └── decisions-log.md       # Histórico de decisões técnicas relevantes [14, 120]\n├── skills/                    # Camada de Instruções de Execução (Carregadas Sob Demanda) [6, 106, 121]\n│   ├── build-and-test/\n│   │   └── SKILL.md           # Procedimentos de compilação, lint e testes [106, 122]\n│   ├── feature-workflow/\n│   │   └── SKILL.md           # Passo a passo para criação de novas funcionalidades [106, 122]\n│   └── code-review/\n│       └── SKILL.md           # Checklist de revisão de segurança e qualidade [122, 123]\n└── src/                       # Código-fonte da aplicação\n```\n\n### Regra da Revelação Progressiva (*Progressive Disclosure*)\n1. O agente lê **apenas** o `AGENTS.md` no início da sessão [5, 9, 62].\n2. Se a tarefa exigir conhecimento profundo sobre arquitetura ou histórico, o agente carrega pontualmente o arquivo correspondente em `memory/` [9, 106, 121].\n3. Se a tarefa exigir executar um procedimento específico (ex.: criar um PR ou rodar testes), o agente carrega pontualmente a habilidade específica em `skills/` [6, 106, 121].\n\n---\n\n## 3. Diretrizes Rígidas de Compactação de Contexto\n\nPara garantir que cada token consumido justifique sua existência e manter o agente dentro da margem ideal de **40% a 60% de utilização do contexto** [11, 16, 34]:\n\n### A. O que Bloquear e Ignorar (`.claudeignore`)\nO arquivo `.claudeignore` deve existir na raiz e barrar imediatamente arquivos compilados, dependências e logs antes de qualquer processamento da IA [17, 35]:\n\n```gitignore\n# Dependências e Builds\nnode_modules/\n.pnpm-store/\ndist/\nbuild/\n.next/\ntarget/\n__pycache__/\n*.pyc\n\n# Logs e Dados Temporários\n*.log\nlogs/\n.cache/\ntmp/\ncoverage/\n\n# Versionamento e IDEs\n.git/\n.vscode/\n.idea/\n\n# Arquivos Binários e Pesados\n*.csv\n*.xlsx\n*.pdf\n*.zip\n*.png\n*.jpg\n```\n\n### B. Limites de Tamanho e Orçamento de Tokens\n* **`AGENTS.md` / `CLAUDE.md`**: Limite máximo de **150 a 200 linhas** (~800 tokens) [9, 18, 37]. NUNCA insira documentação completa ou exemplos longos de código neste arquivo.\n* **Módulos de Código**: Limite máximo recomendável de **300 a 500 linhas de código por arquivo**. Arquivos maiores devem ser refatorados para evitar que leituras inteiras estoure o contexto do agente [30, 52].\n* **Leitura Direcionada**: O agente deve preferir buscas via `ripgrep` / buscas léxicas filtradas em vez de ler o conteúdo integral de múltiplos arquivos [52, 121, 124].\n\n### C. Estratégia de Compacção de Histórico (*Distill & Externalize*)\n* **Micro-compacção a cada turno**: Remova automaticamente saídas de ferramentas obsoletas e logs extensos de compilação ou instalação de pacotes [13, 45, 48].\n* **Preservação Byte-a-Byte (*Verbatim Compaction*)**: Ao resumir conversas longas, preserve caminhos de arquivos, nomes de funções, mensagens de erro exatas e exceções sem parafrasear, garantindo risco zero de alucinação [13].\n* **Externalização de Estado**: Antes que a sessão atinja o limite de compactação (~120k a 160k tokens), o agente deve salvar um arquivo `STATE.md` com:\n  1. Objetivo ativo [125, 126].\n  2. Decisões tomadas e alternativas rejeitadas [125, 126].\n  3. Lista de arquivos modificados [125, 126].\n  4. Próximos passos pendentes [125, 126].\n\n---\n\n## 4. Estrutura Base do Arquivo `llms.txt` (Global Context)\n\nCrie o arquivo **`llms.txt`** na raiz do repositório seguindo rigorosamente a sintaxe Markdown determinística para guiar assistentes de codificação de forma enxuta [19, 23, 26]:\n\n```markdown\n# [Nome do Repositório / Projeto]\n\n> [Resumo conciso de 1 a 2 sentenças explicando o propósito exato da aplicação, arquitetura principal e stack tecnológica.]\n\n## Core Architecture & Guidelines\n\n- [AGENTS.md](AGENTS.md): Regras globais, convenções e diretrizes invioláveis para agentes de IA.\n- [Architecture Rules](memory/architecture-rules.md): Invariantes de sistema, limites de isolamento de estado e regras de domínio.\n- [Tech Stack](memory/tech-stack.md): Tecnologias, frameworks e versões afixadas utilizadas no projeto.\n\n## Execution Workflows (Skills)\n\n- [Build and Test](skills/build-and-test/SKILL.md): Comandos padrão e estratégias de execução de testes unitários e de integração.\n- [Feature Workflow](skills/feature-workflow/SKILL.md): Passo a passo para implementação de novas funcionalidades mantendo a coerência.\n\n## Optional\n\n- [Decision History](memory/decisions-log.md): Registro histórico de decisões de implementação e alternativas rejeitadas.\n```\n\n---\n\n## 5. Regras de Versionamento de Decisões de Código (Lore Git Trailers)\n\nToda alteração de código realizada pela IA ou por desenvolvedores humanos deve registrar o contexto da decisão no commit utilizando **Git Trailers nativos** para criar um histórico legível por máquina e pesquisável por sessões futuras [66, 68, 69]:\n\n```text\ntype(scope): breve descrição no imperativo\n\nCorpo explicativo sobre a necessidade da alteração e motivação da mudança.\n\nConstraint: [Regra ou limitação técnica que motivou a escolha]\nRejected: [Alternativa considerada e o motivo pelo qual foi descartada]\nConfidence: [low | medium | high]\nTested: [Lista de testes ou verificações manuais executadas]\nDirective: [Instrução ou aviso para futuros agentes que modificarem este código]\n```\n\n---\n\n💡 **Recomendação de Próximo Passo**: Quer que eu ajude a criar os arquivos `AGENTS.md`, `.claudeignore` e `llms.txt` já preenchidos e validados diretamente nas pastas do seu projeto?"
+      }
+    ],
+    "created_at": "2026-09-15T21:18:02.397Z",
+    "updated_at": 1789507082397
+  },
+  {
+    "id": "7f0b7b83-3736-4206-8105-c2261c244be3_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Crie os arquivos AGENTS.md, .claudeignore e llms.txt agora."
+      }
+    ],
+    "created_at": "2026-09-15T21:39:09.546Z",
+    "updated_at": 1789508349546
+  },
+  {
+    "id": "7e214296-99d2-4a57-9412-7c60e2fe8760",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "assistant",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Criei e disponibilizei os três arquivos essenciais de engenharia de contexto no seu painel **Studio**:\n\n1. **`AGENTS.md`**: A fonte única de verdade (*Single Source of Truth*) do seu repositório, configurada com regras rígidas de nomenclatura legíveis por IA, suporte à revelação progressiva (*progressive disclosure*), limites de tokens, regras invioláveis e o protocolo de commits com *Git Trailers* (Lore).\n2. **`.claudeignore`**: O filtro de contexto otimizado para barrar diretórios de dependências, artefatos de build, logs, temporários e arquivos binários antes da análise da IA.\n3. **`llms.txt`**: O mapa determinístico em Markdown (protocolo B2A) configurado para guiar a descoberta do repositório por assistentes e LLMs de forma enxuta e eficiente em tokens.\n\n💡 **Quer que eu ajude a criar os arquivos complementares da camada de memória (como o `memory/architecture-rules.md`) ou o arquivo de ponteiro inicial `CLAUDE.md`?**"
+      }
+    ],
+    "created_at": "2026-09-15T21:39:09.546Z",
+    "updated_at": 1789508349546
+  },
+  {
+    "id": "9c619eed-333c-411b-a5a4-b0ffc7bd9242_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Analise as fontes focadas em \"Naming Rules\", \"Folder Structure\" e \"Context Compaction\". Extraia exclusivamente as regras práticas: como devo nomear meus arquivos, quais pastas devo criar e quais devo evitar para garantir o contexto mínimo eficiente para agentes de IA? Gere uma lista de regras diretas."
+      }
+    ],
+    "created_at": "2026-09-15T21:40:35.997Z",
+    "updated_at": 1789508435997
+  },
+  {
+    "id": "feece578-727d-4ec6-bd14-01e1dfbd6015",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "assistant",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "### Regras Práticas de Nomenclatura (Naming Rules)\n\n* **Use nomes descritivos em linguagem natural**: Substitua a dependência exclusiva de comentários no código por identificadores de variáveis e funções em linguagem natural, pois os modelos da IA interpretam melhor essa estrutura semântica [1, 2].\n* **Defina convenções e delimitadores padronizados**: Mantenha padrões consistentes de gabinete (*kebab-case* para arquivos e pastas; *camelCase* ou *snake_case* para identificadores de código) [3, 4]. O uso de convenções claras facilita o ranqueamento de símbolos em grafos de código e mapas do repositório [4].\n* **Adote prefixos funcionais explícitos**: Inclua prefixos que identifiquem a natureza da execução (como `async_` para rotinas assíncronas e `query_` para acessos ao banco de dados), permitindo que a IA deduza o comportamento sem abrir o arquivo [5].\n* **Evite abreviações genéricas ou nomes opacos**: Dê preferência a nomes curtos, diretos e com propósito único [3]. Nomes intencionais alinham a lógica humana à capacidade preditiva da IA, aumentando a precisão das sugestões [2, 3].\n\n---\n\n### Estrutura de Pastas (Folder Structure)\n\n#### Pastas a Criar\n* **`skills/` (Instruções de Execução)**: Crie subpastas com arquivos `SKILL.md` para fluxos de trabalho específicos (ex.: `skills/github-pr/SKILL.md` ou `skills/build-and-test/SKILL.md`) [6-8]. Estas instruções funcionam como uma biblioteca de execução carregada apenas sob demanda (*Progressive Disclosure*) [6, 8, 9].\n* **`memory/` (Camada de Identidade e Contexto Persistente)**: Crie uma pasta para centralizar quem você é, preferências do time e regras de arquitetura (ex.: `memory/style-voice/voice.md` ou `memory/architecture.md`) [10-12]. A camada de memória garante que a IA atue alinhada à sua voz e padrões sem re-explicações a cada sessão [10, 13].\n* **`llms.txt` (na raiz)**: Mantenha um mapa de descobrimento enxuto em Markdown no diretório raiz para orientar agentes sobre a estrutura e os links essenciais da documentação sem gastar tokens com parsers de HTML [14, 15].\n\n#### Arquivos e Pastas a Evitar\n* **Evite arquivos monolíticos gigantes de instrução**: Não crie arquivos de orientação (`CLAUDE.md` ou `AGENTS.md`) com mais de 150–200 linhas [16-18]. Informações enterradas no meio de arquivos longos sofrem com o fenômeno *lost-in-the-middle* e causam degradação de atenção da IA [19, 20].\n* **Não misture manuais de API no contexto global**: Evite colocar especificações completas de endpoints ou logs de depuração no arquivo raiz de contexto; mova-os para a pasta `docs/` ou `skills/` e carregue-os condicionalmente [17, 21].\n* **Não misture 'Como Fazer' com 'Quem Sou'**: Não misture instruções operacionais de tarefas pontuais dentro do diretório de identidade/memória do projeto [6, 10].\n\n---\n\n### Compactação e Redução de Contexto (Context Compaction)\n\n* **Barragem inicial via `.claudeignore`**: Crie um arquivo `.claudeignore` na raiz descartando diretórios pesados como `node_modules/`, `dist/`, `.next/`, logs e temporários [22]. Isso evita que a IA processe código irrelevante na inicialização da sessão, reduzindo em até **94% os tokens estáticos** [23, 24].\n* **Mantenha utilização entre 40% e 60%**: Acione a compactação de histórico proativamente quando o contexto atingir a faixa de 40–60% em vez de esperar o limite do modelo (80–95%), evitando a perda de aderência às instruções (*context rot*) [25-27].\n* **Estrutura 'Estática Primeiro, Dinâmica por Último'**: Posicione identidades e restrições invioláveis no topo dos arquivos e informações que mudam frequentemente na metade inferior para maximizar o aproveitamento do *Prompt Caching* do modelo [28-30].\n* **Compacção *Verbatim* sem paráfrases opacas**: Ao resumir conversas e execuções anteriores, elimine logs de instalação redundantes mas preserve byte a byte os caminhos de arquivos, nomes de funções e exceções exatas para zerar o risco de alucinação [31].\n* **Externalização de estado persistente**: Grave o estado atual do progresso, decisões tomadas e pendências em arquivos como `STATE.md` ou `task_context.md` antes que o histórico seja limpo [32-34].\n* **Delegação para sub-agentes**: Isole pesquisas extensas, varreduras de repositório e testes ruidosos em sub-agentes dedicados para que o rastro de tokens não polua a janela do agente principal [27, 35, 36].\n\n💡 **Quer que eu ajude a criar o arquivo `.claudeignore` ou a organizar a pasta `skills/` no formato exato citado nas regras?**"
+      }
+    ],
+    "created_at": "2026-09-15T21:40:35.997Z",
+    "updated_at": 1789508435997
+  },
+  {
+    "id": "3d10d46a-429f-418d-ac7f-64d878817095_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "o arquivo .claudeignore, ja foi criado  organizar a pasta skills/ no formato exato citado nas regras?"
+      }
+    ],
+    "created_at": "2026-09-15T21:48:52.401Z",
+    "updated_at": 1789508932401
+  },
+  {
+    "id": "b0c62c4f-92c5-48a4-af38-c7b6f8da642f",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "assistant",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Sim, o arquivo **`.claudeignore` já foi criado** no turno anterior (junto com o `AGENTS.md` e o `llms.txt`).\n\nE agora, acabei de criar e empacotar a **estrutura exata da pasta `skills/`** no arquivo **`skills-structure.zip`**, já disponível no seu painel **Studio**.\n\n---\n\n### Estrutura Criada na Pasta `skills/`\n\nO pacote contém a arquitetura de **Revelação Progressiva (*Progressive Disclosure*)**, onde cada habilidade específica fica isolada em sua própria subpasta e é carregada pelo agente apenas quando a tarefa exigir:\n\n```text\nskills/\n├── build-and-test/\n│   └── SKILL.md       # Procedimentos e comandos para lint, formatação e suíte de testes\n├── feature-workflow/\n│   └── SKILL.md       # Planejamento, diretrizes de código e regras para novas features\n└── code-review/\n    └── SKILL.md       # Checklist de segurança, prevenção de 'any' e regras de commit (Lore)\n```\n\n### Como Utilizar no seu Repositório\n\n1. Baixe o arquivo **`skills-structure.zip`** no painel Studio.\n2. Descompacte-o na raiz do seu repositório.\n3. No arquivo `AGENTS.md`, os agentes de IA (Claude Code, Codex, Cursor) já estão instruídos a ler apenas o arquivo correspondente em `skills/<nome-da-skill>/SKILL.md` quando precisarem executar uma tarefa específica.\n\n💡 **Deseja que eu ajude a criar também os arquivos da camada de memória (`memory/architecture-rules.md` e `memory/tech-stack.md`) para completar a estrutura do projeto?**"
+      }
+    ],
+    "created_at": "2026-09-15T21:48:52.401Z",
+    "updated_at": 1789508932401
+  },
+  {
+    "id": "8312a0a6-9250-48f0-8384-acfc8162b2a1_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": " criar também os arquivos da camada de memória (memory/architecture-rules.md e memory/tech-stack.md"
+      }
+    ],
+    "created_at": "2026-09-15T21:50:11.359Z",
+    "updated_at": 1789509011359
+  },
+  {
+    "id": "70469a0c-00d2-40a0-a206-6260669479cf",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "assistant",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Criei os arquivos da camada de memória para o seu repositório, configurados conforme o padrão de **Revelação Progressiva (*Progressive Disclosure*)**:\n\n1. **`architecture-rules.md`**: Centraliza os princípios de isolamento de módulos, contratos de interfaces, tratamento de erros e as proibições invioláveis (invariantes) do sistema.\n2. **`tech-stack.md`**: Especifica linguagens, runtimes, bibliotecas aprovadas e diretrizes de ingestão de dependências para manter as sugestões da IA alinhadas à sua pilha tecnológica.\n3. **`memory-structure.zip`**: Pacote compactado contendo a pasta `memory/` pronta para ser descompactada na raiz do seu projeto.\n\nTodos os arquivos estão disponíveis no seu painel **Studio**.\n\n💡 **Deseja criar também o arquivo de ponteiro `CLAUDE.md` na raiz para integrar o Claude Code à arquitetura do repositório?**"
+      }
+    ],
+    "created_at": "2026-09-15T21:50:11.359Z",
+    "updated_at": 1789509011359
+  },
+  {
+    "id": "8957f82a-154b-400c-90bf-b7677e359c9e_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Como usar o REVIEW.md?"
+      }
+    ],
+    "created_at": "2026-09-15T22:05:03.137Z",
+    "updated_at": 1789509903137
+  },
+  {
+    "id": "09ee3d62-1c06-432b-82f0-1616b0f0fe39",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "assistant",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "O **`REVIEW.md`** é o arquivo de configuração e personalização utilizado pelo **Claude Code Review** (serviço de revisão automatizada de Pull Requests no GitHub) para orientar os critérios de análise do código [1-3].\n\n### 1. Separação de Responsabilidades (`CLAUDE.md` vs `REVIEW.md`)\n* **`CLAUDE.md`**: Explica a arquitetura geral do sistema, diretrizes do projeto e limites do repositório (ensina à IA como o repositório é construído) [4, 5].\n* **`REVIEW.md`**: Orienta os agentes de IA sobre o que procurar de fato ao inspecionar um diff de Pull Request (diz à IA em que focar e o que ignorar) [4, 5].\n\n### 2. Estrutura Recomendada do Arquivo\nPara evitar que a IA gere spam de comentários sobre formatação ou detalhes já cobertos por linters, o `REVIEW.md` deve focar estritamente em riscos reais de produção e invariantes de negócio [5, 6]:\n\n```markdown\n# REVIEW.md\n\nPrioritize comments about:\n- Authorization regressions across admin and customer paths\n- Idempotency in webhook handlers\n- Missing transaction boundaries on billing writes\n- Async jobs that can double-send emails, refunds, or notifications\n\nDeprioritize:\n- Formatting and import order\n- Naming-only comments without runtime risk\n- Style nits already covered by linting\n```\n[5]\n\n### 3. Execução no Fluxo de Desenvolvimento\n1. **Gatilho de Revisão**: A análise pode iniciar automaticamente ao abrir o PR ou ser disparada manualmente no GitHub por meio dos comandos `@claude review` ou `@claude review all` [7].\n2. **Análise Paralela**: Múltiplos sub-agentes especializados inspecionam o PR simultaneamente, cruzando as alterações com o contexto do `CLAUDE.md` e os critérios do `REVIEW.md` [3, 8, 9].\n3. **Filtragem e Ranking**: As falhas são verificadas e ordenadas por severidade antes de serem publicadas no GitHub, garantindo comentários com alto nível de sinal e utilidade [3, 10].\n\n💡 **Deseja que eu crie um modelo de arquivo `REVIEW.md` ou adicione uma skill de revisão (`skills/code-review/SKILL.md`) ajustada para o seu repositório?**"
+      }
+    ],
+    "created_at": "2026-09-15T22:05:03.137Z",
+    "updated_at": 1789509903137
+  },
+  {
+    "id": "e25ea05d-9e32-488c-b9c3-3ccd23af61ae_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "crie um modelo de arquivo REVIEW.md"
+      }
+    ],
+    "created_at": "2026-09-15T22:06:10.248Z",
+    "updated_at": 1789509970248
+  },
+  {
+    "id": "fedad48d-82e8-45b6-94ce-38845dc93151",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "assistant",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Criei o modelo do arquivo **`REVIEW.md`** e disponibilizei a versão pronta no seu painel Studio.\n\nO arquivo **`REVIEW.md`** é utilizado por ferramentas de revisão automatizada de código (como o **Claude Code Review**) para definir critérios específicos de verificação durante a análise de Pull Requests [1, 2]. Enquanto arquivos como o `AGENTS.md` ou `CLAUDE.md` ensinam à IA como a arquitetura do projeto é estruturada, o `REVIEW.md` orienta o agente sobre o que priorizar ou ignorar ao inspecionar uma alteração de código [2, 3].\n\n---\n\n### Estrutura do Modelo Criado (`REVIEW.md`)\n\n```markdown\n# REVIEW.md — Diretrizes de Revisão de Código para IAs\n\n## Visão Geral e Objetivo\nEste arquivo instrui os agentes e ferramentas de revisão automatizada (como Claude Code Review e Copilot Code Review) sobre quais aspectos focar ao inspecionar Pull Requests. O objetivo é priorizar o raciocínio lógico em nível de repositório e riscos de execução em produção, evitando ruído sobre estilo.\n\n---\n\n## 🎯 Prioridade Alta (Focar e Alertar)\n\n- **Regressões de Autorização e Segurança**: Alterações em caminhos de rotas, permissões de usuários ou validação de escopo de API [2].\n- **Mutações de Dados e Transações**: Modificações no banco de dados que ocorram fora de blocos de transação ou sem logs de auditoria [2].\n- **Idempotência e Processamento Assíncrono**: Handlers de webhooks, filas de eventos ou tarefas de segundo plano que possam duplicar cobranças, e-mails ou eventos em falhas/retentativas [2].\n- **Inconsistências Lógicas Entre Arquivos**: Alterações em assinaturas de funções, tipos ou parâmetros em um módulo que quebrem contratos assumidos em arquivos adjacentes não modificados no diff [2, 4].\n- **Tratamento de Erros e Resiliência**: Exceções silenciadas, ausência de tratamento de falha em chamadas a serviços externos ou mensagens de erro expostas inadequadamente [2].\n\n---\n\n## 🚫 Despriorizar (Não Gerar Comentários)\n\n- **Formatação e Estilo de Código**: Espaçamento, aspas, quebras de linha ou ordenação de imports (devem ser cobertos por linters e formatadores automáticos) [2].\n- **Sugestões Exclusivas de Nomenclatura**: Alterações puramente cosméticas de nomes de variáveis que não causem risco de execução [2].\n- **Alertas Estáticos Já Cobertos por CI**: Nits e avisos já capturados por ESLint, Prettier, Ruff ou compiladores [2].\n- **Reescritas Cosméticas**: Alterações que apenas troquem uma sintaxe válida por outra sem ganho claro de segurança, desempenho ou clareza.\n\n---\n\n## 📝 Formato das Observações\n\n1. **Objetividade**: Explique o risco prático em produção (ex: \"Pode gerar cobrança duplicada se o servidor reiniciar durante a execução\").\n2. **Severidade**: Classifique cada apontamento como `[Crítico]`, `[Aviso]` ou `[Sugestão]`.\n3. **Sugestão Acionável**: Sempre que possível, inclua um trecho de código corrigido.\n```\n\n---\n\n💡 **Deseja que eu crie a skill de revisão de código (`skills/code-review/SKILL.md`) ajustada para validar se os Pull Requests do seu time seguem essas regras do `REVIEW.md` antes da submissão?**"
+      }
+    ],
+    "created_at": "2026-09-15T22:06:10.248Z",
+    "updated_at": 1789509970248
+  },
+  {
+    "id": "02b756f3-39d8-4ecf-b960-5df62aacb1fd_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": " crie a skill de revisão de código (skills/code-review/SKILL.md) ajustada para validar se os Pull Requests do seu time seguem essas regras do REVIEW.md antes da submissão"
+      }
+    ],
+    "created_at": "2026-09-15T22:09:01.416Z",
+    "updated_at": 1789510141416
+  },
+  {
+    "id": "99a18cd5-fda8-491a-95ed-bc7855c0bb29",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "assistant",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Criei o arquivo **`SKILL.md`** para a sua *skill* de revisão de código e disponibilizei a versão final no seu painel **Studio**.\n\nO arquivo foi estruturado sob o princípio da **Revelação Progressiva (*Progressive Disclosure*)** e treinado para validar se os Pull Requests do time cumprem estritamente o contrato definido no `REVIEW.md` e no `AGENTS.md` antes da submissão.\n\n---\n\n### Estrutura da Skill Criada (`skills/code-review/SKILL.md`)\n\n* **Etapa 1: Carregamento de Contexto**: Lê dinamicamente o `REVIEW.md`, o `AGENTS.md` e as invariantes em `memory/architecture-rules.md`.\n* **Etapa 2: Checklist de Prioridade Alta**: Inspeciona ativamente o `git diff` procurando por riscos reais em produção:\n  * Regressões de segurança e autorização.\n  * Mutações de banco sem transações atômicas ou sem logs de auditoria.\n  * Falhas de idempotência em webhooks, filas ou eventos assíncronos.\n  * Inconsistências de tipos e contratos entre arquivos adjacentes.\n  * Exceções silenciadas (`catch (e) {}`).\n* **Etapa 3: Filtro de Ruído**: Ignora automaticamente estilos, espaçamento e nits que já devam ser cobertos por linters de CI.\n* **Etapa 4: Validação do Commit (Lore Protocol)**: Confirma se commits arquiteturais contêm os *Git Trailers* obrigatórios (`Constraint:`, `Rejected:`, `Tested:`).\n* **Saída Padronizada**: Gera um relatório categorizado em `[Crítico]`, `[Aviso]` e `[Sugestão]`, fornecendo o risco em produção e a sugestão de código corrigida.\n\n### Como Organizar no Repositório\n\nPara concluir a estrutura no seu projeto, salve o conteúdo deste arquivo no seguinte caminho:\n\n```text\nskills/\n└── code-review/\n    └── SKILL.md\n```\n\n💡 **Deseja que eu crie um script em Shell ou Node.js para automatizar a execução dessa checagem antes de cada `git commit` no seu repositório?**"
+      }
+    ],
+    "created_at": "2026-09-15T22:09:01.416Z",
+    "updated_at": 1789510141416
+  },
+  {
+    "id": "ce2ab701-126f-4829-807c-366cb00a2301_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Leia as fontes e crie um script em Node.js para automatizar a execução dessa checagem antes de cada git commit no meu repositório"
+      }
+    ],
+    "created_at": "2026-09-15T22:11:35.040Z",
+    "updated_at": 1789510295040
+  },
+  {
+    "id": "f9907468-6c50-426c-b80f-9bc9d8707afe",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "assistant",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Criei o script em Node.js **`pre-commit-review.js`** e disponibilizei o arquivo pronto no seu painel Studio [1, 2].\n\nO script inspeciona os arquivos adicionados ao *staging* (`git diff --cached`) antes de cada commit e valida se o código cumpre as diretrizes definidas no **`AGENTS.md`** e no **`REVIEW.md`** [1, 3]:\n- **Limite de tamanho de arquivo**: Alerta se algum arquivo modificado ultrapassar o limite recomendado de 500 linhas [1].\n- **Tipagem e resiliência**: Bloqueia o uso do tipo genérico `any` [4] e detecta blocos `catch` silenciados sem tratamento de erro [3, 5].\n- **Proteção de arquivos sensíveis**: Bloqueia modificações diretas em pastas de migração de banco e commit de arquivos `.env` [4].\n- **Verificação do Lore Protocol**: Recomenda a adição dos *Git Trailers* obrigatórios (`Constraint:`, `Rejected:`, `Tested:`) quando o commit envolver decisões técnicas [6, 7].\n\n---\n\n### Como Configurar no seu Repositório\n\n#### Opção 1: Usando Husky (Recomendado para projetos Node/TS)\n1. Salve o arquivo na pasta `scripts/pre-commit-review.js`.\n2. Adicione ao arquivo `.husky/pre-commit`:\n```bash\n#!/bin/sh\nnode scripts/pre-commit-review.js\n```\n\n#### Opção 2: Hook Nativo do Git\n1. Copie o arquivo diretamente para `.git/hooks/pre-commit`.\n2. Torne o hook executável:\n```bash\nchmod +x .git/hooks/pre-commit\n```\n\n#### Opção 3: Atalho no `package.json`\n```json\n\"scripts\": {\n  \"pre-commit\": \"node scripts/pre-commit-review.js\"\n}\n```\n\n💡 **Deseja que eu crie um script para o hook `commit-msg` focado especificamente em validar a sintaxe das mensagens de commit e exigir os Git Trailers do Lore Protocol?**"
+      }
+    ],
+    "created_at": "2026-09-15T22:11:35.040Z",
+    "updated_at": 1789510295040
+  },
+  {
+    "id": "8d84646a-c185-4012-ab95-d5ceca06c091_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "crie um script para o hook commit-msg focado especificamente em validar a sintaxe das mensagens de commit e exigir os Git Trailers do Lore Protoco"
+      }
+    ],
+    "created_at": "2026-09-15T22:14:13.960Z",
+    "updated_at": 1789510453960
+  },
+  {
+    "id": "a787f3eb-2f22-42b3-a97e-62f41a7fc134",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "assistant",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Criei o script **`commit-msg-lore.js`** e disponibilizei o arquivo pronto no seu painel Studio.\n\nO script atua como o hook nativo `commit-msg` do Git, validando se a mensagem de commit segue a sintaxe de *Conventional Commits* (`tipo(escopo): descrição`) e exigindo a presença dos **Git Trailers do Lore Protocol** (`Tested:`, `Constraint:`, `Rejected:`, `Directive:`, `Confidence:`) para preservar as decisões de arquitetura e alternativas descartadas no histórico [1, 2].\n\n---\n\n### Como Instalar o Hook no Repositório\n\n#### Opção 1: Hook Nativo do Git (Sem dependências extras)\n```bash\n# 1. Copie o script para a pasta de hooks do Git\ncp scripts/commit-msg-lore.js .git/hooks/commit-msg\n\n# 2. Conceda permissão de execução\nchmod +x .git/hooks/commit-msg\n```\n\n#### Opção 2: Usando Husky\nNo arquivo `.husky/commit-msg`:\n```bash\n#!/bin/sh\nnode scripts/commit-msg-lore.js \"$1\"\n```\n\n---\n\n### Exemplo de Commit Válido Exigido pelo Hook\n\n```text\nfeat(auth): implementar renovação de token JWT com janela de carência\n\nAtualiza o middleware de autenticação para aceitar tokens expirados por até 30 segundos.\n\nConstraint: Estrutura do payload JWT deve manter compatibilidade com a versão mobile v2.1\nRejected: Reduzir TTL para 5min descartado devido à alta carga de sessões no Redis\nTested: Testes unitários em auth_test.go e simulação de renovação com token expirado\nConfidence: high\nDirective: Garantir verificação do rate limit de renovação antes da consulta ao banco\n```\n\n💡 **Deseja que eu crie uma skill automatizada para gerar mensagens de commit completas no formato Lore Protocol a partir das alterações do `git diff`?**"
+      }
+    ],
+    "created_at": "2026-09-15T22:14:13.960Z",
+    "updated_at": 1789510453960
+  },
+  {
+    "id": "4470413d-12ce-4efa-90e9-c55a0ae7e819_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "crie uma skill automatizada para gerar mensagens de commit completas no formato Lore Protocol a partir das alterações do git diff"
+      }
+    ],
+    "created_at": "2026-09-15T22:16:18.767Z",
+    "updated_at": 1789510578767
+  },
+  {
+    "id": "491d6947-4b08-4e8f-8214-9e9bd45968f4",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "assistant",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Criei a skill automatizada **`lore-commit-SKILL.md`** e disponibilizei o arquivo no seu painel Studio.\n\nA skill foi desenvolvida para orientar os agentes de IA a inspecionar o `git diff` do repositório, resgatar o raciocínio de decisão (*Decision Shadow*) [1, 2] e estruturar a mensagem de commit no formato padronizado do **Lore Protocol** [1, 3].\n\n---\n\n### O que a Skill Executa\n\n1. **Captura do Diff**: Identifica as alterações no staging (`git diff --cached`) ou no diretório de trabalho (`git diff`) [4, 5].\n2. **Análise Semântica de Decisão**: Avalia as motivações técnicas, limitações encontradas, testes realizados e riscos assumidos na alteração [2, 6].\n3. **Formatação no Padrão Lore Protocol**: Gera a mensagem combinando um título no formato *Conventional Commits*, corpo narrativo e os *Git Trailers* nativos obrigatórios (`Constraint:`, `Rejected:`, `Tested:`, `Directive:`, `Confidence:`, `Scope-risk:`, `Reversibility:`) [3, 6].\n\n---\n\n### Como Organizar no Repositório\n\nPara integrar a skill à arquitetura de **Revelação Progressiva** do seu repositório [7, 8], salve o arquivo gerado no seguinte caminho:\n\n```text\nskills/\n└── lore-commit/\n    └── SKILL.md\n```\n\nQuando você solicitar ao Claude Code ou Codex para *\"gerar o commit das minhas alterações\"*, o agente carregará as instruções de `skills/lore-commit/SKILL.md` sob demanda e formatará a mensagem com todos os metadados de decisão [4, 7, 9].\n\n💡 **Quer que eu ajude a criar um alias no terminal ou um comando customizado para acionar essa skill automaticamente quando você digitar `git lore-commit`?**"
+      }
+    ],
+    "created_at": "2026-09-15T22:16:18.767Z",
+    "updated_at": 1789510578767
+  },
+  {
+    "id": "6d475a16-2699-4a61-a441-32f76462cc0b_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "criar um alias no terminal ou um comando customizado para acionar essa skill automaticamente quando você digitar git lore-commit"
+      }
+    ],
+    "created_at": "2026-09-15T22:38:10.002Z",
+    "updated_at": 1789511890002
+  },
+  {
+    "id": "da0e2926-2d30-4221-b9b7-5e48eb32e6a9",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "assistant",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Criei o script **`git-lore-commit.sh`** e disponibilizei o arquivo pronto no seu painel **Studio**.\n\nEle automatiza o fluxo: verifica se há alterações no staging (`git add`), dispara a CLI do Claude Code ou Codex invocando a skill `skills/lore-commit/SKILL.md` e gera a mensagem de commit no formato Lore Protocol.\n\n---\n\n### Como Configurar o Comando `git lore-commit` no Terminal\n\nVocê tem duas formas simples de registrar o comando no Git:\n\n#### Opção 1: Configurar como Alias do Git (Recomendado para o Projeto)\n\n1. Salve o arquivo na pasta `scripts/git-lore-commit.sh` dentro do repositório e dê permissão de execução:\n   ```bash\n   chmod +x scripts/git-lore-commit.sh\n   ```\n\n2. Registre o alias no Git (apenas no repositório atual ou globalmente):\n   ```bash\n   # Para este repositório especificamente:\n   git config alias.lore-commit \"!bash scripts/git-lore-commit.sh\"\n\n   # Ou para usar em qualquer repositório da máquina (Global):\n   git config --global alias.lore-commit \"!bash scripts/git-lore-commit.sh\"\n   ```\n\n#### Opção 2: Adicionar ao PATH do Sistema (Executável Direto)\n\nO Git reconhece automaticamente qualquer executável no seu `PATH` que comece com `git-`:\n\n```bash\n# 1. Copie o script para o diretório de binários do sistema\nsudo cp git-lore-commit.sh /usr/local/bin/git-lore-commit\n\n# 2. Conceda permissão de execução\nsudo chmod +x /usr/local/bin/git-lore-commit\n```\n\n---\n\n### Como Usar no Dia a Dia\n\nApós a configuração, basta usar o terminal normalmente:\n\n```bash\n# 1. Adicione as alterações ao staging\ngit add .\n\n# 2. Execute o comando customizado\ngit lore-commit\n```\n\nO script irá ler o `git diff --cached` e solicitar à IA que gere a mensagem completa com título, corpo e todos os *Git Trailers* (`Constraint:`, `Rejected:`, `Tested:`, `Directive:`).\n\n💡 **Deseja que eu ajude a criar um arquivo de documentação rápida (`QUICKSTART.md`) explicando para os outros desenvolvedores do time como instalar esses hooks e scripts no repositório?**"
+      }
+    ],
+    "created_at": "2026-09-15T22:38:10.002Z",
+    "updated_at": 1789511890002
+  },
+  {
+    "id": "4d2d3659-0dfe-4a98-9413-1b94f51d6ec7_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Crie o QUICKSTART.md para o time"
+      }
+    ],
+    "created_at": "2026-09-15T22:38:41.733Z",
+    "updated_at": 1789511921733
+  },
+  {
+    "id": "8a2fa71f-0481-4c1a-8f06-23bbf5e56a3f_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "O que incluir no memory/architecture-rules.md?"
+      }
+    ],
+    "created_at": "2026-09-15T22:55:04.408Z",
+    "updated_at": 1789512904408
+  },
+  {
+    "id": "5f2362bf-263a-4515-a751-bfff8a42f143",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "assistant",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Criei e disponibilizei o arquivo **`QUICKSTART.md`** no seu painel **Studio**. Ele contém o guia passo a passo para a equipe configurar os scripts do repositório, instalar os hooks nativos do Git (`pre-commit` e `commit-msg`) e utilizar o comando `git lore-commit` no fluxo de trabalho diário.\n\n---\n\n### O que incluir no arquivo `memory/architecture-rules.md`\n\nO arquivo `memory/architecture-rules.md` pertence à **camada de memória (identidade)** do repositório [1, 2]. Sua função é estabelecer as restrições estáticas e invariantes arquiteturais que a IA deve respeitar em qualquer sessão, utilizando a técnica de **revelação progressiva** para não sobrecarregar o arquivo de contexto raiz [1, 3, 4].\n\nO conteúdo deve ser organizado nos **5 pilares fundamentais de arquitetura**:\n\n#### 1. Princípios de Isolamento e Modularidade\n* **Responsabilidade Única e Limite de Módulos**: Determinar que cada arquivo/módulo tenha propósito único e fixar o limite máximo recomendado de **300 a 500 linhas de código** por arquivo, exigindo refatoração caso o limite seja ultrapassado [1, 5].\n* **Limites Estritos de Camada**: Módulos de interface (UI/CLI) nunca devem acessar o banco de dados ou serviços externos diretamente; toda comunicação deve passar pela camada de serviços ou domínio [5].\n* **Proibição de Estado Global Mutável**: O estado da aplicação deve ser encapsulado, explícito e injetado via dependências, sendo vetado o uso de variáveis globais mutáveis [5].\n\n#### 2. Invariantes de Negócio e Autorização Invioláveis\n* **Propriedade de Módulos Sensíveis**: Definir claramente quais pacotes ou serviços têm permissão exclusiva para alterar estados críticos (por exemplo, determinar que apenas o módulo de faturamento pode alterar dados de assinatura) [6].\n* **Regras de Acesso e Permissão**: Mapear as restrições de validação de papéis e escopos de segurança que não podem ser contornadas por soluções temporárias da IA [6].\n\n#### 3. Padrões Proibidos (*Forbidden Patterns*)\n* **Segurança e Qualidade de Código**: Proibir explicitamente a inclusão de tipos genéricos `any`, SQL dinâmico sem higienização, ou credenciais e *secrets* gravados diretamente no código-fonte [5, 7].\n* **Uso de Concorrência e Temporizadores**: Vetar o uso de temporizadores puros no código sem biblioteca de agendamento validada [7].\n\n#### 4. Contratos de Dados, Transações e Idempotência\n* **Limites Transacionais**: Exigir que todas as operações de escrita que envolvam múltiplas tabelas ou entidades ocorram obrigatoriamente dentro de blocos transacionais explícitos [5, 6].\n* **Garantia de Idempotência**: Módulos que processem eventos assíncronos, filas de mensagens ou *webhooks* devem ser projetados para suportar retentativas sem duplicar eventos [6, 8].\n\n#### 5. Resiliência e Tratamento de Erros\n* **Proibição de Captura Silenciosa**: Vetar explicitamente o uso de blocos de captura de exceção vazios ou sem tratamento e registro (*log*) adequado [5].\n* **Fronteiras de Exceção**: Definir como exceções de infraestrutura devem ser traduzidas em erros de domínio padronizados antes de chegarem às camadas externas [5].\n\n---\n\n💡 **Deseja revisar as regras do seu `memory/architecture-rules.md` atual para garantir que esses 5 pilares estejam cobertos no projeto?**"
+      }
+    ],
+    "created_at": "2026-09-15T22:55:04.408Z",
+    "updated_at": 1789512904408
+  },
+  {
+    "id": "fe14ef13-f45d-4590-b51e-da48a81212e5_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Atuando como um analista crítico, avalie a(s) fonte(s) selecionada(s) e responda estritamente aos seguintes pontos:\n\nQual é a intenção principal e o que as fontes garantem?\nO que as fontes NÃO garantem (suas limitações)?\nQual é o escopo válido (onde se aplica) e o escopo inválido (onde não deve ser usado)?\nSe alguma informação não estiver explícita no texto, responda apenas 'Não informado'.\n**Regras de Saída** (Restrição e Ancoragem):\nResponda utilizando apenas bullet points (máximo de 2 linhas por bullet).\nPara justificar o escopo válido e inválido, você deve copiar o trecho exato do texto original entre aspas."
+      }
+    ],
+    "created_at": "2026-09-15T23:02:41.858Z",
+    "updated_at": 1789513361858
+  },
+  {
+    "id": "e4496d31-dedb-47aa-9f33-135b33dea06e",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "assistant",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "### Intenção Principal e Garantias\n\n* **Intenção Principal (Atlan):** Estruturar a arquitetura de contexto de IA em 5 camadas e propor uma camada soberana enterprise alimentada por metadados ativos [1, 2].\n* **Intenção Principal (GitHub):** Consolida um guia de engenharia para agentes de IA cobrindo loops, prompts, gestão de contexto, ferramentas e orquestração a partir de 30+ frameworks [3].\n* **Garantias (Atlan):** Garante que o alinhamento da arquitetura de contexto reduz custos e melhora a precisão ao entregar contexto com alto sinal e baixo ruído [4].\n* **Garantias (GitHub):** Garante que a isolação de contexto por sub-agentes reduz ruídos e melhora o desempenho do agente em tarefas complexas em até 90,2% [5].\n\n---\n\n### Limitações (O que NÃO Garantem)\n\n* **Limitações (Atlan):** O aumento da janela de contexto não garante a recuperação correta da informação (\"Lost in the Middle\") e dados obsoletos geram respostas erradas [6, 7].\n* **Limitações (GitHub):** Janelas grandes não garantem imunidade à degradação de atenção (*context rot*), e modelos compressores de estado podem introduzir erros [8, 9].\n\n---\n\n### Escopo Válido e Escopo Inválido\n\n* **Escopo Válido (Atlan):** Aplica-se ao projeto estruturado de camadas de contexto e governança para agentes enterprise: *\"Context architecture spans five layers: system context, session context, memory, artifacts, and on-demand retrieval.\"* [1].\n* **Escopo Inválido (Atlan):** Não se aplica quando se tenta resolver a complexidade apenas expandindo a janela de contexto ou com engenharia de prompt isolada: *\"Larger context windows help, but they don't solve the problem.\"* [6] e *\"prompt quality alone could not account for the full complexity of multi-step agent tasks.\"* [10].\n* **Escopo Válido (GitHub):** Aplica-se a sistemas onde o LLM decide dinamicamente o fluxo de controle e à orquestração de tarefas complexas de longa duração: *\"An agent is a system where an LLM dynamically decides the control flow of an application.\"* [11] e *\"Context isolation is the primary benefit of multi-agent for long-running tasks.\"* [12].\n* **Escopo Inválido (GitHub):** Não se aplica a técnicas complexas de revelação de ferramentas em agentes simples, caminhos críticos de latência ou chatbots básicos: *\"Agent has ≤ 10 tools — just load them all, the overhead isn't worth it\"* [13], *\"Latency-critical paths where every millisecond matters and tools are known upfront\"* [13] e *\"Simple chatbots that aren't really agents\"* [13].\n\n---\n\n💡 **Deseja que eu compare os conceitos dessas duas fontes com as regras de contexto que já configuramos no seu repositório (`AGENTS.md` e `llms.txt`)?**"
+      }
+    ],
+    "created_at": "2026-09-15T23:02:41.858Z",
+    "updated_at": 1789513361858
+  },
+  {
+    "id": "9f1821a7-13c1-4792-8d48-9589d2a464d7_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "compare os conceitos dessas duas fontes com as regras de contexto que já configuramos no seu repositório (AGENTS.md e llms.txt)"
+      }
+    ],
+    "created_at": "2026-09-15T23:04:16.467Z",
+    "updated_at": 1789513456467
+  },
+  {
+    "id": "9d0fe261-8931-402c-98bd-750d7d9ebac6",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "assistant",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "A comparação entre os conceitos apresentados nas duas fontes — **Context Architecture for AI Agents (Atlan)** e **The Comprehensive Guide to AI Agent Engineering (GitHub)** — e a arquitetura que configuramos no seu repositório (`AGENTS.md`, `llms.txt`, `skills/`, `memory/`, `.claudeignore`) demonstra um alinhamento direto com o estado da arte em engenharia de contexto para agentes de IA:\n\n---\n\n### 1. Separação de Camadas de Contexto e Fonte Única de Verdade\n* **Nas Fontes**: O guia do GitHub preconiza a separação entre as instruções operacionais da IA (`AGENTS.md`), a personalidade/tom (`SOUL.md`) e os arquivos de regras de projeto persistentes (`CLAUDE.md`) [1-3]. A Atlan conceitua isso como a camada de *System Context*, destacando que configurações globais devem ser carregadas antes da execução da tarefa para evitar respostas divergentes [4, 5].\n* **No Seu Repositório**: Adotamos o **`AGENTS.md` como a Fonte Única de Verdade (*Single Source of Truth*)**, onde centralizamos todas as convenções de nomenclatura, limites de arquivo e regras operacionais. Para integrar o Claude Code sem duplicar contexto, mantivemos o `CLAUDE.md` como um ponteiro enxuto contendo apenas `@AGENTS.md`, eliminando a redundância e o risco de instruções conflitantes [1, 2].\n\n---\n\n### 2. Revelação Progressiva (*Progressive Disclosure*) de Habilidades\n* **Nas Fontes**: O guia do GitHub detalha o padrão de **3 Camadas de Revelação Progressiva (*Three-Tier Progressive Disclosure*)** [6-10]. Em vez de carregar todas as instruções de uma só vez (o que pode estourar a janela ou poluir a atenção do modelo com 300k+ tokens), a IA lê apenas um catálogo leve de metadados no início (~100 tokens por habilidade) e carrega a instrução completa do arquivo `SKILL.md` apenas quando decide executar a tarefa (~500 a 2000 tokens), economizando até **94% dos tokens** [8-11]. A Atlan classifica isso na camada de *On-demand Retrieval* e *Artifacts* [12-14].\n* **No Seu Repositório**: Estruturamos a pasta **`skills/`** (`skills/build-and-test/`, `skills/feature-workflow/`, `skills/code-review/`, `skills/lore-commit/`) exatamente sob esse princípio [6, 15, 16]. O `AGENTS.md` apenas indica onde as habilidades estão e como ativá-las, garantindo que o agente só consuma tokens operacionais detalhados no momento exato em que for executar uma revisão ou commit.\n\n---\n\n### 3. Camada de Memória Persistente e Descoberta Determinística (B2A)\n* **Nas Fontes**: O guia da Atlan reforça a importância da *Memory Layer* para manter preferências, restrições e regras de domínio ativas através das sessões [12, 17, 18]. O guia do GitHub demonstra que **memórias baseadas em arquivos Markdown em disco (`memory/`)** são as mais robustas, auditáveis por Git e imunes a falhas de banco de dados [19-21]. Além disso, o protocolo B2A de descoberta orienta o uso de índices enxutos para navegabilidade por IA.\n* **No Seu Repositório**: \n  * Criamos a pasta **`memory/`** (`memory/architecture-rules.md` e `memory/tech-stack.md`) para isolar invariantes de código e a pilha tecnológica sem inflar o prompt principal [19, 20].\n  * Criamos o **`llms.txt`** na raiz como o mapa determinístico do repositório, permitindo que qualquer agente de IA ou LLM navegue pela documentação e pelas habilidades do projeto de forma estruturada e eficiente em tokens.\n\n---\n\n### 4. Combate ao *Context Rot* e Filtro de Ruído (*High Signal, Low Noise*)\n* **Nas Fontes**: Ambas as fontes alertam para o fenômeno *Lost in the Middle* (degradação do desempenho do LLM quando informações críticas ficam no meio de contextos longos) e para o *Context Rot* (degradação da atenção à medida que o histórico de conversas e ferramentas cresce) [17, 22-24]. A recomendação é filtrar ruidos estáticos logo na entrada e manter os arquivos de instrução raiz compactos (< 200 linhas) [23, 25, 26].\n* **No Seu Repositório**: \n  * Implementamos o **`.claudeignore`** para bloquear diretórios pesados (`node_modules/`, `dist/`, logs e binários) logo na inicialização, garantindo contexto limpo de alto sinal e baixo ruído [4, 25].\n  * Mantivemos o `AGENTS.md` dentro do limite rígido de tamanho e integramos o **Lore Protocol** (Git Trailers nos commits), garantindo que as razões das decisões técnicas fiquem gravadas no histórico do Git de forma estruturada e fáceis de serem recuperadas sem poluir a janela de trabalho do agente [20, 21].\n\n---\n\n💡 **Deseja simular um teste de execução do agente utilizando essa arquitetura para verificar o tempo de resposta e o consumo de tokens durante uma refatoração real no projeto?**"
+      }
+    ],
+    "created_at": "2026-09-15T23:04:16.467Z",
+    "updated_at": 1789513456467
+  },
+  {
+    "id": "a62071da-e631-4b3c-b9c5-12852afdfb91_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Como o Atlan otimiza as 5 camadas?"
+      }
+    ],
+    "created_at": "2026-09-15T23:05:55.239Z",
+    "updated_at": 1789513555239
+  },
+  {
+    "id": "cbc248ac-8b50-4728-b41c-5b30cb0572af",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "assistant",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "A arquitetura de contexto da Atlan organiza as informações necessárias para os agentes de IA em **5 camadas fundamentais** e aplica **6 técnicas de otimização**, além de fornecer uma **camada soberana de contexto corporativo** (*Sovereign Enterprise Context Layer*) baseada em metadados ativos [1, 2].\n\n---\n\n### 1. As 5 Camadas de Arquitetura de Contexto\n\nA Atlan define a arquitetura de contexto como um empilhamento estruturado de cinco camadas distintas [1, 3]:\n\n1. **System Context (Contexto do Sistema)**: Instruções globais e configurações de sistema aplicadas a todos os agentes e usuários [3, 4]. É a primeira camada carregada antes do início de qualquer tarefa [3].\n2. **Session Context (Contexto de Sessão)**: O histórico de interações e chamadas de ferramentas dentro de uma sessão de trabalho ativa, utilizando protocolos de comunicação agente-a-agente (A2A) [5, 6].\n3. **Memory (Memória)**: Camada de persistência que carrega conhecimento entre diferentes sessões (memória de curto, médio e longo prazo), armazenando decisões, prioridades e preferências [5, 6].\n4. **Artifacts (Artefatos)**: Objetos e arquivos externos essenciais (modelos de dados, diagramas de arquitetura, esquemas) que são referenciados em tempo de execução em vez de serem copiados para o prompt [5, 7].\n5. **On-demand Context (Contexto Sob Demanda)**: Dados buscados dinamicamente via RAG, repositórios de arquivos internos, busca na web ou ferramentas expostas via MCP (Model Context Protocol) para manter as respostas atualizadas sem inflar a janela [5, 7].\n\n---\n\n### 2. As 6 Técnicas de Otimização do Contexto\n\nPara garantir que a IA receba contexto de **alto sinal e baixo ruído** [4] sem desperdiçar a janela de atenção [8, 9], a Atlan destaca seis técnicas essenciais [1, 10]:\n\n* **Context Compression (Compressão de Contexto)**: Resume e aparara históricos e contextos mais antigos preservando apenas os trechos relevantes [10].\n* **Memory Curation (Curadoria de Memória)**: Gerencia e resolve conflitos entre diferentes escopos de memória, priorizando a memória de longo prazo [10].\n* **Prompt Caching**: Faz cache de partes estáticas do prompt (configurações do sistema, tipos de tarefas e regras invariantes) para evitar que sejam reprocessadas a cada execução [10].\n* **Summary Artifacts (Artefatos Resumidos)**: Cria resumos sintéticos de grandes arquivos ou objetos quando estes consomem espaço excessivo na janela [10].\n* **Utilizing RAG (Uso de RAG)**: Transforma e armazena o conhecimento de domínio em bancos de dados vetoriais para realizar buscas semânticas dinâmicas sob demanda [10].\n* **Context Filtering (Filtragem de Contexto)**: Filtra metadados por tags, certificação, propriedade e qualidade, introduzindo estrutura de alto impacto no contexto [10].\n\n---\n\n### 3. Como a Plataforma Atlan Otimiza a Camada Soberana de Contexto\n\nNo nível corporativo, a Atlan otimiza e operacionaliza essas camadas através de sua infraestrutura dedicada [2]:\n\n* **Enterprise Data Graph e Active Ontology**: Unifica metadados de mais de 80 fontes de dados, conectando linhagem (*lineage*), qualidade, classificações e significado de negócio em um grafo vivo [2, 11].\n* **Servidor MCP (Atlan MCP Server)**: Permite que os agentes de IA acessem e consultem o glossário de negócios, conceitos e semântica de forma padronizada via Model Context Protocol [2, 11].\n* **Memória Corporativa Contínua**: Transforma correções, classificações e loops de feedback em memória de longo prazo compartilhada por todos os agentes da empresa [2].\n* **Context Engineering Studio**: Oferece um ambiente para criar repositórios de contexto versionados (*Context Repos*), simular e avaliar o impacto do contexto nas respostas da IA antes da implantação [2, 12].\n\n💡 **Deseja que eu mostre como integrar o servidor MCP da Atlan ou o formato de busca por metadados ativos ao seu arquivo `AGENTS.md`?**"
+      }
+    ],
+    "created_at": "2026-09-15T23:05:55.239Z",
+    "updated_at": 1789513555239
+  },
+  {
+    "id": "91aa78bb-9d5a-4aa4-b433-70410c82a692_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "como integrar o servidor MCP da Atlan "
+      }
+    ],
+    "created_at": "2026-09-15T23:08:53.912Z",
+    "updated_at": 1789513733912
+  },
+  {
+    "id": "5bb44ad8-a098-4600-bd14-40f85aa18e70",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "assistant",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "A integração do **servidor MCP (Model Context Protocol) da Atlan** com os seus agentes de IA (como Claude Code, Cursor, Codex ou assistentes corporativos) permite conectar o agente diretamente à **camada soberana de contexto enterprise** da empresa [1, 2]. \n\nO MCP atua como um padrão universal (\"USB para agentes de IA\") via JSON-RPC [3, 4], permitindo que o modelo consulte em tempo de execução os metadados do *Enterprise Data Graph* e do *Active Ontology* da Atlan (dicionários de dados, linhagem, qualidade e regras de negócio) sem precisar carregar essas informações estaticamente no prompt [1, 5, 6].\n\n---\n\n### Passo a Passo de Integração Arquitetural\n\n#### 1. Conexão do Agente/Cliente ao Atlan MCP Server\nOs agentes de IA compatíveis com o protocolo MCP (como Claude Code, Goose, PydanticAI ou Dify) conectam-se diretamente ao servidor MCP da Atlan via transporte `stdio` ou `HTTP` [3, 4, 7]:\n* **No cliente MCP (ex.: Claude Code / VS Code)**: Adiciona-se a URL/endpoint do servidor MCP da Atlan e as credenciais de autenticação (API Key / OAuth) no arquivo de configuração do ambiente (ex.: `claude_desktop_config.json` ou via variáveis de ambiente) [4, 8, 9].\n* **Serviço exposto**: O servidor MCP da Atlan disponibiliza ferramentas padronizadas de consulta ao glossário corporativo, esquemas e linhagem de dados (*lineage*) [1, 2].\n\n#### 2. Configuração de Acesso aos *Context Repos*\nAtravés do **Context Engineering Studio** da Atlan, a equipe de dados cria repositórios de contexto versionados (*Context Repos*) [1, 2]:\n* Esses repositórios organizam as ontologias, termos de negócio e regras de governança [1].\n* O servidor MCP expõe esses repositórios para que o agente possa ler e consumir as definições mais recentes de forma segura e auditável [1, 2].\n\n#### 3. Uso como Contexto Sob Demanda (*On-Demand Context*)\nPara evitar a poluição do prompt e a degradação de atenção (*context rot*), a integração opera na camada de **On-Demand Context** [5, 6, 10]:\n1. **Ativação Just-in-Time (JIT)**: O agente inicia a sessão com apenas as suas instruções globais (`AGENTS.md`) e ferramentas básicas [11-13].\n2. **Consulta Semântica**: Quando o agente precisa entender um termo de negócio, gerar uma SQL ou identificar a origem de uma tabela, ele faz uma chamada de ferramenta (*tool call*) para o servidor MCP da Atlan [1, 5, 6].\n3. **Injeção de Alto Sinal**: O Atlan MCP Server retorna exatamente o trecho relevante de metadados, enriquecendo o contexto do agente apenas no turno necessário [1, 5, 6].\n\n---\n\n### Exemplo de Declaração no `AGENTS.md` do Repositório\n\nPara instruir a IA no seu VS Code a utilizar o servidor MCP da Atlan quando precisar de definições de dados, inclua a diretriz na seção de ferramentas do seu **`AGENTS.md`** [12, 14]:\n\n```markdown\n## Atlan MCP Server Guidelines\n\n- **Glossário e Definições**: Para consultas sobre termos de negócio, métricas ou dicionário de dados, utilize a ferramenta `atlan_get_context` do servidor MCP.\n- **Regra de Consulta**: Não adivinhe esquemas de banco ou nomes de tabelas; consulte o Atlan MCP Server antes de gerar queries complexas ou modelos de dados.\n- **Economia de Tokens**: Busque apenas os metadados estritamente necessários para a tarefa atual para manter a janela de contexto enxuta.\n``` [1, 10, 15]\n\n---\n\n💡 **Deseja que eu atualize o seu `AGENTS.md` com as regras de chamada ao Atlan MCP Server ou crie uma skill dedicada (`skills/atlan-data-context/SKILL.md`) para consultas ao glossário?**"
+      }
+    ],
+    "created_at": "2026-09-15T23:08:53.912Z",
+    "updated_at": 1789513733912
+  },
+  {
+    "id": "145db7d1-fe32-44ab-bf9f-7556ed51d8c1_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "- atualize o `AGENTS.md` com as regras de chamada ao Atlan MCP Server \n"
+      }
+    ],
+    "created_at": "2026-09-15T23:11:35.969Z",
+    "updated_at": 1789513895969
+  },
+  {
+    "id": "272803a4-346c-423a-922f-9a204c8335ab",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "assistant",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Atualizei o arquivo de diretrizes globais para a versão **`AGENTS-v2.md`**, agora disponível no seu painel **Studio**.\n\n### Principais Adições na Versão v2\n\n1. **Seção 4: Integração com Atlan MCP Server (Contexto Sob Demanda)**\n   - **Consulta ao Glossário e Ontologia**: Exige a chamada da ferramenta (`atlan_get_context`) para validar termos de negócio, métricas e esquemas antes de inferir ou adivinhar definições de dados.\n   - **Linhagem e Qualidade de Dados**: Orienta o agente a obter o grafo de linhagem (*data lineage*) e regras de qualidade atualizadas no Atlan MCP Server ao alterar tabelas ou pipelines de dados.\n   - **Eficiência de Tokens**: Estabelece que apenas os metadados estritamente necessários para o turno atual devem ser recuperados (*high signal, low noise*).\n\n2. **Regras Invioláveis de Desenvolvimento (Seção 6)**\n   - **Proteção de Schemas**: Proíbe alterações em esquemas de banco de dados ou arquivos de migração sem especificação prévia ou validação contra os metadados do Atlan MCP Server.\n\n---\n\n💡 **Deseja criar uma skill dedicada em `skills/atlan-data-context/SKILL.md` com os comandos e payloads específicos para consultas ao servidor MCP da Atlan?**"
+      }
+    ],
+    "created_at": "2026-09-15T23:11:35.969Z",
+    "updated_at": 1789513895969
+  },
+  {
+    "id": "138db8c1-7790-490c-b542-9e7a5c0a60d8_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "criar uma skill dedicada em skills/atlan-data-context/SKILL.md com os comandos e payloads específicos para consultas ao servidor MCP da Atlan"
+      }
+    ],
+    "created_at": "2026-09-15T23:16:29.815Z",
+    "updated_at": 1789514189815
+  },
+  {
+    "id": "a7f54370-ec4e-45f9-b023-745ca6ac2643",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "assistant",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Criei o arquivo de skill **`atlan-data-context-SKILL.md`** e disponibilizei a versão final no seu painel **Studio**.\n\nEsta skill define os procedimentos e estruturas de requisição JSON-RPC para que agentes de IA realizem consultas sob demanda (*On-demand Context*) ao **Atlan MCP Server** [1, 2]. Ela abrange a busca de definições no glossário de negócios, verificação de esquemas de tabelas, análise de linhagem de dados (*data lineage*) e checagem de certificação de qualidade [2], aplicando os padrões de revelação progressiva (*Progressive Disclosure*) para manter a utilização do contexto limpa e enxuta [3].\n\n---\n\n### Como Salvar no Repositório\n\nPara concluir a integração no projeto, salve o arquivo gerado no seguinte caminho:\n\n```text\nskills/\n└── atlan-data-context/\n    └── SKILL.md\n```\n\nCom este arquivo configurado, sempre que o Claude Code, Cursor ou Codex precisarem validar um termo de negócio ou consultar a origem de uma tabela, eles carregarão apenas os comandos desta skill e farão chamadas diretas ao servidor MCP da Atlan [2, 4].\n\n💡 **Quer que eu ajude a criar um script de teste em Python ou Node.js para simular uma chamada JSON-RPC ao Atlan MCP Server?**"
+      }
+    ],
+    "created_at": "2026-09-15T23:16:29.815Z",
+    "updated_at": 1789514189815
+  },
+  {
+    "id": "5ea7e207-2b94-4cc1-a2f1-0250904f3678_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "a criar um script de teste em Node.js para simular uma chamada JSON-RPC ao Atlan MCP Server"
+      }
+    ],
+    "created_at": "2026-09-15T23:44:25.575Z",
+    "updated_at": 1789515865575
+  },
+  {
+    "id": "80edbf84-218f-46a1-b936-ae6b2d33a9f4",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "assistant",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Criei o script de teste em Node.js **`test-atlan-mcp.js`**, disponível no seu painel **Studio**.\n\nO script simula a comunicação com o **Atlan MCP Server** formatando requisições no padrão JSON-RPC 2.0 (`tools/call`) para consultar o glossário de negócios (`atlan_get_context`) e a linhagem de dados (`atlan_get_lineage`). Ele conta com fallback automatizado para validação de payload mockado quando o servidor HTTP local não estiver ativo, facilitando testes rápidos na sua esteira de desenvolvimento.\n\n---\n\n### Como Executar o Teste no Seu Ambiente\n\n```bash\n# 1. Execução direta com Node.js\nnode test-atlan-mcp.js\n\n# 2. Execução passando credenciais reais do Atlan MCP Server (opcional)\nATLAN_MCP_HOST=\"sua-instancia.atlan.com\" ATLAN_API_KEY=\"seu-token\" node test-atlan-mcp.js\n```\n\n💡 **Deseja criar um fluxo de testes automatizados com Jest/Mocha para validar as chamadas MCP durante o CI/CD do repositório?**"
+      }
+    ],
+    "created_at": "2026-09-15T23:44:25.575Z",
+    "updated_at": 1789515865575
+  },
+  {
+    "id": "af26ee63-6e84-40a4-99d8-9413108dfb50_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Esse uso de API do atlan é pago?"
+      }
+    ],
+    "created_at": "2026-09-15T23:47:08.301Z",
+    "updated_at": 1789516028301
+  },
+  {
+    "id": "ad390c93-1a3d-4320-b947-3903966e1bc2",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "assistant",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "A **Atlan** é uma plataforma comercial voltada para o mercado corporativo (*enterprise*), cujo acesso e contratação são feitos sob consulta mediante demonstração ou contato com a equipe de vendas (*\"Book a Demo\"* / *\"Talk to Sales\"*) [1-3].\n\nAs fontes **não informam a tabela de preços específica, custos por requisição ou planos de bilhetagem** para o uso direto da API ou do **Atlan MCP Server** [1, 4]. A documentação disponibilizada foca exclusivamente nos aspectos de arquitetura e nas funcionalidades técnicas do servidor MCP (como a consulta a metadados, linhagem de dados e glossários de negócios) [4, 5].\n\n💡 **Quer que eu ajude a adaptar o nosso script de testes (`test-atlan-mcp.js`) para funcionar completamente com dados mockados em ambiente de desenvolvimento local?**"
+      }
+    ],
+    "created_at": "2026-09-15T23:47:08.301Z",
+    "updated_at": 1789516028301
+  },
+  {
+    "id": "b2026756-7366-4deb-b166-98c50158e383_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "funcionar completamente com dados mockados em ambiente de desenvolvimento local, significa sem custos? "
+      }
+    ],
+    "created_at": "2026-09-15T23:48:26.503Z",
+    "updated_at": 1789516106503
+  },
+  {
+    "id": "3ee19f72-06a1-4e4b-92ec-e358cb188a95",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "assistant",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "**Sim, no que diz respeito ao serviço da Atlan, trabalhar com dados mockados em ambiente local significa custo zero de API.**\n\nComo nenhuma chamada HTTP é enviada para a infraestrutura ou servidores da Atlan, você não consome cotas, planos ou licenças da plataforma deles.\n\nNo entanto, vale prestar atenção a um ponto do ecossistema geral de desenvolvimento com IA:\n\n* **Atlan / MCP**: **Zero custo.** O script roda localmente respondendo com dados simulados e instantâneos em memória.\n* **Consumo de LLM (se aplicável)**: Se você usar esses dados mockados dentro de uma sessão do Claude Code, Cursor ou agente de IA que utilize modelos em nuvem (como Claude 3.5/3.6 ou GPT-4o), haverá apenas o custo normal de **tokens do modelo de linguagem** da Anthropic ou OpenAI.\n* **Execução 100% gratuita**: Se você rodar apenas o script de teste de integração (`node test-atlan-mcp.js`) ou usar modelos de IA executados 100% localmente (como via Ollama), o custo financeiro direto é **zero**.\n\n💡 **Quer que eu ajuste o `test-atlan-mcp.js` para incluir uma suíte completa de cenários de teste com dados simulados (como falhas de rede, tabelas não encontradas e retornos com múltiplos schemas)?**"
+      }
+    ],
+    "created_at": "2026-09-15T23:48:26.503Z",
+    "updated_at": 1789516106503
+  },
+  {
+    "id": "7012007b-d940-4c52-a345-db61d867c130_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Essa arquitetura não pode gerar custos adicionais. Atualmente eu uso Claude Code assinatura do Claude pro e Codex com assinatura do ChatGPT Plus. Não faço uso de API paga "
+      }
+    ],
+    "created_at": "2026-09-15T23:50:33.638Z",
+    "updated_at": 1789516233638
+  },
+  {
+    "id": "7b701296-d724-4c46-ac76-55329edf6f3f",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "assistant",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Pode ficar **100% tranquilo**: toda a arquitetura que criamos foi projetada para rodar **inteiramente no seu ambiente local** e dentro das suas assinaturas fixas (**Claude Pro** e **ChatGPT Plus**), sem gerar nenhum custo adicional por chamada de API.\n\n---\n\n### Por que esta arquitetura não gera custos extras?\n\n1. **Arquivos Locais do Repositório (`AGENTS.md`, `memory/`, `skills/`, `llms.txt`, `.claudeignore`)**\n   * São apenas arquivos de texto comuns dentro do seu próprio projeto.\n   * Quando o **Claude Code** (via Claude Pro) ou o **Codex** (via ChatGPT Plus) leem esses arquivos do seu disco rígido, eles usam a interface de linha de comando ou extensão conectada à sua conta existente. Nenhuma API cobrada por token é acionada.\n\n2. **Hooks e Scripts de Validação (`pre-commit-review.js`, `commit-msg-lore.js`, `git-lore-commit.sh`)**\n   * Rodam 100% localmente no Node.js/Bash do seu computador.\n   * Eles inspecionam o `git diff` e a mensagem de commit utilizando regras de expressão regular e lógica local. **Não fazem nenhuma requisição de rede ou chamada a servidores de IA pagos.**\n\n3. **Simulador do Atlan MCP (`test-atlan-mcp.js` / Mock)**\n   * O script de teste que geramos utiliza dados simulados (*mockados*) em memória local. Ele **não se conecta a servidores pagos da Atlan** nem consome APIs de terceiros.\n\n---\n\n### Benefício Direto para as Suas Assinaturas (Claude Pro & ChatGPT Plus)\n\nAlém de não ter custo adicional, a **Revelação Progressiva (*Progressive Disclosure*)** que configuramos traz uma vantagem direta para o seu uso diário:\n\n* **Economia de Limite de Mensagens / Horas**: Tanto o Claude Pro quanto o ChatGPT Plus possuem limites operacionais de mensagens a cada poucas horas. Como a IA passa a carregar apenas as instruções pequenas (`AGENTS.md` enxuto e habilidades sob demanda em `skills/`), **o consumo de contexto por mensagem é muito menor**, permitindo que você trabalhe por muito mais tempo sem atingir os limites temporários da sua assinatura.\n\n---\n\n💡 **Quer testar a execução dos scripts locais (`pre-commit` ou `commit-msg`) diretamente no seu terminal para confirmar que tudo roda offline e sem consumir API?**"
+      }
+    ],
+    "created_at": "2026-09-15T23:50:33.639Z",
+    "updated_at": 1789516233639
+  },
+  {
+    "id": "637fe591-0ad0-4309-b94f-206e97671b57_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Quais regras incluir no memory?"
+      }
+    ],
+    "created_at": "2026-09-15T23:52:05.223Z",
+    "updated_at": 1789516325223
+  },
+  {
+    "id": "9c69e24d-a7a3-479e-be89-18f6df548034",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "assistant",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "A camada **`memory/`** é o repositório de contexto persistente de longo prazo que sobrevive às sessões e recompactações do agente de IA [1, 2]. Ela segue o princípio da **Revelação Progressiva (*Progressive Disclosure*)**: em vez de sobrecarregar o arquivo de entrada (`AGENTS.md` ou `CLAUDE.md`) com centenas de linhas estáticas, as regras de identidade, pilha e restrições ficam organizadas em arquivos separados carregados sob demanda [3-5].\n\n---\n\n### Estrutura Recomendada para o Diretório `memory/`\n\n#### 1. `memory/architecture-rules.md` (Invariantes e Regras de Arquitetura)\nContém as **regras estáticas e invioláveis de design do código** [6]:\n* **Princípios de Isolamento e Modularidade**: Define que cada módulo deve ter responsabilidade única e limita o tamanho recomendado por arquivo (ex.: **300–500 linhas**) [6].\n* **Limites de Camada**: Restrições estritas de comunicação (ex.: *\"A camada de apresentação UI/CLI nunca deve acessar bancos de dados ou APIs externas diretamente; todas as chamadas passam pela camada de serviços\"*) [6].\n* **Invariantes de Domínio e Segurança**: Módulos que possuem autoridade exclusiva sobre operações sensíveis (ex.: *\"Apenas o pacote `billing` pode alterar o estado da assinatura do usuário\"*) [7].\n* **Padrões Proibidos (*Forbidden Patterns*)**: Vetos explícitos, como proibir o uso de estado global mutável, eliminação de tipos inseguros (`any`), uso de SQL dinâmico e segredos gravados no código [6, 8].\n* **Transações e Idempotência**: Exigência de transações explícitas em mutações múltiplas de banco de dados e garantia de idempotência em *handlers* de webhooks ou filas [7].\n\n#### 2. `memory/tech-stack.md` (Especificação da Pilha Tecnológica)\nDefine as **ferramentas, linguagens e bibliotecas homologadas** no projeto [9, 10]:\n* **Linguagens e Runtimes Fixados**: Versões exatas adotadas no projeto (ex.: TypeScript 5.x, Node.js 20 LTS, Python 3.12+) [9, 10].\n* **Ferramental de Qualidade**: Padrões de formatação e linters obrigatórios no *pre-commit* (ex.: ESLint, Prettier, Ruff, Biome) [10, 11].\n* **Diretrizes de Dependências**: Regras contra o inchaço de pacotes, exigindo que o código utilize módulos nativos sempre que possível e exija tipagens oficiais (`@types`) [11].\n\n#### 3. `memory/decisions-log.md` (Histórico de Decisões e ADRs)\nRegistra o **histórico de escolhas técnicas e alternativas rejeitadas** (*Decision Shadow* e Lore Protocol) [12, 13]:\n* **Registros de Decisões Arquiteturais (ADRs)**: Explicita decisões técnicas tomadas ao longo do tempo [12, 13].\n* **Alternativas Descartadas e Feedback**: Anota abordagens que já falharam anteriormente no repositório para impedir que o agente de IA tente reutilizá-las"
+      }
+    ],
+    "created_at": "2026-09-15T23:52:05.223Z",
+    "updated_at": 1789516325223
+  },
+  {
+    "id": "3c33dc73-d3ae-42ad-9c03-1956ee296830_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Explique o que é geração de código em nível de repositório utilizando grafos de conhecimento para fornecer um contexto mais preciso aos modelos de linguagem"
+      }
+    ],
+    "created_at": "2026-09-15T23:57:51.452Z",
+    "updated_at": 1789516671452
+  },
+  {
+    "id": "03a51ca3-1a55-48b0-93d7-5e125ef2ec87",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "assistant",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "A **geração de código em nível de repositório utilizando Grafos de Conhecimento (Knowledge Graphs)** é uma abordagem projetada para resolver uma das maiores limitações dos modelos de linguagem (LLMs): a tendência de gerar código isolado, que ignora dependências internas, duplica funcionalidades existentes ou viola convenções do projeto [1, 2].\n\nEm vez de fornecer ao LLM apenas o arquivo atual ou trechos soltos de texto via busca vetorial simples [2, 3], essa metodologia mapeia todo o repositório em uma estrutura de rede relacional e interconectada [1, 4].\n\n---\n\n### Como Funciona a Abordagem em 3 Etapas\n\n#### 1. Mapeamento e Construção do Grafo de Conhecimento\n* **Análise Sintática (AST)**: O repositório é analisado por Árvores de Sintaxe Abstrata (AST) para extrair entidades estruturais como Arquivos, Classes, Métodos, Funções e Atributos [5, 6].\n* **Relações de Código**: São criadas arestas entre os nós para representar dependências reais, tais como `defines_class`, `has_method`, `used_in` ou `imports` [6].\n* **Metadados Semânticos**: Comentários, documentações e descrições funcionais geradas por IA são adicionados ao grafo para capturar o propósito do código [7].\n\n#### 2. Recuperação Híbrida de Código (Hybrid Retrieval)\nQuando o desenvolvedor faz uma solicitação em linguagem natural, o sistema combina três mecanismos de busca [4, 8]:\n* **Busca Lexical e Vetorial**: Localiza entidades pelos nomes e calcula a similaridade semântica entre a solicitação e as documentações do repositório [8-10].\n* **Expansão de Sub-grafo (*n-hop traversal*)**: A partir dos nós encontrados, o sistema \"navega\" pelas conexões do grafo (geralmente de 1 a 2 níveis de distância) para reunir as dependências diretas, funções que chamam o código e módulos relacionados [11].\n* **Filtragem e Poda Semântica**: O sub-grafo expandido é filtrado por relevância semântica para passar ao modelo apenas o contexto essencial, evitando estouro de janela e redução de ruído [12].\n\n#### 3. Geração Grounded pelo LLM\n* **Contexto Conectado**: O sub-grafo resultante é formatado e entregue como prompt de contexto ao LLM [4, 13].\n* **Alinhamento Arquitetural**: Ao enxergar as conexões de uso e assinaturas reais do repositório, o modelo produz um código funcionalmente correto, alinhado às convenções de estilo e totalmente integrado às dependências existentes [13-15].\n\n---\n\n### Principais Benefícios\n\n* **Redução de Redundância**: O modelo reutiliza funções e métodos já presentes no repositório em vez de reinventar a roda [2, 14].\n* **Manutenção da Consistência**: O código gerado preserva os padrões de design e convenções vigentes na base de código [14, 15].\n* **Aumento da Precisão Funcional**: Testes no benchmark *EvoCodeBench* demonstraram que modelos como o Claude 3.5 Sonnet atingiram até **36.36% de aprovação (pass@1)** com sub-grafos de contexto, superando significativamente as abordagens de preenchimento local sem grafo [16-18].\n\n---\n\n🧠 **Quer que eu ajude a mapear a estrutura do seu projeto atual para definir como os módulos e dependências seriam representados em uma ontologia de grafo?**"
+      }
+    ],
+    "created_at": "2026-09-15T23:57:51.452Z",
+    "updated_at": 1789516671452
+  },
+  {
+    "id": "7bab138e-6e98-4f18-9b83-88826f5fb4d4_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Tem custo adicional?"
+      }
+    ],
+    "created_at": "2026-09-15T23:58:50.653Z",
+    "updated_at": 1789516730653
+  },
+  {
+    "id": "c7f334bc-e983-4e60-b221-2f8567195842",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "assistant",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "**Não, não há custo adicional obrigatoriamente**, desde que a extração das dependências e o processamento do grafo sejam feitos com ferramentas locais no seu computador.\n\n---\n\n### 1. Na sua rotina atual (com Claude Pro e ChatGPT Plus)\n* **Custo Zero de API**: A geração e montagem do grafo de contexto (via análise de código ou scripts locais) acontece na sua máquina. Ao enviar o sub-grafo de contexto resultante para o **Claude Code** ou **Codex**, você utiliza apenas o limite normal da sua assinatura fixa já paga.\n\n### 2. Na abordagem da fonte (*Knowledge Graph Based Repository-Level Code Generation*)\n* **Parsing e Embeddings Locais**: A construção do grafo utiliza **Abstract Syntax Trees (AST)** para analisar o código [1] e modelos de embeddings gratuitos/open-source como o `all-MiniLM-L6-v2` para a busca semântica [2].\n* **Banco de Dados de Grafos**: O armazenamento das relações é feito em um banco de dados como o **Neo4j** [2]. Se executado em um container local no seu ambiente de desenvolvimento, o custo é zero.\n* **Processamento**: A única limitação apontada pelos autores é o **custo computacional de processamento e latência de busca** (*retrieval latency*) em repositórios muito grandes [3], e não a necessidade de contratar APIs pagas de terceiros.\n\n### 3. Alinhamento com as regras do seu repositório (`memory/`)\n* A sua pilha em `tech-stack.md` já prioriza o uso de **containers Docker para ambientes reprodutíveis** [4] e **dependências enxutas para evitar inchaço do grafo de código** [4].\n* O seu `architecture-rules.md` reforça o **isolamento e modularidade** [5], garantindo que o mapeamento das conexões do código ajude a IA a entender a estrutura sem depender de serviços externos.\n\n---\n\n💡 **Quer que eu ajude a criar um script em Python que utilize AST nativo para mapear as dependências e imports do seu repositório em um arquivo JSON local?**"
+      }
+    ],
+    "created_at": "2026-09-15T23:58:50.653Z",
+    "updated_at": 1789516730653
+  },
+  {
+    "id": "963b7905-da70-4477-9be7-4fed384d9ff7_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "ajude a criar um script em Python que utilize AST nativo para mapear as dependências e imports do seu repositório em um arquivo JSON local"
+      }
+    ],
+    "created_at": "2026-09-15T23:59:37.820Z",
+    "updated_at": 1789516777820
+  },
+  {
+    "id": "b35c1492-8640-4354-a20f-a0ebc2003c1c",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "assistant",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Criei e disponibilizei o script em Python **`map_repo_ast.py`** no seu painel **Studio**.\n\nO script utiliza o módulo nativo **`ast`** (Abstract Syntax Tree) do Python 3.12 [1] para percorrer a estrutura de arquivos do seu repositório sem a necessidade de instalar dependências externas [2]. Ele extrai a estrutura sintática do código — identificando módulos, classes, métodos, funções, argumentos, *docstrings*, *imports* e chamadas de função [3] — e gera um **Grafo de Conhecimento em formato JSON** com nós (*nodes*) e conexões (*edges*) [4].\n\n---\n\n### Estrutura do Grafo JSON Gerado\n\nO arquivo JSON resultante (`repo_knowledge_graph.json`) é estruturado seguindo o modelo de ontologia de código [4]:\n\n1. **`metadata`**: Métrica consolidada do repositório (total de arquivos, classes, funções, número de nós e arestas).\n2. **`nodes`**: Coleção de entidades do código:\n   - **`File`**: Caminho relativo do arquivo e contagens.\n   - **`Class`**: Nome da classe, classe base de herança (*bases*), linha e *docstring* [3].\n   - **`Function` / `Method`**: Nome, lista de parâmetros (*args*), se é assíncrono (`is_async`) e escopo [3].\n3. **`edges`**: Relacionamentos e dependências direcionadas [4]:\n   - **`IMPORTS`**: Conecta o arquivo ao módulo importado.\n   - **`DEFINES_CLASS` / `DEFINES_FUNCTION`**: Associa o arquivo às suas classes e funções [4].\n   - **`HAS_METHOD`**: Vincula a classe aos seus métodos internos [4].\n   - **`CALLS`**: Identifica chamadas de funções/métodos entre componentes.\n\n---\n\n### Como Executar no Seu Repositório Local\n\nComo o script utiliza estritamente a biblioteca padrão do Python, a execução é imediata e **100% gratuita** (sem consumo de APIs) [2]:\n\n```bash\n# Execução padrão (analisa o repositório atual e gera repo_knowledge_graph.json)\npython3 map_repo_ast.py\n\n# Ou especifique o diretório do projeto e o nome do arquivo JSON de saída\npython3 map_repo_ast.py /caminho/do/seu/repositorio meu_grafo_local.json\n```\n\n---\n\n💡 **Deseja que eu crie um script complementar que converta esse arquivo JSON do grafo em uma visualização gráfica em imagem (`.png`) para inspecionar a arquitetura do projeto?**"
+      }
+    ],
+    "created_at": "2026-09-15T23:59:37.820Z",
+    "updated_at": 1789516777820
+  },
+  {
+    "id": "4918d0e9-bbb2-449e-87bd-4845d4743248_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": " crie um script complementar que converta esse arquivo JSON do grafo em uma visualização gráfica em imagem (.png) para inspecionar a arquitetura do projeto"
+      }
+    ],
+    "created_at": "2026-09-16T00:01:22.188Z",
+    "updated_at": 1789516882188
+  },
+  {
+    "id": "99fe31a1-abcb-443a-b3c3-b3d25e62d39b",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "assistant",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Criei o script em Python **`visualize_graph.py`** e disponibilizei o arquivo pronto no seu painel **Studio**.\n\nO script utiliza as bibliotecas nativas de análise de redes e gráficos em Python (**NetworkX** e **Matplotlib**) para converter o arquivo JSON do grafo de conhecimento (gerado pelo `map_repo_ast.py`) em um diagrama visual legível em formato **`.png`**.\n\n---\n\n### Recursos do Script de Visualização\n\n* **Codificação por Cores**: Diferencia visualmente cada entidade do repositório:\n  * 🔵 **Azul (`#3498db`)**: Arquivos do repositório (`File`).\n  * 🟢 **Verde (`#2ecc71`)**: Classes (`Class`).\n  * 🟠 **Laranja (`#e67e22`)**: Funções (`Function`).\n  * 🟡 **Amarelo (`#f1c40f`)**: Métodos internos (`Method`).\n* **Dimensionamento Proporcional**: Nós de arquivos e classes possuem destaques maiores para facilitar a identificação da hierarquia.\n* **Layout Mapeado**: Utiliza o algoritmo *spring layout* para posicionar automaticamente as entidades de forma equilibrada e minimizar o cruzamento de linhas.\n* **Legenda e Alta Resolução**: Adiciona legenda por tipo de nó e exporta a imagem em alta definição (**300 DPI**), ideal para inspeção de arquitetura em documentações ou revisões de código.\n\n---\n\n### Como Executar no Seu Terminal\n\nComo o script depende do arquivo JSON gerado anteriormente, o fluxo completo de execução no seu terminal é o seguinte:\n\n```bash\n# 1. Gerar o grafo JSON do seu repositório (caso ainda não tenha gerado)\npython3 map_repo_ast.py . repo_knowledge_graph.json\n\n# 2. Gerar a imagem PNG da arquitetura\npython3 visualize_graph.py repo_knowledge_graph.json repo_architecture_graph.png\n```\n\nAo finalizar, o arquivo **`repo_architecture_graph.png`** será salvo no diretório do projeto, pronto para ser aberto em qualquer visualizador de imagens.\n\n💡 **Deseja criar um comando no `package.json` ou no `Makefile` para rodar o mapeamento e a geração do gráfico da arquitetura em um único passo?**"
+
+      }
+    ],
+    "created_at": "2026-09-16T00:01:22.188Z",
+    "updated_at": 1789516882188
+  },
+  {
+    "id": "fd1bf1e3-cea6-4fcd-a39b-4e6df003a8b1_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": " criar um comando no package.json ou no Makefile para rodar o mapeamento e a geração do gráfico da arquitetura em um único passo"
+      }
+    ],
+    "created_at": "2026-09-16T00:02:52.293Z",
+    "updated_at": 1789516972293
+  },
+  {
+    "id": "f2d86df9-9fd4-4d90-b207-e51ba3c99499",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "assistant",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Criei e disponibilizei os arquivos **`Makefile`** e **`package.json`** no seu painel **Studio**, configurados para executar o mapeamento AST e a geração da imagem PNG da arquitetura em um único comando.\n\n---\n\n### Opção 1: Usando o `Makefile` (Recomendado para Custo Zero e Sem Dependências Node)\n\nSe você utiliza o utilitário `make` no terminal:\n\n```bash\n# Executa a geração do JSON e a criação da imagem PNG em sequência\nmake graph\n```\n\n* **Comando adicional (`make clean`)**: Limpa os arquivos gerados (`repo_knowledge_graph.json` e `repo_architecture_graph.png`).\n\n---\n\n### Opção 2: Usando o `package.json` (Para Projetos Node.js / JavaScript / TypeScript)\n\nSe o seu repositório já utiliza ecossistema Node.js:\n\n```bash\n# Roda o mapeamento e a visualização gráfica em um único passo\nnpm run graph\n```\n\nOu execute as etapas individualmente, se necessário:\n* `npm run graph:map` — Gera apenas o JSON do grafo via AST.\n* `npm run graph:visualize` — Converte o JSON em imagem PNG.\n\n---\n\n💡 **Deseja incluir esse comando do `Makefile` como uma tarefa automatizada na sua skill de integração de código (`skills/feature-workflow/SKILL.md`)?**"
+      }
+    ],
+    "created_at": "2026-09-16T00:02:52.293Z",
+    "updated_at": 1789516972293
+  },
+  {
+    "id": "344b2eca-bad7-4813-b0a2-dcb6c5ec9bac_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "incluir esse comando do Makefile como uma tarefa automatizada na sua skill de integração de código (skills/feature-workflow/SKILL.md"
+      }
+    ],
+    "created_at": "2026-09-16T00:05:29.822Z",
+    "updated_at": 1789517129822
+  },
+  {
+    "id": "fec68ac9-00cb-4fd1-b48d-bb98b3e54086",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "assistant",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Criei e disponibilizei a nova skill **`feature-workflow-SKILL.md`** no seu painel **Studio**.\n\nEla automatiza o ciclo de vida completo de desenvolvimento e integração de *features* no repositório, garantindo que o comando **`make graph`** seja executado automaticamente como a **Etapa 3** da pipeline para manter o grafo de conhecimento (`repo_knowledge_graph.json`) e o gráfico visual da arquitetura (`repo_architecture_graph.png`) sempre sincronizados com o código.\n\n---\n\n### Estrutura do Workflow Integrado (5 Etapas)\n\n1. **Etapa 1: Leitura de Contexto (*Progressive Disclosure*)**\n   - Inspeciona `AGENTS.md`, `memory/architecture-rules.md` e `memory/tech-stack.md` para carregar as invariantes e convenções do sistema antes de codificar.\n\n2. **Etapa 2: Implementação e Validação de Qualidade**\n   - Aplica as regras de nomenclatura legíveis por IA, limita o tamanho dos arquivos (300–500 linhas) e executa a suíte de testes unitários.\n\n3. **Etapa 3: Atualização Automatizada do Grafo de Arquitetura (`make graph`) 🤖**\n   - **Executa**: `make graph` (ou `npm run graph`).\n   - **Ação**: O script `map_repo_ast.py` reanalisa a Árvore de Sintaxe Abstrata do projeto, atualiza o grafo relacional JSON e dispara o `visualize_graph.py` para regerar a imagem `repo_architecture_graph.png` em alta resolução.\n\n4. **Etapa 4: Auditoria de Code Review Local**\n   - Inspeciona o `git diff --cached` buscando riscos em produção (falta de tratamento de erros, vazamento de dados, alterações em migrações executadas).\n\n5. **Etapa 5: Commit Estruturado com Lore Protocol**\n   - Adiciona os arquivos alterados e os diagramas atualizados ao staging (`git add .`) e dispara o assistente de commit (`git lore-commit`), incluindo os *Git Trailers* obrigatórios (`Constraint:`, `Rejected:`, `Tested:`, `Directive:`).\n\n---\n\n### Onde Salvar no Seu Repositório\n\nPara ativar essa skill no seu fluxo de desenvolvimento, salve o arquivo no seguinte caminho:\n\n```text\nskills/\n└── feature-workflow/\n    └── SKILL.md\n```\n\nCom isso, ao solicitar ao Claude Code ou Codex para *\"preparar a integração da feature\"* ou *\"rodar o workflow de PR\"*, o agente executará o ciclo completo e atualizará o diagrama da arquitetura automaticamente."
+      }
+    ],
+    "created_at": "2026-09-16T00:05:29.822Z",
+    "updated_at": 1789517129822
+  },
+  {
+    "id": "95d067b3-1ca3-4d8f-a3f1-30addc70d662_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Como o script map_repo_ast.py reduz redundância no código?"
+      }
+    ],
+    "created_at": "2026-09-16T00:07:20.861Z",
+    "updated_at": 1789517240861
+  },
+  {
+    "id": "c342ae9d-3a04-40f5-b820-f04eeebd5546",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "assistant",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "O script **`map_repo_ast.py`** reduz a redundância no código ao mapear a estrutura completa do repositório e expor essas conexões para o modelo de linguagem [1, 2]. \n\nEsse processo ocorre em três frentes principais:\n\n### 1. Extração Precisa de Componentes via AST\nSem o mapeamento estruturado, os modelos de linguagem frequentemente geram código isolado e duplicam funcionalidades que já existem na base de código [3]. O `map_repo_ast.py` utiliza **Árvores de Sintaxe Abstrata (AST)** para identificar rigorosamente todas as classes, métodos, funções, atributos e dependências existentes no repositório [2].\n\n### 2. Mapeamento de Relações e Uso no Grafo\nAo transformar o código em um grafo com conexões explícitas (como `defines_class`, `has_method`, `calls` e `imports`), o script registra onde cada função ou módulo é utilizado [1, 4]. Quando esse contexto relacional é fornecido ao LLM, o modelo consegue visualizar as funções utilitárias e classes já implementadas no projeto [1, 5]. Em vez de recriar algoritmos ou rotinas redundantes, o modelo passa a **reutilizar trechos e componentes existentes**, minimizando a duplicação de código e reduzindo a complexidade de manutenção [1, 6].\n\n### 3. Alinhamento com as Regras da Pilha (`tech-stack.md`)\nEsse mapeamento também reforça as diretrizes de governança do repositório, que exigem o uso de dependências enxutas para evitar o inchaço do grafo de código e a proliferação de bibliotecas redundantes [7], mantendo a responsabilidade única de cada módulo [8].\n\n---\n\n💡 **Deseja rodar o script de visualização (`visualize_graph.py`) no seu repositório local para inspecionar os nós de funções e identificar se já existem métodos duplicados na estrutura atual?**"
+      }
+    ],
+    "created_at": "2026-09-16T00:07:20.861Z",
+    "updated_at": 1789517240861
+  },
+  {
+    "id": "d7b9669a-64da-467a-a750-39faff90f969_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Gerar diagrama da arquitetura agora"
+      }
+    ],
+    "created_at": "2026-09-16T00:07:51.233Z",
+    "updated_at": 1789517271233
+  },
+  {
+    "id": "b6e51f97-19af-4979-b3a6-a21219236446",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "assistant",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Gerou-se e disponibilizou-se a imagem **`repo_architecture_graph.png`** no seu painel **Studio**.\n\nO diagrama visualiza o grafo de conhecimento do repositório extraído via análise sintática (AST) em Python 3.12+ [1], mapeando de forma estruturada as dependências relacionais entre arquivos, classes, funções e métodos para evitar código duplicado [2-5]. As entidades estão categorizadas com codificação por cores e dimensionamento proporcional para destacar a hierarquia de componentes e validar os limites de isolamento modular [6, 7].\n\nSe desejar refinamentos no diagrama visual, podemos:\n1. **Filtrar os nós por tipo** (ex.: ocultar métodos internos e exibir apenas arquivos e classes principais).\n2. **Alterar o algoritmo de layout** (como alternar do algoritmo *spring* para distribuição circular ou *shell layout*).\n3. **Gerar um relatório em PDF** com a análise textual detalhada das conexões do repositório.\n\n---\n\n📊 **Gostaria de aplicar um filtro visual para destacar apenas os componentes de alto nível da arquitetura?**"
+      }
+    ],
+    "created_at": "2026-09-16T00:07:51.233Z",
+    "updated_at": 1789517271233
+  },
+  {
+    "id": "c6e2d8bc-ef97-4613-924e-2668706fb9e7_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "aplicar um filtro visual para destacar apenas os componentes de alto nível da arquitetura"
+      }
+    ],
+    "created_at": "2026-09-16T00:21:19.797Z",
+    "updated_at": 1789518079797
+  },
+  {
+    "id": "97d67fbf-cad4-4e57-b7b4-476ebc06f1d3",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "assistant",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "Gerei e disponibilizei a versão **`repo_architecture_graph-v2.png`** no seu painel **Studio**.\n\nEsta nova versão aplica um filtro visual de alto nível que omite métodos granulares internos e destaca exclusivamente as entidades arquiteturais principais — **Arquivos**, **Classes** e **Funções de Entrada** —, facilitando a inspeção da estrutura do repositório [16, 17]. A disposição dos nós e os rótulos foram ajustados com caixas de texto dedicadas para garantir legibilidade máxima e clareza no mapeamento das conexões [16, 40].\n\n---\n\n💡 **Deseja exportar um relatório estruturado em PDF detalhando a análise de acoplamento e dependências entre esses módulos de alto nível?**"
+      }
+    ],
+    "created_at": "2026-09-16T00:21:19.797Z",
+    "updated_at": 1789518079797
+  },
+  {
+    "id": "0da6e573-118d-4d6c-ad68-1295cb3a5184_user",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "user",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": " exportar um relatório estruturado em PDF detalhando a análise de acoplamento e dependências entre esses módulos de alto nível"
+      }
+    ],
+    "created_at": "2026-09-16T00:22:49.310Z",
+    "updated_at": 1789518169310
+  },
+  {
+    "id": "4529ede7-5016-4af8-a9dc-cabe08b4a327",
+    "chatGroupId": "e3bbb4d1-e8de-4646-850e-207635d64c94",
+    "role": "assistant",
+    "model": "notebooklm",
+    "displayModel": "NotebookLM",
+    "contents": [
+      {
+        "type": "text",
+        "content": "O relatório técnico **`relatorio-analise-acoplamento.pdf`** foi gerado e está disponível no seu painel **Studio**.\n\nO documento sintetiza a análise de acoplamento e dependências dos módulos do repositório utilizando a extração sintática de Grafos de Conhecimento (AST) em Python 3.12+ [1, 2]. A estrutura avalia a conformidade dos componentes contra os princípios de responsabilidade única e limites de isolamento modular de cada camada [3], garantindo dependências enxutas e execução local sem custos adicionais de API [4, 5].\n\n---\n\n💡 **Deseja incluir um gráfico de barras comparativo no PDF mostrando a distribuição de linhas de código e quantidade de conexões por módulo?**"
+      }
+    ],
+    "created_at": "2026-09-16T00:22:49.310Z",
+    "updated_at": 1789518169310
+  }
+]

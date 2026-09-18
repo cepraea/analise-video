@@ -1,0 +1,76 @@
+# Skill: Workflow de Integração de Código e Desenvolvimento de Features
+
+> **Objetivo**: Padronizar o ciclo de vida completo de desenvolvimento e integração de novas funcionalidades (*features*) no repositório, desde o planejamento até a atualização automatizada do grafo de arquitetura (`make graph`) e geração do commit estruturado no Lore Protocol.
+
+---
+
+## 📋 Fluxo de Execução Passo a Passo
+
+Quando esta *skill* for acionada (ex.: `@agent feature-workflow`, `integrar feature`, `preparar pr` ou ao finalizar a implementação de um novo módulo), execute estritamente as 5 etapas abaixo:
+
+---
+
+### Etapa 1: Preparação e Leitura de Contexto (*Progressive Disclosure*)
+1. Inspecione as diretrizes globais em `AGENTS.md`.
+2. Carregue as invariantes do sistema em `memory/architecture-rules.md` e a pilha homologada em `memory/tech-stack.md`.
+3. Verifique o estado atual das alterações usando `git status` e `git diff`.
+
+---
+
+### Etapa 2: Implementação e Validação de Qualidade
+1. Certifique-se de que o código segue as convenções de nomenclatura legíveis por IA (`lowercase-kebab-case`, prefixos `async_`, `query_`, `handle_`).
+2. Mantenha os módulos dentro do limite de **300 a 500 linhas** de código.
+3. Execute a suíte de testes unitários e linters cadastrados no projeto (`npm test` / `pytest` / `make test`).
+
+---
+
+### Etapa 3: Mapeamento e Atualização Automatizada do Grafo de Arquitetura (`make graph`) 🤖 [ETAPA AUTOMATIZADA]
+
+Após concluir as alterações no código e garantir que os testes passaram:
+
+1. **Executar a Regeneração do Grafo**:
+   ```bash
+   make graph
+   ```
+   *(Ou `npm run graph` se estiver em ambiente Node.js)*.
+
+2. **O que esta etapa executa automaticamente**:
+   - **Mapeamento AST (`map_repo_ast.py`)**: Reanalisa a Árvore de Sintaxe Abstrata de todo o repositório e atualiza o arquivo `repo_knowledge_graph.json` com os novos módulos, classes, métodos e conexões.
+   - **Geração do Diagrama de Arquitetura (`visualize_graph.py`)**: Converte o JSON atualizado na imagem visual de alta resolução `repo_architecture_graph.png`.
+
+3. **Verificação de Mudanças**:
+   - Verifique se os arquivos `repo_knowledge_graph.json` e `repo_architecture_graph.png` foram atualizados com sucesso no staging do Git.
+
+---
+
+### Etapa 4: Auditoria de Code Review Local
+1. Inspecione o `git diff --cached` buscando por riscos de produção (segurança, falta de transações em mutações, funções sem tratamento de erro).
+2. Valide se nenhuma migration executada em produção foi alterada e se nenhum secret foi gravado no código.
+
+---
+
+### Etapa 5: Commit Estruturado com Lore Protocol
+1. Adicione as alterações e os artefatos de arquitetura gerados ao staging:
+   ```bash
+   git add . repo_knowledge_graph.json repo_architecture_graph.png
+   ```
+2. Execute o assistente automatizado de commit:
+   ```bash
+   bash scripts/git-lore-commit.sh
+   # Ou via alias do Git: git lore-commit
+   ```
+3. Certifique-se de que a mensagem do commit contenha os Git Trailers nativos obrigatórios:
+   - `Constraint:` (restrição técnica que motivou a implementação)
+   - `Rejected:` (alternativa considerada e descartada)
+   - `Tested:` (testes e verificações efetuadas)
+   - `Directive:` (instrução para o próximo agente que mexer no módulo)
+
+---
+
+## 💡 Resumo dos Comandos Automatizados do Workflow
+
+| Comando | Função no Workflow |
+| :--- | :--- |
+| `make graph` | Atualiza o grafo JSON AST e regera o gráfico PNG da arquitetura em 1 passo |
+| `git lore-commit` | Dispara a IA para gerar a mensagem de commit padronizada no Lore Protocol |
+| `make clean` | Limpa os artefatos temporários de build e diagramas |

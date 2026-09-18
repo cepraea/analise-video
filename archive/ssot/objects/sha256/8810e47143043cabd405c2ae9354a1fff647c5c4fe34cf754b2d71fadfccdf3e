@@ -1,0 +1,144 @@
+/**
+ * test-atlan-mcp.js
+ * Script de teste em Node.js para simular chamadas JSON-RPC ao Atlan MCP Server.
+ * 
+ * Este script demonstra a estrutura de comunicação via protocolo MCP (Model Context Protocol)
+ * enviando uma requisição JSON-RPC 2.0 para a ferramenta `atlan_get_context`.
+ */
+
+const http = require('http');
+
+// Configurações do servidor Atlan MCP (ajuste conforme seu ambiente)
+const ATLAN_MCP_HOST = process.env.ATLAN_MCP_HOST || 'localhost';
+const ATLAN_MCP_PORT = process.env.ATLAN_MCP_PORT || 8080;
+const ATLAN_API_KEY = process.env.ATLAN_API_KEY || 'mock-api-key-12345';
+
+/**
+ * Monta o payload JSON-RPC 2.0 padronizado do MCP
+ */
+function createMcpRequest(id, toolName, args) {
+  return JSON.stringify({
+    jsonrpc: '2.0',
+    id: id,
+    method: 'tools/call',
+    params: {
+      name: toolName,
+      arguments: args
+    }
+  });
+}
+
+/**
+ * Simula a chamada ao Atlan MCP Server via HTTP/JSON-RPC
+ */
+function callAtlanMcpServer(toolName, args) {
+  return new Promise((resolve, reject) => {
+    const payload = createMcpRequest(Date.now(), toolName, args);
+
+    console.log('----------------------------------------------------');
+    console.log(`[MCP CLIENT] Enviando requisição para a ferramenta: ${toolName}`);
+    console.log('[MCP PAYLOAD]:', payload);
+    console.log('----------------------------------------------------');
+
+    const options = {
+      hostname: ATLAN_MCP_HOST,
+      port: ATLAN_MCP_PORT,
+      path: '/mcp',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${ATLAN_API_KEY}`,
+        'Content-Length': Buffer.byteLength(payload)
+      },
+      timeout: 3000
+    };
+
+    const req = http.request(options, (res) => {
+      let data = '';
+      res.on('data', (chunk) => { data += chunk; });
+      res.on('end', () => {
+        try {
+          const response = JSON.parse(data);
+          resolve(response);
+        } catch (err) {
+          resolve({ error: 'Falha ao parsear resposta', raw: data });
+        }
+      });
+    });
+
+    req.on('error', (error) => {
+      // Caso o servidor real não esteja rodando localmente no momento do teste,
+      // retorna um mock de resposta JSON-RPC bem-sucedida para validação de formato.
+      console.log('ℹ️  Servidor HTTP local não detectado. Exibindo resposta simulada de sucesso:\n');
+      resolve(getMockMcpResponse(toolName, args));
+    });
+
+    req.on('timeout', () => {
+      req.destroy();
+      console.log('ℹ️  Timeout ao conectar. Exibindo resposta simulada de sucesso:\n');
+      resolve(getMockMcpResponse(toolName, args));
+    });
+
+    req.write(payload);
+    req.end();
+  });
+}
+
+/**
+ * Resposta simulada (Mock) em conformidade com o protocolo MCP
+ */
+function getMockMcpResponse(toolName, args) {
+  return {
+    jsonrpc: '2.0',
+    id: 1,
+    result: {
+      content: [
+        {
+          type: 'text',
+          text: JSON.stringify({
+            status: 'success',
+            tool_executed: toolName,
+            query: args.query,
+            entity: {
+              qualified_name: `default/snowflake/${args.query || 'active_users'}`,
+              type: args.asset_type || 'glossary_term',
+              description: 'Métrica consolidada de usuários ativos mensais (MAU) calculada a partir de acessos verificados.',
+              owner: 'data-eng-team',
+              quality_score: 98.5,
+              certified: true,
+              lineage: {
+                upstream_tables: ['raw_events.user_logins', 'dimensions.users'],
+                downstream_dashboards: ['Executive_KPI_Board']
+              }
+            }
+          }, null, 2)
+        }
+      ]
+    }
+  };
+}
+
+// Execução da simulação
+async function runTest() {
+  console.log('🚀 Iniciando teste de integração JSON-RPC com Atlan MCP Server...\n');
+
+  // Teste 1: Consulta de Termo no Glossário de Negócios
+  const glossaryResult = await callAtlanMcpServer('atlan_get_context', {
+    query: 'active_users',
+    asset_type: 'glossary_term'
+  });
+  console.log('[MCP RESPONSE - GLOSSÁRIO]:\n', JSON.stringify(glossaryResult, null, 2));
+
+  console.log('\n====================================================\n');
+
+  // Teste 2: Consulta de Linhagem de Dados (Lineage)
+  const lineageResult = await callAtlanMcpServer('atlan_get_lineage', {
+    qualified_name: 'default/snowflake/raw_events/user_logins',
+    depth: 2
+  });
+  console.log('[MCP RESPONSE - LINHAGEM]:\n', JSON.stringify(lineageResult, null, 2));
+
+  console.log('\n✅ Teste de payload JSON-RPC concluído com sucesso.');
+}
+
+runTest();

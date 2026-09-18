@@ -1,0 +1,4 @@
+# Dependências do Mapeador de Grafo e Gerador de Diagramas de Arquitetura
+networkx>=3.0
+matplotlib>=3.8
+reportlab>=4.0

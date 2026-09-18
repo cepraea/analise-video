@@ -1,0 +1,51 @@
+# AGENTS.md — Diretrizes de Engenharia de Contexto para Agentes de IA
+
+## 1. Visão Geral e Papel do Agente
+
+Este repositório utiliza uma arquitetura de **Contexto Mínimo Eficiente**. Agentes de IA (Claude Code, Codex, Cursor) devem atuar estritamente dentro dos limites definidos neste arquivo e adotar revelação progressiva (*progressive disclosure*) para carregar arquivos secundários apenas quando necessário.
+
+## 2. Regras de Nomenclatura Legíveis por IA (AI-Readable Naming Rules)
+
+- **Nomes Intencionais em Linguagem Natural**: Variáveis, funções, arquivos e classes devem descrever claramente sua função sem depender exclusivamente de comentários.
+- **Formatação de Arquivos e Pastas**: Utilize `lowercase-kebab-case` para diretórios e arquivos (ex.: `user-authentication/token-verifier.ts`). Proibido usar nomes genéricos como `utils.ts`, `helpers.py` ou `common.js`.
+- **Prefixos Funcionais Obrigatórios**:
+  - Operações assíncronas: `async_` ou sufixo `Async` (ex.: `async_fetch_user_profile`).
+  - Consultas a banco de dados: `query_` ou `find_` (ex.: `query_active_subscriptions`).
+  - Manipulação de eventos e mutações: `handle_` e `mutate_`.
+
+## 3. Arquitetura de Diretórios e Revelação Progressiva
+
+- **`CLAUDE.md`**: Deve conter apenas o ponteiro `@AGENTS.md` (máximo 2 linhas).
+- **`memory/`**: Diretório reservado para regras de arquitetura (`architecture-rules.md`), especificações técnicas (`tech-stack.md`) e registro de decisões (`decisions-log.md`).
+- **`skills/`**: Diretório reservado para instruções de execução procedimentais (compilação, testes, workflow de PRs). Carregue apenas a skill relevante para a tarefa atual.
+
+## 4. Integração com Atlan MCP Server (Contexto Sob Demanda)
+
+- **Consulta ao Glossário e Ontologia**: Antes de inferir schemas de dados, termos de negócio ou métricas corporativas, consulte o Atlan MCP Server via chamada de ferramenta (`atlan_get_context`).
+- **Consulta de Linhagem e Qualidade**: Para validação de fluxos de dados ou dependências entre tabelas, utilize o Atlan MCP Server para obter o grafo de linhagem (*data lineage*) e regras de qualidade atualizadas.
+- **Eficiência de Tokens**: Obtenha apenas os metadados estritamente necessários para o turno de execução atual, mantendo o contexto enxuto (*high signal, low noise*).
+
+## 5. Gestão de Contexto e Limites de Tokens
+
+- **Ignorar Artefatos Irrelevantes**: O agente não deve ler diretórios compilados, logs ou arquivos binários bloqueados no `.claudeignore`.
+- **Pesquisa Direcionada**: Utilize ferramentas léxicas e filtradas (`ripgrep`) antes de carregar arquivos inteiros no contexto.
+- **Tamanho Máximo de Arquivos**: Módulos de código não devem exceder 500 linhas. Refatore se necessário.
+- **Preservação Exata (*Verbatim*)**: Em resumos de contexto ou compactação, preserve exata e byte-a-byte os caminhos de arquivos, nomes de funções e mensagens de erro.
+
+## 6. Regras Invioláveis de Desenvolvimento
+
+1. Nunca altere schemas de banco de dados ou migrations sem especificação explícita ou consulta prévia ao Atlan MCP Server.
+2. Não utilize tipos genéricos inseguros (como `any` em TypeScript).
+3. Todos os testes unitários e linter devem passar com zero erros antes de solicitar revisão.
+4. Se o limite de contexto estiver próximo, externalize o estado atual em `STATE.md` antes de prosseguir.
+
+## 7. Versionamento de Decisões com Lore Git Trailers
+
+Todo commit gerado pela IA deve conter Git Trailers nativos no final da mensagem:
+
+```text
+Constraint: [Restrição técnica ou de regra de negócio]
+Rejected: [Alternativa considerada e descartada com o motivo]
+Tested: [Lista de testes ou verificações efetuadas]
+Directive: [Instrução explícita para o próximo agente que editar o código]
+```

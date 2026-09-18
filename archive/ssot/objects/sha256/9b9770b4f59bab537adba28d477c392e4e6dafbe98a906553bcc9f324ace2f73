@@ -1,0 +1,66 @@
+# Índice dos Rascunhos de Arquitetura
+
+## Status
+
+Todo o conteúdo desta árvore é `DRAFT` e não possui autoridade sobre os arquivos versionados do repositório.
+
+O ponto de entrada para a elaboração da arquitetura é [PLANO-MESTRE.md](./plano/PLANO-MESTRE.md).
+
+## Objetivo
+
+Organizar duas iniciativas relacionadas, mas distintas:
+
+1. construir a arquitetura híbrida de documentação e SSOT que permita especificar e desenvolver o sistema completo;
+2. implantar contexto mínimo suficiente para Codex e Claude Code sem criar dependências, automações ou consumo desnecessário.
+
+## Organização desta árvore
+
+```text
+.local/drafts/arquitetura/
+├── README.md
+├── auditoria/
+│   └── notebooklm-contexto.md
+├── plano/
+│   ├── PLANO-MESTRE.md
+│   ├── 01-governanca-e-decisoes.md
+│   ├── 02-migracao-ssot.md
+│   ├── 03-contexto-minimo.md
+│   ├── 04-rastreabilidade-e-validacao.md
+│   └── 05-cutover-e-operacao.md
+├── contexto/                  # propostas e protótipos do NotebookLM
+└── hibrida/                   # corpus de migração e plano monolítico preservado
+```
+
+## Regra de leitura
+
+- Para executar a migração, começar pelo plano-mestre e abrir somente o subplano do gate atual.
+- Para auditar uma recomendação do NotebookLM, consultar a auditoria e depois o artefato original correspondente.
+- Não carregar `contexto/historico/*.json`, PDFs, imagens ou o plano monolítico no contexto normal de desenvolvimento.
+- Não tratar scripts, diagramas, relatórios ou skills desta árvore como componentes instalados.
+- Não editar fontes originais para fazê-las concordar com uma decisão posterior.
+
+## Inventário resumido
+
+Na leitura de 2026-09-16, a árvore contém 34 artefatos e aproximadamente 17 MiB.
+
+| Grupo | Natureza | Tratamento |
+| --- | --- | --- |
+| `contexto/*.md`, `*.txt` | Propostas geradas pelo NotebookLM | Auditar afirmação por afirmação |
+| `contexto/*.{py,js,sh}` | Protótipos locais | Testar antes de reaproveitar |
+| `contexto/*.png`, `*.pdf` | Derivados demonstrativos | Não usar como fonte de arquitetura |
+| `contexto/historico/*.json` | Histórico de elaboração | Preservar como proveniência |
+| `hibrida/*.md` | Fontes e sínteses de migração | Classificar conforme o registro de fontes |
+| PDF de regras IHF | Fonte normativa externa | Preservar e mapear, não reescrever |
+| `hibrida/historico/*` | Histórico anterior | Preservar sem autoridade automática |
+
+## Condição para promoção
+
+Uma proposta desta árvore só pode entrar na SSOT quando possuir:
+
+- finalidade comprovada para o projeto;
+- autoridade competente;
+- decisão registrada;
+- destino canônico definido;
+- impacto e dependências conhecidos;
+- validação proporcional ao risco;
+- ausência de conflito com ADR, requisitos e ferramentas vigentes.

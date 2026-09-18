@@ -1,0 +1,31 @@
+# Memory: Tech Stack & System Specifications
+
+> **PROPÓSITO**: Especificar as linguagens, frameworks, versões e ferramentas homologadas para garantir alinhamento estrito nas sugestões e gerações de código por IA.
+
+---
+
+## 1. Core Stack (Linguagens e Runtimes)
+* **Linguagem Principal**: TypeScript 5.x / Python 3.12+ (Adaptar conforme projeto)
+* **Runtime**: Node.js 20 LTS / Bun / Python Virtualenv
+* **Padrão de Módulos**: ESM (ECMAScript Modules) native (`import/export`)
+
+---
+
+## 2. Frameworks & Bibliotecas Aprovadas
+* **Framework Web / API**: Fastify / Express / FastAPI (Conforme escopo do projeto)
+* **Acesso a Dados / ORM**: Prisma / Drizzle / SQLAlchemy
+* **Validação de Schemas**: Zod / Pydantic (Obrigatório em todas as fronteiras de dados)
+* **Testes**: Vitest / Jest / PyTest (Assertividade e execução veloz de suítes)
+
+---
+
+## 3. Ferramental de Qualidade e Compilação
+* **Linter & Formatter**: Biome / ESLint + Prettier / Ruff (Regras rígidas e automáticas no pre-commit)
+* **Gerenciador de Pacotes**: `pnpm` (Prefixo de execução limpa e rápida)
+* **Containerização**: Docker / Docker Compose (Para ambientes reprodutíveis de teste e dev)
+
+---
+
+## 4. Diretrizes de Ingestão de Contexto
+* **Dependências Enxutas**: Antes de adicionar uma nova dependência externa, valide se a funcionalidade não pode ser implementada com o código utilitário nativo para evitar inchaço do grafo de código.
+* **Tipos Externos**: Toda biblioteca externa deve possuir definições de tipos oficiais (`@types/` ou tipagem nativa).

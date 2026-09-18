@@ -1,0 +1,65 @@
+# QUICKSTART: AI-Native Context & Lore Protocol Framework
+
+Guia rápido para desenvolvedores da equipe configurarem e utilizarem o ecossistema de Contexto Mínimo Eficiente e o **Lore Protocol** no repositório.
+
+---
+
+## 🛠️ 1. Instalação Automática dos Hooks e Scripts
+
+Execute os passos abaixo na raiz do repositório para ativar a verificação de código e as mensagens de commit estruturadas:
+
+```bash
+# 1. Torne os scripts executáveis
+chmod +x scripts/git-lore-commit.sh
+chmod +x scripts/commit-msg-lore.js
+chmod +x scripts/pre-commit-review.js
+
+# 2. Configure os Hooks Nativos do Git
+cp scripts/pre-commit-review.js .git/hooks/pre-commit
+chmod +x .git/hooks/pre-commit
+
+cp scripts/commit-msg-lore.js .git/hooks/commit-msg
+chmod +x .git/hooks/commit-msg
+
+# 3. Registre o comando customizado 'git lore-commit'
+git config alias.lore-commit "!bash scripts/git-lore-commit.sh"
+```
+
+---
+
+## 🚀 2. Como Utilizar no Fluxo Diário
+
+### A. Criando Commits com Raciocínio Estruturado (Lore Protocol)
+Em vez de escrever mensagens genéricas, utilize o comando customizado para acionar a IA (Claude Code / Codex) e gerar a mensagem no padrão Lore:
+
+```bash
+# Adicione suas alterações ao staging
+git add .
+
+# Gere o commit completo com a IA
+git lore-commit
+```
+
+O comando gerará uma mensagem com o formato Conventional Commits + os **Git Trailers obrigatórios**:
+- `Constraint:` Limitações técnicas que motivaram a solução.
+- `Rejected:` Alternativas consideradas e descartadas.
+- `Tested:` Testes e verificações executadas.
+- `Directive:` Instruções para futuros desenvolvedores/agentes.
+
+### B. Inspecionando o Código Antes de Submeter o PR
+O hook `pre-commit` executará automaticamente antes de cada commit para verificar:
+1. Arquivos com mais de 500 linhas.
+2. Presença do tipo genérico `any` ou blocos `catch` silenciados.
+3. Modificações diretas em pastas de migração ou commit de arquivos `.env`.
+
+---
+
+## 📁 3. Estrutura do Repositório (Contexto em Camadas)
+
+O repositório utiliza a arquitetura de **Revelação Progressiva (*Progressive Disclosure*)**:
+
+- **`AGENTS.md` / `CLAUDE.md`**: Regras globais enxutas (< 200 linhas).
+- **`memory/`**: Camada de Identidade e Arquitetura (`memory/architecture-rules.md`, `memory/tech-stack.md`).
+- **`skills/`**: Camada de Instruções de Execução (`skills/code-review/SKILL.md`, `skills/lore-commit/SKILL.md`).
+- **`REVIEW.md`**: Critérios de revisão e riscos de produção para o Claude Code Review.
+- **`llms.txt`**: Mapa de descoberta determinístico B2A para IAs e LLMs.

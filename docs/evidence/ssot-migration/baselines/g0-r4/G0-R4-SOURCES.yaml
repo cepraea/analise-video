@@ -1,0 +1,558 @@
+schema_version: '1.0'
+kind: source_baseline_successor
+baseline:
+  id: G0-R4
+  predecessor: G0-R3
+  status: CONCLUIDO
+  completeness: COMPLETE
+  branch: inc-002-minimal-catalog
+  commit_base: 3f7d38b3d06cb9db5c10be33e36750360e39bff6
+  captured_at: '2026-09-16T02:36:35-03:00'
+  captured_by: Codex
+  approval_authority: Davi Sermenho
+  root: .local/drafts/arquitetura
+  source_count: 38
+  control_artifact_count: 8
+decisions:
+- GOV-SRC-001
+- GOV-SRC-002
+rules:
+- Inventory membership does not confer product authority.
+- Operational controls are preserved but cannot substantiate product claims.
+- This revision does not overwrite G0-R3.
+sources:
+- id: SRC-NLM-AGENTS-V2
+  path: contexto/AGENTS-v2.md
+  source_class: NOTEBOOKLM_PROPOSAL
+  origin: NotebookLM bundle
+  scope: Agent routing and repository context
+  revision: G0-R4
+  bytes: 3809
+  media_type: text/markdown
+  candidate_destination: AGENTS.md (selected claims only)
+  sha256: 24f87aa584c926ef3af64a4fecc37b824249bbb7e43f6422e7265842658847d5
+  notebooklm_derived: true
+  authority: false
+  immutable: true
+- id: SRC-NLM-MAKEFILE
+  path: contexto/Makefile
+  source_class: TOOL_CONFIG_PROPOSAL
+  origin: NotebookLM bundle
+  scope: Documentation graph automation
+  revision: G0-R4
+  bytes: 1157
+  media_type: application/octet-stream
+  candidate_destination: null
+  sha256: 2d2eff42d7a5ebf3e400211ff75de4925845ca7b42733f11399546e723dc92ca
+  notebooklm_derived: true
+  authority: false
+  immutable: true
+- id: SRC-NLM-QUICKSTART
+  path: contexto/QUICKSTART.md
+  source_class: NOTEBOOKLM_PROPOSAL
+  origin: NotebookLM bundle
+  scope: Proposed tool installation workflow
+  revision: G0-R4
+  bytes: 2559
+  media_type: text/markdown
+  candidate_destination: null
+  sha256: 811b30a53c5d85ff51266481a07a32d3e8a6c997f5dd90db9bfda478833d038a
+  notebooklm_derived: true
+  authority: false
+  immutable: true
+- id: SRC-NLM-REVIEW
+  path: contexto/REVIEW.md
+  source_class: NOTEBOOKLM_PROPOSAL
+  origin: NotebookLM bundle
+  scope: Proposed review policy
+  revision: G0-R4
+  bytes: 2310
+  media_type: text/markdown
+  candidate_destination: docs/governance (selected claims only)
+  sha256: cb63dc80132d33ca473147b32c4736d7cd8c9940383aba49566fb3bf3786ce7f
+  notebooklm_derived: true
+  authority: false
+  immutable: true
+- id: SRC-NLM-NAMES
+  path: contexto/Regras-Nomes.md
+  source_class: NOTEBOOKLM_PROPOSAL
+  origin: NotebookLM bundle
+  scope: Proposed naming rules
+  revision: G0-R4
+  bytes: 4327
+  media_type: text/markdown
+  candidate_destination: docs/governance/DOCUMENTATION_STANDARD.md
+  sha256: 87f0045682a060afaca873bd1ba789a4eb2a5c1bc5dc5c795f71cb71ffd15779
+  notebooklm_derived: true
+  authority: false
+  immutable: true
+- id: SRC-NLM-CODE-REVIEW-SKILL
+  path: contexto/SKILL.md
+  source_class: NOTEBOOKLM_PROPOSAL
+  origin: NotebookLM bundle
+  scope: Proposed code-review procedure
+  revision: G0-R4
+  bytes: 3527
+  media_type: text/markdown
+  candidate_destination: null
+  sha256: ec19182b0ca5d9d98f9a6695ecce89cdb284c941a57a8aadcadfe2ae09f4f713
+  notebooklm_derived: true
+  authority: false
+  immutable: true
+- id: SRC-NLM-ARCH-RULES
+  path: contexto/architecture-rules.md
+  source_class: NOTEBOOKLM_PROPOSAL
+  origin: NotebookLM bundle
+  scope: Proposed architecture rules
+  revision: G0-R4
+  bytes: 2309
+  media_type: text/markdown
+  candidate_destination: docs/architecture or docs/governance (selected claims only)
+  sha256: b9c2269f0b4f92644457a9635a59ce5c291f2d5ad87a5f086d27fc93215a9d9d
+  notebooklm_derived: true
+  authority: false
+  immutable: true
+- id: SRC-NLM-ATLAN-SKILL
+  path: contexto/atlan-data-context-SKILL.md
+  source_class: NOTEBOOKLM_PROPOSAL
+  origin: NotebookLM bundle
+  scope: Proposed Atlan and MCP integration
+  revision: G0-R4
+  bytes: 4870
+  media_type: text/markdown
+  candidate_destination: null
+  sha256: 6a8899b24f25ca5a3eeed1ec48f38fbb258e5412a0afc278b3d2b73b30f6f9a8
+  notebooklm_derived: true
+  authority: false
+  immutable: true
+- id: SRC-NLM-CLAUDEIGNORE
+  path: contexto/claudeignore
+  source_class: TOOL_CONFIG_PROPOSAL
+  origin: NotebookLM bundle
+  scope: Proposed Claude context exclusions
+  revision: G0-R4
+  bytes: 456
+  media_type: application/octet-stream
+  candidate_destination: .claudeignore (only if approved)
+  sha256: c35a290daa2ee1f1615423c3ee330dbc229463a5cf3d012fde9f39b08092f9e8
+  notebooklm_derived: true
+  authority: false
+  immutable: true
+- id: SRC-NLM-FEATURE-SKILL
+  path: contexto/feature-workflow-SKILL.md
+  source_class: NOTEBOOKLM_PROPOSAL
+  origin: NotebookLM bundle
+  scope: Proposed feature workflow
+  revision: G0-R4
+  bytes: 3686
+  media_type: text/markdown
+  candidate_destination: null
+  sha256: c6ce6c77425ea9acf83911915e12a74d99baf925dd2389b9c455523ca5fe47c5
+  notebooklm_derived: true
+  authority: false
+  immutable: true
+- id: SRC-NLM-PDF-GENERATOR
+  source_class: PROTOTYPE_AUTOMATION
+  origin: NotebookLM bundle, corrected operational prototype
+  scope: Deterministic PDF generation
+  candidate_destination: null
+  notebooklm_derived: true
+  authority: false
+  path: contexto/generate_pdf_report.py
+  revision: G0-R4
+  bytes: 9154
+  media_type: text/x-python
+  sha256: d341fe84062f49771576456b35862474f712a14d3d11ffed7c4e30292fbdd87c
+  immutable: true
+- id: SRC-NLM-GIT-LORE
+  path: contexto/git-lore-commit.sh
+  source_class: PROTOTYPE_AUTOMATION
+  origin: NotebookLM bundle
+  scope: Proposed commit metadata hook
+  revision: G0-R4
+  bytes: 2028
+  media_type: text/x-sh
+  candidate_destination: null
+  sha256: b9b769e019a7d73065ad2d3abc924030c5885339ad7079f093c7b3224e297dce
+  notebooklm_derived: true
+  authority: false
+  immutable: true
+- id: SRC-NLM-HISTORY
+  path: contexto/historico/historico-notebooklm.json
+  source_class: DECISION_HISTORY_SOURCE
+  origin: NotebookLM conversation export
+  scope: Provenance for context-architecture proposals
+  revision: G0-R4
+  bytes: 129670
+  media_type: application/json
+  candidate_destination: docs/governance/SOURCES.yaml and DECISIONS.yaml (extracted claims only)
+  sha256: 611cc0b70935a49298f30e7dbcb947d201a9426ba8e4dd58ce52657eaa1d0956
+  notebooklm_derived: true
+  authority: false
+  immutable: true
+- id: SRC-NLM-LLMS
+  path: contexto/llms.txt
+  source_class: NOTEBOOKLM_PROPOSAL
+  origin: NotebookLM bundle
+  scope: Proposed agent-readable index
+  revision: G0-R4
+  bytes: 1334
+  media_type: text/plain
+  candidate_destination: null
+  sha256: 7a287349c9d41eec93fa74e4d2c1391e71511377e5dcf6be3aee774d59e0c5b0
+  notebooklm_derived: true
+  authority: false
+  immutable: true
+- id: SRC-NLM-AST-MAPPER
+  path: contexto/map_repo_ast.py
+  source_class: PROTOTYPE_AUTOMATION
+  origin: NotebookLM bundle
+  scope: Repository AST graph prototype
+  revision: G0-R4
+  bytes: 14931
+  media_type: text/x-python
+  candidate_destination: null
+  sha256: 4e142f2c820200fb0a69443c9783b00ee8437ad407b0e820047a80c63541c887
+  notebooklm_derived: true
+  authority: false
+  immutable: true
+- id: SRC-NLM-PACKAGE
+  path: contexto/package.json
+  source_class: TOOL_CONFIG_PROPOSAL
+  origin: NotebookLM bundle
+  scope: Dependencies for proposed hooks and integration
+  revision: G0-R4
+  bytes: 393
+  media_type: application/json
+  candidate_destination: null
+  sha256: 7cba6f692849b13228de6d958779c6296e8e746de7c967268aaef0bf98eed5e3
+  notebooklm_derived: true
+  authority: false
+  immutable: true
+- id: SRC-NLM-PRECOMMIT-V2
+  path: contexto/pre-commit-review-v2.js
+  source_class: PROTOTYPE_AUTOMATION
+  origin: NotebookLM bundle
+  scope: Proposed pre-commit review and governance hook, variant 2
+  revision: G0-R4
+  bytes: 3210
+  media_type: text/javascript
+  candidate_destination: null
+  sha256: 393170c94bbad6c0e22deb9cd8f562ae088b20de606b4171b983905be5a9b7d7
+  notebooklm_derived: true
+  authority: false
+  immutable: true
+- id: SRC-NLM-PRECOMMIT
+  path: contexto/pre-commit-review.js
+  source_class: PROTOTYPE_AUTOMATION
+  origin: NotebookLM bundle
+  scope: Proposed pre-commit review hook
+  revision: G0-R4
+  bytes: 4545
+  media_type: text/javascript
+  candidate_destination: null
+  sha256: d59997c83164ff202aae03be4e63cd55dfb905129970f4dcf179be5623b6af5c
+  notebooklm_derived: true
+  authority: false
+  immutable: true
+- id: SRC-NLM-COUPLING-REPORT
+  path: contexto/relatorio-analise-acoplamento.pdf
+  source_class: GENERATED_DEMO
+  origin: NotebookLM bundle; ReportLab-generated PDF
+  scope: Demonstration coupling report
+  revision: G0-R4
+  bytes: 2142050
+  media_type: application/pdf
+  candidate_destination: migration evidence only
+  sha256: bb9da3e8c6aba4e553bcc250fe99746d724464e470cce36dd05ffc28af18a8e6
+  notebooklm_derived: true
+  authority: false
+  immutable: true
+- id: SRC-NLM-GRAPH-V2
+  path: contexto/repo_architecture_graph-v2.png
+  source_class: GENERATED_DEMO
+  origin: NotebookLM bundle
+  scope: Demonstration repository graph variant 2
+  revision: G0-R4
+  bytes: 2411944
+  media_type: image/png
+  candidate_destination: migration evidence only
+  sha256: 2481411cce385990193cbb0b783a4f640b0c91eb9468f5bdef4230174cc6e002
+  notebooklm_derived: true
+  authority: false
+  immutable: true
+- id: SRC-NLM-GRAPH-V1
+  path: contexto/repo_architecture_graph.png
+  source_class: GENERATED_DEMO
+  origin: NotebookLM bundle
+  scope: Demonstration repository graph variant 1
+  revision: G0-R4
+  bytes: 6854509
+  media_type: image/png
+  candidate_destination: migration evidence only
+  sha256: 874c8c9d031318c4e4a8311d24b2d1bf1d56cdab92ce4e1006c147a5b6291a17
+  notebooklm_derived: true
+  authority: false
+  immutable: true
+- id: SRC-NLM-KNOWLEDGE-GRAPH
+  source_class: GENERATED_DEMO
+  origin: Generated from repository root
+  scope: Repository symbol graph output
+  candidate_destination: null
+  notebooklm_derived: true
+  authority: false
+  path: contexto/repo_knowledge_graph.json
+  revision: G0-R4
+  bytes: 204575
+  media_type: application/json
+  sha256: 272fdce6fa6d16778359e775983c47598d1e4de249f4543378a7f8c40afea44b
+  immutable: true
+- id: SRC-NLM-REQUIREMENTS
+  path: contexto/requirements.txt
+  source_class: TOOL_CONFIG_PROPOSAL
+  origin: NotebookLM bundle
+  scope: Proposed dependencies for graph and report generators
+  revision: G0-R4
+  bytes: 120
+  media_type: text/plain
+  candidate_destination: null
+  sha256: 01991adcd0e71c7f96bbbf967f7f803ec8a42605d9428c1c1b2fe7eb62abf990
+  notebooklm_derived: true
+  authority: false
+  immutable: true
+- id: SRC-NLM-TECH-STACK
+  path: contexto/tech-stack.md
+  source_class: NOTEBOOKLM_PROPOSAL
+  origin: NotebookLM bundle
+  scope: Proposed technology stack
+  revision: G0-R4
+  bytes: 1555
+  media_type: text/markdown
+  candidate_destination: docs/architecture ADR (verified claims only)
+  sha256: 9ff8962c11bb540190475f58bc8d34fa367f03e58d96b08bf7e2b778d0f8f8c2
+  notebooklm_derived: true
+  authority: false
+  immutable: true
+- id: SRC-NLM-ATLAN-TEST
+  path: contexto/test-atlan-mcp.js
+  source_class: PROTOTYPE_AUTOMATION
+  origin: NotebookLM bundle
+  scope: Atlan MCP integration prototype
+  revision: G0-R4
+  bytes: 4569
+  media_type: text/javascript
+  candidate_destination: null
+  sha256: 8810e47143043cabd405c2ae9354a1fff647c5c4fe34cf754b2d71fadfccdf3e
+  notebooklm_derived: true
+  authority: false
+  immutable: true
+- id: SRC-NLM-GRAPH-VIEWER
+  path: contexto/visualize_graph.py
+  source_class: PROTOTYPE_AUTOMATION
+  origin: NotebookLM bundle
+  scope: Repository graph visualization prototype
+  revision: G0-R4
+  bytes: 3654
+  media_type: text/x-python
+  candidate_destination: null
+  sha256: a162a814cae6485f000d49f94fd5a5186ed84b1588648ad5f82ceb9465488a5f
+  notebooklm_derived: true
+  authority: false
+  immutable: true
+- id: SRC-PLAYER-SQLITE-HISTORY
+  path: hibrida/Extensão do Player e do SQLite.md
+  source_class: IMPLEMENTATION_HISTORY_SOURCE
+  origin: local historical draft; exact origin unknown
+  scope: Player and SQLite implementation history
+  revision: G0-R4
+  bytes: 19493
+  media_type: text/markdown
+  candidate_destination: docs/evidence or architecture ADR after reconciliation
+  sha256: 8d6e1b2fc49c62e0e443d626394cda6363c27545315174693c1607c9f9b912c6
+  notebooklm_derived: false
+  authority: false
+  immutable: true
+- id: SRC-IHF-RULES-2026-PT
+  path: hibrida/Regras de Handebol de Praia 2026 - Tradução 29 de maio de 2026.pdf
+  source_class: EXTERNAL_NORMATIVE_SOURCE
+  origin: local Portuguese translation PDF; external publisher not proven in G0
+  scope: Beach handball rules
+  revision: G0-R4
+  bytes: 15422591
+  media_type: application/pdf
+  candidate_destination: docs/OFFICIAL_RULES_MAPPING.md
+  sha256: a9af9932e14cf2a2d272192c680c4458ea3af59fb4dcbd3bfdbb5e3aa7c8fae8
+  notebooklm_derived: false
+  authority: false
+  immutable: true
+- id: SRC-SPEC-GD
+  path: hibrida/analise-videos-cepraea-spec-GD.md
+  source_class: MIGRATION_SOURCE
+  origin: Google Drive-derived local export (per project history)
+  scope: Extended system specification
+  revision: G0-R4
+  bytes: 62309
+  media_type: text/markdown
+  candidate_destination: docs/SYSTEM_SPEC.md
+  sha256: 0e4e360d89ab424ec63ec249f790d59820a62be7e93ec2c513f5cf0283585ece
+  notebooklm_derived: false
+  authority: false
+  immutable: true
+- id: SRC-SPEC-LEGACY
+  path: hibrida/analise-videos-cepraea-spec.md
+  source_class: SUPERSEDED_SOURCE
+  origin: local historical specification; exact origin unknown
+  scope: Earlier system specification
+  revision: G0-R4
+  bytes: 36338
+  media_type: text/markdown
+  candidate_destination: provenance and semantic comparison only
+  sha256: f1d8c5b3fd981bb2cac62d5cdad1e7b355bf03c2ff48363515258e4a704bc86c
+  notebooklm_derived: false
+  authority: false
+  immutable: true
+- id: SRC-SPEC-V2-DRAFT
+  path: hibrida/analise-videos-v2.md
+  source_class: DRAFT_CANDIDATE
+  origin: local draft; exact origin unknown
+  scope: Candidate requirements and modules
+  revision: G0-R4
+  bytes: 10463
+  media_type: text/markdown
+  candidate_destination: canonical SSOTs by validated claim
+  sha256: 2837fe8fe591bd80d9204a826a05792a34f9e4ef6ecc9222a359a610667134c0
+  notebooklm_derived: false
+  authority: false
+  immutable: true
+- id: SRC-HYBRID-PLAN-MONOLITH
+  path: hibrida/arquitetura-hibrida.md
+  source_class: SUPERSEDED_DRAFT
+  origin: local architecture migration draft
+  scope: Superseded monolithic migration plan
+  revision: G0-R4
+  bytes: 51245
+  media_type: text/markdown
+  candidate_destination: null
+  sha256: bbec5cc6fd6d662238bdb22b8b7ae69d90e6edacaf4c04b75eddd8dbb05bb1dd
+  notebooklm_derived: false
+  authority: false
+  immutable: true
+- id: SRC-GAME-CONCEPTS
+  path: hibrida/conceitos-jogo.md
+  source_class: DOMAIN_SOURCE_CANDIDATE
+  origin: Google Drive-derived guide export (per project history)
+  scope: CEPRAEA game concepts and classification
+  revision: G0-R4
+  bytes: 129811
+  media_type: text/markdown
+  candidate_destination: docs/GAME_MODEL.md
+  sha256: 95999c656d985702a16eb81d502fb820f3ca64f395ac6c8e3c2b2402acc4a44c
+  notebooklm_derived: false
+  authority: false
+  immutable: true
+- id: SRC-CEPRAEA-HISTORY
+  path: hibrida/historico/analise-videos-cepraea-historico.json
+  source_class: DECISION_HISTORY_SOURCE
+  origin: local conversation/history export; exact producer unknown
+  scope: Provenance for requirements and domain decisions
+  revision: G0-R4
+  bytes: 355254
+  media_type: application/json
+  candidate_destination: docs/governance/SOURCES.yaml and DECISIONS.yaml (extracted claims only)
+  sha256: 0e2ee6fc27a6aee1c1d70500bd21a0159348e4805a36736031f0bcdc208835f3
+  notebooklm_derived: false
+  authority: false
+  immutable: true
+- id: SRC-EXECUTOR-LOG
+  path: hibrida/historico/executor.md
+  source_class: HISTORICAL_WORK_LOG
+  origin: local execution log; exact authoring history unknown
+  scope: Historical checklist and execution record
+  revision: G0-R4
+  bytes: 11253
+  media_type: text/markdown
+  candidate_destination: docs/evidence/SSOT-MIGRATION.md (selected evidence only)
+  sha256: dab7c30bd5722519e31763e87a1f239b50f4682d2066bb6bf1f1d90cef56615b
+  notebooklm_derived: false
+  authority: false
+  immutable: true
+- id: SRC-CODEX-ANALYSIS-001
+  path: hibrida/resposta-codex-001.md
+  source_class: DERIVED_ANALYSIS
+  origin: Codex-derived local analysis
+  scope: Documentation analysis
+  revision: G0-R4
+  bytes: 16301
+  media_type: text/markdown
+  candidate_destination: migration audit input only
+  sha256: 7e69d874e27f8cf3fe4c52b810984fef3552aae19196bd4d487e93ccb0421e4c
+  notebooklm_derived: false
+  authority: false
+  immutable: true
+- id: SRC-CODEX-ANALYSIS-002
+  path: hibrida/resposta-codex-002.md
+  source_class: DERIVED_ANALYSIS
+  origin: Codex-derived local analysis
+  scope: Architecture analysis
+  revision: G0-R4
+  bytes: 11286
+  media_type: text/markdown
+  candidate_destination: migration audit input only
+  sha256: 8d9f845ff23b2750e18b92030374258bdfe245cfa71e697189abe0c91478ac81
+  notebooklm_derived: false
+  authority: false
+  immutable: true
+- id: SRC-GAME-OVERVIEW
+  path: hibrida/visao-geral-cepraea.md
+  source_class: DOMAIN_SOURCE_CANDIDATE
+  origin: Google Drive-derived guide export (per project history)
+  scope: CEPRAEA overview and game-model summary
+  revision: G0-R4
+  bytes: 59711
+  media_type: text/markdown
+  candidate_destination: docs/GAME_MODEL.md and docs/OFFICIAL_RULES_MAPPING.md
+  sha256: a222ac0bd53dc25a0271b4ba80230a43686643ce2084a6626f1a57dc3c6aa382
+  notebooklm_derived: false
+  authority: false
+  immutable: true
+controls:
+- path: README.md
+  classification: OPERATIONAL_CONTROL
+  eligible_for_product_claims: false
+  bytes: 2873
+  sha256: 9b9770b4f59bab537adba28d477c392e4e6dafbe98a906553bcc9f324ace2f73
+- path: auditoria/notebooklm-contexto.md
+  classification: OPERATIONAL_CONTROL
+  eligible_for_product_claims: false
+  bytes: 7651
+  sha256: 1f880e4e0ec2873bfbf02b8b3b2f4122782c29e9b1b80de02c47ef50bd087eea
+- path: plano/PLANO-MESTRE.md
+  classification: OPERATIONAL_CONTROL
+  eligible_for_product_claims: false
+  bytes: 10517
+  sha256: 431bce6a786293de2aeda4aa1df654b35e31d31f862f4a46025be04504f1efe9
+- path: plano/01-governanca-e-decisoes.md
+  classification: OPERATIONAL_CONTROL
+  eligible_for_product_claims: false
+  bytes: 5919
+  sha256: 8d128262b18c1c536bb6e4093dc4811c41373d788b75e34a4bc42042f57be9f2
+- path: plano/02-migracao-ssot.md
+  classification: OPERATIONAL_CONTROL
+  eligible_for_product_claims: false
+  bytes: 4479
+  sha256: 0c07eb7eff62f4727b19fa9c0631034fad4a0ecf5e37ad673055981c9f02665f
+- path: plano/03-contexto-minimo.md
+  classification: OPERATIONAL_CONTROL
+  eligible_for_product_claims: false
+  bytes: 6153
+  sha256: f5f169b5d5e563ae4059a25b62d90686535adadac3f583e5b97ddced04889e93
+- path: plano/04-rastreabilidade-e-validacao.md
+  classification: OPERATIONAL_CONTROL
+  eligible_for_product_claims: false
+  bytes: 3534
+  sha256: 00855ecc86b6640ee799f2f0e924a1de11585afb98f4057a348f1a0e6ea401bc
+- path: plano/05-cutover-e-operacao.md
+  classification: OPERATIONAL_CONTROL
+  eligible_for_product_claims: false
+  bytes: 4435
+  sha256: 9e1e5a63ac7cfe7280779d98df5f09f76a36a9f94d28a489607e13d0684804dd
