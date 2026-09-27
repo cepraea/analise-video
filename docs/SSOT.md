@@ -22,6 +22,7 @@ Formato mais estruturado, data mais recente ou geração por IA não vencem a au
 | estado comprovado | [`IMPLEMENTATION_STATUS.md`](./IMPLEMENTATION_STATUS.md) e `evidence/` |
 | decisões | [`governance/DECISIONS.yaml`](./governance/DECISIONS.yaml) |
 | fontes | [`governance/SOURCES.yaml`](./governance/SOURCES.yaml) |
+| template documental CEPRAEA | [`SPEC_TEMPLATE.md`](../SPEC_TEMPLATE.md) |
 | contexto mínimo | [`context/ROUTES.yaml`](./context/ROUTES.yaml) |
 
 ## Resolução de conflito

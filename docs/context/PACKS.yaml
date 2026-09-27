@@ -56,7 +56,9 @@ packs:
       - GOV-NLM-001
       - INFRA-001
       - TECH-001
+      - TECH-003
       - GOV-006
       - ID-001
+      - PROD-001
       - GOV-002
       - GOV-003

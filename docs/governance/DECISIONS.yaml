@@ -365,6 +365,27 @@ decisions:
       - docs/governance/DOCUMENTATION_STANDARD.md
     supersedes: []
 
+  - id: DOC-006
+    title: Template CEPRAEA v4.1.0 como prática documental
+    status: DECIDIDO
+    authority: Davi Sermenho
+    decided_at: 2026-09-26
+    statement: >-
+      O projeto aprova SPEC_TEMPLATE.md como template canônico para a prática
+      documental CEPRAEA. A aprovação permite aproveitar as práticas descritas
+      no template quando aplicáveis, mas não adota ANMS, ANPS ou ANGS como
+      framework do projeto nem substitui as autoridades documentais definidas
+      em SSOT.md e DOCUMENTATION_STANDARD.md.
+    provenance:
+      - source_id: SRC-AUTH-DAVI-2026-09-26-TMPL-03
+        locator: aprovação explícita do template e do registro de sua fonte
+    affected_documents:
+      - SPEC_TEMPLATE.md
+      - docs/SSOT.md
+      - docs/governance/DOCUMENTATION_STANDARD.md
+      - docs/governance/SOURCES.yaml
+    supersedes: []
+
   # === Decisão técnica ===
 
   - id: TECH-002
@@ -412,7 +433,24 @@ decisions:
       - AGENTS.md
     supersedes: []
 
-  # === Decisões PENDENTE — aguardam autoridade de Davi (G3) ===
+  - id: TECH-003
+    title: Clean Architecture e DDD como referências orientadoras
+    status: DECIDIDO
+    authority: Davi Sermenho
+    decided_at: 2026-09-26
+    statement: >-
+      Clean Architecture e DDD orientam a separação entre domínio, aplicação e
+      infraestrutura, mas não constituem decisões arquiteturais adicionais nem
+      contratos obrigatórios. Torná-los mandatórios exige ADR própria aprovada.
+      A autoridade técnica vigente permanece em TECH-001 e ADR-001.
+    provenance:
+      - source_id: SRC-AUTH-DAVI-2026-09-26-SPEC-SEMANTICS
+        locator: decisão explícita sobre os princípios orientadores da SPEC
+    affected_documents:
+      - docs/architecture/ADR-001-primeira-implementacao.md
+    supersedes: []
+
+  # === Decisões adicionais — estados mistos (G3) ===
 
   - id: GOV-002
     title: Git como autoridade operacional do software após cutover
@@ -474,15 +512,17 @@ decisions:
     supersedes: []
 
   - id: ID-001
-    title: Preservação dos IDs RF-001 a RF-052
-    status: PENDENTE
+    title: Preservação dos IDs RF e RNF existentes
+    status: DECIDIDO
     authority: Davi Sermenho
-    decided_at: null
+    decided_at: 2026-09-26
     statement: >-
-      Pendente (G5): preservar os IDs RF-001 a RF-052 da baseline mais completa,
-      corrigindo por sucessão, nunca por reutilização silenciosa? Recomendação
-      técnica — sim.
-    provenance: []
+      Preservar os significados canônicos dos IDs RF e RNF existentes, sem
+      reutilização silenciosa. Funcionalidades adicionais permanecem como
+      PROPOSTA A VALIDAR até receberem IDs aprovados e proveniência própria.
+    provenance:
+      - source_id: SRC-AUTH-DAVI-2026-09-26-SPEC-SEMANTICS
+        locator: decisão explícita para restaurar IDs canônicos na SPEC
     affected_documents:
       - docs/governance/ID_POLICY.md
       - docs/SYSTEM_SPEC.md
@@ -504,14 +544,17 @@ decisions:
 
   - id: PROD-001
     title: Limite do produto completo
-    status: PENDENTE
+    status: DECIDIDO PARCIALMENTE
     authority: Davi Sermenho
-    decided_at: null
+    decided_at: 2026-09-26
     statement: >-
-      Pendente (G7): o produto é somente análise de vídeo ou inclui o cockpit
-      completo de competição (prancheta, portal, assistência por IA, cockpit)?
-      Define o escopo dos módulos a promover.
-    provenance: []
+      A análise local de vídeo constitui o núcleo em execução. O Portal das
+      Atletas integra a visão futura do produto, mas permanece fora do gate
+      inicial e não bloqueia o primeiro fluxo funcional. A incorporação de
+      prancheta, assistência por IA e cockpit completo permanece PENDENTE.
+    provenance:
+      - source_id: SRC-AUTH-DAVI-2026-09-26-SPEC-SEMANTICS
+        locator: decisão explícita sobre o Portal das Atletas e o gate inicial
     affected_documents:
       - docs/SYSTEM_SPEC.md
       - docs/IMPLEMENTATION_PLAN.md
