@@ -1,5 +1,31 @@
 schema_version: 1
 authority_statements:
+  - id: SRC-AUTH-DAVI-2026-09-26-SPEC-SEMANTICS
+    type: authority_statement
+    authority: Davi Sermenho
+    captured_at: 2026-09-26
+    scope:
+      - ID-001
+      - PROD-001
+      - TECH-003
+    locator: >-
+      Aprovação explícita nesta conversa das decisões semânticas da SPEC:
+      restaurar IDs canônicos, manter o Portal das Atletas na visão futura e
+      fora do gate inicial, tratar Clean Architecture e DDD como referências
+      orientadoras e preservar C4/YAML como autoridade arquitetural.
+    eligible_for_product_claims: true
+
+  - id: SRC-AUTH-DAVI-2026-09-26-TMPL-03
+    type: authority_statement
+    authority: Davi Sermenho
+    captured_at: 2026-09-26
+    scope:
+      - DOC-006
+    locator: >-
+      Aprovação explícita nesta conversa: "Sim, aprovar este template como
+      prática documental CEPRAEA e registrar sua fonte."
+    eligible_for_product_claims: false
+
   - id: SRC-AUTH-DAVI-2026-09-17-A10-A11
     type: authority_statement
     authority: Davi Sermenho
@@ -20,6 +46,18 @@ authority_statements:
       - GOV-SRC-002
     locator: conversation_authority_record
     eligible_for_product_claims: true
+
+document_sources:
+  - id: SRC-010
+    type: canonical_template
+    title: "[TMPL-03] Spec Template v4.1.0"
+    location: SPEC_TEMPLATE.md
+    sha256: efb64ee7e6ee4f00f73c623f6418ab9ebe4118a56178b7dde000fa10d5edc470
+    authority: Davi Sermenho
+    authority_scope:
+      - DOC-006
+    registered_at: 2026-09-26
+    eligible_for_product_claims: false
 
 baseline_catalogs:
   - baseline_id: G0

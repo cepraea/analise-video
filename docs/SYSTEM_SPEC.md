@@ -52,6 +52,10 @@ O fluxo inicial deve minimizar trabalho manual, preservar rastreabilidade e orig
 
 Clipes físicos, feedback renderizado, portal, IA, reconhecimento frame a frame e sincronização multicâmera avançada não bloqueiam o primeiro fluxo.
 
+## Visão futura decidida parcialmente
+
+O Portal das Atletas integra a visão futura do produto, mas permanece fora do gate inicial e não bloqueia o primeiro fluxo funcional. A eventual incorporação de prancheta, assistência por IA e cockpit completo continua `PENDENTE`, conforme `PROD-001`.
+
 ## Estado técnico
 
 A stack definitiva da estação, banco local definitivo, backup, tratamento operacional de YouTube, arquivos grandes e tecnologias de portal/renderização continuam tecnicamente abertos na fonte canônica.
