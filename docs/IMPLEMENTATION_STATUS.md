@@ -6,8 +6,9 @@
 - `DOCUMENTATION_BOOTSTRAP`: VERIFIED
 - `INC-000`: VERIFIED
 - `INC-001`: VERIFIED (gate local com MP4 real e CI do commit `23336f7`; evidência em `docs/evidence/INC-001.md`)
-- `INC-002`: VERIFIED localmente (catálogo canônico, reinício, múltiplas fontes,
-  rastreabilidade e imutabilidade; evidência em `docs/evidence/INC-002.md`)
+- `INC-002`: VERIFIED (catálogo canônico, reinício, múltiplas fontes,
+  rastreabilidade, imutabilidade e CI do commit `ef8bde5`; evidência em
+  `docs/evidence/INC-002.md`)
 - `INC-003`: NOT_IMPLEMENTED
 - `INC-004`: NOT_IMPLEMENTED
 - `INC-005`: NOT_IMPLEMENTED
@@ -92,7 +93,7 @@ Após 30 marcações, o operador relatou ter exercitado seeks, velocidades, flux
 
 ## INC-002 — Catálogo mínimo canônico
 
-`VERIFIED` localmente em 2026-09-28. Evidência reproduzível:
+`VERIFIED` em 2026-09-28. Evidência reproduzível:
 `docs/evidence/INC-002.md`.
 
 O backend mantém `Competition`, `Game`, `VideoSource`, `Lance` e

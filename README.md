@@ -6,12 +6,12 @@ Repositório de implementação do sistema de análise audiovisual do CEPRAEA.
 
 - `INC-000 — Fundação executável`: `VERIFIED`.
 - `INC-001`: `VERIFIED` localmente — mídia, reprodução, marcação, SQLite experimental e revisão após reinício testados com MP4 real.
-- `INC-002`: `VERIFIED` localmente — catálogo canônico persistente, múltiplas fontes, rastreabilidade após reinício e original imutável.
+- `INC-002`: `VERIFIED` — catálogo canônico persistente, múltiplas fontes, rastreabilidade após reinício, original imutável e CI aprovada.
 - `INC-003` em diante: `NOT_IMPLEMENTED`.
 - Primeiro fluxo funcional: `NOT_IMPLEMENTED`.
 - Arquitetura técnica: `ADR-001 — APROVADA COM RISCOS` para implementação incremental; gate INC-001: `PASS WITH RISKS` após teste com MP4 real. A stack definitiva continua pendente.
 
-Evidência do INC-000: `docs/evidence/INC-000.md` e GitHub Actions run `34782679938`. Evidência consolidada do INC-001: `docs/evidence/INC-001.md`. Evidência local do INC-002: `docs/evidence/INC-002.md`.
+Evidência do INC-000: `docs/evidence/INC-000.md` e GitHub Actions run `34782679938`. Evidência consolidada do INC-001: `docs/evidence/INC-001.md`. Evidência do INC-002: `docs/evidence/INC-002.md` e GitHub Actions run `36467245505`.
 
 Documentação e presença de código não constituem, sozinhas, evidência de funcionamento.
 
