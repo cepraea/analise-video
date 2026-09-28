@@ -6,7 +6,9 @@
 - `DOCUMENTATION_BOOTSTRAP`: VERIFIED
 - `INC-000`: VERIFIED
 - `INC-001`: VERIFIED (gate local com MP4 real e CI do commit `23336f7`; evidência em `docs/evidence/INC-001.md`)
-- `INC-002`: NOT_IMPLEMENTED
+- `INC-002`: VERIFIED (catálogo canônico, reinício, múltiplas fontes,
+  rastreabilidade, imutabilidade e CI do commit `ef8bde5`; evidência em
+  `docs/evidence/INC-002.md`)
 - `INC-003`: NOT_IMPLEMENTED
 - `INC-004`: NOT_IMPLEMENTED
 - `INC-005`: NOT_IMPLEMENTED
@@ -89,6 +91,28 @@ As setas movem ±1 s, `Shift` + setas ±0,1 s e `Ctrl` + setas ±10 s, com limit
 
 Após 30 marcações, o operador relatou ter exercitado seeks, velocidades, fluxo sem mouse, revisão da prévia, parada do trecho e exclusões com justificativas. Sete exclusões com motivos e datas foram confirmadas no banco e na API de auditoria. O intervalo 030 foi corrigido para `554729`–`561923` ms mantendo identidade e metadados, e a versão anterior foi registrada. Depois de reiniciar backend e frontend, o operador reviu o mesmo ID e confirmou a correção; API e SQLite recuperaram os limites novos, e a integridade do banco permaneceu `ok`. O [ensaio manual](evidence/INC-001-player-restart-30.md), a [evidência consolidada](evidence/INC-001-player-adjustments.md) e a [CI](https://github.com/cepraea/analise-video/actions/runs/34873172548) sustentam o estado `VERIFIED` desta extensão. A evidência histórica do INC-001 permanece vinculada ao commit `23336f7`.
 
+## INC-002 — Catálogo mínimo canônico
+
+`VERIFIED` em 2026-09-28. Evidência reproduzível:
+`docs/evidence/INC-002.md`.
+
+O backend mantém `Competition`, `Game`, `VideoSource`, `Lance` e
+`TemporalReference` em `.local/data/inc002.sqlite3`, separado do banco descartável
+do spike. IDs próprios preservam a identidade das entidades sem depender do nome
+do arquivo. Um lance pode referenciar várias fontes do mesmo jogo, e as chaves
+estrangeiras impedem relações entre jogos diferentes.
+
+Os testes fecharam e reabriram a aplicação, recuperaram os mesmos IDs e relações,
+validaram o SQLite e compararam os hashes das mídias. Um ensaio adicional usou o
+MP4 real do INC-001 em dois processos independentes: o lance foi recuperado após
+o reinício e o SHA-256 do original permaneceu
+`ea6607f4d6a0095c1b413722fefa41aa50be57f2e1b6b9bed1fef7ed908c23c9`.
+Nenhum derivado foi criado.
+
+A promoção é limitada ao backend e ao gate do catálogo. A interface permanece no
+fluxo experimental do INC-001, a correção de limites continua no `INC-004` e não
+há migração automática de `spike_intervals` para as entidades canônicas.
+
 ## Arquitetura
 
 `ADR-001`: **APROVADA COM RISCOS** para implementação incremental. Resultado do gate com vídeo real: **PASS WITH RISKS** em 2026-09-14; stack definitiva ainda pendente.
@@ -97,7 +121,12 @@ O sucesso da CI, por si só, não satisfaz o gate. O INC-001 foi mantido `VERIFI
 
 ## Próximo gate de código
 
-O próximo incremento planejado é `INC-002`, conforme `docs/IMPLEMENTATION_PLAN.md`.
+O próximo incremento planejado é `INC-003`, conforme `docs/IMPLEMENTATION_PLAN.md`.
+
+`GOV-006` decidiu que a migração documental completa não bloqueava o `INC-002`.
+Somente mudanças de esquema dependentes de requisitos conflitantes permanecem
+bloqueadas; o suporte estrutural a `TemporalReference` no `INC-002` não promove
+a correção de limites de `RF-013`, que permanece no `INC-004`.
 
 ## Política de estado
 

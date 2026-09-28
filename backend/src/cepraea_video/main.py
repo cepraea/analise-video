@@ -7,6 +7,11 @@ from pydantic import BaseModel, Field, model_validator
 from starlette.responses import FileResponse
 
 from cepraea_video import __version__
+from cepraea_video.catalog_api import router as catalog_router
+from cepraea_video.catalog_storage import (
+    database_path as catalog_database_path,
+    initialize_catalog,
+)
 from cepraea_video.config import ensure_runtime_directories
 from cepraea_video.spike_media import list_media, resolve_media
 from cepraea_video.spike_storage import (
@@ -25,6 +30,7 @@ from cepraea_video.spike_storage import (
 async def lifespan(_: FastAPI):
     ensure_runtime_directories()
     initialize_storage(database_path())
+    initialize_catalog(catalog_database_path())
     yield
 
 
@@ -33,6 +39,7 @@ app = FastAPI(
     version=__version__,
     lifespan=lifespan,
 )
+app.include_router(catalog_router)
 
 
 @app.get("/health", tags=["system"])

@@ -127,7 +127,7 @@ class ContextTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "duplicate ID"):
             packs.build(self.repo, "INC-002")
 
-    def test_pending_decision_is_preserved_as_data_not_promoted(self):
+    def test_decision_states_are_preserved_without_promotion(self):
         content = packs.build(self.repo, "INC-002")
         decision_block = content.split(f"## Decisões de {packs.DECISIONS}\n\n", 1)[1]
         copied = yaml.safe_load(decision_block.split("\n", 1)[1].rsplit("\n", 2)[0])
@@ -135,7 +135,10 @@ class ContextTests(unittest.TestCase):
         indexed = {record["id"]: record for record in originals}
         for record in copied["decisions"]:
             self.assertEqual(record, indexed[record["id"]])
-        pending = next(record for record in copied["decisions"] if record["id"] == "GOV-006")
+        decided = next(record for record in copied["decisions"] if record["id"] == "GOV-006")
+        self.assertEqual(decided["status"], "DECIDIDO")
+        self.assertEqual(str(decided["decided_at"]), "2026-09-28")
+        pending = next(record for record in copied["decisions"] if record["id"] == "GOV-002")
         self.assertEqual(pending["status"], "PENDENTE")
         self.assertIsNone(pending["decided_at"])
 

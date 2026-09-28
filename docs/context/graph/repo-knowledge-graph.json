@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": {
     "kind": "index",
-    "revision": "index@af3e3c57fa8e7113f8e5a3792e534b441e961cfe"
+    "revision": "index@900fb9e47aa7c7b76269aa63dfe2af7fc485bb7d"
   },
   "configuration": {
     "path": "docs/context/GRAPH.yaml",
@@ -23,16 +23,28 @@
       "sha256": "7a6486747c1ba8fa3ba4af5b3b3b858a5b65080a6e829f071ec2771998ba9948"
     },
     {
+      "path": "backend/src/cepraea_video/catalog_api.py",
+      "sha256": "b42fed2c5fe7dc4356819c175e64d3ab13e4b1e758b44c43f9ced04ff9164a20"
+    },
+    {
+      "path": "backend/src/cepraea_video/catalog_storage.py",
+      "sha256": "2fc44f653a2fdd052595f006b07c82edcf6d510ffe865ad41fde32a067439c5f"
+    },
+    {
       "path": "backend/src/cepraea_video/config.py",
       "sha256": "bddb01cfad40f4a06eaf264bb64419a35a6437682f5274414caa4237c3ee8748"
     },
     {
+      "path": "backend/src/cepraea_video/local_media.py",
+      "sha256": "451f0e7d88575927f6746db90113b7b7600ec31ad9b104ff2bbfd14764206709"
+    },
+    {
       "path": "backend/src/cepraea_video/main.py",
-      "sha256": "dd6e24632a0f2e5f1d8968fa37c4c8c1dd9c8adf0a165aedc4a066ebc51d3aeb"
+      "sha256": "359a6886b0733d41c8230addbdcf2a047c7ec207e186dfde42fda430a28bd444"
     },
     {
       "path": "backend/src/cepraea_video/spike_media.py",
-      "sha256": "f86784bd848f1a353f18ce6cdd91e3cd9fdf38249ac1a87a099bbce9599bf9f6"
+      "sha256": "7c507514cc11c9d5fdde5280151d602bb04591cf651401e412fbc50edcd082d3"
     },
     {
       "path": "backend/src/cepraea_video/spike_storage.py",
@@ -121,6 +133,180 @@
   ],
   "nodes": [
     {
+      "id": "external:call:backend/src/cepraea_video/catalog_api.py#APIRouter",
+      "type": "external",
+      "name": "APIRouter",
+      "resolution": "unresolved_call"
+    },
+    {
+      "id": "external:call:backend/src/cepraea_video/catalog_api.py#Field",
+      "type": "external",
+      "name": "Field",
+      "resolution": "unresolved_call"
+    },
+    {
+      "id": "external:call:backend/src/cepraea_video/catalog_api.py#HTTPException",
+      "type": "external",
+      "name": "HTTPException",
+      "resolution": "unresolved_call"
+    },
+    {
+      "id": "external:call:backend/src/cepraea_video/catalog_api.py#ValueError",
+      "type": "external",
+      "name": "ValueError",
+      "resolution": "unresolved_call"
+    },
+    {
+      "id": "external:call:backend/src/cepraea_video/catalog_api.py#data.name.strip",
+      "type": "external",
+      "name": "data.name.strip",
+      "resolution": "unresolved_call"
+    },
+    {
+      "id": "external:call:backend/src/cepraea_video/catalog_api.py#model_validator",
+      "type": "external",
+      "name": "model_validator",
+      "resolution": "unresolved_call"
+    },
+    {
+      "id": "external:call:backend/src/cepraea_video/catalog_api.py#reference.model_dump",
+      "type": "external",
+      "name": "reference.model_dump",
+      "resolution": "unresolved_call"
+    },
+    {
+      "id": "external:call:backend/src/cepraea_video/catalog_api.py#router.get",
+      "type": "external",
+      "name": "router.get",
+      "resolution": "unresolved_call"
+    },
+    {
+      "id": "external:call:backend/src/cepraea_video/catalog_api.py#router.post",
+      "type": "external",
+      "name": "router.post",
+      "resolution": "unresolved_call"
+    },
+    {
+      "id": "external:call:backend/src/cepraea_video/catalog_api.py#str",
+      "type": "external",
+      "name": "str",
+      "resolution": "unresolved_call"
+    },
+    {
+      "id": "external:call:backend/src/cepraea_video/catalog_storage.py#', '.join",
+      "type": "external",
+      "name": "', '.join",
+      "resolution": "unresolved_call"
+    },
+    {
+      "id": "external:call:backend/src/cepraea_video/catalog_storage.py#ValueError",
+      "type": "external",
+      "name": "ValueError",
+      "resolution": "unresolved_call"
+    },
+    {
+      "id": "external:call:backend/src/cepraea_video/catalog_storage.py#closing",
+      "type": "external",
+      "name": "closing",
+      "resolution": "unresolved_call"
+    },
+    {
+      "id": "external:call:backend/src/cepraea_video/catalog_storage.py#connection.execute",
+      "type": "external",
+      "name": "connection.execute",
+      "resolution": "unresolved_call"
+    },
+    {
+      "id": "external:call:backend/src/cepraea_video/catalog_storage.py#connection.execute('SELECT * FROM lances WHERE id = ?', (lance_id,)).fetchone",
+      "type": "external",
+      "name": "connection.execute('SELECT * FROM lances WHERE id = ?', (lance_id,)).fetchone",
+      "resolution": "unresolved_call"
+    },
+    {
+      "id": "external:call:backend/src/cepraea_video/catalog_storage.py#connection.execute('SELECT game_id FROM video_sources WHERE id = ?', (source_id,)).fetchone",
+      "type": "external",
+      "name": "connection.execute('SELECT game_id FROM video_sources WHERE id = ?', (source_id,)).fetchone",
+      "resolution": "unresolved_call"
+    },
+    {
+      "id": "external:call:backend/src/cepraea_video/catalog_storage.py#connection.execute('\\n        SELECT temporal_references.id, temporal_references.lance_id,\\n               temporal_references.video_source_id, video_sources.media_path,\\n               temporal_references.start_ms, temporal_references.end_ms,\\n               temporal_references.created_at\\n        FROM temporal_references\\n        JOIN video_sources ON video_sources.id = temporal_references.video_source_id\\n        WHERE temporal_references.lance_id = ?\\n        ORDER BY temporal_references.created_at, temporal_references.id\\n        ', (lance_id,)).fetchall",
+      "type": "external",
+      "name": "connection.execute('\\n        SELECT temporal_references.id, temporal_references.lance_id,\\n               temporal_references.video_source_id, video_sources.media_path,\\n               temporal_references.start_ms, temporal_references.end_ms,\\n               temporal_references.created_at\\n        FROM temporal_references\\n        JOIN video_sources ON video_sources.id = temporal_references.video_source_id\\n        WHERE temporal_references.lance_id = ?\\n        ORDER BY temporal_references.created_at, temporal_references.id\\n        ', (lance_id,)).fetchall",
+      "resolution": "unresolved_call"
+    },
+    {
+      "id": "external:call:backend/src/cepraea_video/catalog_storage.py#connection.execute(f'SELECT * FROM {table} WHERE id = ?', (entity_id,)).fetchone",
+      "type": "external",
+      "name": "connection.execute(f'SELECT * FROM {table} WHERE id = ?', (entity_id,)).fetchone",
+      "resolution": "unresolved_call"
+    },
+    {
+      "id": "external:call:backend/src/cepraea_video/catalog_storage.py#connection.execute(f'SELECT 1 FROM {table} WHERE id = ?', (entity_id,)).fetchone",
+      "type": "external",
+      "name": "connection.execute(f'SELECT 1 FROM {table} WHERE id = ?', (entity_id,)).fetchone",
+      "resolution": "unresolved_call"
+    },
+    {
+      "id": "external:call:backend/src/cepraea_video/catalog_storage.py#connection.execute(statement, parameters).fetchall",
+      "type": "external",
+      "name": "connection.execute(statement, parameters).fetchall",
+      "resolution": "unresolved_call"
+    },
+    {
+      "id": "external:call:backend/src/cepraea_video/catalog_storage.py#connection.executescript",
+      "type": "external",
+      "name": "connection.executescript",
+      "resolution": "unresolved_call"
+    },
+    {
+      "id": "external:call:backend/src/cepraea_video/catalog_storage.py#dict",
+      "type": "external",
+      "name": "dict",
+      "resolution": "unresolved_call"
+    },
+    {
+      "id": "external:call:backend/src/cepraea_video/catalog_storage.py#list",
+      "type": "external",
+      "name": "list",
+      "resolution": "unresolved_call"
+    },
+    {
+      "id": "external:call:backend/src/cepraea_video/catalog_storage.py#name.strip",
+      "type": "external",
+      "name": "name.strip",
+      "resolution": "unresolved_call"
+    },
+    {
+      "id": "external:call:backend/src/cepraea_video/catalog_storage.py#path.parent.mkdir",
+      "type": "external",
+      "name": "path.parent.mkdir",
+      "resolution": "unresolved_call"
+    },
+    {
+      "id": "external:call:backend/src/cepraea_video/catalog_storage.py#sqlite3.connect",
+      "type": "external",
+      "name": "sqlite3.connect",
+      "resolution": "unresolved_call"
+    },
+    {
+      "id": "external:call:backend/src/cepraea_video/catalog_storage.py#str",
+      "type": "external",
+      "name": "str",
+      "resolution": "unresolved_call"
+    },
+    {
+      "id": "external:call:backend/src/cepraea_video/catalog_storage.py#uuid4",
+      "type": "external",
+      "name": "uuid4",
+      "resolution": "unresolved_call"
+    },
+    {
+      "id": "external:call:backend/src/cepraea_video/catalog_storage.py#values.values",
+      "type": "external",
+      "name": "values.values",
+      "resolution": "unresolved_call"
+    },
+    {
       "id": "external:call:backend/src/cepraea_video/config.py#Path",
       "type": "external",
       "name": "Path",
@@ -169,6 +355,36 @@
       "resolution": "unresolved_call"
     },
     {
+      "id": "external:call:backend/src/cepraea_video/local_media.py#(media_dir / media_path).resolve",
+      "type": "external",
+      "name": "(media_dir / media_path).resolve",
+      "resolution": "unresolved_call"
+    },
+    {
+      "id": "external:call:backend/src/cepraea_video/local_media.py#Path",
+      "type": "external",
+      "name": "Path",
+      "resolution": "unresolved_call"
+    },
+    {
+      "id": "external:call:backend/src/cepraea_video/local_media.py#Path(media_path).suffix.lower",
+      "type": "external",
+      "name": "Path(media_path).suffix.lower",
+      "resolution": "unresolved_call"
+    },
+    {
+      "id": "external:call:backend/src/cepraea_video/local_media.py#candidate.is_file",
+      "type": "external",
+      "name": "candidate.is_file",
+      "resolution": "unresolved_call"
+    },
+    {
+      "id": "external:call:backend/src/cepraea_video/local_media.py#get_runtime_paths().media_dir.resolve",
+      "type": "external",
+      "name": "get_runtime_paths().media_dir.resolve",
+      "resolution": "unresolved_call"
+    },
+    {
       "id": "external:call:backend/src/cepraea_video/main.py#FastAPI",
       "type": "external",
       "name": "FastAPI",
@@ -208,6 +424,12 @@
       "id": "external:call:backend/src/cepraea_video/main.py#app.get",
       "type": "external",
       "name": "app.get",
+      "resolution": "unresolved_call"
+    },
+    {
+      "id": "external:call:backend/src/cepraea_video/main.py#app.include_router",
+      "type": "external",
+      "name": "app.include_router",
       "resolution": "unresolved_call"
     },
     {
@@ -256,36 +478,6 @@
       "id": "external:call:backend/src/cepraea_video/main.py#updated.to_dict",
       "type": "external",
       "name": "updated.to_dict",
-      "resolution": "unresolved_call"
-    },
-    {
-      "id": "external:call:backend/src/cepraea_video/spike_media.py#(media_dir / media_path).resolve",
-      "type": "external",
-      "name": "(media_dir / media_path).resolve",
-      "resolution": "unresolved_call"
-    },
-    {
-      "id": "external:call:backend/src/cepraea_video/spike_media.py#Path",
-      "type": "external",
-      "name": "Path",
-      "resolution": "unresolved_call"
-    },
-    {
-      "id": "external:call:backend/src/cepraea_video/spike_media.py#Path(media_path).suffix.lower",
-      "type": "external",
-      "name": "Path(media_path).suffix.lower",
-      "resolution": "unresolved_call"
-    },
-    {
-      "id": "external:call:backend/src/cepraea_video/spike_media.py#candidate.is_file",
-      "type": "external",
-      "name": "candidate.is_file",
-      "resolution": "unresolved_call"
-    },
-    {
-      "id": "external:call:backend/src/cepraea_video/spike_media.py#get_runtime_paths().media_dir.resolve",
-      "type": "external",
-      "name": "get_runtime_paths().media_dir.resolve",
       "resolution": "unresolved_call"
     },
     {
@@ -5983,6 +6175,12 @@
       "resolution": "unresolved_external"
     },
     {
+      "id": "external:module:uuid",
+      "type": "external",
+      "name": "uuid",
+      "resolution": "unresolved_external"
+    },
+    {
       "id": "external:module:validate_baselines",
       "type": "external",
       "name": "validate_baselines",
@@ -6020,6 +6218,20 @@
       "sha256": "7a6486747c1ba8fa3ba4af5b3b3b858a5b65080a6e829f071ec2771998ba9948"
     },
     {
+      "id": "file:backend/src/cepraea_video/catalog_api.py",
+      "type": "file",
+      "path": "backend/src/cepraea_video/catalog_api.py",
+      "module": "cepraea_video.catalog_api",
+      "sha256": "b42fed2c5fe7dc4356819c175e64d3ab13e4b1e758b44c43f9ced04ff9164a20"
+    },
+    {
+      "id": "file:backend/src/cepraea_video/catalog_storage.py",
+      "type": "file",
+      "path": "backend/src/cepraea_video/catalog_storage.py",
+      "module": "cepraea_video.catalog_storage",
+      "sha256": "2fc44f653a2fdd052595f006b07c82edcf6d510ffe865ad41fde32a067439c5f"
+    },
+    {
       "id": "file:backend/src/cepraea_video/config.py",
       "type": "file",
       "path": "backend/src/cepraea_video/config.py",
@@ -6027,18 +6239,25 @@
       "sha256": "bddb01cfad40f4a06eaf264bb64419a35a6437682f5274414caa4237c3ee8748"
     },
     {
+      "id": "file:backend/src/cepraea_video/local_media.py",
+      "type": "file",
+      "path": "backend/src/cepraea_video/local_media.py",
+      "module": "cepraea_video.local_media",
+      "sha256": "451f0e7d88575927f6746db90113b7b7600ec31ad9b104ff2bbfd14764206709"
+    },
+    {
       "id": "file:backend/src/cepraea_video/main.py",
       "type": "file",
       "path": "backend/src/cepraea_video/main.py",
       "module": "cepraea_video.main",
-      "sha256": "dd6e24632a0f2e5f1d8968fa37c4c8c1dd9c8adf0a165aedc4a066ebc51d3aeb"
+      "sha256": "359a6886b0733d41c8230addbdcf2a047c7ec207e186dfde42fda430a28bd444"
     },
     {
       "id": "file:backend/src/cepraea_video/spike_media.py",
       "type": "file",
       "path": "backend/src/cepraea_video/spike_media.py",
       "module": "cepraea_video.spike_media",
-      "sha256": "f86784bd848f1a353f18ce6cdd91e3cd9fdf38249ac1a87a099bbce9599bf9f6"
+      "sha256": "7c507514cc11c9d5fdde5280151d602bb04591cf651401e412fbc50edcd082d3"
     },
     {
       "id": "file:backend/src/cepraea_video/spike_storage.py",
@@ -6188,6 +6407,303 @@
       "sha256": "72592f80c10687ab88403b1235d818b31163bdb936bcdcf5a522f9066853417d"
     },
     {
+      "id": "symbol:backend/src/cepraea_video/catalog_api.py#CompetitionInput",
+      "type": "symbol",
+      "path": "backend/src/cepraea_video/catalog_api.py",
+      "name": "CompetitionInput",
+      "qualified": "CompetitionInput",
+      "kind": "class",
+      "line": 28
+    },
+    {
+      "id": "symbol:backend/src/cepraea_video/catalog_api.py#GameInput",
+      "type": "symbol",
+      "path": "backend/src/cepraea_video/catalog_api.py",
+      "name": "GameInput",
+      "qualified": "GameInput",
+      "kind": "class",
+      "line": 32
+    },
+    {
+      "id": "symbol:backend/src/cepraea_video/catalog_api.py#LanceInput",
+      "type": "symbol",
+      "path": "backend/src/cepraea_video/catalog_api.py",
+      "name": "LanceInput",
+      "qualified": "LanceInput",
+      "kind": "class",
+      "line": 54
+    },
+    {
+      "id": "symbol:backend/src/cepraea_video/catalog_api.py#TemporalReferenceInput",
+      "type": "symbol",
+      "path": "backend/src/cepraea_video/catalog_api.py",
+      "name": "TemporalReferenceInput",
+      "qualified": "TemporalReferenceInput",
+      "kind": "class",
+      "line": 42
+    },
+    {
+      "id": "symbol:backend/src/cepraea_video/catalog_api.py#TemporalReferenceInput.validate_interval",
+      "type": "symbol",
+      "path": "backend/src/cepraea_video/catalog_api.py",
+      "name": "validate_interval",
+      "qualified": "TemporalReferenceInput.validate_interval",
+      "kind": "method",
+      "line": 48
+    },
+    {
+      "id": "symbol:backend/src/cepraea_video/catalog_api.py#VideoSourceInput",
+      "type": "symbol",
+      "path": "backend/src/cepraea_video/catalog_api.py",
+      "name": "VideoSourceInput",
+      "qualified": "VideoSourceInput",
+      "kind": "class",
+      "line": 37
+    },
+    {
+      "id": "symbol:backend/src/cepraea_video/catalog_api.py#_not_found",
+      "type": "symbol",
+      "path": "backend/src/cepraea_video/catalog_api.py",
+      "name": "_not_found",
+      "qualified": "_not_found",
+      "kind": "function",
+      "line": 59
+    },
+    {
+      "id": "symbol:backend/src/cepraea_video/catalog_api.py#get_catalog_lance",
+      "type": "symbol",
+      "path": "backend/src/cepraea_video/catalog_api.py",
+      "name": "get_catalog_lance",
+      "qualified": "get_catalog_lance",
+      "kind": "function",
+      "line": 124
+    },
+    {
+      "id": "symbol:backend/src/cepraea_video/catalog_api.py#get_competitions",
+      "type": "symbol",
+      "path": "backend/src/cepraea_video/catalog_api.py",
+      "name": "get_competitions",
+      "qualified": "get_competitions",
+      "kind": "function",
+      "line": 71
+    },
+    {
+      "id": "symbol:backend/src/cepraea_video/catalog_api.py#get_games",
+      "type": "symbol",
+      "path": "backend/src/cepraea_video/catalog_api.py",
+      "name": "get_games",
+      "qualified": "get_games",
+      "kind": "function",
+      "line": 86
+    },
+    {
+      "id": "symbol:backend/src/cepraea_video/catalog_api.py#get_video_sources",
+      "type": "symbol",
+      "path": "backend/src/cepraea_video/catalog_api.py",
+      "name": "get_video_sources",
+      "qualified": "get_video_sources",
+      "kind": "function",
+      "line": 105
+    },
+    {
+      "id": "symbol:backend/src/cepraea_video/catalog_api.py#post_competition",
+      "type": "symbol",
+      "path": "backend/src/cepraea_video/catalog_api.py",
+      "name": "post_competition",
+      "qualified": "post_competition",
+      "kind": "function",
+      "line": 64
+    },
+    {
+      "id": "symbol:backend/src/cepraea_video/catalog_api.py#post_game",
+      "type": "symbol",
+      "path": "backend/src/cepraea_video/catalog_api.py",
+      "name": "post_game",
+      "qualified": "post_game",
+      "kind": "function",
+      "line": 76
+    },
+    {
+      "id": "symbol:backend/src/cepraea_video/catalog_api.py#post_lance",
+      "type": "symbol",
+      "path": "backend/src/cepraea_video/catalog_api.py",
+      "name": "post_lance",
+      "qualified": "post_lance",
+      "kind": "function",
+      "line": 110
+    },
+    {
+      "id": "symbol:backend/src/cepraea_video/catalog_api.py#post_video_source",
+      "type": "symbol",
+      "path": "backend/src/cepraea_video/catalog_api.py",
+      "name": "post_video_source",
+      "qualified": "post_video_source",
+      "kind": "function",
+      "line": 91
+    },
+    {
+      "id": "symbol:backend/src/cepraea_video/catalog_storage.py#CatalogNotFoundError",
+      "type": "symbol",
+      "path": "backend/src/cepraea_video/catalog_storage.py",
+      "name": "CatalogNotFoundError",
+      "qualified": "CatalogNotFoundError",
+      "kind": "class",
+      "line": 14
+    },
+    {
+      "id": "symbol:backend/src/cepraea_video/catalog_storage.py#CatalogRelationError",
+      "type": "symbol",
+      "path": "backend/src/cepraea_video/catalog_storage.py",
+      "name": "CatalogRelationError",
+      "qualified": "CatalogRelationError",
+      "kind": "class",
+      "line": 18
+    },
+    {
+      "id": "symbol:backend/src/cepraea_video/catalog_storage.py#_connect",
+      "type": "symbol",
+      "path": "backend/src/cepraea_video/catalog_storage.py",
+      "name": "_connect",
+      "qualified": "_connect",
+      "kind": "function",
+      "line": 26
+    },
+    {
+      "id": "symbol:backend/src/cepraea_video/catalog_storage.py#_exists",
+      "type": "symbol",
+      "path": "backend/src/cepraea_video/catalog_storage.py",
+      "name": "_exists",
+      "qualified": "_exists",
+      "kind": "function",
+      "line": 164
+    },
+    {
+      "id": "symbol:backend/src/cepraea_video/catalog_storage.py#_insert_and_read",
+      "type": "symbol",
+      "path": "backend/src/cepraea_video/catalog_storage.py",
+      "name": "_insert_and_read",
+      "qualified": "_insert_and_read",
+      "kind": "function",
+      "line": 107
+    },
+    {
+      "id": "symbol:backend/src/cepraea_video/catalog_storage.py#_list_rows",
+      "type": "symbol",
+      "path": "backend/src/cepraea_video/catalog_storage.py",
+      "name": "_list_rows",
+      "qualified": "_list_rows",
+      "kind": "function",
+      "line": 199
+    },
+    {
+      "id": "symbol:backend/src/cepraea_video/catalog_storage.py#_new_id",
+      "type": "symbol",
+      "path": "backend/src/cepraea_video/catalog_storage.py",
+      "name": "_new_id",
+      "qualified": "_new_id",
+      "kind": "function",
+      "line": 33
+    },
+    {
+      "id": "symbol:backend/src/cepraea_video/catalog_storage.py#_read_lance",
+      "type": "symbol",
+      "path": "backend/src/cepraea_video/catalog_storage.py",
+      "name": "_read_lance",
+      "qualified": "_read_lance",
+      "kind": "function",
+      "line": 254
+    },
+    {
+      "id": "symbol:backend/src/cepraea_video/catalog_storage.py#create_competition",
+      "type": "symbol",
+      "path": "backend/src/cepraea_video/catalog_storage.py",
+      "name": "create_competition",
+      "qualified": "create_competition",
+      "kind": "function",
+      "line": 126
+    },
+    {
+      "id": "symbol:backend/src/cepraea_video/catalog_storage.py#create_game",
+      "type": "symbol",
+      "path": "backend/src/cepraea_video/catalog_storage.py",
+      "name": "create_game",
+      "qualified": "create_game",
+      "kind": "function",
+      "line": 134
+    },
+    {
+      "id": "symbol:backend/src/cepraea_video/catalog_storage.py#create_lance",
+      "type": "symbol",
+      "path": "backend/src/cepraea_video/catalog_storage.py",
+      "name": "create_lance",
+      "qualified": "create_lance",
+      "kind": "function",
+      "line": 207
+    },
+    {
+      "id": "symbol:backend/src/cepraea_video/catalog_storage.py#create_video_source",
+      "type": "symbol",
+      "path": "backend/src/cepraea_video/catalog_storage.py",
+      "name": "create_video_source",
+      "qualified": "create_video_source",
+      "kind": "function",
+      "line": 149
+    },
+    {
+      "id": "symbol:backend/src/cepraea_video/catalog_storage.py#database_path",
+      "type": "symbol",
+      "path": "backend/src/cepraea_video/catalog_storage.py",
+      "name": "database_path",
+      "qualified": "database_path",
+      "kind": "function",
+      "line": 22
+    },
+    {
+      "id": "symbol:backend/src/cepraea_video/catalog_storage.py#get_lance",
+      "type": "symbol",
+      "path": "backend/src/cepraea_video/catalog_storage.py",
+      "name": "get_lance",
+      "qualified": "get_lance",
+      "kind": "function",
+      "line": 249
+    },
+    {
+      "id": "symbol:backend/src/cepraea_video/catalog_storage.py#initialize_catalog",
+      "type": "symbol",
+      "path": "backend/src/cepraea_video/catalog_storage.py",
+      "name": "initialize_catalog",
+      "qualified": "initialize_catalog",
+      "kind": "function",
+      "line": 37
+    },
+    {
+      "id": "symbol:backend/src/cepraea_video/catalog_storage.py#list_competitions",
+      "type": "symbol",
+      "path": "backend/src/cepraea_video/catalog_storage.py",
+      "name": "list_competitions",
+      "qualified": "list_competitions",
+      "kind": "function",
+      "line": 173
+    },
+    {
+      "id": "symbol:backend/src/cepraea_video/catalog_storage.py#list_games",
+      "type": "symbol",
+      "path": "backend/src/cepraea_video/catalog_storage.py",
+      "name": "list_games",
+      "qualified": "list_games",
+      "kind": "function",
+      "line": 177
+    },
+    {
+      "id": "symbol:backend/src/cepraea_video/catalog_storage.py#list_video_sources",
+      "type": "symbol",
+      "path": "backend/src/cepraea_video/catalog_storage.py",
+      "name": "list_video_sources",
+      "qualified": "list_video_sources",
+      "kind": "function",
+      "line": 187
+    },
+    {
       "id": "symbol:backend/src/cepraea_video/config.py#RuntimePaths",
       "type": "symbol",
       "path": "backend/src/cepraea_video/config.py",
@@ -6215,13 +6731,22 @@
       "line": 17
     },
     {
+      "id": "symbol:backend/src/cepraea_video/local_media.py#resolve_media",
+      "type": "symbol",
+      "path": "backend/src/cepraea_video/local_media.py",
+      "name": "resolve_media",
+      "qualified": "resolve_media",
+      "kind": "function",
+      "line": 10
+    },
+    {
       "id": "symbol:backend/src/cepraea_video/main.py#SpikeIntervalDeletion",
       "type": "symbol",
       "path": "backend/src/cepraea_video/main.py",
       "name": "SpikeIntervalDeletion",
       "qualified": "SpikeIntervalDeletion",
       "kind": "class",
-      "line": 72
+      "line": 79
     },
     {
       "id": "symbol:backend/src/cepraea_video/main.py#SpikeIntervalDeletion.validate_reason",
@@ -6230,7 +6755,7 @@
       "name": "validate_reason",
       "qualified": "SpikeIntervalDeletion.validate_reason",
       "kind": "method",
-      "line": 76
+      "line": 83
     },
     {
       "id": "symbol:backend/src/cepraea_video/main.py#SpikeIntervalInput",
@@ -6239,7 +6764,7 @@
       "name": "SpikeIntervalInput",
       "qualified": "SpikeIntervalInput",
       "kind": "class",
-      "line": 47
+      "line": 54
     },
     {
       "id": "symbol:backend/src/cepraea_video/main.py#SpikeIntervalInput.validate_interval",
@@ -6248,7 +6773,7 @@
       "name": "validate_interval",
       "qualified": "SpikeIntervalInput.validate_interval",
       "kind": "method",
-      "line": 53
+      "line": 60
     },
     {
       "id": "symbol:backend/src/cepraea_video/main.py#SpikeIntervalUpdate",
@@ -6257,7 +6782,7 @@
       "name": "SpikeIntervalUpdate",
       "qualified": "SpikeIntervalUpdate",
       "kind": "class",
-      "line": 61
+      "line": 68
     },
     {
       "id": "symbol:backend/src/cepraea_video/main.py#SpikeIntervalUpdate.validate_interval",
@@ -6266,7 +6791,7 @@
       "name": "validate_interval",
       "qualified": "SpikeIntervalUpdate.validate_interval",
       "kind": "method",
-      "line": 66
+      "line": 73
     },
     {
       "id": "symbol:backend/src/cepraea_video/main.py#create_spike_interval",
@@ -6275,7 +6800,7 @@
       "name": "create_spike_interval",
       "qualified": "create_spike_interval",
       "kind": "function",
-      "line": 83
+      "line": 90
     },
     {
       "id": "symbol:backend/src/cepraea_video/main.py#delete_spike_interval",
@@ -6284,7 +6809,7 @@
       "name": "delete_spike_interval",
       "qualified": "delete_spike_interval",
       "kind": "function",
-      "line": 112
+      "line": 119
     },
     {
       "id": "symbol:backend/src/cepraea_video/main.py#get_deleted_spike_intervals",
@@ -6293,7 +6818,7 @@
       "name": "get_deleted_spike_intervals",
       "qualified": "get_deleted_spike_intervals",
       "kind": "function",
-      "line": 121
+      "line": 128
     },
     {
       "id": "symbol:backend/src/cepraea_video/main.py#get_spike_interval_versions",
@@ -6302,7 +6827,7 @@
       "name": "get_spike_interval_versions",
       "qualified": "get_spike_interval_versions",
       "kind": "function",
-      "line": 126
+      "line": 133
     },
     {
       "id": "symbol:backend/src/cepraea_video/main.py#get_spike_intervals",
@@ -6311,7 +6836,7 @@
       "name": "get_spike_intervals",
       "qualified": "get_spike_intervals",
       "kind": "function",
-      "line": 95
+      "line": 102
     },
     {
       "id": "symbol:backend/src/cepraea_video/main.py#get_spike_media",
@@ -6320,7 +6845,7 @@
       "name": "get_spike_media",
       "qualified": "get_spike_media",
       "kind": "function",
-      "line": 131
+      "line": 138
     },
     {
       "id": "symbol:backend/src/cepraea_video/main.py#get_spike_media_file",
@@ -6329,7 +6854,7 @@
       "name": "get_spike_media_file",
       "qualified": "get_spike_media_file",
       "kind": "function",
-      "line": 136
+      "line": 143
     },
     {
       "id": "symbol:backend/src/cepraea_video/main.py#health",
@@ -6338,7 +6863,7 @@
       "name": "health",
       "qualified": "health",
       "kind": "function",
-      "line": 39
+      "line": 46
     },
     {
       "id": "symbol:backend/src/cepraea_video/main.py#lifespan",
@@ -6347,7 +6872,7 @@
       "name": "lifespan",
       "qualified": "lifespan",
       "kind": "async_function",
-      "line": 25
+      "line": 30
     },
     {
       "id": "symbol:backend/src/cepraea_video/main.py#patch_spike_interval",
@@ -6356,7 +6881,7 @@
       "name": "patch_spike_interval",
       "qualified": "patch_spike_interval",
       "kind": "function",
-      "line": 100
+      "line": 107
     },
     {
       "id": "symbol:backend/src/cepraea_video/spike_media.py#list_media",
@@ -6365,7 +6890,7 @@
       "name": "list_media",
       "qualified": "list_media",
       "kind": "function",
-      "line": 23
+      "line": 17
     },
     {
       "id": "symbol:backend/src/cepraea_video/spike_media.py#resolve_media",
@@ -6374,7 +6899,7 @@
       "name": "resolve_media",
       "qualified": "resolve_media",
       "kind": "function",
-      "line": 11
+      "line": 12
     },
     {
       "id": "symbol:backend/src/cepraea_video/spike_storage.py#SpikeInterval",
@@ -7720,6 +8245,349 @@
   ],
   "edges": [
     {
+      "source": "file:backend/src/cepraea_video/catalog_api.py",
+      "target": "external:call:backend/src/cepraea_video/catalog_api.py#APIRouter",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 25
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_api.py",
+      "target": "external:module:__future__",
+      "type": "imports",
+      "method": "ast+module-resolution",
+      "confidence": 0.5,
+      "line": 3
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_api.py",
+      "target": "external:module:fastapi",
+      "type": "imports",
+      "method": "ast+module-resolution",
+      "confidence": 0.5,
+      "line": 7
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_api.py",
+      "target": "external:module:pydantic",
+      "type": "imports",
+      "method": "ast+module-resolution",
+      "confidence": 0.5,
+      "line": 8
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_api.py",
+      "target": "external:module:typing",
+      "type": "imports",
+      "method": "ast+module-resolution",
+      "confidence": 0.5,
+      "line": 5
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_api.py",
+      "target": "file:backend/src/cepraea_video/catalog_storage.py",
+      "type": "imports",
+      "method": "ast+module-resolution",
+      "confidence": 1.0,
+      "line": 10
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_api.py",
+      "target": "file:backend/src/cepraea_video/local_media.py",
+      "type": "imports",
+      "method": "ast+module-resolution",
+      "confidence": 1.0,
+      "line": 23
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_api.py",
+      "target": "symbol:backend/src/cepraea_video/catalog_api.py#CompetitionInput",
+      "type": "contains",
+      "method": "ast",
+      "confidence": 1.0
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_api.py",
+      "target": "symbol:backend/src/cepraea_video/catalog_api.py#GameInput",
+      "type": "contains",
+      "method": "ast",
+      "confidence": 1.0
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_api.py",
+      "target": "symbol:backend/src/cepraea_video/catalog_api.py#LanceInput",
+      "type": "contains",
+      "method": "ast",
+      "confidence": 1.0
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_api.py",
+      "target": "symbol:backend/src/cepraea_video/catalog_api.py#TemporalReferenceInput",
+      "type": "contains",
+      "method": "ast",
+      "confidence": 1.0
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_api.py",
+      "target": "symbol:backend/src/cepraea_video/catalog_api.py#TemporalReferenceInput.validate_interval",
+      "type": "contains",
+      "method": "ast",
+      "confidence": 1.0
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_api.py",
+      "target": "symbol:backend/src/cepraea_video/catalog_api.py#VideoSourceInput",
+      "type": "contains",
+      "method": "ast",
+      "confidence": 1.0
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_api.py",
+      "target": "symbol:backend/src/cepraea_video/catalog_api.py#_not_found",
+      "type": "contains",
+      "method": "ast",
+      "confidence": 1.0
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_api.py",
+      "target": "symbol:backend/src/cepraea_video/catalog_api.py#get_catalog_lance",
+      "type": "contains",
+      "method": "ast",
+      "confidence": 1.0
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_api.py",
+      "target": "symbol:backend/src/cepraea_video/catalog_api.py#get_competitions",
+      "type": "contains",
+      "method": "ast",
+      "confidence": 1.0
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_api.py",
+      "target": "symbol:backend/src/cepraea_video/catalog_api.py#get_games",
+      "type": "contains",
+      "method": "ast",
+      "confidence": 1.0
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_api.py",
+      "target": "symbol:backend/src/cepraea_video/catalog_api.py#get_video_sources",
+      "type": "contains",
+      "method": "ast",
+      "confidence": 1.0
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_api.py",
+      "target": "symbol:backend/src/cepraea_video/catalog_api.py#post_competition",
+      "type": "contains",
+      "method": "ast",
+      "confidence": 1.0
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_api.py",
+      "target": "symbol:backend/src/cepraea_video/catalog_api.py#post_game",
+      "type": "contains",
+      "method": "ast",
+      "confidence": 1.0
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_api.py",
+      "target": "symbol:backend/src/cepraea_video/catalog_api.py#post_lance",
+      "type": "contains",
+      "method": "ast",
+      "confidence": 1.0
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_api.py",
+      "target": "symbol:backend/src/cepraea_video/catalog_api.py#post_video_source",
+      "type": "contains",
+      "method": "ast",
+      "confidence": 1.0
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_storage.py",
+      "target": "external:module:__future__",
+      "type": "imports",
+      "method": "ast+module-resolution",
+      "confidence": 0.5,
+      "line": 3
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_storage.py",
+      "target": "external:module:contextlib",
+      "type": "imports",
+      "method": "ast+module-resolution",
+      "confidence": 0.5,
+      "line": 6
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_storage.py",
+      "target": "external:module:pathlib",
+      "type": "imports",
+      "method": "ast+module-resolution",
+      "confidence": 0.5,
+      "line": 7
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_storage.py",
+      "target": "external:module:sqlite3",
+      "type": "imports",
+      "method": "ast+module-resolution",
+      "confidence": 0.5,
+      "line": 5
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_storage.py",
+      "target": "external:module:typing",
+      "type": "imports",
+      "method": "ast+module-resolution",
+      "confidence": 0.5,
+      "line": 8
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_storage.py",
+      "target": "external:module:uuid",
+      "type": "imports",
+      "method": "ast+module-resolution",
+      "confidence": 0.5,
+      "line": 9
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_storage.py",
+      "target": "file:backend/src/cepraea_video/config.py",
+      "type": "imports",
+      "method": "ast+module-resolution",
+      "confidence": 1.0,
+      "line": 11
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_storage.py",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#CatalogNotFoundError",
+      "type": "contains",
+      "method": "ast",
+      "confidence": 1.0
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_storage.py",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#CatalogRelationError",
+      "type": "contains",
+      "method": "ast",
+      "confidence": 1.0
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_storage.py",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#_connect",
+      "type": "contains",
+      "method": "ast",
+      "confidence": 1.0
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_storage.py",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#_exists",
+      "type": "contains",
+      "method": "ast",
+      "confidence": 1.0
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_storage.py",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#_insert_and_read",
+      "type": "contains",
+      "method": "ast",
+      "confidence": 1.0
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_storage.py",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#_list_rows",
+      "type": "contains",
+      "method": "ast",
+      "confidence": 1.0
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_storage.py",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#_new_id",
+      "type": "contains",
+      "method": "ast",
+      "confidence": 1.0
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_storage.py",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#_read_lance",
+      "type": "contains",
+      "method": "ast",
+      "confidence": 1.0
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_storage.py",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#create_competition",
+      "type": "contains",
+      "method": "ast",
+      "confidence": 1.0
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_storage.py",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#create_game",
+      "type": "contains",
+      "method": "ast",
+      "confidence": 1.0
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_storage.py",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#create_lance",
+      "type": "contains",
+      "method": "ast",
+      "confidence": 1.0
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_storage.py",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#create_video_source",
+      "type": "contains",
+      "method": "ast",
+      "confidence": 1.0
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_storage.py",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#database_path",
+      "type": "contains",
+      "method": "ast",
+      "confidence": 1.0
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_storage.py",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#get_lance",
+      "type": "contains",
+      "method": "ast",
+      "confidence": 1.0
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_storage.py",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#initialize_catalog",
+      "type": "contains",
+      "method": "ast",
+      "confidence": 1.0
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_storage.py",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#list_competitions",
+      "type": "contains",
+      "method": "ast",
+      "confidence": 1.0
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_storage.py",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#list_games",
+      "type": "contains",
+      "method": "ast",
+      "confidence": 1.0
+    },
+    {
+      "source": "file:backend/src/cepraea_video/catalog_storage.py",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#list_video_sources",
+      "type": "contains",
+      "method": "ast",
+      "confidence": 1.0
+    },
+    {
       "source": "file:backend/src/cepraea_video/config.py",
       "target": "external:call:backend/src/cepraea_video/config.py#Path",
       "type": "calls",
@@ -7789,12 +8657,51 @@
       "confidence": 1.0
     },
     {
+      "source": "file:backend/src/cepraea_video/local_media.py",
+      "target": "external:module:__future__",
+      "type": "imports",
+      "method": "ast+module-resolution",
+      "confidence": 0.5,
+      "line": 3
+    },
+    {
+      "source": "file:backend/src/cepraea_video/local_media.py",
+      "target": "external:module:pathlib",
+      "type": "imports",
+      "method": "ast+module-resolution",
+      "confidence": 0.5,
+      "line": 5
+    },
+    {
+      "source": "file:backend/src/cepraea_video/local_media.py",
+      "target": "file:backend/src/cepraea_video/config.py",
+      "type": "imports",
+      "method": "ast+module-resolution",
+      "confidence": 1.0,
+      "line": 7
+    },
+    {
+      "source": "file:backend/src/cepraea_video/local_media.py",
+      "target": "symbol:backend/src/cepraea_video/local_media.py#resolve_media",
+      "type": "contains",
+      "method": "ast",
+      "confidence": 1.0
+    },
+    {
       "source": "file:backend/src/cepraea_video/main.py",
       "target": "external:call:backend/src/cepraea_video/main.py#FastAPI",
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 31
+      "line": 37
+    },
+    {
+      "source": "file:backend/src/cepraea_video/main.py",
+      "target": "external:call:backend/src/cepraea_video/main.py#app.include_router",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 42
     },
     {
       "source": "file:backend/src/cepraea_video/main.py",
@@ -7846,7 +8753,7 @@
     },
     {
       "source": "file:backend/src/cepraea_video/main.py",
-      "target": "file:backend/src/cepraea_video/config.py",
+      "target": "file:backend/src/cepraea_video/catalog_api.py",
       "type": "imports",
       "method": "ast+module-resolution",
       "confidence": 1.0,
@@ -7854,7 +8761,7 @@
     },
     {
       "source": "file:backend/src/cepraea_video/main.py",
-      "target": "file:backend/src/cepraea_video/spike_media.py",
+      "target": "file:backend/src/cepraea_video/catalog_storage.py",
       "type": "imports",
       "method": "ast+module-resolution",
       "confidence": 1.0,
@@ -7862,11 +8769,27 @@
     },
     {
       "source": "file:backend/src/cepraea_video/main.py",
+      "target": "file:backend/src/cepraea_video/config.py",
+      "type": "imports",
+      "method": "ast+module-resolution",
+      "confidence": 1.0,
+      "line": 15
+    },
+    {
+      "source": "file:backend/src/cepraea_video/main.py",
+      "target": "file:backend/src/cepraea_video/spike_media.py",
+      "type": "imports",
+      "method": "ast+module-resolution",
+      "confidence": 1.0,
+      "line": 16
+    },
+    {
+      "source": "file:backend/src/cepraea_video/main.py",
       "target": "file:backend/src/cepraea_video/spike_storage.py",
       "type": "imports",
       "method": "ast+module-resolution",
       "confidence": 1.0,
-      "line": 12
+      "line": 17
     },
     {
       "source": "file:backend/src/cepraea_video/main.py",
@@ -8011,6 +8934,14 @@
       "method": "ast+module-resolution",
       "confidence": 1.0,
       "line": 8
+    },
+    {
+      "source": "file:backend/src/cepraea_video/spike_media.py",
+      "target": "file:backend/src/cepraea_video/local_media.py",
+      "type": "imports",
+      "method": "ast+module-resolution",
+      "confidence": 1.0,
+      "line": 9
     },
     {
       "source": "file:backend/src/cepraea_video/spike_media.py",
@@ -14862,6 +15793,974 @@
       "confidence": 1.0
     },
     {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#CompetitionInput",
+      "target": "external:call:backend/src/cepraea_video/catalog_api.py#Field",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 29
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#GameInput",
+      "target": "external:call:backend/src/cepraea_video/catalog_api.py#Field",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 33
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#GameInput",
+      "target": "external:call:backend/src/cepraea_video/catalog_api.py#Field",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 34
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#LanceInput",
+      "target": "external:call:backend/src/cepraea_video/catalog_api.py#Field",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 55
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#LanceInput",
+      "target": "external:call:backend/src/cepraea_video/catalog_api.py#Field",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 56
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#TemporalReferenceInput",
+      "target": "external:call:backend/src/cepraea_video/catalog_api.py#Field",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 43
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#TemporalReferenceInput",
+      "target": "external:call:backend/src/cepraea_video/catalog_api.py#Field",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 44
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#TemporalReferenceInput",
+      "target": "external:call:backend/src/cepraea_video/catalog_api.py#Field",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 45
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#TemporalReferenceInput.validate_interval",
+      "target": "external:call:backend/src/cepraea_video/catalog_api.py#ValueError",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 50
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#TemporalReferenceInput.validate_interval",
+      "target": "external:call:backend/src/cepraea_video/catalog_api.py#model_validator",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 47
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#VideoSourceInput",
+      "target": "external:call:backend/src/cepraea_video/catalog_api.py#Field",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 38
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#VideoSourceInput",
+      "target": "external:call:backend/src/cepraea_video/catalog_api.py#Field",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 39
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#_not_found",
+      "target": "external:call:backend/src/cepraea_video/catalog_api.py#HTTPException",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 60
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#_not_found",
+      "target": "external:call:backend/src/cepraea_video/catalog_api.py#str",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 60
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#get_catalog_lance",
+      "target": "external:call:backend/src/cepraea_video/catalog_api.py#HTTPException",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 127
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#get_catalog_lance",
+      "target": "external:call:backend/src/cepraea_video/catalog_api.py#router.get",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 123
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#get_catalog_lance",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#database_path",
+      "type": "calls",
+      "method": "ast-import-binding-resolution",
+      "confidence": 1.0,
+      "line": 125
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#get_catalog_lance",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#get_lance",
+      "type": "calls",
+      "method": "ast-import-binding-resolution",
+      "confidence": 1.0,
+      "line": 125
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#get_competitions",
+      "target": "external:call:backend/src/cepraea_video/catalog_api.py#router.get",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 70
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#get_competitions",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#database_path",
+      "type": "calls",
+      "method": "ast-import-binding-resolution",
+      "confidence": 1.0,
+      "line": 72
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#get_competitions",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#list_competitions",
+      "type": "calls",
+      "method": "ast-import-binding-resolution",
+      "confidence": 1.0,
+      "line": 72
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#get_games",
+      "target": "external:call:backend/src/cepraea_video/catalog_api.py#router.get",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 85
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#get_games",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#database_path",
+      "type": "calls",
+      "method": "ast-import-binding-resolution",
+      "confidence": 1.0,
+      "line": 87
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#get_games",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#list_games",
+      "type": "calls",
+      "method": "ast-import-binding-resolution",
+      "confidence": 1.0,
+      "line": 87
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#get_video_sources",
+      "target": "external:call:backend/src/cepraea_video/catalog_api.py#router.get",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 104
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#get_video_sources",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#database_path",
+      "type": "calls",
+      "method": "ast-import-binding-resolution",
+      "confidence": 1.0,
+      "line": 106
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#get_video_sources",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#list_video_sources",
+      "type": "calls",
+      "method": "ast-import-binding-resolution",
+      "confidence": 1.0,
+      "line": 106
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#post_competition",
+      "target": "external:call:backend/src/cepraea_video/catalog_api.py#HTTPException",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 66
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#post_competition",
+      "target": "external:call:backend/src/cepraea_video/catalog_api.py#data.name.strip",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 65
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#post_competition",
+      "target": "external:call:backend/src/cepraea_video/catalog_api.py#router.post",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 63
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#post_competition",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#create_competition",
+      "type": "calls",
+      "method": "ast-import-binding-resolution",
+      "confidence": 1.0,
+      "line": 67
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#post_competition",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#database_path",
+      "type": "calls",
+      "method": "ast-import-binding-resolution",
+      "confidence": 1.0,
+      "line": 67
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#post_game",
+      "target": "external:call:backend/src/cepraea_video/catalog_api.py#HTTPException",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 78
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#post_game",
+      "target": "external:call:backend/src/cepraea_video/catalog_api.py#data.name.strip",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 77
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#post_game",
+      "target": "external:call:backend/src/cepraea_video/catalog_api.py#router.post",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 75
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#post_game",
+      "target": "symbol:backend/src/cepraea_video/catalog_api.py#_not_found",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 82
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#post_game",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#create_game",
+      "type": "calls",
+      "method": "ast-import-binding-resolution",
+      "confidence": 1.0,
+      "line": 80
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#post_game",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#database_path",
+      "type": "calls",
+      "method": "ast-import-binding-resolution",
+      "confidence": 1.0,
+      "line": 80
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#post_lance",
+      "target": "external:call:backend/src/cepraea_video/catalog_api.py#HTTPException",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 120
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#post_lance",
+      "target": "external:call:backend/src/cepraea_video/catalog_api.py#reference.model_dump",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 115
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#post_lance",
+      "target": "external:call:backend/src/cepraea_video/catalog_api.py#router.post",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 109
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#post_lance",
+      "target": "external:call:backend/src/cepraea_video/catalog_api.py#str",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 120
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#post_lance",
+      "target": "symbol:backend/src/cepraea_video/catalog_api.py#_not_found",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 118
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#post_lance",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#create_lance",
+      "type": "calls",
+      "method": "ast-import-binding-resolution",
+      "confidence": 1.0,
+      "line": 112
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#post_lance",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#database_path",
+      "type": "calls",
+      "method": "ast-import-binding-resolution",
+      "confidence": 1.0,
+      "line": 113
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#post_video_source",
+      "target": "external:call:backend/src/cepraea_video/catalog_api.py#HTTPException",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 94
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#post_video_source",
+      "target": "external:call:backend/src/cepraea_video/catalog_api.py#router.post",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 90
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#post_video_source",
+      "target": "symbol:backend/src/cepraea_video/catalog_api.py#_not_found",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 101
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#post_video_source",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#create_video_source",
+      "type": "calls",
+      "method": "ast-import-binding-resolution",
+      "confidence": 1.0,
+      "line": 99
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#post_video_source",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#database_path",
+      "type": "calls",
+      "method": "ast-import-binding-resolution",
+      "confidence": 1.0,
+      "line": 99
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_api.py#post_video_source",
+      "target": "symbol:backend/src/cepraea_video/local_media.py#resolve_media",
+      "type": "calls",
+      "method": "ast-import-binding-resolution",
+      "confidence": 1.0,
+      "line": 92
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#_connect",
+      "target": "external:call:backend/src/cepraea_video/catalog_storage.py#connection.execute",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 29
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#_connect",
+      "target": "external:call:backend/src/cepraea_video/catalog_storage.py#sqlite3.connect",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 27
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#_exists",
+      "target": "external:call:backend/src/cepraea_video/catalog_storage.py#connection.execute",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 166
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#_exists",
+      "target": "external:call:backend/src/cepraea_video/catalog_storage.py#connection.execute(f'SELECT 1 FROM {table} WHERE id = ?', (entity_id,)).fetchone",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 166
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#_insert_and_read",
+      "target": "external:call:backend/src/cepraea_video/catalog_storage.py#', '.join",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 114
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#_insert_and_read",
+      "target": "external:call:backend/src/cepraea_video/catalog_storage.py#', '.join",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 116
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#_insert_and_read",
+      "target": "external:call:backend/src/cepraea_video/catalog_storage.py#connection.execute",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 115
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#_insert_and_read",
+      "target": "external:call:backend/src/cepraea_video/catalog_storage.py#connection.execute",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 119
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#_insert_and_read",
+      "target": "external:call:backend/src/cepraea_video/catalog_storage.py#connection.execute(f'SELECT * FROM {table} WHERE id = ?', (entity_id,)).fetchone",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 119
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#_insert_and_read",
+      "target": "external:call:backend/src/cepraea_video/catalog_storage.py#dict",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 123
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#_insert_and_read",
+      "target": "external:call:backend/src/cepraea_video/catalog_storage.py#values.values",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 117
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#_list_rows",
+      "target": "external:call:backend/src/cepraea_video/catalog_storage.py#closing",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 202
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#_list_rows",
+      "target": "external:call:backend/src/cepraea_video/catalog_storage.py#connection.execute",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 203
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#_list_rows",
+      "target": "external:call:backend/src/cepraea_video/catalog_storage.py#connection.execute(statement, parameters).fetchall",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 203
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#_list_rows",
+      "target": "external:call:backend/src/cepraea_video/catalog_storage.py#dict",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 204
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#_list_rows",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#_connect",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 202
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#_new_id",
+      "target": "external:call:backend/src/cepraea_video/catalog_storage.py#uuid4",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 34
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#_read_lance",
+      "target": "external:call:backend/src/cepraea_video/catalog_storage.py#connection.execute",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 257
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#_read_lance",
+      "target": "external:call:backend/src/cepraea_video/catalog_storage.py#connection.execute",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 262
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#_read_lance",
+      "target": "external:call:backend/src/cepraea_video/catalog_storage.py#connection.execute('SELECT * FROM lances WHERE id = ?', (lance_id,)).fetchone",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 257
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#_read_lance",
+      "target": "external:call:backend/src/cepraea_video/catalog_storage.py#connection.execute('\\n        SELECT temporal_references.id, temporal_references.lance_id,\\n               temporal_references.video_source_id, video_sources.media_path,\\n               temporal_references.start_ms, temporal_references.end_ms,\\n               temporal_references.created_at\\n        FROM temporal_references\\n        JOIN video_sources ON video_sources.id = temporal_references.video_source_id\\n        WHERE temporal_references.lance_id = ?\\n        ORDER BY temporal_references.created_at, temporal_references.id\\n        ', (lance_id,)).fetchall",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 262
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#_read_lance",
+      "target": "external:call:backend/src/cepraea_video/catalog_storage.py#dict",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 275
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#_read_lance",
+      "target": "external:call:backend/src/cepraea_video/catalog_storage.py#dict",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 275
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#create_competition",
+      "target": "external:call:backend/src/cepraea_video/catalog_storage.py#closing",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 127
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#create_competition",
+      "target": "external:call:backend/src/cepraea_video/catalog_storage.py#name.strip",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 130
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#create_competition",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#_connect",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 127
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#create_competition",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#_insert_and_read",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 129
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#create_competition",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#_new_id",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 130
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#create_game",
+      "target": "external:call:backend/src/cepraea_video/catalog_storage.py#closing",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 137
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#create_game",
+      "target": "external:call:backend/src/cepraea_video/catalog_storage.py#name.strip",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 145
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#create_game",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#CatalogNotFoundError",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 140
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#create_game",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#_connect",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 137
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#create_game",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#_exists",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 139
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#create_game",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#_insert_and_read",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 141
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#create_game",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#_new_id",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 144
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#create_lance",
+      "target": "external:call:backend/src/cepraea_video/catalog_storage.py#ValueError",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 212
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#create_lance",
+      "target": "external:call:backend/src/cepraea_video/catalog_storage.py#closing",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 214
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#create_lance",
+      "target": "external:call:backend/src/cepraea_video/catalog_storage.py#connection.execute",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 223
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#create_lance",
+      "target": "external:call:backend/src/cepraea_video/catalog_storage.py#connection.execute('SELECT game_id FROM video_sources WHERE id = ?', (source_id,)).fetchone",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 223
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#create_lance",
+      "target": "external:call:backend/src/cepraea_video/catalog_storage.py#list",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 210
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#create_lance",
+      "target": "external:call:backend/src/cepraea_video/catalog_storage.py#str",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 222
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#create_lance",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#CatalogNotFoundError",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 217
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#create_lance",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#CatalogNotFoundError",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 227
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#create_lance",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#CatalogRelationError",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 229
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#create_lance",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#_connect",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 214
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#create_lance",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#_exists",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 216
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#create_lance",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#_insert_and_read",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 218
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#create_lance",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#_insert_and_read",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 232
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#create_lance",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#_new_id",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 213
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#create_lance",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#_new_id",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 235
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#create_lance",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#_read_lance",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 244
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#create_video_source",
+      "target": "external:call:backend/src/cepraea_video/catalog_storage.py#closing",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 152
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#create_video_source",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#CatalogNotFoundError",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 155
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#create_video_source",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#_connect",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 152
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#create_video_source",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#_exists",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 154
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#create_video_source",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#_insert_and_read",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 156
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#create_video_source",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#_new_id",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 159
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#database_path",
+      "target": "symbol:backend/src/cepraea_video/config.py#get_runtime_paths",
+      "type": "calls",
+      "method": "ast-import-binding-resolution",
+      "confidence": 1.0,
+      "line": 23
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#get_lance",
+      "target": "external:call:backend/src/cepraea_video/catalog_storage.py#closing",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 250
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#get_lance",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#_connect",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 250
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#get_lance",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#_read_lance",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 251
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#initialize_catalog",
+      "target": "external:call:backend/src/cepraea_video/catalog_storage.py#closing",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 39
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#initialize_catalog",
+      "target": "external:call:backend/src/cepraea_video/catalog_storage.py#connection.executescript",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 41
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#initialize_catalog",
+      "target": "external:call:backend/src/cepraea_video/catalog_storage.py#path.parent.mkdir",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 38
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#initialize_catalog",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#_connect",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 39
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#list_competitions",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#_list_rows",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 174
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#list_games",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#_list_rows",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 179
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#list_games",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#_list_rows",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 180
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#list_video_sources",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#_list_rows",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 189
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/catalog_storage.py#list_video_sources",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#_list_rows",
+      "type": "calls",
+      "method": "ast-lexical-name-resolution",
+      "confidence": 0.8,
+      "line": 192
+    },
+    {
       "source": "symbol:backend/src/cepraea_video/config.py#RuntimePaths",
       "target": "external:call:backend/src/cepraea_video/config.py#dataclass",
       "type": "calls",
@@ -14950,12 +16849,68 @@
       "line": 22
     },
     {
+      "source": "symbol:backend/src/cepraea_video/local_media.py#resolve_media",
+      "target": "external:call:backend/src/cepraea_video/local_media.py#(media_dir / media_path).resolve",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 16
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/local_media.py#resolve_media",
+      "target": "external:call:backend/src/cepraea_video/local_media.py#Path",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 12
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/local_media.py#resolve_media",
+      "target": "external:call:backend/src/cepraea_video/local_media.py#Path",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 12
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/local_media.py#resolve_media",
+      "target": "external:call:backend/src/cepraea_video/local_media.py#Path(media_path).suffix.lower",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 12
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/local_media.py#resolve_media",
+      "target": "external:call:backend/src/cepraea_video/local_media.py#candidate.is_file",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 17
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/local_media.py#resolve_media",
+      "target": "external:call:backend/src/cepraea_video/local_media.py#get_runtime_paths().media_dir.resolve",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 15
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/local_media.py#resolve_media",
+      "target": "symbol:backend/src/cepraea_video/config.py#get_runtime_paths",
+      "type": "calls",
+      "method": "ast-import-binding-resolution",
+      "confidence": 1.0,
+      "line": 15
+    },
+    {
       "source": "symbol:backend/src/cepraea_video/main.py#SpikeIntervalDeletion",
       "target": "external:call:backend/src/cepraea_video/main.py#Field",
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 73
+      "line": 80
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#SpikeIntervalDeletion.validate_reason",
@@ -14963,7 +16918,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 78
+      "line": 85
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#SpikeIntervalDeletion.validate_reason",
@@ -14971,7 +16926,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 75
+      "line": 82
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#SpikeIntervalDeletion.validate_reason",
@@ -14979,43 +16934,27 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 77
+      "line": 84
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#SpikeIntervalInput",
       "target": "external:call:backend/src/cepraea_video/main.py#Field",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 48
-    },
-    {
-      "source": "symbol:backend/src/cepraea_video/main.py#SpikeIntervalInput",
-      "target": "external:call:backend/src/cepraea_video/main.py#Field",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 49
-    },
-    {
-      "source": "symbol:backend/src/cepraea_video/main.py#SpikeIntervalInput",
-      "target": "external:call:backend/src/cepraea_video/main.py#Field",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 50
-    },
-    {
-      "source": "symbol:backend/src/cepraea_video/main.py#SpikeIntervalInput.validate_interval",
-      "target": "external:call:backend/src/cepraea_video/main.py#ValueError",
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
       "line": 55
     },
     {
-      "source": "symbol:backend/src/cepraea_video/main.py#SpikeIntervalInput.validate_interval",
-      "target": "external:call:backend/src/cepraea_video/main.py#ValueError",
+      "source": "symbol:backend/src/cepraea_video/main.py#SpikeIntervalInput",
+      "target": "external:call:backend/src/cepraea_video/main.py#Field",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 56
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/main.py#SpikeIntervalInput",
+      "target": "external:call:backend/src/cepraea_video/main.py#Field",
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
@@ -15023,11 +16962,27 @@
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#SpikeIntervalInput.validate_interval",
+      "target": "external:call:backend/src/cepraea_video/main.py#ValueError",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 62
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/main.py#SpikeIntervalInput.validate_interval",
+      "target": "external:call:backend/src/cepraea_video/main.py#ValueError",
+      "type": "calls",
+      "method": "ast-unresolved",
+      "confidence": 0.0,
+      "line": 64
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/main.py#SpikeIntervalInput.validate_interval",
       "target": "external:call:backend/src/cepraea_video/main.py#model_validator",
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 52
+      "line": 59
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#SpikeIntervalInput.validate_interval",
@@ -15035,7 +16990,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 54
+      "line": 61
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#SpikeIntervalUpdate",
@@ -15043,7 +16998,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 62
+      "line": 69
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#SpikeIntervalUpdate",
@@ -15051,7 +17006,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 63
+      "line": 70
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#SpikeIntervalUpdate.validate_interval",
@@ -15059,7 +17014,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 68
+      "line": 75
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#SpikeIntervalUpdate.validate_interval",
@@ -15067,7 +17022,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 65
+      "line": 72
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#create_spike_interval",
@@ -15075,7 +17030,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 85
+      "line": 92
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#create_spike_interval",
@@ -15083,7 +17038,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 82
+      "line": 89
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#create_spike_interval",
@@ -15091,7 +17046,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 89
+      "line": 96
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#create_spike_interval",
@@ -15099,7 +17054,7 @@
       "type": "calls",
       "method": "ast-import-binding-resolution",
       "confidence": 1.0,
-      "line": 84
+      "line": 91
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#create_spike_interval",
@@ -15107,7 +17062,7 @@
       "type": "calls",
       "method": "ast-import-binding-resolution",
       "confidence": 1.0,
-      "line": 90
+      "line": 97
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#create_spike_interval",
@@ -15115,7 +17070,7 @@
       "type": "calls",
       "method": "ast-import-binding-resolution",
       "confidence": 1.0,
-      "line": 89
+      "line": 96
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#delete_spike_interval",
@@ -15123,7 +17078,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 116
+      "line": 123
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#delete_spike_interval",
@@ -15131,7 +17086,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 111
+      "line": 118
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#delete_spike_interval",
@@ -15139,7 +17094,7 @@
       "type": "calls",
       "method": "ast-import-binding-resolution",
       "confidence": 1.0,
-      "line": 115
+      "line": 122
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#delete_spike_interval",
@@ -15147,7 +17102,7 @@
       "type": "calls",
       "method": "ast-import-binding-resolution",
       "confidence": 1.0,
-      "line": 115
+      "line": 122
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#get_deleted_spike_intervals",
@@ -15155,7 +17110,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 120
+      "line": 127
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#get_deleted_spike_intervals",
@@ -15163,7 +17118,7 @@
       "type": "calls",
       "method": "ast-import-binding-resolution",
       "confidence": 1.0,
-      "line": 122
+      "line": 129
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#get_deleted_spike_intervals",
@@ -15171,7 +17126,7 @@
       "type": "calls",
       "method": "ast-import-binding-resolution",
       "confidence": 1.0,
-      "line": 122
+      "line": 129
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#get_spike_interval_versions",
@@ -15179,7 +17134,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 125
+      "line": 132
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#get_spike_interval_versions",
@@ -15187,7 +17142,7 @@
       "type": "calls",
       "method": "ast-import-binding-resolution",
       "confidence": 1.0,
-      "line": 127
+      "line": 134
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#get_spike_interval_versions",
@@ -15195,7 +17150,7 @@
       "type": "calls",
       "method": "ast-import-binding-resolution",
       "confidence": 1.0,
-      "line": 127
+      "line": 134
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#get_spike_intervals",
@@ -15203,7 +17158,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 94
+      "line": 101
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#get_spike_intervals",
@@ -15211,7 +17166,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 96
+      "line": 103
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#get_spike_intervals",
@@ -15219,7 +17174,7 @@
       "type": "calls",
       "method": "ast-import-binding-resolution",
       "confidence": 1.0,
-      "line": 96
+      "line": 103
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#get_spike_intervals",
@@ -15227,7 +17182,7 @@
       "type": "calls",
       "method": "ast-import-binding-resolution",
       "confidence": 1.0,
-      "line": 96
+      "line": 103
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#get_spike_media",
@@ -15235,7 +17190,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 130
+      "line": 137
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#get_spike_media",
@@ -15243,7 +17198,7 @@
       "type": "calls",
       "method": "ast-import-binding-resolution",
       "confidence": 1.0,
-      "line": 132
+      "line": 139
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#get_spike_media_file",
@@ -15251,7 +17206,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 140
+      "line": 147
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#get_spike_media_file",
@@ -15259,7 +17214,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 139
+      "line": 146
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#get_spike_media_file",
@@ -15267,7 +17222,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 135
+      "line": 142
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#get_spike_media_file",
@@ -15275,7 +17230,7 @@
       "type": "calls",
       "method": "ast-import-binding-resolution",
       "confidence": 1.0,
-      "line": 137
+      "line": 144
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#health",
@@ -15283,7 +17238,23 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 38
+      "line": 45
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/main.py#lifespan",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#database_path",
+      "type": "calls",
+      "method": "ast-import-binding-resolution",
+      "confidence": 1.0,
+      "line": 33
+    },
+    {
+      "source": "symbol:backend/src/cepraea_video/main.py#lifespan",
+      "target": "symbol:backend/src/cepraea_video/catalog_storage.py#initialize_catalog",
+      "type": "calls",
+      "method": "ast-import-binding-resolution",
+      "confidence": 1.0,
+      "line": 33
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#lifespan",
@@ -15291,7 +17262,7 @@
       "type": "calls",
       "method": "ast-import-binding-resolution",
       "confidence": 1.0,
-      "line": 26
+      "line": 31
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#lifespan",
@@ -15299,7 +17270,7 @@
       "type": "calls",
       "method": "ast-import-binding-resolution",
       "confidence": 1.0,
-      "line": 27
+      "line": 32
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#lifespan",
@@ -15307,7 +17278,7 @@
       "type": "calls",
       "method": "ast-import-binding-resolution",
       "confidence": 1.0,
-      "line": 27
+      "line": 32
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#patch_spike_interval",
@@ -15315,7 +17286,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 107
+      "line": 114
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#patch_spike_interval",
@@ -15323,7 +17294,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 99
+      "line": 106
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#patch_spike_interval",
@@ -15331,7 +17302,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 108
+      "line": 115
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#patch_spike_interval",
@@ -15339,7 +17310,7 @@
       "type": "calls",
       "method": "ast-import-binding-resolution",
       "confidence": 1.0,
-      "line": 104
+      "line": 111
     },
     {
       "source": "symbol:backend/src/cepraea_video/main.py#patch_spike_interval",
@@ -15347,7 +17318,7 @@
       "type": "calls",
       "method": "ast-import-binding-resolution",
       "confidence": 1.0,
-      "line": 103
+      "line": 110
     },
     {
       "source": "symbol:backend/src/cepraea_video/spike_media.py#list_media",
@@ -15355,7 +17326,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 25
+      "line": 19
     },
     {
       "source": "symbol:backend/src/cepraea_video/spike_media.py#list_media",
@@ -15363,7 +17334,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 29
+      "line": 23
     },
     {
       "source": "symbol:backend/src/cepraea_video/spike_media.py#list_media",
@@ -15371,7 +17342,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 28
+      "line": 22
     },
     {
       "source": "symbol:backend/src/cepraea_video/spike_media.py#list_media",
@@ -15379,7 +17350,7 @@
       "type": "calls",
       "method": "ast-unresolved",
       "confidence": 0.0,
-      "line": 29
+      "line": 23
     },
     {
       "source": "symbol:backend/src/cepraea_video/spike_media.py#list_media",
@@ -15387,7 +17358,7 @@
       "type": "calls",
       "method": "ast-import-binding-resolution",
       "confidence": 1.0,
-      "line": 24
+      "line": 18
     },
     {
       "source": "symbol:backend/src/cepraea_video/spike_media.py#list_media",
@@ -15395,63 +17366,15 @@
       "type": "calls",
       "method": "ast-lexical-name-resolution",
       "confidence": 0.8,
-      "line": 30
+      "line": 24
     },
     {
       "source": "symbol:backend/src/cepraea_video/spike_media.py#resolve_media",
-      "target": "external:call:backend/src/cepraea_video/spike_media.py#(media_dir / media_path).resolve",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 17
-    },
-    {
-      "source": "symbol:backend/src/cepraea_video/spike_media.py#resolve_media",
-      "target": "external:call:backend/src/cepraea_video/spike_media.py#Path",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 13
-    },
-    {
-      "source": "symbol:backend/src/cepraea_video/spike_media.py#resolve_media",
-      "target": "external:call:backend/src/cepraea_video/spike_media.py#Path",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 13
-    },
-    {
-      "source": "symbol:backend/src/cepraea_video/spike_media.py#resolve_media",
-      "target": "external:call:backend/src/cepraea_video/spike_media.py#Path(media_path).suffix.lower",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 13
-    },
-    {
-      "source": "symbol:backend/src/cepraea_video/spike_media.py#resolve_media",
-      "target": "external:call:backend/src/cepraea_video/spike_media.py#candidate.is_file",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 18
-    },
-    {
-      "source": "symbol:backend/src/cepraea_video/spike_media.py#resolve_media",
-      "target": "external:call:backend/src/cepraea_video/spike_media.py#get_runtime_paths().media_dir.resolve",
-      "type": "calls",
-      "method": "ast-unresolved",
-      "confidence": 0.0,
-      "line": 16
-    },
-    {
-      "source": "symbol:backend/src/cepraea_video/spike_media.py#resolve_media",
-      "target": "symbol:backend/src/cepraea_video/config.py#get_runtime_paths",
+      "target": "symbol:backend/src/cepraea_video/local_media.py#resolve_media",
       "type": "calls",
       "method": "ast-import-binding-resolution",
       "confidence": 1.0,
-      "line": 16
+      "line": 14
     },
     {
       "source": "symbol:backend/src/cepraea_video/spike_storage.py#SpikeInterval",
@@ -29830,5 +31753,5 @@
       "line": 36
     }
   ],
-  "graph_sha256": "1d62da6b55a08f512cff7152e928ecbf1d21f3935dd02b847392578c9e9c724f"
+  "graph_sha256": "7db015ffc9aedc609dcaccbbac70ae2b7eceefc8002fe5e55ab6c6ff59aa945a"
 }
