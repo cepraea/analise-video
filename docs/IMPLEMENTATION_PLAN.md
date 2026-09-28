@@ -34,7 +34,11 @@ Ajuste experimental posterior ao gate verificado: o [fluxo de marcação, prévi
 
 Objetivo: representar Competition, Game, VideoSource e Lance/TemporalReference sem dados hardcoded.
 
-Requisitos: RF-001, RF-002, RF-003 em estrutura, RF-005, RF-013 e RF-030.
+Requisitos: RF-001, RF-002, RF-003 em estrutura, RF-005 e RF-030.
+
+Limite de escopo: `TemporalReference` prepara a estrutura temporal necessária,
+mas a capacidade de corrigir limites de `RF-013` permanece no `INC-004`, conforme
+`GOV-006`.
 
 Invariantes: identidade de lance independente de nome de arquivo; original imutável; uma fonte possui identidade própria; desenho admite múltiplas fontes futuras.
 

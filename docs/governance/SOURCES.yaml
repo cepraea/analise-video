@@ -1,5 +1,16 @@
 schema_version: 1
 authority_statements:
+  - id: SRC-AUTH-DAVI-2026-09-28-GOV-006
+    type: authority_statement
+    authority: Davi Sermenho
+    captured_at: 2026-09-28
+    scope:
+      - GOV-006
+    locator: >-
+      Aprovação explícita nesta conversa para registrar GOV-006, alinhar o
+      plano e a rastreabilidade e regenerar o pacote de contexto INC-002.
+    eligible_for_product_claims: true
+
   - id: SRC-AUTH-DAVI-2026-09-26-SPEC-SEMANTICS
     type: authority_statement
     authority: Davi Sermenho

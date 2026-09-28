@@ -26,7 +26,7 @@ Estados usados: `NOT_IMPLEMENTED`, `IMPLEMENTED_NOT_VERIFIED`, `VERIFIED`, `BLOC
 | RF-010 equipe com posse | INC-003 | salvar e reabrir posse | NOT_IMPLEMENTED |
 | RF-011 equipe analisada | INC-003 | registro independente da posse | NOT_IMPLEMENTED |
 | RF-012 segmentos de fase | INC-003 | múltiplos segmentos por lance | NOT_IMPLEMENTED |
-| RF-013 corrigir limites | INC-004 | editar/rever novo intervalo | NOT_IMPLEMENTED |
+| RF-013 corrigir limites | INC-004 | editar/rever intervalo canônico; `TemporalReference` no INC-002 é apenas suporte estrutural | NOT_IMPLEMENTED |
 | RF-016 múltiplas atletas | INC-005 | duas atletas no mesmo lance | NOT_IMPLEMENTED |
 | RF-017 múltiplas ações | INC-005 | várias ações sem duplicar lance | NOT_IMPLEMENTED |
 | RF-018 resultado da ação | INC-005 | resultado factual persistido | NOT_IMPLEMENTED |

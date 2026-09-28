@@ -498,17 +498,22 @@ decisions:
 
   - id: GOV-006
     title: Bloqueio do INC-002 pela migração documental
-    status: PENDENTE
+    status: DECIDIDO
     authority: Davi Sermenho
-    decided_at: null
+    decided_at: 2026-09-28
     statement: >-
-      Pendente: a migração documental completa bloqueia o INC-002? Recomendação
-      técnica — bloquear apenas mudanças de esquema dependentes de requisitos
-      ainda conflitantes.
-    provenance: []
+      A migração documental completa não bloqueia o INC-002. Permanecem
+      bloqueadas somente mudanças de esquema que dependam de requisitos
+      conflitantes ainda não resolvidos. A estrutura de TemporalReference pode
+      ser preparada no INC-002, mas a capacidade de corrigir limites prevista
+      em RF-013 permanece no INC-004.
+    provenance:
+      - source_id: SRC-AUTH-DAVI-2026-09-28-GOV-006
+        locator: aprovação explícita nesta conversa
     affected_documents:
       - docs/IMPLEMENTATION_PLAN.md
       - docs/IMPLEMENTATION_STATUS.md
+      - docs/TRACEABILITY.md
     supersedes: []
 
   - id: ID-001

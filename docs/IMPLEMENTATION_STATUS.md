@@ -99,6 +99,11 @@ O sucesso da CI, por si só, não satisfaz o gate. O INC-001 foi mantido `VERIFI
 
 O próximo incremento planejado é `INC-002`, conforme `docs/IMPLEMENTATION_PLAN.md`.
 
+`GOV-006` decidiu que a migração documental completa não bloqueia o incremento.
+Somente mudanças de esquema dependentes de requisitos conflitantes permanecem
+bloqueadas; o suporte estrutural a `TemporalReference` no `INC-002` não promove
+a correção de limites de `RF-013`, que permanece no `INC-004`.
+
 ## Política de estado
 
 - `NOT_IMPLEMENTED`: nenhuma implementação correspondente.
