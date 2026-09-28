@@ -6,11 +6,12 @@ Repositório de implementação do sistema de análise audiovisual do CEPRAEA.
 
 - `INC-000 — Fundação executável`: `VERIFIED`.
 - `INC-001`: `VERIFIED` localmente — mídia, reprodução, marcação, SQLite experimental e revisão após reinício testados com MP4 real.
-- `INC-002` em diante: `NOT_IMPLEMENTED`.
+- `INC-002`: `VERIFIED` localmente — catálogo canônico persistente, múltiplas fontes, rastreabilidade após reinício e original imutável.
+- `INC-003` em diante: `NOT_IMPLEMENTED`.
 - Primeiro fluxo funcional: `NOT_IMPLEMENTED`.
 - Arquitetura técnica: `ADR-001 — APROVADA COM RISCOS` para implementação incremental; gate INC-001: `PASS WITH RISKS` após teste com MP4 real. A stack definitiva continua pendente.
 
-Evidência do INC-000: `docs/evidence/INC-000.md` e GitHub Actions run `34782679938`. Evidência consolidada do INC-001: `docs/evidence/INC-001.md`.
+Evidência do INC-000: `docs/evidence/INC-000.md` e GitHub Actions run `34782679938`. Evidência consolidada do INC-001: `docs/evidence/INC-001.md`. Evidência local do INC-002: `docs/evidence/INC-002.md`.
 
 Documentação e presença de código não constituem, sozinhas, evidência de funcionamento.
 
@@ -45,7 +46,7 @@ A suíte mínima verifica:
 2. criação dos diretórios locais de runtime;
 3. bootstrap mínimo do frontend com Vitest.
 
-Os testes do INC-001 verificam a leitura local de MP4, criação e rejeição de intervalos, persistência SQLite após reabrir o backend e comandos básicos da interface com API simulada. Eles não verificam a qualidade do seek ou da revisão: esses comportamentos foram observados com MP4 real no navegador. Evidência e limites: `docs/evidence/INC-001-deterministic-tests.md`.
+Os testes do INC-001 verificam a leitura local de MP4, criação e rejeição de intervalos, persistência SQLite após reabrir o backend e comandos básicos da interface com API simulada. Eles não verificam a qualidade do seek ou da revisão: esses comportamentos foram observados com MP4 real no navegador. Os testes do INC-002 verificam o catálogo canônico, reinício, múltiplas fontes, chaves estrangeiras, rastreabilidade e imutabilidade. Evidências: `docs/evidence/INC-001-deterministic-tests.md` e `docs/evidence/INC-002.md`.
 
 Para verificar também a compilação do frontend:
 
@@ -107,6 +108,14 @@ curl http://127.0.0.1:8000/spike/intervals
 
 O teste do backend fecha e reabre a aplicação antes de reler um intervalo gravado pela API. A revisão pela interface também foi verificada após reiniciar os servidores. Para descartar o experimento, pare o backend e remova o arquivo `inc001.sqlite3` do diretório de dados.
 
+### Catálogo canônico do INC-002
+
+Ao iniciar o backend, o INC-002 cria `.local/data/inc002.sqlite3`, separado do
+banco experimental. A API `/catalog` cadastra competições, jogos, fontes locais e
+lances com uma ou mais referências temporais. Cada entidade possui ID próprio; o
+nome do arquivo não define a identidade da fonte ou do lance. A interface React
+ainda não usa esse catálogo.
+
 ## Estrutura executável atual
 
 ```text
@@ -114,12 +123,16 @@ backend/
   pyproject.toml
   src/cepraea_video/
     __init__.py
+    catalog_api.py
+    catalog_storage.py
     config.py
+    local_media.py
     main.py
     spike_media.py
     spike_storage.py
   tests/
     test_bootstrap.py
+    test_catalog.py
     test_spike_media.py
     test_spike_storage.py
 
@@ -135,7 +148,7 @@ frontend/
     main.tsx
 ```
 
-O `INC-000` não implementou vídeo, SQLite, entidades esportivas, lances, fases ou coleções. A leitura e reprodução local de MP4 e a persistência SQLite experimental foram adicionadas no INC-001; os demais comportamentos continuam pendentes.
+O `INC-000` não implementou vídeo, SQLite, entidades esportivas, lances, fases ou coleções. A leitura e reprodução local de MP4 e a persistência SQLite experimental foram adicionadas no INC-001. O INC-002 adicionou o catálogo canônico no backend; posse/fase, correção canônica, atletas/ações, filtros e coleções continuam pendentes.
 
 ## Fontes canônicas
 
