@@ -8,6 +8,7 @@ export default defineConfig({
     port: 5173,
     proxy: {
       '/spike': 'http://127.0.0.1:8000',
+      '/catalog': 'http://127.0.0.1:8000',
     },
   },
 })

@@ -42,6 +42,17 @@ async function renderWithLocalMedia(
         url: `/spike/media/${mediaPath}`,
       })))
     }
+    if (path === '/catalog/lances') return jsonResponse([])
+    if (path === '/catalog/phase-values') {
+      return jsonResponse({
+        minimum_values: [
+          'Transição Ofensiva',
+          'Ataque Posicionado',
+          'Transição Defensiva',
+          'Defesa Posicionada',
+        ],
+      })
+    }
     if (path === '/spike/intervals' && init?.method === 'POST') {
       return postInterval()
     }

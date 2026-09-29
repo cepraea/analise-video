@@ -11,6 +11,7 @@ Estados usados: `NOT_IMPLEMENTED`, `IMPLEMENTED_NOT_VERIFIED`, `VERIFIED`, `BLOC
 | INC-000 — fundação instala, testa e compila em ambiente limpo | `docs/evidence/INC-000.md`; GitHub Actions run `34782679938` | VERIFIED |
 | INC-001 — vídeo local → intervalo persistido → revisão | `docs/evidence/INC-001.md` (consolidada); gate ADR-001: **PASS WITH RISKS**, aprovação com riscos para implementação incremental | VERIFIED |
 | INC-002 — catálogo mínimo canônico | `docs/evidence/INC-002.md`; persistência, reinício, duas fontes, rastreabilidade, hash do MP4 real e GitHub Actions run `36467245505` | VERIFIED |
+| INC-003 — posse e segmentos de fase | `docs/evidence/INC-003.md`; interface, persistência após reinício e MP4 real | VERIFIED |
 | FIRST_FUNCTIONAL_FLOW | demonstração ponta a ponta definida em `IMPLEMENTATION_PLAN.md` | NOT_IMPLEMENTED |
 
 ## Requisitos e critérios do produto
@@ -24,9 +25,9 @@ Estados usados: `NOT_IMPLEMENTED`, `IMPLEMENTED_NOT_VERIFIED`, `VERIFIED`, `BLOC
 | RF-007 reproduzir fonte | INC-001 | play/pause/seek; `docs/evidence/INC-001-player.md` | VERIFIED |
 | RF-008 capturar início | INC-001 | tempo corrente persistido pela interface; `docs/evidence/INC-001-save.md` | VERIFIED |
 | RF-009 capturar fim | INC-001 | `start < end` + persistência; `docs/evidence/INC-001-save.md` | VERIFIED |
-| RF-010 equipe com posse | INC-003 | salvar e reabrir posse | NOT_IMPLEMENTED |
-| RF-011 equipe analisada | INC-003 | registro independente da posse | NOT_IMPLEMENTED |
-| RF-012 segmentos de fase | INC-003 | múltiplos segmentos por lance | NOT_IMPLEMENTED |
+| RF-010 equipe com posse | INC-003 | salvar e reabrir posse; `docs/evidence/INC-003.md` | VERIFIED |
+| RF-011 equipe analisada | INC-003 | registro independente da posse; `docs/evidence/INC-003.md` | VERIFIED |
+| RF-012 segmentos de fase | INC-003 | múltiplos segmentos por lance; `docs/evidence/INC-003.md` | VERIFIED |
 | RF-013 corrigir limites | INC-004 | editar/rever intervalo canônico; `TemporalReference` no INC-002 é apenas suporte estrutural | NOT_IMPLEMENTED |
 | RF-016 múltiplas atletas | INC-005 | duas atletas no mesmo lance | NOT_IMPLEMENTED |
 | RF-017 múltiplas ações | INC-005 | várias ações sem duplicar lance | NOT_IMPLEMENTED |
@@ -43,8 +44,8 @@ Estados usados: `NOT_IMPLEMENTED`, `IMPLEMENTED_NOT_VERIFIED`, `VERIFIED`, `BLOC
 | CA-008 um lance em contextos distintos | INC-007 | duas coleções, um lance canônico | NOT_IMPLEMENTED |
 | RNF-002 rastreabilidade | INC-002→007 | IDs estáveis de fonte/jogo/lance verificados no INC-002; incrementos seguintes pendentes | IMPLEMENTED_NOT_VERIFIED |
 | RNF-003 sem duplicação física | INC-004/007 | coleções referenciam lances | NOT_IMPLEMENTED |
-| RNF-004 taxonomia evolutiva | INC-003/005 | estrutura extensível | NOT_IMPLEMENTED |
-| RNF-005 original imutável | INC-001→007 | SHA-256 antes = depois no INC-001 e INC-002; `docs/evidence/INC-001-original-integrity.md`; `docs/evidence/INC-002.md`; demais incrementos pendentes | IMPLEMENTED_NOT_VERIFIED |
+| RNF-004 taxonomia evolutiva | INC-003/005 | fase aberta implementada no INC-003; ações/resultados pendentes no INC-005 | IMPLEMENTED_NOT_VERIFIED |
+| RNF-005 original imutável | INC-001→007 | SHA-256 antes = depois no INC-001, INC-002 e INC-003; `docs/evidence/INC-001-original-integrity.md`; `docs/evidence/INC-002.md`; `docs/evidence/INC-003.md`; demais incrementos pendentes | IMPLEMENTED_NOT_VERIFIED |
 | RNF-006 sem API paga | INC-000→007 | execução sem chave paga em cada incremento | IMPLEMENTED_NOT_VERIFIED |
 | RNF-007 operável por treinador | gate INC-007 | validação prática | NOT_IMPLEMENTED |
 | RNF-008 recuperação por metadados | INC-006 | filtros testados | NOT_IMPLEMENTED |

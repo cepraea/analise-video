@@ -1,0 +1,243 @@
+.phase-panel {
+  --phase-ink: #19241f;
+  --phase-muted: #5c6963;
+  --phase-line: #cbd5cf;
+  --phase-surface: #f3f6f3;
+  --phase-accent: #176b47;
+  margin-top: 2.5rem;
+  border-top: 4px solid var(--phase-ink);
+  color: var(--phase-ink);
+}
+
+.phase-panel__header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--phase-line);
+}
+
+.phase-panel__header h2,
+.phase-panel__segments-heading h3 {
+  margin: 0;
+}
+
+.phase-panel__eyebrow {
+  margin: 0 0 0.35rem;
+  color: var(--phase-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.phase-panel__principle {
+  max-width: 22rem;
+  margin: 0;
+  color: var(--phase-muted);
+  text-align: right;
+}
+
+.phase-panel__lance-picker {
+  margin: 1.25rem 0;
+}
+
+.phase-panel__field {
+  display: grid;
+  min-width: 0;
+  gap: 0.35rem;
+}
+
+.phase-panel__field label,
+.phase-panel legend {
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.phase-panel input,
+.phase-panel select,
+.phase-panel button {
+  min-height: 2.5rem;
+  border: 1px solid #8f9b95;
+  border-radius: 0.25rem;
+  background: #fff;
+  color: inherit;
+  font: inherit;
+}
+
+.phase-panel input,
+.phase-panel select {
+  width: 100%;
+  padding: 0.5rem 0.65rem;
+  box-sizing: border-box;
+}
+
+.phase-panel button {
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.phase-panel button:hover:not(:disabled),
+.phase-panel button:focus-visible {
+  border-color: var(--phase-accent);
+  outline: 2px solid color-mix(in srgb, var(--phase-accent) 35%, transparent);
+  outline-offset: 2px;
+}
+
+.phase-panel button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.phase-panel__teams {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid var(--phase-line);
+  background: var(--phase-surface);
+}
+
+.phase-panel__teams legend {
+  padding: 0 0.35rem;
+}
+
+.phase-panel__segments-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1.5rem 0 0.75rem;
+}
+
+.phase-panel__segments-heading p {
+  margin: 0.35rem 0 0;
+  color: var(--phase-muted);
+}
+
+.phase-panel__segments {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.phase-segment {
+  display: grid;
+  grid-template-columns: 2rem 1fr auto;
+  gap: 0.85rem;
+  align-items: start;
+  padding: 1rem;
+  border: 1px solid var(--phase-line);
+  background: #fff;
+}
+
+.phase-segment__index {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  background: var(--phase-ink);
+  color: #fff;
+  font-weight: 800;
+}
+
+.phase-segment__fields {
+  display: grid;
+  grid-template-columns: minmax(9rem, 0.85fr) minmax(12rem, 1fr) minmax(12rem, 1fr);
+  gap: 0.8rem;
+}
+
+.phase-panel__time-grid {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.phase-segment__remove {
+  min-height: 2rem !important;
+  padding: 0.25rem 0.55rem !important;
+  color: #8d2727 !important;
+}
+
+.phase-panel__save {
+  margin-top: 1rem;
+  border-color: var(--phase-accent) !important;
+  background: var(--phase-accent) !important;
+  color: #fff !important;
+}
+
+.phase-panel__saved {
+  padding: 1rem;
+  border-left: 4px solid var(--phase-accent);
+  background: var(--phase-surface);
+}
+
+.phase-panel__saved > p {
+  margin: 0.25rem 0;
+}
+
+.phase-panel__saved ol {
+  display: grid;
+  gap: 0.65rem;
+  margin: 1rem 0 0;
+  padding-left: 1.4rem;
+}
+
+.phase-panel__saved li {
+  padding-left: 0.25rem;
+}
+
+.phase-panel__saved span,
+.phase-panel__saved small {
+  display: block;
+}
+
+.phase-panel__saved small {
+  color: var(--phase-muted);
+}
+
+.phase-panel__message {
+  padding: 0.75rem;
+  border-left: 4px solid var(--phase-accent);
+  background: var(--phase-surface);
+}
+
+.phase-panel__message--error {
+  border-left-color: #a53030;
+  background: #fff2f1;
+  color: #6f1717;
+}
+
+@media (max-width: 760px) {
+  .phase-panel__header,
+  .phase-panel__segments-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .phase-panel__principle {
+    max-width: none;
+    text-align: left;
+  }
+
+  .phase-panel__teams,
+  .phase-segment__fields,
+  .phase-panel__time-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .phase-segment {
+    grid-template-columns: 2rem 1fr;
+  }
+
+  .phase-segment__remove {
+    grid-column: 2;
+    justify-self: start;
+  }
+}

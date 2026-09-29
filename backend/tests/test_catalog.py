@@ -98,6 +98,9 @@ def test_catalog_survives_restart_with_multiple_sources_and_traceability(
             "/catalog/games", params={"competition_id": game["competition_id"]}
         )
         recovered = reopened.get(f"/catalog/lances/{saved_lance['id']}")
+        recovered_lances = reopened.get(
+            "/catalog/lances", params={"game_id": game["id"]}
+        )
         recovered_sources = reopened.get(
             "/catalog/video-sources", params={"game_id": game["id"]}
         )
@@ -107,6 +110,8 @@ def test_catalog_survives_restart_with_multiple_sources_and_traceability(
     assert recovered_games.json() == [game]
     assert recovered.status_code == 200
     assert recovered.json() == saved_lance
+    assert recovered_lances.status_code == 200
+    assert recovered_lances.json() == [saved_lance]
     assert sorted(recovered_sources.json(), key=lambda source: source["id"]) == sorted(
         sources, key=lambda source: source["id"]
     )
