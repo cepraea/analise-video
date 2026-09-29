@@ -7,11 +7,13 @@ Repositório de implementação do sistema de análise audiovisual do CEPRAEA.
 - `INC-000 — Fundação executável`: `VERIFIED`.
 - `INC-001`: `VERIFIED` localmente — mídia, reprodução, marcação, SQLite experimental e revisão após reinício testados com MP4 real.
 - `INC-002`: `VERIFIED` — catálogo canônico persistente, múltiplas fontes, rastreabilidade após reinício, original imutável e CI aprovada.
-- `INC-003` em diante: `NOT_IMPLEMENTED`.
+- `INC-003`: `VERIFIED` — classificação manual de posse e fases independentes
+  recuperada após reinício com MP4 real e CI aprovada.
+- `INC-004` em diante: `NOT_IMPLEMENTED`.
 - Primeiro fluxo funcional: `NOT_IMPLEMENTED`.
 - Arquitetura técnica: `ADR-001 — APROVADA COM RISCOS` para implementação incremental; gate INC-001: `PASS WITH RISKS` após teste com MP4 real. A stack definitiva continua pendente.
 
-Evidência do INC-000: `docs/evidence/INC-000.md` e GitHub Actions run `34782679938`. Evidência consolidada do INC-001: `docs/evidence/INC-001.md`. Evidência do INC-002: `docs/evidence/INC-002.md` e GitHub Actions run `36467245505`.
+Evidência do INC-000: `docs/evidence/INC-000.md` e GitHub Actions run `34782679938`. Evidência consolidada do INC-001: `docs/evidence/INC-001.md`. Evidência do INC-002: `docs/evidence/INC-002.md` e GitHub Actions run `36467245505`. Evidência do INC-003: `docs/evidence/INC-003.md` e GitHub Actions run `36501712485`.
 
 Documentação e presença de código não constituem, sozinhas, evidência de funcionamento.
 
@@ -46,7 +48,7 @@ A suíte mínima verifica:
 2. criação dos diretórios locais de runtime;
 3. bootstrap mínimo do frontend com Vitest.
 
-Os testes do INC-001 verificam a leitura local de MP4, criação e rejeição de intervalos, persistência SQLite após reabrir o backend e comandos básicos da interface com API simulada. Eles não verificam a qualidade do seek ou da revisão: esses comportamentos foram observados com MP4 real no navegador. Os testes do INC-002 verificam o catálogo canônico, reinício, múltiplas fontes, chaves estrangeiras, rastreabilidade e imutabilidade. Evidências: `docs/evidence/INC-001-deterministic-tests.md` e `docs/evidence/INC-002.md`.
+Os testes do INC-001 verificam a leitura local de MP4, criação e rejeição de intervalos, persistência SQLite após reabrir o backend e comandos básicos da interface com API simulada. Eles não verificam a qualidade do seek ou da revisão: esses comportamentos foram observados com MP4 real no navegador. Os testes do INC-002 verificam o catálogo canônico, reinício, múltiplas fontes, chaves estrangeiras, rastreabilidade e imutabilidade. Os testes do INC-003 verificam posse, equipe analisada e múltiplos segmentos independentes, inclusive após reinício. Evidências: `docs/evidence/INC-001-deterministic-tests.md`, `docs/evidence/INC-002.md` e `docs/evidence/INC-003.md`.
 
 Para verificar também a compilação do frontend:
 
@@ -114,7 +116,18 @@ Ao iniciar o backend, o INC-002 cria `.local/data/inc002.sqlite3`, separado do
 banco experimental. A API `/catalog` cadastra competições, jogos, fontes locais e
 lances com uma ou mais referências temporais. Cada entidade possui ID próprio; o
 nome do arquivo não define a identidade da fonte ou do lance. A interface React
-ainda não usa esse catálogo.
+usa os lances e as fontes desse catálogo na classificação do INC-003; telas de
+cadastro do catálogo permanecem fora deste incremento.
+
+### Classificação manual do INC-003
+
+A interface lista os lances canônicos disponíveis e permite registrar equipe com
+posse, equipe analisada e múltiplos segmentos de fase. Cada segmento explicita se
+pertence à equipe com posse ou à equipe analisada, referencia uma fonte do lance
+e mantém seus limites dentro do intervalo canônico. Os quatro valores mínimos do
+modelo esportivo aparecem como sugestões, mas o campo aceita novos valores para
+preservar a evolução da taxonomia. A primeira classificação salva é apresentada
+em modo de leitura; correção pertence ao `INC-004`.
 
 ## Estrutura executável atual
 
@@ -128,11 +141,14 @@ backend/
     config.py
     local_media.py
     main.py
+    phase_api.py
+    phase_storage.py
     spike_media.py
     spike_storage.py
   tests/
     test_bootstrap.py
     test_catalog.py
+    test_phase_classification.py
     test_spike_media.py
     test_spike_storage.py
 
@@ -143,12 +159,13 @@ frontend/
   index.html
   src/
     App.tsx
+    PhaseClassificationPanel.tsx
     appMeta.ts
     appMeta.test.ts
     main.tsx
 ```
 
-O `INC-000` não implementou vídeo, SQLite, entidades esportivas, lances, fases ou coleções. A leitura e reprodução local de MP4 e a persistência SQLite experimental foram adicionadas no INC-001. O INC-002 adicionou o catálogo canônico no backend; posse/fase, correção canônica, atletas/ações, filtros e coleções continuam pendentes.
+O `INC-000` não implementou vídeo, SQLite, entidades esportivas, lances, fases ou coleções. A leitura e reprodução local de MP4 e a persistência SQLite experimental foram adicionadas no INC-001. O INC-002 adicionou o catálogo canônico no backend. O INC-003 adicionou a classificação manual de posse e fases independentes. Correção canônica, atletas/ações, filtros e coleções continuam pendentes.
 
 ## Fontes canônicas
 

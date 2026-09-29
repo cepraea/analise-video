@@ -18,6 +18,7 @@ from cepraea_video.catalog_storage import (
     get_lance,
     list_competitions,
     list_games,
+    list_lances,
     list_video_sources,
 )
 from cepraea_video.local_media import resolve_media
@@ -118,6 +119,11 @@ def post_lance(data: LanceInput) -> dict[str, Any]:
         raise _not_found(error) from error
     except CatalogRelationError as error:
         raise HTTPException(status_code=422, detail=str(error)) from error
+
+
+@router.get("/lances")
+def get_lances(game_id: str | None = None) -> list[dict[str, Any]]:
+    return list_lances(database_path(), game_id)
 
 
 @router.get("/lances/{lance_id}")

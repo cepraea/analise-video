@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
 import { APP_NAME, APP_STATUS } from './appMeta'
+import { PhaseClassificationPanel } from './PhaseClassificationPanel'
 
 const PLAYBACK_RATES = [
   { value: 0.25, label: '0,25x' },
@@ -774,6 +775,7 @@ export function App() {
         {mutationStatus && <p role="status">{mutationStatus}</p>}
         {reviewStatus && <p role="status">{reviewStatus}</p>}
       </section>
+      <PhaseClassificationPanel />
     </main>
   )
 }

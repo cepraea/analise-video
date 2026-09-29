@@ -251,6 +251,25 @@ def get_lance(path: Path, lance_id: str) -> dict[str, Any] | None:
         return _read_lance(connection, lance_id)
 
 
+def list_lances(path: Path, game_id: str | None) -> list[dict[str, Any]]:
+    with closing(_connect(path)) as connection:
+        if game_id is None:
+            rows = connection.execute(
+                "SELECT id FROM lances ORDER BY created_at, id"
+            ).fetchall()
+        else:
+            rows = connection.execute(
+                """
+                SELECT id FROM lances
+                WHERE game_id = ?
+                ORDER BY created_at, id
+                """,
+                (game_id,),
+            ).fetchall()
+        lances = [_read_lance(connection, row["id"]) for row in rows]
+    return [lance for lance in lances if lance is not None]
+
+
 def _read_lance(
     connection: sqlite3.Connection, lance_id: str
 ) -> dict[str, Any] | None:

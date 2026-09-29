@@ -9,7 +9,9 @@
 - `INC-002`: VERIFIED (catálogo canônico, reinício, múltiplas fontes,
   rastreabilidade, imutabilidade e CI do commit `ef8bde5`; evidência em
   `docs/evidence/INC-002.md`)
-- `INC-003`: NOT_IMPLEMENTED
+- `INC-003`: VERIFIED (interface manual, fases independentes, persistência após
+  reinício com MP4 real e CI do commit `af9e3f1`; evidência em
+  `docs/evidence/INC-003.md`)
 - `INC-004`: NOT_IMPLEMENTED
 - `INC-005`: NOT_IMPLEMENTED
 - `INC-006`: NOT_IMPLEMENTED
@@ -113,6 +115,23 @@ A promoção é limitada ao backend e ao gate do catálogo. A interface permanec
 fluxo experimental do INC-001, a correção de limites continua no `INC-004` e não
 há migração automática de `spike_intervals` para as entidades canônicas.
 
+## INC-003 — Posse e segmentos de fase
+
+`VERIFIED` em 2026-09-28. Evidência:
+`docs/evidence/INC-003.md`.
+
+O backend recebe e recupera a equipe com posse, a equipe analisada e múltiplos
+segmentos manuais por lance. Cada segmento identifica explicitamente a dimensão
+de equipe e mantém suas referências temporais separadas da classificação. A
+interface lista lances canônicos, oferece os valores mínimos sem fechar a
+taxonomia e apresenta a classificação salva em modo de leitura.
+
+Os testes exercitaram fases sobrepostas das duas equipes, persistência após
+reinício, integridade referencial e rollback de intervalos fora do lance. O gate
+operacional classificou quatro segmentos pela interface sobre o MP4 real,
+reiniciou backend, frontend e navegador, recuperou os mesmos dados e confirmou o
+SHA-256 original. Não houve criação de mídia derivada.
+
 ## Arquitetura
 
 `ADR-001`: **APROVADA COM RISCOS** para implementação incremental. Resultado do gate com vídeo real: **PASS WITH RISKS** em 2026-09-14; stack definitiva ainda pendente.
@@ -121,7 +140,7 @@ O sucesso da CI, por si só, não satisfaz o gate. O INC-001 foi mantido `VERIFI
 
 ## Próximo gate de código
 
-O próximo incremento planejado é `INC-003`, conforme `docs/IMPLEMENTATION_PLAN.md`.
+O próximo gate de código é o `INC-004`, conforme `docs/IMPLEMENTATION_PLAN.md`.
 
 `GOV-006` decidiu que a migração documental completa não bloqueava o `INC-002`.
 Somente mudanças de esquema dependentes de requisitos conflitantes permanecem
