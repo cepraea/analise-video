@@ -11,7 +11,7 @@ Estados usados: `NOT_IMPLEMENTED`, `IMPLEMENTED_NOT_VERIFIED`, `VERIFIED`, `BLOC
 | INC-000 — fundação instala, testa e compila em ambiente limpo | `docs/evidence/INC-000.md`; GitHub Actions run `34782679938` | VERIFIED |
 | INC-001 — vídeo local → intervalo persistido → revisão | `docs/evidence/INC-001.md` (consolidada); gate ADR-001: **PASS WITH RISKS**, aprovação com riscos para implementação incremental | VERIFIED |
 | INC-002 — catálogo mínimo canônico | `docs/evidence/INC-002.md`; persistência, reinício, duas fontes, rastreabilidade, hash do MP4 real e GitHub Actions run `36467245505` | VERIFIED |
-| INC-003 — posse e segmentos de fase | `docs/evidence/INC-003.md`; interface, persistência após reinício e MP4 real | VERIFIED |
+| INC-003 — posse e segmentos de fase | `docs/evidence/INC-003.md`; interface, persistência após reinício, MP4 real e GitHub Actions run `36501712485` | VERIFIED |
 | FIRST_FUNCTIONAL_FLOW | demonstração ponta a ponta definida em `IMPLEMENTATION_PLAN.md` | NOT_IMPLEMENTED |
 
 ## Requisitos e critérios do produto

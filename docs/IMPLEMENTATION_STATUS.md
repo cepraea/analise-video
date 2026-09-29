@@ -9,8 +9,9 @@
 - `INC-002`: VERIFIED (catálogo canônico, reinício, múltiplas fontes,
   rastreabilidade, imutabilidade e CI do commit `ef8bde5`; evidência em
   `docs/evidence/INC-002.md`)
-- `INC-003`: VERIFIED localmente (interface manual, fases independentes e
-  persistência após reinício com MP4 real; evidência em `docs/evidence/INC-003.md`)
+- `INC-003`: VERIFIED (interface manual, fases independentes, persistência após
+  reinício com MP4 real e CI do commit `af9e3f1`; evidência em
+  `docs/evidence/INC-003.md`)
 - `INC-004`: NOT_IMPLEMENTED
 - `INC-005`: NOT_IMPLEMENTED
 - `INC-006`: NOT_IMPLEMENTED
@@ -116,7 +117,7 @@ há migração automática de `spike_intervals` para as entidades canônicas.
 
 ## INC-003 — Posse e segmentos de fase
 
-`VERIFIED` localmente em 2026-09-28. Evidência:
+`VERIFIED` em 2026-09-28. Evidência:
 `docs/evidence/INC-003.md`.
 
 O backend recebe e recupera a equipe com posse, a equipe analisada e múltiplos
